@@ -10,4 +10,6 @@ Exercise_3 : Find Mid Point of a Singly Linked List.
 
 Exercise_4 : Merge Sort.
 
+Exercise_5 : Iterative Quick Sort.
+
 *After completing the project kindly submit a pull request*
