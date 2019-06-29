@@ -5,15 +5,64 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+       int t1 = m - l + 1; 
+        int t2 = r - m; 
+  
+       // Temp arrays to be merged
+        int temp1[] = new int [t1]; 
+        int temp2[] = new int [t2]; 
+  
+        for (int i=0; i<t1; i++) {
+            temp[i] = arr[l + i]; 
+        }
+        for (int j=0; j<t2; ++j) {
+            temp[j] = arr[m + 1+ j]; 
+        }
+  
+  
+      //Merging the two arrays
+  
+        int i = 0, j = 0; 
+        int k = l; 
+        while (i < t1 && j < t2) 
+        { 
+            if (temp1[i] <= temp2[j]) 
+            { 
+                arr[k] = temp1[i]; 
+                i++; 
+            } 
+            else
+            { 
+                arr[k] = temp2[j]; 
+                j++; 
+            } 
+            k++; 
+        } 
+        while (i < t1) 
+        { 
+            arr[k] = temp1[i]; 
+            i++; 
+            k++; 
+        } 
+        while (j < t2) 
+        { 
+            arr[k] = temp2[j]; 
+            j++; 
+            k++; 
+        }   
     } 
   
     // Main function that sorts arr[l..r] using 
     // merge() 
     void sort(int arr[], int l, int r) 
     { 
-	//Write your code here
-        //Call mergeSort from here 
+	      if (l < r) 
+        { 
+            int mid = (l+r)/2; 
+            sort(arr, l, mid); 
+            sort(arr , mid+1, r); 
+            merge(arr, l, mid, r); 
+        } 
     } 
   
     /* A utility function to print array of size n */
