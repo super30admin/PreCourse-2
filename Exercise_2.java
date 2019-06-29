@@ -6,12 +6,14 @@ class QuickSort
        smaller (smaller than pivot) to left of 
        pivot and all greater elements to right 
        of pivot */
+    void swap(int arr[],int i,int j){
+        //Your code here   
+    }
+    
     int partition(int arr[], int low, int high) 
     { 
    	//Write code here for Partition and Swap 
     } 
-  
-  
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
       low  --> Starting index, 
