@@ -20,6 +20,21 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    	//approach is: fast pointer traverses the list two nodes at a time while slow pointer traverses the list one node at a time
+    	//once the fast pointer reaches the last node, the slow pointer has only reached upto the middle of the list
+    	
+    	Node f_ptr = head;
+    	Node s_ptr = head;
+    	
+    	if(head!=null)//making sure the list is not empty
+    	{
+    		while(f_ptr!=null && f_ptr.next!=null)
+    		{
+    			f_ptr = f_ptr.next.next;
+    			s_ptr = s_ptr.next;
+    		}
+    		System.out.println("Middle element of the linked list is: " +s_ptr.data);
+    	}
     } 
   
     public void push(int new_data) 
