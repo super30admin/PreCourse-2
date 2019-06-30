@@ -20,6 +20,18 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    	
+    	Node fastPointer = head;
+    	Node slowPointer = head;
+    	
+    	if(head != null) {
+    		while(fastPointer != null && fastPointer.next != null) {
+    			fastPointer = fastPointer.next.next;
+    			slowPointer = slowPointer.next;
+    		}
+    		System.out.println(slowPointer.data + " is the Middle element of the linkedList");
+    	}
+    	
     } 
   
     public void push(int new_data) 
