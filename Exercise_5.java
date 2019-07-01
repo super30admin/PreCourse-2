@@ -2,21 +2,25 @@ class IterativeQuickSort {
     void swap(int arr[], int i, int j) 
     { 
 	//Try swapping without extra variable 
+    	
+    	//  Code for swapping in-place does not work when swapping the same numbers.. have been able to find the cause but not the fix
+    	
+    	if(arr[i]!=arr[j])
+    	{	
+    		System.out.println("Before: "+arr[i]+" "+arr[j] + "i: "+ i+" "+ "j "+ j);
+    		arr[i] = arr[i] + arr[j];
+    		System.out.println(arr[i] + " " + arr[j]);
+    		arr[j] = arr[i] - arr[j];
+    		System.out.println(arr[i]+ " "+arr[j]);
+    		arr[i] = arr[i] - arr[j];
+    		System.out.println(arr[i]+ " "+arr[j]);
+    		System.out.println("After: "+arr[i]+" "+arr[j]);
+    	}
     	/*
-    	 * Code for swapping in-place does not work when swapping the same numbers.. have been able to find the cause but not the fix
-    	System.out.println("Before: "+arr[i]+" "+arr[j]);
-    	arr[i] = arr[i] + arr[j];
-    	System.out.println(arr[i] + " " + arr[j]);
-    	arr[j] = arr[i] - arr[j];
-    	System.out.println(arr[i]+ " "+arr[j]);
-    	arr[i] = arr[i] - arr[j];
-    	System.out.println(arr[i]+ " "+arr[j]);
-    	System.out.println("After: "+arr[i]+" "+arr[j]);
-    	*/
     	int temp = arr[i];
     	arr[i] = arr[j];
     	arr[j] = temp;
-    	
+    	*/
     } 
   
     /* This function is same in both iterative and 
@@ -25,18 +29,21 @@ class IterativeQuickSort {
     { 
         //Compare elements and swap.
     	//this method remains same as for quicksort recursive approach
-    	int pivot = h;
-    	int i = l;
+    	int pivot = arr[h];
+    	System.out.println("pivot: " +pivot);
+    	int i = l-1;
     	for(int j=l;j<h;j++)
     	{
-    		if(arr[j]<=arr[pivot])
+    		System.out.println(j + " "+pivot);
+    		if(arr[j]<=pivot)
     		{
-    			swap(arr,i,j); 
     			i++;
+    			swap(arr,i,j); 
+    			
     		}
     	}
-    	swap(arr,i,pivot);
-    	return i;
+    	swap(arr,i+1,h);
+    	return i+1;
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
@@ -84,7 +91,7 @@ class IterativeQuickSort {
     public static void main(String args[]) 
     { 
         IterativeQuickSort ob = new IterativeQuickSort(); 
-        int arr[] = { 4, 3, 5, 2, 1, 3, 2, 3 };
+        int arr[] = {10,20,30,40,50,60,70 };
         //int arr[] = {9,7,3,6};
         ob.QuickSort(arr, 0, arr.length - 1); 
         ob.printArr(arr, arr.length); 
