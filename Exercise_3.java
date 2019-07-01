@@ -20,6 +20,44 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        // brute force approach
+	    // find total number of node and then find the middle by count/2.
+	    int count= 0;
+
+    	Node tnode = head;
+        while (tnode != null)
+        {
+        	++count;
+            tnode = tnode.next;
+
+        }
+        int middle = count/2;
+        count =0;
+        tnode = head;
+        while (tnode != null &&  count<middle)
+        {
+        	++count;
+            tnode = tnode.next;
+
+        }
+        System.out.println("The middle element with Brute Force is : [" +
+                                tnode.data + "] \n");
+
+        //Having  two pointer way
+        Node slow = head;
+        Node fast = head;
+        if (head != null)
+        {
+            while (fast != null && fast.next != null)  // we have this checks, becuase ,if we traverse
+            {
+            	fast = fast.next.next;  //used next.next here to jump twice in the linked list.
+                slow = slow.next;  //Moving the slow element one by one
+                /// here idea is that when we traverse , ask a another variable traverse faster and when
+                // the other variable reacher end , the main varible will be at middle, since other variable is taking two steps.
+            }
+            System.out.println("The middle element is [" +
+                                slow.data + "] \n");
+        }
     } 
   
     public void push(int new_data) 
@@ -50,4 +88,4 @@ class LinkedList
             llist.printMiddle(); 
         } 
     } 
-} 
+}
