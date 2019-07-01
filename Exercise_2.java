@@ -18,8 +18,8 @@ class QuickSort
         //Write code here for Partition and Swap
         //int pivot = arr[high];
         int i = low,j=low;
-        while(i<=high ){
-            if(arr[i]<arr[high]){
+        while(i<high ){
+            if(arr[i]<=arr[high]){
                 swap(arr,i,j);
                 j++;
             }
@@ -34,7 +34,7 @@ class QuickSort
       low  --> Starting index, 
       high  --> Ending index */
    void sort(int arr[], int low, int high) {
-        if (low <= high) {
+        if (low < high) {
             int pivot = partition(arr, low, high);
             // Recursively sort elements before
             // partition and after partition
