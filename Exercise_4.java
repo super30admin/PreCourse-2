@@ -6,7 +6,9 @@ class MergeSort
     void merge(int arr[], int l, int m, int r) 
     {  
        //Your code here  
+	    
     } 
+	
   
     // Main function that sorts arr[l..r] using 
     // merge() 
@@ -14,6 +16,12 @@ class MergeSort
     { 
 	//Write your code here
         //Call mergeSort from here 
+	int mid = (l + (r-l))/2;
+	 if(l<r){
+	sort(arr,l,mid-1);
+	sort(arr,mid+1,r);    
+	merge(arr,l,mid,r);    
+	 }
     } 
   
     /* A utility function to print array of size n */
