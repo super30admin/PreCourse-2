@@ -4,7 +4,7 @@ class BinarySearch {
     { 
         //Write your code here
     } 
-  
+  //a changes version
     // Driver method to test above 
     public static void main(String args[]) 
     { 
