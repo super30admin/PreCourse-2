@@ -3,7 +3,40 @@ class BinarySearch {
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
-    } 
+    		
+    		/**
+    		 * Using Iteration
+    		 * Time complexity: log N
+    		 * Space complexity: n
+    		 */
+//    		while(l<=r) {
+//    			int mid = (l+r)/2;
+//    			if(arr[mid] == x) {
+//        			return mid;
+//        		} else if(arr[mid] < x) {
+//        			l = mid+1;
+//        		} else if(arr[mid] > x) {
+//        			r = mid-1;
+//        		}
+//    		}
+    		/**
+    		 * Using Recursion
+    		 * Time complexity: log N
+    		 * Space complexity: n
+    		 */
+    		if(l<=r) {
+    			int mid = (l+r)/2;
+        		if(arr[mid] == x) {
+        			return mid;
+        		} else if(arr[mid] < x) {
+        			return binarySearch(arr, mid+1, r, x);
+        		} else if(arr[mid] > x) {
+        			return binarySearch(arr, l, mid-1, x);
+        		}
+    		}
+    		return -1;
+    }
+    	
   
     // Driver method to test above 
     public static void main(String args[]) 
