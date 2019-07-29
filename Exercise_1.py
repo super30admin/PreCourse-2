@@ -1,29 +1,23 @@
-# Python code to implement iterative Binary  
-# Search. 
-  
-# It returns location of x in given array arr  
-# if present, else returns -1 
-def binarySearch(arr, l, r, x): 
-	if r >= 1:
-		mid = l + int((r - l)/2)
-		if arr[mid] == x:
+def binarySearch(arr,first,last,element):
+	if last >= 1:
+		mid = first + int((last - first)/2)
+		if arr[mid] == element:
 			return mid
-		elif arr[mid] > x:
-			return binarySearch(arr,l,mid-1,x)
-		elif arr[mid] < x:
-			return binarySearch(arr,mid+1,r,x)
+		elif arr[mid] > element:
+			return binarySearch(arr,first,mid-1,element)
+		elif arr[mid] < element:
+			return binarySearch(arr,mid+1,last,element)
 	else:
 		return -1
-  
-# Test array 
-arr = [ 2,5,6,7,8,9,10,11,13,14,45,67,89] 
-x = 13
-  
-# Function call 
-result = binarySearch(arr, 0, len(arr)-1, x) 
-  
-if result != -1: 
-    print("Element is present at index %d" %result) 
+
+
+''' Driver Code'''
+arr = [1,5,7,9,13,16,20,25,43,50,61,65,70,73,79,80,83,85,89,95]
+element_to_find = 50
+
+ans = binarySearch(arr, 0, len(arr)-1, element_to_find)
+
+if ans != -1: 
+    print("Element is present at index %d" %ans ) 
 else: 
     print("Element is not present in array")
-
