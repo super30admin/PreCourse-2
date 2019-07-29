@@ -33,8 +33,7 @@ class QuickSort
     				ptr++;
     			}
     		}
-    		arr[high] = arr[ptr];
-    		arr[ptr] = pivot;
+    		swap(arr, ptr, high);
     		return ptr;
     } 
     /* The main function that implements QuickSort() 
