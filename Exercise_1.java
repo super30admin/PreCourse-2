@@ -15,7 +15,7 @@ class BinarySearch {
     		{
     			return binarySearch(arr,l,mid-1,x);
     		}
-    		if(x>arr[mid])
+    		else
     		{
     			return binarySearch(arr,mid+1,r,x);
     		}
