@@ -9,9 +9,21 @@ class QuickSort
     void swap(int arr[],int i,int j){
         //Your code here   
 
-       arr[i] = arr[i] * arr[j];
-       arr[j] = arr[i] / arr[j];
-       arr[i] = arr[i] / arr[j];
+       // arr[i] = arr[i] * arr[j];
+       // arr[j] = arr[i] / arr[j];
+       // arr[i] = arr[i] / arr[j];
+
+      // arr[i] = arr[i] + arr[j]; 
+      // arr[j] = arr[i] - arr[j]; 
+      // arr[i] = arr[i] - arr[j];
+
+      // Using Multiplication of Arthmetic or Division may result in division by zero or overflow
+
+      // We can consider using Bitwise XOR operator
+
+      arr[i] = arr[i] ^ arr[j];
+      arr[j] = arr[i] ^ arr[j];
+      arr[i] = arr[i] ^ arr[j];
 
     }
     
