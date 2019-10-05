@@ -25,4 +25,5 @@ Exercise_5 : Iterative Quick Sort.
 <br>Time complexity:
 <br>Space complexity:
 <br> Approach:
-*After completing the project kindly submit a pull request*
+
+<br>*After completing the project kindly submit a pull request*
