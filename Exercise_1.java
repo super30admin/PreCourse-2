@@ -13,17 +13,17 @@ public class Exercise_1 {
         // Returns index of x if it is present in arr[l.. r], else return -1
         int binarySearch(int arr[], int l, int r, int x)
         {
-            //Write your code here
-            while (l<=r) {
-                int mid = l + (r - l) / 2;
-                if (arr[mid] == x)
+           
+            while (l<=r) { 			//not letting left and right pointers cross
+                int mid = l + (r - l) / 2;	//finding mid element to reduce number of iterations
+                if (arr[mid] == x)		//if element found at mid
                     return mid;
-                if (arr[mid] < x)
-                    l = mid + 1;
-                if (arr[mid] > x)
-                    r = mid - 1;
+                if (arr[mid] < x)		//if element is greater than mid then we know that we need to search in right half of mid
+                    l = mid + 1;		//so we assign our left ptr to mid+1
+                if (arr[mid] > x)		//if element is less than mid element then we need to search for element in left half of mid
+                    r = mid - 1;		//so we assign right ptr to mid-1
             }
-            return -1;
+            return -1;				//if element not found then return -1
         }
 
         // Driver method to test above
