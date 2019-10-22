@@ -5,7 +5,7 @@ class BinarySearch {
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
     {
-        if(l < r){
+        if(l <= r){
             int mid = l + (r-1)/2;
 
             if(arr[mid] == x)
