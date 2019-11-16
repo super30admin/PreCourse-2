@@ -1,5 +1,9 @@
 # Python code to implement iterative Binary  
 # Search. 
+
+
+# Time Complexity: O(log(n))
+# Space Complexity: O(log(n))
   
 # It returns location of x in given array arr  
 # if present, else returns -1 
@@ -12,8 +16,6 @@ def binarySearch(arr, l, r, x):
   else check in the second half
   if right pointer becomes less than left, return -1
 
-  Time Complexity: O(log(n))
-  Space Complexity: O(1)
   """ 
   if r >= l:
     middle = l + (r-l) //2
@@ -21,7 +23,7 @@ def binarySearch(arr, l, r, x):
       return middle
     elif (arr[middle]>x):
       return binarySearch(arr, l, middle-1, x)
-    elif (arr[middle < x]):
+    elif (arr[middle] < x):
       return binarySearch(arr, middle+1, r, x)
   else:
     return -1

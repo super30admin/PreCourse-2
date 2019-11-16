@@ -1,4 +1,8 @@
 # Python program for implementation of MergeSort 
+
+# Time Complexity: O(nlogn)
+# Space Complexity: O(n)
+
 def mergeSort(arr):
   """
   Divide into 2 halves recursively
