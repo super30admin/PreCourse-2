@@ -34,3 +34,35 @@ class BinarySearch {
             System.out.println("Element found at index " + result); 
     } 
 } 
+
+
+// def partition(a,beg,end):
+//   if beg >= end:
+//     return
+//   pivot = a[end]
+//   i = beg
+//   j = end
+//   temp = None
+
+//   while(i<j):
+//     while a[i]<pivot:
+//       i+=1
+//     while a[j]>= pivot and j>i:
+//       j-=1
+    
+//     temp = a[i]
+//     a[i] = a[j]
+//     a[j] = temp
+
+//   temp = a[i]
+//   a[i] = a[end]
+//   a[end] = temp
+
+
+//   partition(a,beg,i-1)
+//   partition(a,i+1,end)
+
+// a = [17,41,5,22,54,6,29,3,13]
+// partition(a,0,len(a)-1)
+
+// print(a)
