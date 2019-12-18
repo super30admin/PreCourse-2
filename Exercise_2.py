@@ -5,7 +5,7 @@ def partition(arr,low,high):
     if low < high:
         pivot = high
         lowPointer = low
-        for i in range(low,len(arr)):
+        for i in range(low, high):
             if arr[i] < arr[pivot]:
                 temp = arr[i]
                 arr[i] = arr[lowPointer]
@@ -30,7 +30,7 @@ def quickSort(arr,low,high):
     #write your code here
   
 # Driver code to test above 
-arr = [10, 7, 8, 9, 1, 5] 
+arr = [10, 7, 8, 9, 1, 5, 3, 2,16, 13] 
 n = len(arr) 
 quickSort(arr,0,n-1) 
 print ("Sorted array is:") 
