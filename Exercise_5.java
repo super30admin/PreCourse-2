@@ -37,13 +37,13 @@ class IterativeQuickSort {
         while (top >= 0) {
             h = stack[top--];
             l = stack[top--];
-            int p = partition(arr, l, h);
-            if (p - 1 > l) {
+            int pivot = partition(arr, l, h);
+            if (pivot - 1 > l) {
                 stack[++top] = l;
-                stack[++top] = p - 1;
+                stack[++top] = pivot - 1;
             }
-            if (p + 1 < h) {
-                stack[++top] = p + 1;
+            if (pivot + 1 < h) {
+                stack[++top] = pivot + 1;
                 stack[++top] = h;
             }
         }
