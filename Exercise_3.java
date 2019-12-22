@@ -1,3 +1,12 @@
+// Time Complexity :
+//    printMiddle() - O(n)
+//      
+// Space Complexity :
+//    printMiddle() - O(1)
+//
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -19,7 +28,21 @@ class LinkedList
     void printMiddle() 
     { 
         //Write your code here
-	//Implement using Fast and slow pointers
+        //Implement using Fast and slow pointers
+        Node fstPtr = head;
+        Node slwPtr = head;
+
+        while(fstPtr != null && fstPtr.next != null)
+        {
+            //Fast Pointer will move two nodes per iteration
+            fstPtr = fstPtr.next.next;
+            //SLow Pointer will move one node per iteration
+            slwPtr = slwPtr.next;
+        }
+
+        //Print the middle element
+        System.out.println("Middle Element= " + slwPtr.data);
+
     } 
   
     public void push(int new_data) 
