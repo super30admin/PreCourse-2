@@ -1,7 +1,7 @@
 // Time Complexity :
 //    swap() - O(1)
 //    partition() - O(n)
-//    sort() - O(n^2)
+//    sort() - O(n^2) worst case and O(nlog(n)) best case
 //      
 // Space Complexity :
 //    swap() - O(1)
