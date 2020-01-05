@@ -2,15 +2,24 @@
 # iterative way
 
 def partition(arr, low, high):
-    i = (low - 1)
-    x = arr[high]
-    for j in range(low, high):
-        if arr[j] <= x:
-            # increment
-            i = i + 1
-            arr[i], arr[j] = arr[j], arr[i]
-    arr[i + 1], arr[high] = arr[high], arr[i + 1]
-    return i + 1
+    """
+        This function takes last element as pivot,
+        places the pivot element at its correct
+        position in sorted array, and places all
+        smaller (smaller than pivot) to left of
+        pivot and all greater elements to right
+        of pivot
+    """
+    pivot = arr[high]
+    partition_index = low
+
+    for i in range(low, high):
+        if arr[i] < pivot:
+            arr[i], arr[partition_index] = arr[partition_index], arr[i]
+            partition_index += 1
+
+    arr[high], arr[partition_index] = arr[partition_index], arr[high]
+    return partition_index
 
 
 def quickSortIterative(arr, low, high):

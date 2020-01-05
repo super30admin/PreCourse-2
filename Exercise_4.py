@@ -26,9 +26,12 @@ def mergeSort(arr: list) -> list:
     Time complexity - O(nlogn)
     We are dividing the array in two halves logn times and at each level
     we need to traverse the whole array during merging
-    Space Complexity - O(n/2) but can be written as O(n)
-    Since each half of the list is solved recursively the max number of function calls is
-    atmost half the size of the list
+    Space Complexity -
+        If we do not clear the extra memory for left and right array O(nlogn)
+        If we clear the extra memory: O(2n) or O(n) because at any time at
+        level 1 (n/2), level 2 (n/4), level 3 (n/8). n(1/2+1/4+1/8)= n(2) = 2n.
+        which can be written as O(n)
+        Stable algorithm, Recusrive, Divide and conquer strategy
     """
     # base case
     if len(arr) == 1:

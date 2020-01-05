@@ -41,6 +41,8 @@ class LinkedList:
             Space Complexity - O(1) Constant
             We always require only two nodes (slow and fast)
         """
+        if not self.head:
+            print('Invalid')
         slow = fast = self.head
         while fast and fast.next:
             slow = slow.next

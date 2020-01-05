@@ -31,7 +31,8 @@ def quick_sort(arr, low, high):
         high  --> Ending index
 
         TimeComplexity: O(nlogn) if we have a good pivot
-        SpaceComplexity: O(1) because we sort in place
+        SpaceComplexity: O(logn) because we sort in place but make function calls
+        Not a stable algorithm
     """
     if low < high:
         partition_index = partition(arr, low, high)
@@ -46,4 +47,4 @@ if __name__ == '__main__':
     quick_sort(arr, 0, n - 1)
     print("Sorted array is:")
     for i in range(n):
-        print("%d" % arr[i], end=" "),
+        print("%d" % arr[i], end=" ")
