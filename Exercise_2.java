@@ -7,10 +7,10 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //swap values at indices i and j   
-        int temp = arr[i]; 
-        arr[i] = arr[j]; 
-        arr[j] = temp;  
+        //swap values at indices i and j in-place  
+        arr[i] = arr[i]+arr[j];
+        arr[j] = arr[i]-arr[j];
+        arr[i] = arr[i]-arr[j];
     }
     
     int partition(int arr[], int low, int high) 

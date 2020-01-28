@@ -1,10 +1,13 @@
 import java.util.Stack;
 class IterativeQuickSort { 
     void swap(int arr[],int i,int j){  
-        //swap values at indices i and j  
-        int temp = arr[i]; 
-        arr[i] = arr[j]; 
-        arr[j] = temp; 
+        //swap values in-place 
+        /* arr[i] = arr[i]+arr[j];
+        arr[j] = arr[i]-arr[j];
+        arr[i] = arr[i]-arr[j]; */
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
     
     int partition(int arr[], int low, int high) 
@@ -22,13 +25,12 @@ class IterativeQuickSort {
           }
           swap(arr,i+1,high);
           return i+1;
-
     } 
 
 
   
     // Sorts arr[l..h] using iterative QuickSort 
-    void QuickSort(int arr[], int low, int high) 
+    void quickSort(int arr[], int low, int high) 
     { 
         //Use stack to store low and high values of subarrays
         Stack<Integer> stack = new Stack<Integer>();
@@ -70,7 +72,7 @@ class IterativeQuickSort {
     { 
         IterativeQuickSort ob = new IterativeQuickSort(); 
         int arr[] = { 4, 3, 5, 2, 1, 3, 2, 3 }; 
-        ob.QuickSort(arr, 0, arr.length - 1); 
+        ob.quickSort(arr, 0, arr.length - 1); 
         ob.printArr(arr, arr.length); 
     } 
 } 
