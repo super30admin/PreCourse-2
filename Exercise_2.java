@@ -1,3 +1,8 @@
+/*
+QuickSort works at O(n * log(n)), this is becuase, the partition takes O(n) at every level and there are totla of log(n) levels
+
+*/
+
 class QuickSort 
 { 
     /* This function takes last element as pivot, 

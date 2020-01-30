@@ -1,3 +1,9 @@
+/* 
+MergeSort works on O(n * log(n)) since merge takes place at O(n) in total of log(n) levels. 
+
+*/
+
+
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 

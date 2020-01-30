@@ -1,3 +1,8 @@
+/* 
+print middle works on O(n) beacuse the pointers go through list once  
+*/
+
+
 class LinkedList 
 { 
     Node head; // head of linked list 
