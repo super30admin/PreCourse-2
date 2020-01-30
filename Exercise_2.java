@@ -1,3 +1,8 @@
+/*
+QuickSort works at O(n * log(n)), this is becuase, the partition takes O(n) at every level and there are totla of log(n) levels
+
+*/
+
 class QuickSort 
 { 
     /* This function takes last element as pivot, 
@@ -7,12 +12,31 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        int temp = arr[i] ; 
+        arr[i] = arr[j] ; 
+        arr[j] = temp ; 
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+   	//Write code here for Partition and Swap
+      //taking pivot on the right 
+      int pivot = arr[high] ;
+      int right = high ;  
+
+      //for running while loop
+      low = low  ; 
+      while (true) {
+        while (arr[++low] < pivot) ; 
+        while (arr[--high] > pivot && high >= 0) ; 
+        if (low < high)
+          swap(arr, low, high); 
+        else
+          break ; 
+      }
+      swap(arr, low, right);
+
+      return right ;  
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -20,8 +44,9 @@ class QuickSort
       high  --> Ending index */
     void sort(int arr[], int low, int high) 
     {  
-            // Recursively sort elements before 
-            // partition and after partition 
+            int partitionIndex = partition(arr, low, high) ; 
+            sort(arr, low, partitionIndex - 1) ; 
+            sort(arr, partitionIndex + 1, high) ; 
     } 
   
     /* A utility function to print array of size n */
