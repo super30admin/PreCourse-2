@@ -1,3 +1,5 @@
+//O(N) as it takes N/2 iterations to find middle element of the list
+//O(1) space 
 class LinkedList 
 { 
     Node head; // head of linked list 

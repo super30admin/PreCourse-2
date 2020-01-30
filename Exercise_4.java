@@ -1,5 +1,12 @@
 class MergeSort 
 { 
+    //O(N) space compared to O(1) space for quick sort
+    
+    /*
+    Note:
+    Quick sort is typically faster than merge sort when the data is stored in memory. However, when the data set is huge and is stored on external devices such as a hard drive, merge sort is the clear winner in terms of speed. It minimizes the expensive reads of the external drive and also lends itself well to parallel computing.
+    */
+    // O(N log N) average and worst case complexity
     // Merges two subarrays of arr[]. 
     // First subarray is arr[l..m] 
     // Second subarray is arr[m+1..r] 

@@ -6,11 +6,15 @@ class QuickSort
        smaller (smaller than pivot) to left of 
        pivot and all greater elements to right 
        of pivot */
+       // O(NlogN) average time and O(N^2) worst case time complexity
+       //O( N ) recursive calls
     void swap(int arr[],int i,int j){
         //swap values at indices i and j in-place  
+      if(i != j) {
         arr[i] = arr[i]+arr[j];
         arr[j] = arr[i]-arr[j];
         arr[i] = arr[i]-arr[j];
+      }
     }
     
     int partition(int arr[], int low, int high) 
@@ -59,7 +63,7 @@ class QuickSort
     // Driver program 
     public static void main(String args[]) 
     { 
-        int arr[] = {10, 7, 8, 9, 1, 5}; 
+        int arr[] = {4, 3, 5, 2, 1, 3, 2, 3 }; 
         int n = arr.length; 
   
         QuickSort ob = new QuickSort(); 

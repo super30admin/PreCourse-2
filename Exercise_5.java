@@ -1,13 +1,13 @@
 import java.util.Stack;
+   // O(NlogN) average time and O(N^2) worst case time complexity O(N) space
 class IterativeQuickSort { 
     void swap(int arr[],int i,int j){  
         //swap values in-place 
-        /* arr[i] = arr[i]+arr[j];
-        arr[j] = arr[i]-arr[j];
-        arr[i] = arr[i]-arr[j]; */
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+        if(i != j) {
+            arr[i] = arr[i]+arr[j];
+            arr[j] = arr[i]-arr[j];
+            arr[i] = arr[i]-arr[j];
+        } 
     }
     
     int partition(int arr[], int low, int high) 
@@ -28,7 +28,7 @@ class IterativeQuickSort {
     } 
 
 
-  
+
     // Sorts arr[l..h] using iterative QuickSort 
     void quickSort(int arr[], int low, int high) 
     { 
