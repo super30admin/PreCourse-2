@@ -36,7 +36,7 @@ def partition(arr,low,high):
 # Function to do Quick sort 
 def quickSort(arr,low,high): 
 
-    # O(n.logn) Time Complexity | O(1) Space Complexity
+    # O(n.logn) Time Complexity | O(logn) Space Complexity
     #write your code here
     if (low >= high):       # base case for recursion in quick sort
         return
