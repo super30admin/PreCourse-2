@@ -5,7 +5,7 @@ class BinarySearch {
         int mid = (l + r) / 2; // Finding the mid index of the array
         // check to see if left index is less than right one. if so then element is not
         // present
-        if (l < r) {
+        if (l <= r) {
             if (x == arr[mid]) // checking if the element is at middle. If so then returning index value
                 return mid;
             // if x is less than arr[mid]. if so then searching left half of array else

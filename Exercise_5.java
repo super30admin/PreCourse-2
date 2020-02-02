@@ -1,5 +1,5 @@
 // Time Complexity : O(nlogn)
-// Space Complexity : O(logn)
+// Space Complexity : O(n)
 
 import java.util.Stack;
 

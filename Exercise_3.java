@@ -11,8 +11,8 @@ class LinkedList {
         Node next;
 
         Node(int d) {
-            data = d;
-            next = null;
+            this.data = d;
+            this.next = null;
         }
     }
 
