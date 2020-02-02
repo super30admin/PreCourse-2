@@ -1,5 +1,5 @@
 
-// Time Complexity : O(n/2)
+// Time Complexity : O(n)
 // Space Complexity : O(1)
 
 class LinkedList {
@@ -53,10 +53,11 @@ class LinkedList {
 
     public static void main(String[] args) {
         LinkedList llist = new LinkedList();
-        for (int i = 14; i > 0; --i) {
+        for (int i = 15; i > 0; --i) {
             llist.push(i);
+            llist.printList();
+            llist.printMiddle();
         }
-        llist.printList();
-        llist.printMiddle();
+
     }
 }
