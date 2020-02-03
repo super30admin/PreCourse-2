@@ -1,4 +1,4 @@
-class LinkedList 
+class Exercise_3 
 { 
     Node head; // head of linked list 
   
@@ -20,6 +20,12 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    	Node fastPtr = head, slowPtr = head;
+    	while(fastPtr != null && fastPtr.next != null) {
+    		slowPtr = slowPtr.next;
+    		fastPtr = fastPtr.next.next;
+    	}
+    	System.out.println("Middle of LinkedList:" + slowPtr.data);
     } 
   
     public void push(int new_data) 
@@ -42,7 +48,7 @@ class LinkedList
   
     public static void main(String [] args) 
     { 
-        LinkedList llist = new LinkedList(); 
+    	Exercise_3 llist = new Exercise_3(); 
         for (int i=15; i>0; --i) 
         { 
             llist.push(i); 
