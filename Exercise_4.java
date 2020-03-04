@@ -5,7 +5,22 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+       //Your code here 
+       int[] arr1 = new int[arr.length];
+       System.arraycopy(arr, l, arr1, l, r-l+1);
+       int i = l, k=l, j=m+1;
+       while(i<=m && j<=r)
+       {
+           if(arr1[i]<=arr1[j])
+           {
+               arr[k++] = arr1[i++];
+           }
+           else{
+               arr[k++]=arr1[j++];
+           }
+       }
+       while(i<=m) arr[k++] = arr1[i++];
+       while(j<=r) arr[k++] = arr1[j++];
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -13,7 +28,14 @@ class MergeSort
     void sort(int arr[], int l, int r) 
     { 
 	//Write your code here
-        //Call mergeSort from here 
+        //Call mergeSort from here
+        
+        if(l==r)
+            return;
+        int m = l+ (r-l)/2; // prevent overflow condition
+        sort(arr,l,m);
+        sort(arr,m+1,r);
+        merge(arr,l,m,r);
     } 
   
     /* A utility function to print array of size n */
