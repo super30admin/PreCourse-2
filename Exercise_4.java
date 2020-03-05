@@ -19,17 +19,18 @@ class MergeSort
 
         int i=0;
         int j=0;
-        int k=0;
+        int k=l;
 
-        while(i<lenn1 && j<len2){
+        while(i<len1 && j<len2){
             if(left[i]<=right[j]){
                 arr[k]=left[i];
                 i++;
+                k++;
             }else{
                 arr[k]=right[j];
                 j++;
+                k++;
             }
-            k++;
         }
 
         while (i < len1) 
@@ -39,10 +40,11 @@ class MergeSort
             k++; 
         } 
 
-        while (j < lenn2) 
+        while (j < len2) 
         { 
             arr[k] = right[j]; 
             j++;
+            k++;
         } 
             
     } 
