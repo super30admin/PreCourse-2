@@ -30,10 +30,28 @@ class IterativeQuickSort {
     void QuickSort(int arr[], int l, int h) 
     { 
         //Try using Stack Data Structure to remove recursion.
-        if (l < h) { 
-            int pi = partition(arr, l, h);
-            QuickSort(arr, l, pi - 1); 
-            QuickSort(arr, pi + 1, h);
+        int[] stack = new int[h - l + 1]; 
+        int top = -1; 
+
+        stack[++top] = l; 
+        stack[++top] = h;
+
+        while (top >= 0) { 
+            // Pop h and l 
+            h = stack[top--]; 
+            l = stack[top--]; 
+
+            int p = partition(arr, l, h); 
+
+            if (p - 1 > l) { 
+                stack[++top] = l; 
+                stack[++top] = p - 1; 
+            } 
+
+            if (p + 1 < h) { 
+                stack[++top] = p + 1; 
+                stack[++top] = h; 
+            } 
         }
     } 
   
