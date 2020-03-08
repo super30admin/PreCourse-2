@@ -34,3 +34,7 @@ class BinarySearch {
             System.out.println("Element found at index " + result); 
     } 
 } 
+
+//Time Complexity - Since, we reduce the search by half in every step. O(log N) where N is the number of elements in the array.
+
+//Space Complexity - Runs in constant space O(1)

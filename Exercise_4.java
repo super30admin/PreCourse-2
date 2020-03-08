@@ -83,3 +83,7 @@ class MergeSort
         printArray(arr); 
     } 
 } 
+
+//Time Complexity - Worst O(nlog(n)
+
+//Space Complexity - O(n)

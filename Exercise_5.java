@@ -68,3 +68,7 @@ class IterativeQuickSort {
         ob.printArr(arr, arr.length); 
     } 
 } 
+
+//Time Complexity - Worst O(n^2)
+
+//Space Complexity - O(log(n))

@@ -66,3 +66,8 @@ class QuickSort
         printArray(arr); 
     } 
 } 
+
+//Time Complexity - Worst O(n^2)
+
+//Space Complexity - O(log(n))
+

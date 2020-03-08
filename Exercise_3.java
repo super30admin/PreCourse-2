@@ -58,3 +58,7 @@ class LinkedList
         } 
     } 
 } 
+
+//Time Complexity - O(N) where N is the number of nodes in the linked list.
+
+//Space Complexity - Runs in constant space O(1)
