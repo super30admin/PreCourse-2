@@ -2,7 +2,7 @@ class LinkedList
 { 
     Node head; // head of linked list 
   
-    /* Linked list node */
+    /* Linked list node */ 
     class Node 
     { 
         int data; 

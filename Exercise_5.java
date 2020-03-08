@@ -8,7 +8,7 @@ class IterativeQuickSort {
        recursive*/
     int partition(int arr[], int l, int h) 
     { 
-        //Compare elements and swap.
+        //Compare elements and swap. 
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 

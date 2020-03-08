@@ -6,7 +6,7 @@ class QuickSort
        smaller (smaller than pivot) to left of 
        pivot and all greater elements to right 
        of pivot */
-    void swap(int arr[],int i,int j){
+    void swap(int arr[],int i,int j){ 
         //Your code here   
     }
     
