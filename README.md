@@ -4,7 +4,7 @@
 
 Exercise_1 : Binary Search.
 
-Exercise_2 : Quick sort.
+Exercise_2 : Quick sort. 
 
 Exercise_3 : Find Mid Point of a Singly Linked List.
 
