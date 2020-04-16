@@ -1,3 +1,6 @@
+//Time Complexity:O(log n)
+//Space Complexity:O(n)
+
 class LinkedList
 {
     Node head; // head of linked list 
