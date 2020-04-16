@@ -1,3 +1,6 @@
+//Time Complexity:O(logn)
+//Space:o(1)
+
 class BinarySearch { 
     // Returns index of x if it is present in arr[l.. r], else return -1
     int fin=-1;
