@@ -20,5 +20,4 @@ function binarySearch(arr, x) {
     console.log('Element not present');
 }
 
-
-binarySearch([2,3,4,10,40], -9);
+binarySearch([2,3,4,10,40], 3);
