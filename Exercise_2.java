@@ -1,7 +1,7 @@
 /*
 Sort method
-Time complexity O(nlogn)
-Space complexity O(nlogn)
+Time complexity O(NlognN)
+Space complexity O(NlogN)
  */
 
 class QuickSort 

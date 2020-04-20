@@ -1,7 +1,7 @@
 /*
 binarySearch
-Time complexity O(log n)
-Space Complexity O(log n)
+Time complexity O(log N)
+Space Complexity O(log N)
 */
 class BinarySearch { 
     // Returns index of x if it is present in arr[l.. r], else return -1 
