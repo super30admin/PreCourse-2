@@ -1,4 +1,8 @@
-class LinkedList 
+/*
+    Time Complexity  - O(n) where n is the size of linkedlist. 
+*/
+
+public class Exercise_3 
 { 
     Node head; // head of linked list 
   
@@ -19,7 +23,18 @@ class LinkedList
     void printMiddle() 
     { 
         //Write your code here
-	//Implement using Fast and slow pointers
+    //Implement using Fast and slow pointers
+        Node fast = head;
+        Node slow = head;
+        if (fast == null){
+            return;
+        }
+        while(fast !=null  && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        System.out.println("Middle of linkedlist is :"+ slow.data);
+        return;
     } 
   
     public void push(int new_data) 
@@ -42,7 +57,7 @@ class LinkedList
   
     public static void main(String [] args) 
     { 
-        LinkedList llist = new LinkedList(); 
+        Exercise_3 llist = new Exercise_3(); 
         for (int i=15; i>0; --i) 
         { 
             llist.push(i); 
