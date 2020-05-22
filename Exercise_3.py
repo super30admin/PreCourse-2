@@ -1,6 +1,6 @@
 # Time Complexity :O(Log(n))
 # Space Complexity :O(1)
-# Did this code successfully run on Leetcode : yes I used it in multiple questions on leet code before
+# Did this code successfully run on Leetcode : yes
 # Any problem you faced while coding this : no
 
 
@@ -36,13 +36,14 @@ class LinkedList:
         slow = self.head
         if not self.head:
             return
-        while fast.next and fast.next.next:
+        while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
         print(slow.data)
 
 # Driver code 
-list1 = LinkedList() 
+list1 = LinkedList()
+list1.push(6) 
 list1.push(5) 
 list1.push(4) 
 list1.push(2) 
