@@ -8,7 +8,7 @@
 
 '''
 1. I have done partition by chosing the last element to be the pivot element initially and initializing,
-	a variable pIndex=0, that would actually be the pivot element. Element from start to end-1 are iterated,a nd compared with initialized pivot elemnt, and if elements are lesser than pivot element, pIndex is increase.
+    a variable pIndex=0, that would actually be the pivot element. Element from start to end-1 are iterated,a nd compared with initialized pivot elemnt, and if elements are lesser than pivot element, pIndex is increase.
 
 2. Then quickosrt is performed, which is classic pre-order Tree traversal where each node(governed by start and end position of the array), is partitioned, and then scaled left part start to pivot-1
 
@@ -21,39 +21,39 @@
 # give you explanation for the approach
 def partition(arr,low,high):
 
-	pivot_element = arr[high]
-	pIndex = low
+    pivot_element = arr[high]
+    pIndex = low
 
 
-	for i in range(low, high):
+    for i in range(low, high):
 
-		if arr[i] < pivot_element:
+        if arr[i] < pivot_element:
 
-			temp = arr[i]
-			arr[i] = arr[pIndex]
-			arr[pIndex] = temp
+            temp = arr[i]
+            arr[i] = arr[pIndex]
+            arr[pIndex] = temp
 
-			pIndex += 1
-
-
-	temp = arr[pIndex]
-	arr[pIndex] = arr[high]
-	arr[high] = temp
+            pIndex += 1
 
 
-	return pIndex
+    temp = arr[pIndex]
+    arr[pIndex] = arr[high]
+    arr[high] = temp
+
+
+    return pIndex
     #write your code here
   
 
 # Function to do Quick sort 
 def quickSort(arr,low,high):
 
-	if low >= high:
-		return
+    if low >= high:
+        return
 
-	pivot_element = partition(arr, low, high)
-	quickSort(arr,low, pivot_element-1)
-	quickSort(arr,pivot_element+1, high)
+    pivot_element = partition(arr, low, high)
+    quickSort(arr,low, pivot_element-1)
+    quickSort(arr,pivot_element+1, high)
     
     #write your code here
   

@@ -15,18 +15,18 @@ def binarySearch(arr, l, r, x):
 
   while (l <= r):
 
-  	mid = int((l+r)//2)
+    mid = int((l+r)//2)
 
-  	if x == arr[mid]:
-  		return mid
+    if x == arr[mid]:
+        return mid
 
-  	elif x < arr[mid]:
-  		return binarySearch(arr,l,mid-1,x)
+    elif x < arr[mid]:
+        return binarySearch(arr,l,mid-1,x)
 
-  	else:
-  		return binarySearch(arr,mid+1,r,x)
+    else:
+        return binarySearch(arr,mid+1,r,x)
   else:
-  	return -1
+    return -1
 
 
   
