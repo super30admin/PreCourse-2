@@ -1,7 +1,13 @@
-class IterativeQuickSort { 
+//Time complexity: O(nLogn)
+// Space complexity: O(1)
+
+class IterativeQuickSort {
     void swap(int arr[], int i, int j) 
     { 
-	//Try swapping without extra variable 
+	//Try swapping without extra variable
+        arr[i] = arr[i] + arr[j];
+        arr[j] = arr[i] - arr[j];
+        arr[i] = arr[i] - arr[j];
     } 
   
     /* This function is same in both iterative and 
@@ -9,12 +15,44 @@ class IterativeQuickSort {
     int partition(int arr[], int l, int h) 
     { 
         //Compare elements and swap.
+        int pivot = arr[h];
+
+        int i = l-1;
+        for(int j=l; j<=h - 1; j++){
+            if(arr[j] < pivot){
+                i++;
+                swap(arr, i, j);
+            }
+        }
+        swap(arr, i+1, h);
+        return i+1;
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
-    { 
-        //Try using Stack Data Structure to remove recursion.
+    {
+        int[] s = new int[h - l + 1];
+        int top = -1;
+
+        s[++top] = l;
+        s[++top] = h;
+
+        while (top >= 0){
+            h = s[top--];
+            l = s[top--];
+
+            int p = partition(arr, l, h);
+
+            if(p - 1 > l){
+                s[++top] = l;
+                s[++top] = p-1;
+            }
+
+            if(p + 1 <h){
+                s[++top] = p + 1;
+                s[++top] = h;
+            }
+        }
     } 
   
     // A utility function to print contents of arr 
