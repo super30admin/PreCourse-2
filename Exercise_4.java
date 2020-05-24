@@ -1,4 +1,5 @@
-class MergeSort 
+/*
+class MergeSort
 { 
     // Merges two subarrays of arr[]. 
     // First subarray is arr[l..m] 
@@ -16,7 +17,9 @@ class MergeSort
         //Call mergeSort from here 
     } 
   
-    /* A utility function to print array of size n */
+    */
+/* A utility function to print array of size n *//*
+
     static void printArray(int arr[]) 
     { 
         int n = arr.length; 
@@ -39,4 +42,4 @@ class MergeSort
         System.out.println("\nSorted array"); 
         printArray(arr); 
     } 
-} 
+} */

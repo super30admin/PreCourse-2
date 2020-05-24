@@ -1,8 +1,11 @@
-class LinkedList 
+/*
+class LinkedList
 { 
     Node head; // head of linked list 
   
-    /* Linked list node */
+    */
+/* Linked list node *//*
+
     class Node 
     { 
         int data; 
@@ -14,7 +17,9 @@ class LinkedList
         } 
     } 
   
-    /* Function to print middle of linked list */
+    */
+/* Function to print middle of linked list *//*
+
    //Complete this function
     void printMiddle() 
     { 
@@ -50,4 +55,4 @@ class LinkedList
             llist.printMiddle(); 
         } 
     } 
-} 
+} */
