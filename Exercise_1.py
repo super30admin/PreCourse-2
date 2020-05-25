@@ -1,14 +1,14 @@
-# Time Complexity :
-# Space Complexity :
-# Did this code successfully run on Leetcode :
-# Any problem you faced while coding this :
-
+# Time Complexity : O(log(n))
+# Space Complexity : O(1)
+# Did this code successfully run on Leetcode : Yes
+# Any problem you faced while coding this : No
 
 # Your code here along with comments explaining your approach
 def iterativeBinarySearch(arr, l, r, x):
+    # for every iteration eliminating half the search space by choosing
+    # a mid value depending on the value of x since arr is sorted
     left = l
     right = r
-
     while left <= right:
         mid = left + (right - left) / 2
         if x == arr[mid]:
@@ -20,7 +20,6 @@ def iterativeBinarySearch(arr, l, r, x):
     return -1
 
 def recursiveBinarySearch(arr, l, r, x):
-
     if l <= r:
         mid = l + (r - l) / 2
         if x == arr[mid]:
