@@ -21,7 +21,7 @@ class QuickSort
             for(int i =low;i<=high;i++){
                 if(arr[i] < pivot) {
                     swap(arr, i, low);
-                    i = low++;
+                    low++;
                 }
             }
             swap(arr,low,high);

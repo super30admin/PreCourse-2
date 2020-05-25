@@ -21,7 +21,7 @@ class IterativeQuickSort {
             for(int i =l;i<=h;i++){
                 if(arr[i] < pivot) {
                     swap(arr, i, l);
-                    i = l++;
+                    l++;
                 }
             }
             swap(arr,l,h);
