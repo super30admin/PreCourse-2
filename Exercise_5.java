@@ -1,3 +1,10 @@
+//Problem 5: Iterative Quick Sort
+
+//   Time Complexity : I think it has same time complexity as recursive approach with worst time complexity as O(n^2) if the elements are already in sorted order
+//                      and it would be O(n log n) n times for partinioning and log n times for recursion.
+//   Space Complexity : The space complexity would be O (n + log n) we use n space for the stack.
+//   Any problem you faced while coding this : Was not able to achieve swapping without extra variable as difference between two values was throwing zero
+
 import java.util.Stack;
 
 class IterativeQuickSort {

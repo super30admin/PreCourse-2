@@ -1,4 +1,11 @@
-class QuickSort 
+//Problem 2: Quick Sort
+
+//   Time Complexity : The worst time complexity for this problem is O(n^2) if the elements are already in sorted order and it would be O(n log n)
+//                      n times for partinioning and log n times for recursion.
+//   Space Complexity : Space complexity would be O(log n)
+//   Any problem you faced while coding this : Stack tracing during recursion was difficult to keep track while debugg
+
+class QuickSort
 { 
     /* This function takes last element as pivot, 
        places the pivot element at its correct 

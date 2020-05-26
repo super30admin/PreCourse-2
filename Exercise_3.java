@@ -1,4 +1,11 @@
-class LinkedList 
+//Problem 3: Mid point of Singly Linked list
+
+//   Time Complexity : The worst time complexity for this problem is O(n/2) As we use double pointer, we can find the mid element in n/2 traversal
+//   Space Complexity : The space complexity for this problem would be O(n+n) as we have 2 pointers
+//   Any problem you faced while coding this : No
+
+
+class LinkedList
 { 
     Node head; // head of linked list 
   

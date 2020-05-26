@@ -1,4 +1,10 @@
-class MergeSort 
+//Problem 4: Merge Sort
+//   Time Complexity : The worst time complexity for this problem is O(n log n) n times for merging and log n times for recursion.
+//   Space Complexity : Space complexity would be O(n + n) as we used two temp array during merge
+//   Any problem you faced while coding this : Trying to understand how merging was bit tricky
+
+
+class MergeSort
 { 
     // Merges two subarrays of arr[]. 
     // First subarray is arr[l..m] 
