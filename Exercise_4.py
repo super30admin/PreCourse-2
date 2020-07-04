@@ -31,6 +31,17 @@ def mergeSort(arr):
   mergeSort(l)
   mergeSort(r)
   merge(arr, l, r)
+
+
+  
+
+  
+  #write your code here
+  
+# Code to print the list 
+def printList(arr): 
+   print(arr)
+    #write your code here
   
 # driver code to test the above code 
 if __name__ == '__main__': 
