@@ -1,3 +1,8 @@
+#Time Complexity : O(n log n)
+#Space Complexity : O(1)
+#Did this code successfully run on Leetcode : yes
+#Any problem you faced while coding this : No
+
 # Python program for implementation of Quicksort Sort 
   
 # give you explanation for the approach
