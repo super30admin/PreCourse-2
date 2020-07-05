@@ -1,6 +1,8 @@
 # Python program for implementation of Quicksort
 
 # This function is same in both iterative and recursive
+#Time complexity O(n log(n)) best case and O(n^2) worst case
+#Space complexity O(log(n)) best case and O(n) worst case
 def partition(arr, l, h):
   #write your code here
 	i = l

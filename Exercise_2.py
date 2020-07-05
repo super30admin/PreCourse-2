@@ -1,6 +1,8 @@
 # Python program for implementation of Quicksort Sort 
   
 # give you explanation for the approach
+#Time complexity O(n log(n)) - best case, O(n^2) - worst case
+#Space complexity O(1) - in-place
 def partition(arr,low,high):
 	i = low
 	j = high - 1

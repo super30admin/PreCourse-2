@@ -1,4 +1,6 @@
-# Node class  
+# Node class
+#Time complexity O(n)
+#Space complexity O(n) if you include the list, else O(1)  
 class Node:  
   
     # Function to initialise the node object  
