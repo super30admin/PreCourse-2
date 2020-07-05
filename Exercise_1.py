@@ -1,8 +1,12 @@
 # Python code to implement iterative Binary  
-# Search. 
+# Search.
+
   
 # It returns location of x in given array arr  
-# if present, else returns -1 
+# if present, else returns -1
+
+# TIME COMPLEXITY: O(lg n) - at each call the search space is divided so at the max the while loop will run O(lg n) times.
+# SPACE COMPLEXITY: O(1) - no extra space is used.
 def binarySearch(arr, l, r, x):
 
     #write your code here
