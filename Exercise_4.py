@@ -1,4 +1,7 @@
-# Python program for implementation of MergeSort 
+# Python program for implementation of MergeSort
+
+# TIME COMPLEXITY: O(n lgn) The merge process takes O(n) and 2 recursive mergesort calls is T(n/2)
+# SPACE COMPLEXITY: O(n) - because of left and right arr.
 def mergeSort(arr):
 
     #write your code here
