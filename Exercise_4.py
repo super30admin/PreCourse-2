@@ -1,6 +1,5 @@
 # Python program for implementation of MergeSort 
 def mergeSort(arr):
-  
   #write your code here
   
 # Code to print the list 
