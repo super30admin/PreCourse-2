@@ -7,13 +7,9 @@ def partition(arr,low,high):
 
   for i in range(low, high):
     if arr[i] < pivot:
-      temp = arr[pIndex]
-      arr[pIndex] = arr[i]
-      arr[i] = temp
+      arr[pIndex], arr[i] = arr[i], arr[pIndex]
       pIndex += 1
-  temp = arr[high]
-  arr[high] = arr[pIndex]
-  arr[pIndex] = temp
+  arr[high], arr[pIndex] = arr[pIndex], arr[high]
   return pIndex
 
 # Function to do Quick sort 
@@ -30,6 +26,3 @@ quickSort(arr,0,n-1)
 print ("Sorted array is:") 
 for i in range(n): 
     print ("%d" %arr[i]), 
-  
-
- 
