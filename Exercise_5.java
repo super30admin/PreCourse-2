@@ -4,16 +4,12 @@ class IterativeQuickSort {
     static void swap(int arr[], int i, int j) 
     { 
 	//Try swapping without extra variable 
-    /*	arr[i] = arr[i] * arr[j];
-    	arr[j] = arr[i] / arr[j];
-    	arr[i] = arr[i] / arr[j];
-    	//System.out.println("value of arr "+ arr[i]+"  j "+ arr[j]);
-    	 * 
-    	 */
     	
-    	int temp = arr[i];
-    	arr[i] = arr[j];
-    	arr[j] = temp;
+    	if(arr[i] == arr[j])
+    		return;
+    	arr[i] = arr[i] + arr[j];
+    	arr[j] = arr[i] - arr[j];
+    	arr[i] = arr[i] - arr[j];
     } 
     
     //Approach: Here there are 3 functions, 
@@ -40,7 +36,7 @@ class IterativeQuickSort {
     			swap(arr,i,j);
     		}
     	}    	
-    	swap(arr, i+1, h);
+    	swap( arr, i+1, h);
     	return (i+1);
     } 
   
@@ -85,7 +81,8 @@ class IterativeQuickSort {
     public static void main(String args[]) 
     { 
         IterativeQuickSort ob = new IterativeQuickSort(); 
-        int arr[] = { 4, 3, 5, 2, 1, 3, 2, 3 }; 
+     //   int arr[] = { 4, 3, 5, 2, 1, 3, 2, 3 };
+        int arr[] = { 4, 1, 2, 3, 5 };
         ob.printArr(arr, arr.length);
         ob.QuickSort(arr, 0, arr.length - 1); 
         ob.printArr(arr, arr.length); 
