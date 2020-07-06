@@ -1,3 +1,12 @@
+/*Time Complexity : O(n log n)
+ Space Complexity : O(n), because of using additional temp arrays
+
+ Your code here along with comments explaining your approach:
+ Using divide and conquer approach, divide the input array in the middle.
+ Divide the array in left sub-array and right sub-array. Keep dividing the array
+ until the array contains only 1 element. Sort the single element sub arrays and merge the sub arrays.
+ It results in sorting the entire array.
+*/
 class MergeSort {
     // Merges two subarrays of arr[].
     // First subarray is arr[l..m]

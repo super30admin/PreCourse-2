@@ -1,3 +1,12 @@
+/*Time Complexity : O(n log n)
+ Space Complexity : O(1), no additional cost
+
+ Your code here along with comments explaining your approach:
+ Divide the input array by finding pivot element. Move all elements less than pivot to left
+ and all elements greater than pivot to the right of pivot index. Once pivot is positioned correctly,
+ sort the left and the right sub array recursively.
+*/
+
 class QuickSort {
     /* This function takes last element as pivot,
        places the pivot element at its correct

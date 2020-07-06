@@ -1,5 +1,15 @@
 import java.util.Stack;
 
+/*Time Complexity : O(n logn)
+ Space Complexity : O(N), using stack to keep pointers
+
+ Your code here along with comments explaining your approach: While sorting using recursion,
+ we store the start and end in memory stack. So instead of using process memory, we keep
+ external stack to store start and end of the sub-array. At first, find the pivot index and keep pivot
+ at pivot index. Once pivot is fixed, divide the array in left half and right half. Store the start and
+ end indices of left and right half in the stack. Using start and end index, sort the sub arrays.
+*/
+
 class IterativeQuickSort {
     void swap(int arr[], int i, int j) {
         if (i != j) {

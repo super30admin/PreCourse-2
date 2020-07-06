@@ -1,3 +1,14 @@
+/*Time Complexity : O(n)
+ Space Complexity : O(1), no additional cost
+
+ Your code here along with comments explaining your approach:
+ Keep two pointer slow and fast pointing at the head of the linked list.
+ Fast pointer moves twice as much as slow pointer. Once the fast pointer
+ reaches the end of the list, since slow pointer only travelled half of the
+ fast pointer, the slow pointer now points to the middle value of list.
+*/
+
+
 class LinkedList {
     Node head; // head of linked list
 
