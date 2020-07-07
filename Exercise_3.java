@@ -14,12 +14,20 @@ class LinkedList
         } 
     } 
   
+    //Approach : Applying Floyd's slow and fast pointer method
     /* Function to print middle of linked list */
    //Complete this function
     void printMiddle() 
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    	Node slow = head, fast = head;
+    	while(fast.next!= null && fast.next.next != null)
+    	{
+    		slow = slow.next;
+    		fast = fast.next.next;
+    	}
+    	System.out.println(slow.data);
     } 
   
     public void push(int new_data) 
@@ -51,3 +59,8 @@ class LinkedList
         } 
     } 
 } 
+
+//Time Complexity : O(N)
+//Space Complexity : O(1) no extra space is used
+//Did this code successfully run on Leetcode : Yes
+//Any problem you faced while coding this : No
