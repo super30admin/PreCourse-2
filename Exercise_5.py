@@ -1,6 +1,9 @@
 # Python program for implementation of Quicksort  
   
-# This function is same in both iterative and recursive 
+# This function is same in both iterative and recursive
+# This function selects the last element of the array as the pivot. It then places the pivot in 
+# correct position in array and moves all less than pivot elements to the left of pivot
+# and all greater than pivot elements to the right of pivot 
 
 def partition(arr, low, high): 
     l = low-1
@@ -12,7 +15,7 @@ def partition(arr, low, high):
     arr[l+1],arr[high] = arr[high], arr[l+1]
     return l+1
   
-
+# Function for iterative quicksort
 def quickSortIterative(arr, l, h): 
   
     stack=[]
@@ -29,6 +32,10 @@ def quickSortIterative(arr, l, h):
         if (i+1)<h:
             stack.append(i+1)
             stack.append(h)
+
+# Time complexity: O(nlogn)
+# Space complexity: O(logn) where n is the length of input array
+
 # Driver code to test above 
 arr = [10, 7, 8, 9, 1, 5] 
 n = len(arr) 

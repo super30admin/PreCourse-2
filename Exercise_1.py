@@ -3,10 +3,11 @@
   
 # It returns location of x in given array arr  
 # if present, else returns -1 
+# Function for iterative binary search
 def binarySearch(arr, l, r, x): 
   
     #write your code here
-    while l<r:
+    while l<=r:
         mid = (r+l)//2
         if arr[mid]==x:
             return mid
@@ -16,7 +17,8 @@ def binarySearch(arr, l, r, x):
             l = mid +1
     return -1
   
-    
+# Time complexity: O(log n) where n=length of input array
+# Space complexity: O(1)   
   
 # Test array 
 arr = [ 2, 3, 4, 10, 40 ] 

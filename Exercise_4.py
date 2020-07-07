@@ -1,5 +1,7 @@
 # Python program for implementation of MergeSort 
 from collections import deque
+
+#Function to preform mergesort
 def mergeSort(arr):
     if len(arr)>1: 
         mid = len(arr)//2
@@ -28,6 +30,9 @@ def printList(arr):
         print(a, end=" ")
     print("\n")
     #write your code here
+
+# Time complexity: O(nlogn)
+# Space complexity: O(n) where n is the length of input array
   
 # driver code to test the above code 
 if __name__ == '__main__': 

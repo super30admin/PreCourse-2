@@ -11,6 +11,7 @@ class LinkedList:
     def __init__(self):
         self.head = None
           
+    # Function to insert new_data into the Linked list 
     def push(self, new_data): 
         if not self.head:
             self.head = Node(new_data)
@@ -27,6 +28,9 @@ class LinkedList:
     		slow = slow.next
     		fast = fast.next.next
     	print(slow.val)
+
+# Time complexity: O(n) for both functions
+# Space complexity: O(1) for both functions
 
 # Driver code 
 list1 = LinkedList() 
