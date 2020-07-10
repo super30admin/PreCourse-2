@@ -14,7 +14,7 @@ def partition(arr, l, h):
     arr[greater_ind], arr[h] = arr[h], arr[greater_ind]
     return greater_ind
 
-# TIME COMPLEXITY: O(n)
+# TIME COMPLEXITY: O(n^2) - O(n) calls to partition which itself is O(n)
 # SPACE COMPLEXITY: O(n) - due to space of list_start_end - that has the number of calls to quicksortIterative.
 def quickSortIterative(arr, l, h):
     #write your code here
