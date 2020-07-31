@@ -8,7 +8,7 @@
 def binarySearch(arr, left, right, x): 
   #write your code here
 
-  while left < right:
+  while left <= right:
     mid = (left+right)//2
 
     if x == arr[mid]:
