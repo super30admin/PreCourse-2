@@ -3,9 +3,22 @@
   
 # It returns location of x in given array arr  
 # if present, else returns -1 
+
+#Time Compleixty: Worst and Average: O(logn) Best: O(1)
 def binarySearch(arr, l, r, x): 
-  
+
   #write your code here
+  
+
+  while l <= r:
+    mid = (l + r) // 2
+    if arr[mid] == x:
+      return mid
+    elif arr[mid] <= x:
+      l = mid + 1
+    else:
+      r = mid - 1
+  return -1
   
     
   
