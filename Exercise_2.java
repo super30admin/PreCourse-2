@@ -1,3 +1,9 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
 class QuickSort 
 { 
     /* This function takes last element as pivot, 
@@ -7,12 +13,25 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+   		int pivot=arr[high];
+   		int pIndex=low;
+   		for(int i=low;i<high;i++)
+   		{
+   			if(arr[i]<=pivot)
+   			{
+   				swap(arr,i,pIndex);
+   				pIndex=pIndex+1;
+   			}
+   		}
+   		swap(arr,pIndex,high);
+   		return pIndex;
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -20,8 +39,13 @@ class QuickSort
       high  --> Ending index */
     void sort(int arr[], int low, int high) 
     {  
-            // Recursively sort elements before 
-            // partition and after partition 
+    	if(low<high)
+    	{
+    		int pIndex=partition(arr,low,high);
+    		sort(arr,low,pIndex-1);
+    		sort(arr,pIndex+1,high);
+    	}
+            
     } 
   
     /* A utility function to print array of size n */
@@ -41,7 +65,6 @@ class QuickSort
   
         QuickSort ob = new QuickSort(); 
         ob.sort(arr, 0, n-1); 
-  
         System.out.println("sorted array"); 
         printArray(arr); 
     } 
