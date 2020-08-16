@@ -1,20 +1,66 @@
+//Time Complexity : O(log n) 
+//Space Complexity : O(n)
+//Did this code successfully run on Leetcode : Yes
+//Any problem you faced while coding this : Not able to get the solution at first time
+
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
-	//Try swapping without extra variable 
+    	int x = arr[i];
+    	int y = arr[j];
+    	x = x + y;
+    	y = x - y;
+    	x = x - y;
+    	arr[i] = x;
+    	arr[j] = y;
     } 
   
     /* This function is same in both iterative and 
        recursive*/
     int partition(int arr[], int l, int h) 
     { 
-        //Compare elements and swap.
+    	int pivot = arr[h];
+    	int i = l-1;
+    	for(int j=l; j<h; j++) {
+    		if(arr[j] < pivot) {
+    			i++;
+    			swap(arr, i, j);
+    		}	
+    	}
+    	swap(arr, i+1, h);
+    	return i+1;
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
     { 
         //Try using Stack Data Structure to remove recursion.
+    	int[] stack = new int[h - l + 1]; 
+    	int top = -1; 
+    	
+    	stack[++top] = l; 
+        stack[++top] = h;
+        
+        while (top >= 0) { 
+            h = stack[top--]; 
+            l = stack[top--]; 
+
+            int p = partition(arr, l, h); 
+  
+            // If there are elements on left side of pivot, 
+            // then push left side to stack 
+            if (p - 1 > l) { 
+                stack[++top] = l; 
+                stack[++top] = p - 1; 
+            } 
+  
+            // If there are elements on right side of pivot, 
+            // then push right side to stack 
+            if (p + 1 < h) { 
+                stack[++top] = p + 1; 
+                stack[++top] = h; 
+            } 
+        } 
     } 
   
     // A utility function to print contents of arr 
