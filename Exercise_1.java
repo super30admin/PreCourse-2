@@ -3,6 +3,18 @@ class BinarySearch {
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
+        while(r>=l) {
+            int mid = l+((1+r-l)/2);
+            System.out.println(mid);
+            if(x == arr[mid]) {
+                return mid;
+            } else if(x < arr[mid]) {
+                r = mid-1;
+            } else {
+                l = mid+1;
+            }
+        }
+        return -1;
     } 
   
     // Driver method to test above 
