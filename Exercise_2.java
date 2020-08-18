@@ -3,7 +3,7 @@
  * Space Complexity: log n Stack frames for recursion; worst case O(n)
  * Did this code successfully run on Leetcode : Yes
  *
- * Any problem you faced while coding this : Does using two while loops make it complex than one for loop?
+ * Any problem you faced while coding this : Recursion and Iterative is difficult to comprehend; had to study from GFG to implement
  */
 class QuickSort {
     /* This function takes last element as pivot, 
