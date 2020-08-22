@@ -1,3 +1,8 @@
+package precourse2;
+//Time Complexity : O(n/2)
+//Space Complexity :O(n)
+//Did this code successfully run on Leetcode :Yes
+//Any problem you faced while coding this :No
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +25,14 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    	 Node slow = head;
+         Node fast = head;
+         while (fast != null && fast.next != null) {
+             fast = fast.next.next;
+             slow = slow.next;
+         }
+         System.out.println(slow.data);
+
     } 
   
     public void push(int new_data) 
@@ -40,14 +53,16 @@ class LinkedList
         System.out.println("NULL"); 
     } 
   
-    public static void main(String [] args) 
-    { 
-        LinkedList llist = new LinkedList(); 
-        for (int i=15; i>0; --i) 
-        { 
-            llist.push(i); 
-            llist.printList(); 
-            llist.printMiddle(); 
-        } 
-    } 
 } 
+class Exercise_3{	
+	public static void main(String [] args) 
+	{ 
+		LinkedList llist = new LinkedList(); 
+		for (int i=15; i>0; --i) 
+		{ 
+			llist.push(i); 
+			llist.printList(); 
+			llist.printMiddle(); 
+		} 
+	} 
+}
