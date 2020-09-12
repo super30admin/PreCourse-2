@@ -25,7 +25,7 @@ class LinkedList:
     # the linked list 
     def printMiddle(self): 
 
-        # Approach 1: Time Complexity: O(N)
+        # Approach 1: Time Complexity: O(N) Space Complexity: O(1)
         # Iterate till the end of the linked list. Find out how many elements are there and find the mid point.
         # Start iterating again till the mid point and print the value
         # pointer = self.node
@@ -44,7 +44,7 @@ class LinkedList:
         # print(pointer.data)
         # return pointer
 
-        # Approach 1: Time Complexity: O(N)
+        # Approach 1: Time Complexity: O(N) Space Complexity: O(1)
         # Fast and slow pointer approach where you iterate one pointer twice as fast as the other. By the end the slow pointer is pointing
         # to the middle node.
         slow, fast = self.node, self.node

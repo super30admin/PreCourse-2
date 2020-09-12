@@ -11,7 +11,6 @@ def mergeSort(arr):
   def merge(arr, l,  mid, h):
     i, j = l, mid
     tempList = []
-    k = 0
     while i < mid and j < h:
       
       if arr[i] < arr[j]:
@@ -20,7 +19,6 @@ def mergeSort(arr):
       else:
         tempList.append(arr[j])
         j += 1
-      k += 1
 
     while i < mid:
       tempList.append(arr[i])
@@ -33,7 +31,7 @@ def mergeSort(arr):
     arr[l:h] = tempList
 
   def divide(arr, l, h):
-    if h - l <= 1:
+    if h - l < 2:
        return
     
     mid = l + (h - l) // 2

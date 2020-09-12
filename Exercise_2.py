@@ -1,5 +1,7 @@
 # Python program for implementation of Quicksort Sort 
-  
+# Time Complexity: Avg Case: O(nlog(n)) | Worse Case: O(n^2)(When the array is in descending order)
+# Space Complexity: O(log(n)) for the call stack
+
 # give you explanation for the approach
 # - So during partition we choose a pivot and segregate the array in such a way that values smaller than
 #   the pivot are added to the left side and values grater, to the right. 
@@ -24,7 +26,6 @@ def partition(arr,low,high):
 
 # Function to do Quick sort 
 def quickSort(arr,low,high): 
-    print(arr, low, high)
     #write your code here
 
     if low >= high:
