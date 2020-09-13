@@ -1,20 +1,32 @@
 # Node class  
-class Node:  
-  
+class Node:
     # Function to initialise the node object  
-    def __init__(self, data):  
-        
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
 class LinkedList: 
-  
     def __init__(self): 
-        
-  
-    def push(self, new_data): 
-        
+        self.head = None
+    def push(self, new_data):
+        node = Node(new_data)
+        temp = self.head
+        if temp:
+            while temp.next:
+                temp = temp.next
+            temp.next = node
+        else:
+            self.head = node
+
   
     # Function to get the middle of  
     # the linked list 
-    def printMiddle(self): 
+    def printMiddle(self):
+        slow = fast = self.head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        print(slow.data)
 
 # Driver code 
 list1 = LinkedList() 
