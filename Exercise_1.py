@@ -30,3 +30,6 @@ if result != -1:
     print("Element is present at index % d" % result)
 else:
     print("Element is not present in array")
+
+# Time complexity: O(log n) where n is size of input
+# Space - O(1)

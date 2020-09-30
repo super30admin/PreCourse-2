@@ -60,4 +60,5 @@ for i in range(n):
 # Best-case = Partition splits the numbers evenly, and we get a similar recursion as mergesort -> O(n * log n) 
 # Worst-case = One partition empty, the other has all the elements. We get a similar recursion as insertion sort -> O(n**2) 
 # Average-case -> O(n * log n)
+# Space - O(n) -> recursive stack space
  

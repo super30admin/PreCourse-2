@@ -47,3 +47,6 @@ if __name__ == '__main__':
     mergeSort(arr)
     print("Sorted array is: ", end="\n")
     printList(arr)
+
+# Time Complexity: O(n*log n) for array of size n
+# Space COmplexity: O(n) Recursive stack space

@@ -39,3 +39,10 @@ quickSortIterative(arr,0,n-1)
 print ("Sorted array is:") 
 for i in range(n): 
     print ("%d" %arr[i]), 
+    
+# Running Time analysis
+# It depends on the sizes of the two partitions
+# Best-case = Partition splits the numbers evenly, and we get a similar recursion as mergesort -> O(n * log n) 
+# Worst-case = One partition empty, the other has all the elements. We get a similar recursion as insertion sort -> O(n**2) 
+# Average-case -> O(n * log n)
+# Space - O(n)

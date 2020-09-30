@@ -40,3 +40,6 @@ list1.push(2)
 list1.push(3) 
 list1.push(1) 
 list1.printMiddle() 
+
+# Time Complexity - O(n)
+# Space Complexity - O(1)
