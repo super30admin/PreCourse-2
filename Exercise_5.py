@@ -15,7 +15,7 @@ def partition(arr,start,end):
     arr[start], arr[orange] = arr[orange], arr[start]
     return orange
 
-# Remove recursion using and implict stack
+# Remove recursion using implict stack space
 def quickSortIterative(arr, l, h):
   #write your code here
   stack = []
