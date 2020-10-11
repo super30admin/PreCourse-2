@@ -3,6 +3,19 @@ class BinarySearch {
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
+        if (arr.length == 0 || r < l) {
+            return -1;
+        }
+
+        int mid = l + (r - l) / 2;
+        if (arr[mid] == x) {
+            return mid;
+        }
+        if (arr[mid] < x) {
+            return binarySearch(arr, mid + 1, r, x);
+        } else {
+            return binarySearch(arr, l, mid - 1, x);
+        }
     } 
   
     // Driver method to test above 
