@@ -37,7 +37,7 @@ def quickSortIterative(arr, l, h):
           s[top]=l
           top+=1
           s[top]=pivot-1
-      #simmilarly if there are elements right push the start and end points to stack
+      #simmilarly if there are elements at right of pivot push the start and end points to stack
 
       if pivot+1 < h:
           top+=1
