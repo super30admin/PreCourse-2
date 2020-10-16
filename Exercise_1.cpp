@@ -1,6 +1,6 @@
 // Time Complexity : O(Log N)
 // Space Complexity: O(1)
-// Did this code successfully run on Leetcode : Not avaialble on leetcode
+// Did this code successfully run on Leetcode : Not available on leetcode
 // Any problem you faced while coding this : None
 
 #include <stdio.h>
