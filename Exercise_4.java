@@ -16,7 +16,7 @@ class MergeSort
         for (int j = 0; j < m2; ++j)
             R[j] = arr[m + 1 + j];
 
-        int i = 0, j = 0
+        int i = 0, j = 0;
         int k = l;
         while (i < m1 && j < m2) {
             if (L[i] <= R[j]) {
