@@ -22,15 +22,11 @@ class QuickSort
         { 
             if (arr[j] < greatest) 
             { 
-                i++; 
-                int temp = arr[i]; 
-                arr[i] = arr[j]; 
-                arr[j] = temp; 
+                i++;  
+                swap(arr, i, j);
             } 
-        }
-        int temp = arr[i+1]; 
-        arr[i+1] = arr[high]; 
-        arr[high] = temp; 
+        } 
+        swap(arr, i + 1, high); 
   
         return i+1;
     } 
