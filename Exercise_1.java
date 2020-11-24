@@ -1,8 +1,17 @@
 class BinarySearch { 
     // Returns index of x if it is present in arr[l.. r], else return -1 
-    int binarySearch(int arr[], int l, int r, int x) 
+    int binarySearch(int arr[], int low, int high, int x) 
     { 
-        //Write your code here
+        while(low<high){
+            int mid = low+(high-low)/2;
+            if(arr[mid] == x){
+                return mid;
+            }else if(arr[mid]>x){
+                high = mid-1;
+            }else{
+                low = mid+1;
+            }
+        }
     } 
   
     // Driver method to test above 
