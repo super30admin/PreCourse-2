@@ -1,4 +1,13 @@
-class IterativeQuickSort { 
+class IterativeQuickSort {
+    /*
+    # Time Complexity : O(nlog(n)), where n is the length of the array
+    # Space Complexity : O(n), used 2 stacks to check the boundary.
+    # Did this code successfully run on Leetcode : Yes
+    # Any problem you faced while coding this : no
+
+    # Your code here along with comments explaining your approach
+
+    */
     void swap(int arr[], int i, int j) 
     { 
 	//Try swapping without extra variable

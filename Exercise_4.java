@@ -1,5 +1,14 @@
 class MergeSort 
-{ 
+{
+    /*
+    # Time Complexity : O(nlog(n)), where n is the length of the array
+    # Space Complexity : O(n), modified input list
+    # Did this code successfully run on Leetcode : Yes
+    # Any problem you faced while coding this : no
+
+    # Your code here along with comments explaining your approach
+
+    */
     // Merges two subarrays of arr[]. 
     // First subarray is arr[l..m] 
     // Second subarray is arr[m+1..r] 

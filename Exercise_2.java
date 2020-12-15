@@ -1,4 +1,14 @@
-class QuickSort 
+/*
+    # Time Complexity : O(nlog(n)), where n is the length of the array
+    # Space Complexity : O(1), modified input list
+    # Did this code successfully run on Leetcode : Yes
+    # Any problem you faced while coding this : no
+
+    # Your code here along with comments explaining your approach
+
+    */
+
+class QuickSort
 { 
     /* This function takes last element as pivot, 
        places the pivot element at its correct 

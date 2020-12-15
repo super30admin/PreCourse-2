@@ -1,4 +1,14 @@
-class LinkedList 
+class LinkedList
+
+    /*
+    # Time Complexity : O(n), where n is the length of the list
+    # Space Complexity : O(1), modified input list
+    # Did this code successfully run on Leetcode : Yes
+    # Any problem you faced while coding this : no
+
+    # Your code here along with comments explaining your approach
+
+    */
 { 
     Node head; // head of linked list 
   
