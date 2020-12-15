@@ -1,4 +1,14 @@
-class QuickSort 
+/*
+    # Time Complexity : O(nlog(n)), where n is the length of the array
+    # Space Complexity : O(1), modified input list
+    # Did this code successfully run on Leetcode : Yes
+    # Any problem you faced while coding this : no
+
+    # Your code here along with comments explaining your approach
+
+    */
+
+class QuickSort
 { 
     /* This function takes last element as pivot, 
        places the pivot element at its correct 
@@ -7,12 +17,29 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //Your code here
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+   	//Write code here for Partition and Swap
+        //requirement to keep pivot element at the end
+        int pivot = arr[end];
+        //we would need pointers to compare current element with pivot and swap among themselves
+        //to left and right
+        int partitionIndex = low;
+        for (int i = 0; i < arr.length; i++){
+            if (arr[i] <= arr[pivot]){
+                swap(arr,i,partitionIndex);
+                partitionIndex++;
+            }
+        }
+        swap(arr,partitionIndex,end);
+        return partitionIndex;
+
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -20,7 +47,11 @@ class QuickSort
       high  --> Ending index */
     void sort(int arr[], int low, int high) 
     {  
-            // Recursively sort elements before 
+        //To recursively sort the elements, we need to first have partition index
+        int partitionIndex = partition(arr,low,high);
+        // Recursively sort elements before
+        sort(arr,low,partitionIndex-1);
+        sort(arr,partitionIndex+1,high);
             // partition and after partition 
     } 
   
