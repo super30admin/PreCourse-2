@@ -6,6 +6,8 @@
 def binarySearch(arr, l, r, x): 
   #O(logN)
   #write your code here
+  if l > r:
+    return -1
   while l <= r:
     mid = l + (r - l) // 2
     if arr[mid] == x:
