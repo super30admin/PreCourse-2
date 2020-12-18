@@ -25,6 +25,7 @@ class LinkedList:
   
     # Function to get the middle of  
     # the linked list 
+    #time: O(N/2) -> O(N)
     def printMiddle(self): 
         slow = self.head 
         fast = self.head 
