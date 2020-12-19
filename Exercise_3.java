@@ -1,3 +1,17 @@
+//Exercise_3 : Find Mid Point of a Singly Linked List
+// Time Complexity : O(N)
+// Space Complexity : O(1) constant space
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this :  No
+
+/**** Steps ****/
+/*
+  1) Assign/Point two pointers, slow and fast to the head.
+  2) Traverse the linkedlist until fast is not null or fast.next not null(means until fast pointer reaches the end of the list)
+  3) Increment fast pointer two steps and slow pointer one step
+  4) Return the slow pointer when traversal of the linkedlist through fast pointer is completed. 
+*/
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -19,7 +33,20 @@ class LinkedList
     void printMiddle() 
     { 
         //Write your code here
-	//Implement using Fast and slow pointers
+    //Implement using Fast and slow pointers
+     
+    Node slow = head;
+    Node fast = head;
+     
+    while(fast!=null && fast.next!=null){
+
+        slow = slow.next;
+        fast = fast.next.next;
+
+    }
+
+    System.out.println(slow.data);
+
     } 
   
     public void push(int new_data) 
