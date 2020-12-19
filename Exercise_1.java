@@ -1,4 +1,5 @@
 class BinarySearch { 
+    //time compexity o(logn)
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
     { 
