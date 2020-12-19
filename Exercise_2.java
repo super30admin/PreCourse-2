@@ -1,4 +1,5 @@
-// Java program for implementation of QuickSort 
+// Java program for implementation of QuickSort
+//time complexity o(nlogn)
 class QuickSort
 {  void swap(int arr[],int i,int j){
 	int temp = arr[i]; 
