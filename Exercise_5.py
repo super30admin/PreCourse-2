@@ -1,4 +1,11 @@
 # Python program for implementation of Quicksort
+# Time Complexity : O(n) = n log n
+# Space Complexity : O(n) = n
+# Did this code successfully run on Leetcode : I did not try. Will do soon.
+# Any problem you faced while coding this : No, I had revised the partition method during previous problem.
+
+
+# Your code here along with comments explaining your approach
 
 # This function is same in both iterative and recursive
 def partition(arr, l, h):
