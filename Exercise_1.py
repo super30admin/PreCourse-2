@@ -1,5 +1,13 @@
 # Python code to implement iterative Binary  
 # Search. 
+# Time Complexity : O(n) = log n
+# Space Complexity : O(n) = n
+# Did this code successfully run on Leetcode : I was not aware that I had to do this. Will do this soon.
+# Any problem you faced while coding this : No problems
+
+
+# Your code here along with comments explaining your approach
+
 import math
 # It returns location of x in given array arr  
 # if present, else returns -1 
