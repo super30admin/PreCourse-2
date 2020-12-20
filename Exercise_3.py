@@ -1,5 +1,5 @@
-Time complexity = O(n)
-Space complexity = O(1)
+#Time complexity = O(n)
+#Space complexity = O(1)
 
 # Node class  
 class Node:  

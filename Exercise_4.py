@@ -1,5 +1,5 @@
-Time complexity= O(nlogn)
-Space complexity=O(n)
+#Time complexity= O(nlogn)
+#Space complexity=O(n)
 
 # Python program for implementation of MergeSort 
 def mergeSort(arr):
