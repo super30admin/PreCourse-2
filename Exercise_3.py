@@ -1,4 +1,11 @@
 #Returning left of middle 2 element if linked list has even numbered elements
+# Time Complexity : O(n) = n
+# Space Complexity : O(n) = n
+# Did this code successfully run on Leetcode : I did not try this on Leetcode.  Will do soon
+# Any problem you faced while coding this : No. I remember solving this problem before.
+
+
+# Your code here along with comments explaining your approach
 # Node class  
 class Node:  
   
