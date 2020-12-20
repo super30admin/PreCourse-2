@@ -29,3 +29,8 @@ class BinarySearch {
             System.out.println("Element found at index " + result); 
     } 
 } 
+
+// Time Complexity : O(logN)
+// Space Complexity : O(logN)
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no

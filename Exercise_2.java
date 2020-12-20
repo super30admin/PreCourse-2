@@ -70,3 +70,8 @@ class QuickSort
         printArray(arr); 
     } 
 } 
+
+// Time Complexity : best case is O(NlogN), worst case is O(N^2)
+// Space Complexity : O(logN) for recursion stack
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
