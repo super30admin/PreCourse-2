@@ -3,6 +3,8 @@
   
 # It returns location of x in given array arr  
 # if present, else returns -1 
+
+# log(n)
 def binarySearch(arr, l, r, x):  
   #write your code here
   if(l>r):

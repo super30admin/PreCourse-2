@@ -1,5 +1,5 @@
 # Python program for implementation of MergeSort
-
+# O(nlogn)
 def merge(arr, arr1, arr2):
   i = 0
   j = 0

@@ -1,6 +1,7 @@
 # Python program for implementation of Quicksort Sort 
-  
+
 # give you explanation for the approach
+# partition- O(n), quickSort- O(logn), total- O(nlogn)
 def partition(arr,low,high):
     #write your code here
     pivot = high
