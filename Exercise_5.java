@@ -3,15 +3,26 @@ import java.util.Stack;
 /*
 instead of using inbuilt recursion stack, we create own stack DS to store the indices of left and right boundaries
 of sub array.
+// Time Complexity : O(n log n)
+// Space Complexity : O(n), as we are using stack for iterative calls
+// Did this code successfully run on Leetcode :
+// Any problem you faced while coding this : doubtful with space complexity
 
  */
 class IterativeQuickSort {
     void swap(int arr[], int i, int j)
     {
 	//Try swapping without extra variable
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+//        int temp = arr[i];
+//        arr[i] = arr[j];
+//        arr[j] = temp;
+        if(i == j) //when i and j are at same index, therefore swapping can be avoided here
+        {
+            return;
+        }
+        arr[i] = arr[i] + arr[j];
+        arr[j] = arr[i] - arr[j];
+        arr[i] = arr[i] - arr[j];
     }
 
     /* This function is same in both iterative and

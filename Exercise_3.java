@@ -1,3 +1,8 @@
+// Time Complexity : O(n), even though we are using slow ptr and fast ptr technique, the fast pointer
+// traverses the entire list
+// Space Complexity : O(1), not using any extra space to find mid point of the list
+// Did this code successfully run on Leetcode :
+// Any problem you faced while coding this : no
 class LinkedList
 {
     Node head; // head of linked list

@@ -1,3 +1,7 @@
+// Time Complexity : O(n log n), in average case scenario
+// Space Complexity : O(n), we are using inbuilt recursion stack
+// Did this code successfully run on Leetcode :
+// Any problem you faced while coding this :
 class MergeSort
 {
     // Merges two subarrays of arr[].

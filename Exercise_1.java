@@ -1,6 +1,10 @@
 /*
 Binary Search in Sorted Array:
 Time complexity: O(log n), as we are dividing the array into 2 halves and performing search based on mid point
+ // Time Complexity : O(log n)
+// Space Complexity : O(1), as we not using any extra space to store elements. But
+// Did this code successfully run on Leetcode :
+// Any problem you faced while coding this : No
  */
 class BinarySearch {
     // Returns index of x if it is present in arr[l.. r], else return -1 
