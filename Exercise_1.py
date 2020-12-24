@@ -33,3 +33,5 @@ if result != -1:
     print(result)
 else: 
     print("Element is not present in array")
+
+#edited
