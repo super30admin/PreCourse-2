@@ -4,7 +4,8 @@
 '''
 Uses Divide-and-Conquer approach. Runs in O(n*log(n)).
 1. Selects a pivot element (usually the last element of the list).
-2. Then, traverses the sub array and arranges elements such that all the elements less than pivot are separated from all the elements greater than pivot.
+2. Then, traverses the sub array and arranges elements such that all the elements
+    less than pivot are separated from all the elements greater than pivot.
 3. And then performs the same operation recursively on the left and right subarrays.
 '''
 def partition(arr, low, high):
