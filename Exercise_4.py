@@ -30,7 +30,8 @@ def mergeSort(arr):
 			arr[k]=l2[j]
 			j+=1
 			k+=1
-  
+
+			
 # Code to print the list 
 def printList(arr):
 	#write your code here
