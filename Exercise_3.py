@@ -30,7 +30,6 @@ class LinkedList:
     	print(pre.data)
 
 
-
 # Driver code 
 list1 = LinkedList() 
 list1.push(5) 
