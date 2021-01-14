@@ -12,7 +12,6 @@ def partition(arr,low,high):
 	arr[i],arr[high]=arr[high],arr[i]
 	return i
 
-  
 
 # Function to do Quick sort 
 def quickSort(arr,low,high): 
