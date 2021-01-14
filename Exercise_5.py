@@ -43,6 +43,7 @@ def quickSortIterative(arr, l, h):
 			top+=1
 			stack[top]=h
 
+			
  
 arr = [10, 7, 8, 9, 1, 5] 
 n = len(arr) 
