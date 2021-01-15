@@ -13,7 +13,7 @@ class BinarySearch {
             return 0;
         }
         
-        Arrays.sort(arr);
+        Arrays.sort(arr); // not required, if given that the input Array is already sorted
         
         int mid =  (l+r)/2;
 
