@@ -1,21 +1,71 @@
-class BinarySearch { 
-    // Returns index of x if it is present in arr[l.. r], else return -1 
-    int binarySearch(int arr[], int l, int r, int x) 
+class Stack {
+    static final int MAX = 1000; 
+    int top; 
+    int a[] = new int[MAX]; // Maximum size of Stack 
+  
+    boolean isEmpty() 
     { 
-        //Write your code here
+        if(top < 0 ){
+            return true;
+        }
+        return false;
+    } 
+
+    Stack() 
+    { 
+        top = 0;
     } 
   
-    // Driver method to test above 
-    public static void main(String args[]) 
+    boolean push(int x) 
+    {
+        if(top < MAX)
+        {
+        	top ++;
+			a[top] = x;
+			System.out.println("Stack not full, value pushed: "+x);
+			return true;	    
+        }
+	
+		System.out.println("Stack overflow!");
+		return false;
+    } 
+  
+    int pop() 
     { 
-        BinarySearch ob = new BinarySearch(); 
-        int arr[] = { 2, 3, 4, 10, 40 }; 
-        int n = arr.length; 
-        int x = 10; 
-        int result = ob.binarySearch(arr, 0, n - 1, x); 
-        if (result == -1) 
-            System.out.println("Element not present"); 
-        else
-            System.out.println("Element found at index " + result); 
+        if(isEmpty())
+        {
+            System.out.println("Stack underflow!");
+            return -1;
+        }
+
+        int val = a[top];
+		top --;
+        return val;
+
+    } 
+  
+    int peek() 
+    { 
+        if(top>=0 && top<MAX)
+        	return a[top];
+		else
+        {
+			System.out.println("Index out of bounds!");
+			return -1;
+        }
     } 
 } 
+  
+// Driver code 
+class Main { 
+    public static void main(String args[]) 
+    { 
+        Stack s = new Stack(); 
+        s.push(10); 
+        s.push(20); 
+        s.push(30); 
+        
+        System.out.println(s.pop() + " Popped from stack");
+        System.out.print(s.peek() + "At top of stack");
+    } 
+}

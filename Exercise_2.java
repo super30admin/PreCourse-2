@@ -1,48 +1,81 @@
-class QuickSort 
-{ 
-    /* This function takes last element as pivot, 
-       places the pivot element at its correct 
-       position in sorted array, and places all 
-       smaller (smaller than pivot) to left of 
-       pivot and all greater elements to right 
-       of pivot */
-    void swap(int arr[],int i,int j){
-        //Your code here   
-    }
-    
-    int partition(int arr[], int low, int high) 
-    { 
-   	//Write code here for Partition and Swap 
+class StackAsLinkedList { 
+  
+    StackNode root; 
+  
+    static class StackNode { 
+        int data; 
+        StackNode next; 
+  
+        StackNode(int data) 
+        { 
+		    this.data = data;
+		    this.next = null;     
+        } 
     } 
-    /* The main function that implements QuickSort() 
-      arr[] --> Array to be sorted, 
-      low  --> Starting index, 
-      high  --> Ending index */
-    void sort(int arr[], int low, int high) 
-    {  
-            // Recursively sort elements before 
-            // partition and after partition 
+	
+    public boolean isEmpty() 
+    { 
+        if (root == null) 
+	        return true;
+        else
+            return false;
     } 
   
-    /* A utility function to print array of size n */
-    static void printArray(int arr[]) 
+    public void push(int data) 
     { 
-        int n = arr.length; 
-        for (int i=0; i<n; ++i) 
-            System.out.print(arr[i]+" "); 
-        System.out.println(); 
+        StackNode node = new StackNode(data);
+        if(root != null)
+        {
+            System.out.println("Pushed "+ data);
+            node.next = root;
+            root = node;
+        }
+
+        else
+        {
+            System.out.println("Stack Empty, adding first element "+ data);
+            root = node;
+        }
     } 
   
-    // Driver program 
-    public static void main(String args[]) 
+    public int pop() 
+    { 	
+	
+	   if (root == null)
+	   {
+          System.out.println("Stack Underflow!");
+		  return 0;
+	   }
+	else
+	{
+		StackNode node = root;
+		root = root.next;
+        node.next = null;
+		return node.data;
+	}
+    } 
+  
+    public int peek() 
+    { 	
+	   if (root!=null) 
+       {
+            return root.data;
+       }
+       
+       else return -1;
+    } 
+  
+    //Driver code
+    public static void main(String[] args) 
     { 
-        int arr[] = {10, 7, 8, 9, 1, 5}; 
-        int n = arr.length; 
   
-        QuickSort ob = new QuickSort(); 
-        ob.sort(arr, 0, n-1); 
+        StackAsLinkedList sll = new StackAsLinkedList(); 
   
-        System.out.println("sorted array"); 
-        printArray(arr); 
+        sll.push(10); 
+        sll.push(20); 
+        sll.push(30); 
+  
+        System.out.println(sll.pop() + " popped from stack");  
+        System.out.println("Top element is " + sll.peek()); 
     } 
 } 
