@@ -1,53 +1,95 @@
-class LinkedList 
-{ 
-    Node head; // head of linked list 
+import java.io.*; 
   
-    /* Linked list node */
-    class Node 
-    { 
+// Java program to implement 
+// a Singly Linked List 
+class LinkedList { 
+  
+    Node head; // head of list 
+  
+    // Linked list Node. 
+    // This inner class is made static 
+    // so that main() can access it 
+    static class Node { 
+  
         int data; 
         Node next; 
+  
+        // Constructor 
         Node(int d) 
         { 
-            data = d; 
-            next = null; 
+            this.data = d;
+            this.next = null;
         } 
     } 
   
-    /* Function to print middle of linked list */
-   //Complete this function
-    void printMiddle() 
+    // Method to insert a new node 
+    public static LinkedList insert(LinkedList list, int data) 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
-    } 
-  
-    public void push(int new_data) 
-    { 
-        Node new_node = new Node(new_data); 
-        new_node.next = head; 
-        head = new_node; 
-    } 
+        // Create a new node with given data 
 
-    public void printList() 
-    { 
-        Node tnode = head; 
-        while (tnode != null) 
-        { 
-            System.out.print(tnode.data+"->"); 
-            tnode = tnode.next; 
-        } 
-        System.out.println("NULL"); 
+        Node node = new Node(data);
+
+        // If the Linked List is empty, 
+        // then make the new node as head 
+        if(list.head == null)
+        {
+        	System.out.println("Linked-list is empty, adding fist element: "+ data);
+        	list.head = node;
+        }
+
+		// Else traverse till the last node 
+        // and insert the new_node there
+        else
+        {
+        	Node cur = list.head;
+        	while(cur.next != null)
+        	{
+        		cur = cur.next;
+        	}
+
+            // Insert the new_node at last node  
+        	cur.next = node;
+        }
+
+        // Return the list by head
+        return list;
+        
     } 
   
-    public static void main(String [] args) 
+    // Method to print the LinkedList. 
+    public static void printList(LinkedList list) 
     { 
-        LinkedList llist = new LinkedList(); 
-        for (int i=15; i>0; --i) 
-        { 
-            llist.push(i); 
-            llist.printList(); 
-            llist.printMiddle(); 
-        } 
+    	 Node node = list.head;
+
+        // Traverse through the LinkedList 
+    	 while(node != null)
+    	 {
+    	 	// Print the data at current node
+    	 	System.out.print(node.data + "->");
+
+    	 	// Go to next node 
+    	 	node = node.next;
+    	 }
     } 
-} 
+   
+    // Driver code 
+    public static void main(String[] args) 
+    { 
+        /* Start with the empty list. */
+        LinkedList list = new LinkedList(); 
+  
+        // 
+        // ******INSERTION****** 
+        // 
+  
+        // Insert the values 
+        list = insert(list, 1); 
+        list = insert(list, 2); 
+        list = insert(list, 3); 
+        list = insert(list, 4); 
+        list = insert(list, 5); 
+  
+        // Print the LinkedList 
+        printList(list); 
+    } 
+}
