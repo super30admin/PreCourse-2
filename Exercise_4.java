@@ -13,7 +13,7 @@ class MergeSort
        int[] leftArr = new int[left];
        int[] rightArr = new int[right];
 
-        // fill these subarrays
+        // fill these subarrays with input array values
         for(int i=0;i<left;i++){
              leftArr[i] = arr[i+l] ;
         }
