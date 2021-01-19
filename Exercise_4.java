@@ -44,7 +44,6 @@ class MergeSort
         while(li<left ){
             // System.out.println(resi);
             arr[resi] = leftArr[li];
-            
             li++;
             resi++;
         }
