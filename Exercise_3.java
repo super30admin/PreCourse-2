@@ -1,3 +1,5 @@
+import jdk.javadoc.internal.doclets.formats.html.SourceToHTMLConverter;
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -19,7 +21,20 @@ class LinkedList
     void printMiddle() 
     { 
         //Write your code here
-	//Implement using Fast and slow pointers
+    //Implement using Fast and slow pointers
+    
+        Node node1;
+        Node node2;
+
+        node1 = head;
+        node2 = head;
+
+        while (node2 !=null  && node2.next != null) {
+            node1 = node1.next;
+            node2 = node2.next.next;
+        }
+
+        System.out.println(node1.data);
     } 
   
     public void push(int new_data) 

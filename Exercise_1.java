@@ -3,7 +3,21 @@ class BinarySearch {
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
+        //Calculate the middle element
+        int middle = 1 + (r-l) / 2;
+        if ( arr[middle] == x ) {
+            return middle;
+        } else if (x > arr[middle]) {
+            binarySearch(arr, middle, r, x);
+        } else if (x < arr[middle]) {
+            binarySearch(arr, l, middle, x);
+        }
+
+        return -1;
     } 
+
+    //Time complexity = O(Logn)
+    // space complexity = O(1) 
   
     // Driver method to test above 
     public static void main(String args[]) 

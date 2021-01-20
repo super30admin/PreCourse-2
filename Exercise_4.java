@@ -5,15 +5,48 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+       //Your code here
+       int ll = m - l + 1;
+       int rs = r - m;
+       int[] LeftTmpArray = new int[ll];
+       int[] rightTmpArray = new int[rs];
+       int i, j;
+       for (i = 0; i < ll; i++) {
+           LeftTmpArray[i] = arr[l + i];
+       }
+       for (i = 0; i < rs; i++) {
+           rightTmpArray[i] = arr[m + 1 + i];
+       }
+       i = 0;
+       j = 0;
+       int k = l;
+       while (i < ll && j < rs) {
+           if (LeftTmpArray[i] < rightTmpArray[j])
+               arr[k++] = LeftTmpArray[i++];
+           else arr[k++] = rightTmpArray[j++];
+       }
+       while (i < ll)
+           arr[k++] = LeftTmpArray[i++];
+       while (j < rs)
+           arr[k++] = rightTmpArray[j++];
+
     } 
   
     // Main function that sorts arr[l..r] using 
     // merge() 
-    void sort(int arr[], int l, int r) 
+    void sort(int[] arr, int l, int r) 
     { 
 	//Write your code here
         //Call mergeSort from here 
+
+        if(l >= r) {
+            return;
+        }
+
+        int middle = (l + r) / 2;
+        sort(arr, l, middle);
+        sort(arr, middle + 1, r);
+        merge(arr, l, middle, r);
     } 
   
     /* A utility function to print array of size n */
@@ -40,3 +73,6 @@ class MergeSort
         printArray(arr); 
     } 
 } 
+
+//Time complexity - O(nlogn)
+// Space Complexity - O(n)
