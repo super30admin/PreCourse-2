@@ -5,7 +5,23 @@
 // otherwise -1 
 int binarySearch(int arr[], int l, int r, int x) 
 {   
-    //Your Code here 
+    int mid;
+    if(r >= l)
+    {
+      mid = l + (r-l)/2;
+    } 
+    else {
+      return -1;
+    }
+
+    if(arr[mid] == x)
+      return mid;
+    
+    if(arr[mid] < x)
+      return binarySearch(arr, mid+1, r, x);
+
+    if(arr[mid] > x)
+      return binarySearch(arr, l, mid-1, x);
 } 
   
 int main(void) 
