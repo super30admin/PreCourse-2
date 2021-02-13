@@ -3,6 +3,14 @@ class BinarySearch {
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
+        int midElement = l + (r - l) / 2;
+        if (arr[midElement] == x)
+            return midElement;
+
+        if (arr[midElement] < x)
+            return binarySearch(arr, midElement + 1, r, x);
+
+        return binarySearch(arr, l, midElement - 1, x);
     } 
   
     // Driver method to test above 
