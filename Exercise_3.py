@@ -41,7 +41,7 @@ class LinkedList:
             j +=1
         print("Mid Point is", n.data)
 
-        return n.data
+        return
 # Driver code 
 list1 = LinkedList() 
 list1.push(10)
