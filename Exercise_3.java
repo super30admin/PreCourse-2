@@ -1,5 +1,7 @@
 class LinkedList 
 { 
+	//Space Complexity: O(1) - constant
+	//Time Complexity: BC: O(n/2); WC: O(n)
     Node head; // head of linked list 
   
     /* Linked list node */
@@ -20,6 +22,13 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    	Node p1 = head;
+    	Node p2 =head;
+    	while(p1 != null && p1.next != null) {
+    		p1=p1.next.next;
+    		p2=p2.next;
+    	}
+    	System.out.println("Mid is: "+p2.data);
     } 
   
     public void push(int new_data) 
