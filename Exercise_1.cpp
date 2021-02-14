@@ -5,7 +5,7 @@
 // otherwise -1 
 
 //Time Complexity -> O(log(n)) Everytime we are dividing our search in half.
-//Space Complexity -> O(n) For the recursive stack.
+//Space Complexity -> O(log(n)) For the recursive stack.
 int binarySearch(int arr[], int l, int r, int x) 
 {   
     //Your Code here 
