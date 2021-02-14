@@ -1,4 +1,6 @@
-class LinkedList 
+package precourse2;
+
+class FindMidPointOfSonglyLinkedList 
 { 
     Node head; // head of linked list 
   
@@ -20,6 +22,16 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    	Node slowPtr = head;
+    	Node fastPtr = head;
+    	
+    	if(head != null) {
+    		while(fastPtr != null && fastPtr.next != null) {
+    			fastPtr = fastPtr.next.next;
+    			slowPtr = slowPtr.next;
+    		}
+    		System.out.println("Middle element in this linked list is: "+slowPtr.data);
+    	}
     } 
   
     public void push(int new_data) 
@@ -42,12 +54,12 @@ class LinkedList
   
     public static void main(String [] args) 
     { 
-        LinkedList llist = new LinkedList(); 
+    	FindMidPointOfSonglyLinkedList llist = new FindMidPointOfSonglyLinkedList(); 
         for (int i=15; i>0; --i) 
         { 
             llist.push(i); 
-            llist.printList(); 
-            llist.printMiddle(); 
+            //llist.printList(); 
         } 
+        llist.printMiddle(); 
     } 
 } 
