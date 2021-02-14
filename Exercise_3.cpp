@@ -1,6 +1,10 @@
 #include<bits/stdc++.h>  
 using namespace std;  
   
+
+//TC: O(N) for n nodes in Linked List
+//SC: O(1)
+
 // Struct  
 struct Node  
 {  

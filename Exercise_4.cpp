@@ -1,5 +1,8 @@
 #include<stdlib.h> 
 #include<stdio.h> 
+
+//TC: O(nlog n)
+//SC: O(n) where n is number of elements
   
 // Merges two subarrays of arr[]. 
 // First subarray is arr[l..m] 

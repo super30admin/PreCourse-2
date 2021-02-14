@@ -1,7 +1,12 @@
 #include <bits/stdc++.h> 
 #include <stack>
 using namespace std;  
-  
+
+
+//TC: Average - O(nlog n), Worst - O(n^2)
+//SC: O(log n)  
+
+
 // A utility function to swap two elements  
 void swap(int* a, int* b)  
 {  
