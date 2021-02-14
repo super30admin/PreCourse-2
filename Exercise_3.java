@@ -1,4 +1,6 @@
-class LinkedList 
+package com.sthirty.precoursetwo.prblmthree;
+
+class Exercise_3 
 { 
     Node head; // head of linked list 
   
@@ -18,8 +20,25 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+    	int count = 0;
+        Node mid = head;
+        Node temp=head;
+        while (temp != null)
+        {
+     
+            // Update mid, when 'count' 
+            // is odd number 
+            if ((count % 2) == 1)
+                mid = mid.next;
+     
+            ++count;
+            temp = temp.next;
+        }
+     
+        // If empty list is provided 
+        if (mid != null)
+            System.out.println(mid.data);
+    
     } 
   
     public void push(int new_data) 
@@ -42,7 +61,7 @@ class LinkedList
   
     public static void main(String [] args) 
     { 
-        LinkedList llist = new LinkedList(); 
+        Exercise_3 llist = new Exercise_3(); 
         for (int i=15; i>0; --i) 
         { 
             llist.push(i); 
