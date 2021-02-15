@@ -5,7 +5,8 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+       //Your code here
+
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -13,7 +14,9 @@ class MergeSort
     void sort(int arr[], int l, int r) 
     { 
 	//Write your code here
-        //Call mergeSort from here 
+        //Call mergeSort from here
+        int mid = l + (r-l)/2;
+        merge(arr,l ,mid , r);
     } 
   
     /* A utility function to print array of size n */
