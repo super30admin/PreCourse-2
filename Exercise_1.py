@@ -6,6 +6,17 @@
 def binarySearch(arr, l, r, x): 
   
   #write your code here
+  if r>=1:
+    mid = 1+(r-1)//2
+
+    if arr[mid] == x:
+      return mid
+    elif arr[mid] > x:
+      return binarySearch(arr,1,mid-1,x)
+    elif arr[mid] < x:
+      return binarySearch(arr, mid+1, r, x)
+    else:
+      return -1
   
     
   
