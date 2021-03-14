@@ -16,7 +16,7 @@ def mergeSort(arr):
         i = i + 1
       else:
         arr[k] = r[j]
-        j = j + 1
+        j = j + 1ee
       k = k + 1
 
     while i < len(l):
