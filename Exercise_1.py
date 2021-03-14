@@ -1,3 +1,4 @@
+import re
 # Python code to implement iterative Binary  
 # Search. 
   
