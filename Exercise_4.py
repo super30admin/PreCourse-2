@@ -15,4 +15,4 @@ if __name__ == '__main__':
     printList(arr) 
     mergeSort(arr) 
     print("Sorted array is: ", end="\n") 
-    printList(arr) 
+    printList(arr)
