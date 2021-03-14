@@ -20,8 +20,7 @@ class LinkedList:
     # the linked list 
     def printMiddle(self):
         ptr_1=self.head
-        ptr_2=self.headv
-        d m;ll
+        ptr_2=self.head
 
         if self.head != None:
             while (ptr_2 != None and ptr_2.next != None):
