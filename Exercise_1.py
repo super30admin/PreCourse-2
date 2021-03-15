@@ -1,5 +1,4 @@
-import re
-# Python code to implement iterative Binary  
+# Python code to implement iterative Binary
 # Search. 
   
 # It returns location of x in given array arr  
