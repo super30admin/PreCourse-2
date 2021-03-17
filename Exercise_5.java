@@ -1,7 +1,9 @@
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
-	//Try swapping without extra variable 
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;  
     } 
   
     /* This function is same in both iterative and 
@@ -9,12 +11,54 @@ class IterativeQuickSort {
     int partition(int arr[], int l, int h) 
     { 
         //Compare elements and swap.
+        //printArray(arr);
+       int piviot = arr[h];
+       int i = l - 1;
+      // System.out.println(i);
+       for(int j = l; j < h; j++){
+           if(arr[j] < piviot){
+               i++;
+               //printArray(arr);
+               swap(arr, i, j);
+           }
+       }
+       //printArray(arr);
+       swap(arr, i+1, h);
+       return i + 1;
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
     { 
         //Try using Stack Data Structure to remove recursion.
+        int[] stack = new int[h - l + 1]; 
+  
+       
+        int top = -1; 
+  
+        
+        stack[++top] = l; 
+        stack[++top] = h; 
+  
+        printArr(stack, stack.length);
+        while (top >= 0) { 
+            
+            h = stack[top--]; 
+            l = stack[top--]; 
+  
+            int p = partition(arr, l, h); 
+  
+            if (p - 1 > l) { 
+                stack[++top] = l; 
+                stack[++top] = p - 1; 
+                //printArr(stack, stack.length);
+            } 
+  
+            if (p + 1 < h) { 
+                stack[++top] = p + 1; 
+                stack[++top] = h; 
+            } 
+        } 
     } 
   
     // A utility function to print contents of arr 
