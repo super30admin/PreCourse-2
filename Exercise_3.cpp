@@ -13,6 +13,12 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+    Node* fast = head, *slow = head;
+    while(fast!=NULL && fast->next!=NULL){
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    cout<<"The middle element = "<<slow->data;
 }  
   
 // Function to add a new node  
