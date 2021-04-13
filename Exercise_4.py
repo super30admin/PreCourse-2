@@ -6,16 +6,16 @@ Then using these smallest parts we create a new temporary array and assign each 
 in its appropritate location in the temporary array
 
 mergeSort():
-Time Complexity : O(log N)
-Space Complexity : O(N) #Uses Recursion
+Time Complexity : O(log n) #Where n is the number of elements
+Space Complexity : O(n) #Uses Recursion
 
 merge():
-Time Complexity : O(N)
-Space Complexity : O(N)
+Time Complexity : O(n) #Where n is the number of elements
+Space Complexity : O(n) #Where n is the number of elements
 
 Total Time Complexity:
-Time Complexity : O(N Log N)
-Space Complexity : O(N)
+Time Complexity : O(n Log n) #Where n is the number of elements
+Space Complexity : O(n) #Where n is the number of elements
 """
 def mergeSort(arr, low, high):
 	
