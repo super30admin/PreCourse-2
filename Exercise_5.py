@@ -3,6 +3,7 @@
 """
 Intuition:  Select a pivot element. All the elements on the left of this pivot should be less than the pivot element.
 All the elements on the right of this pivot element should be greater than the pivot element
+Stack is used to add the indexes and from (L, pivot -1) and (pivot +1, R)
 
 Time Complexity : O(nlog n), Worst case: O(n^2) This depends on the pivot
 Space Complexity : O(1)
@@ -36,40 +37,37 @@ def partition(arr, low, high):
 				pivot = low
 	return pivot
 
-def quickSortIterative(arr, l, h):
+def quickSortIterative(arr, low, high):
 
 	#Initialize Stack
-	size = h - l + 1
-	stack = [0] * (size)
- 	top = 0
-	stack[top] = l
+	stack = [0] * 100
+	top = 0
+	stack[top] = low
 	top += 1
-	stack[top] = h
- 
- 	while top >= 0:
- 
-		h = stack[top]
+	stack[top] = high
+
+	while top >= 0:
+
+		high = stack[top]
 		top = top - 1
-		l = stack[top]
+		low = stack[top]
 		top = top - 1
- 
-		p = partition( arr, l, h )
- 
-		# If there are elements on left side of pivot,
-		# then push left side to stack
-		if p-1 > l:
+
+		pivot = partition( arr, low, high )
+
+		#Pushing (LOW, pivot-1) to stack
+		if pivot-1 > low:
 			top += 1
-			stack[top] = l
+			stack[top] = low
 			top += 1
-			stack[top] = p - 1
- 
-		# If there are elements on right side of pivot,
-		# then push right side to stack
-		if p+1 < h:
+			stack[top] = pivot - 1
+
+		#Pushing (pivot + 1, High) to stack
+		if pivot+1 < high:
 			top += 1
-			stack[top] = p + 1
+			stack[top] = pivot + 1
 			top += 1
-			stack[top] = h
+			stack[top] = high
 
 # Driver code to test above 
 arr = [10, 7, 8, 9, 1, 5] 
