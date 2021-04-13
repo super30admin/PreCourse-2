@@ -1,11 +1,29 @@
 # Python program for implementation of MergeSort 
+
+"""
+Intuition:  The idea here is to divide the array into its smallest parts.
+Then using these smallest parts we create a new temporary array and assign each smallest part
+in its appropritate location in the temporary array
+
+mergeSort():
+Time Complexity : O(log N)
+Space Complexity : O(N) #Uses Recursion
+
+merge():
+Time Complexity : O(N)
+Space Complexity : O(N)
+
+Total Time Complexity:
+Time Complexity : O(N Log N)
+Space Complexity : O(N)
+"""
 def mergeSort(arr, low, high):
-  
+	
 	if low < high:
 		mid = (low + high)//2
 		mergeSort(arr, low, mid)
 		mergeSort(arr, mid+1, high)
-		arr = merge(arr, low, mid, high)
+		merge(arr, low, mid, high)
 def merge(array, low, mid, high):
 
 	result = [0] * 20
@@ -33,9 +51,8 @@ def merge(array, low, mid, high):
 			currentI += 1
 			resultIndex += 1
 	
-	# for k in range(resultIndex):
-		# array[k] = result[k]
-	return result
+	for index in range(low, resultIndex):
+		array[index] = result[index]
 
 def printList(arr): 
     print(arr)
