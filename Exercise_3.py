@@ -1,26 +1,44 @@
 # Node class  
-class Node:  
-  
-    # Function to initialise the node object  
-    def __init__(self, data):  
-        
-class LinkedList: 
-  
-    def __init__(self): 
-        
-  
-    def push(self, new_data): 
-        
-  
-    # Function to get the middle of  
-    # the linked list 
-    def printMiddle(self): 
+class Node:
 
-# Driver code 
-list1 = LinkedList() 
-list1.push(5) 
-list1.push(4) 
-list1.push(2) 
-list1.push(3) 
-list1.push(1) 
-list1.printMiddle() 
+    # Function to initialise the node object
+    def __init__(self, data, Next=None):
+        self.data = data
+        self.Next = Next
+
+
+class LinkedList:
+
+    def __init__(self):
+        self.head = None
+
+    def push(self, new_data):
+        newNode = Node(new_data)
+        if self.head is None:
+            self.head = newNode
+        else:
+            tempPtr = self.head
+            while tempPtr.Next is not None:
+                tempPtr = tempPtr.Next
+            tempPtr.Next = newNode
+
+    # Function to get the middle of
+    # the linked list
+    def printMiddle(self):
+        if self.head is None:
+            return
+        navigateptr = self.head
+        traverseString = ''
+        while navigateptr:
+            print(navigateptr.data)
+            traverseString += " " + str(navigateptr.data)
+            navigateptr = navigateptr.Next
+        return traverseString
+
+
+insertdata = [34, 22, 11, 434, 90, 80, 67, 32]
+list1 = LinkedList()
+for element in insertdata:
+    # print(element)
+    list1.push(element)
+print(list1.printMiddle())
