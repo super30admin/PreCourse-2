@@ -1,3 +1,13 @@
+// Time Complexity : O(n)
+// Space Complexity : O(n)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : Earlier I tried with count method (where traverse whole
+ //   LinkedList and increase count then print element at n/2)
+ // I learned new method to find middle element
+
+
+// Your code here along with comments explaining your approach
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +30,15 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node slow_pointer=head;
+        Node fast_pointer=head;
+        if(head!=null){
+            while(fast_pointer!= null && fast_pointer.next!=null){
+                fast_pointer=fast_pointer.next.next;
+                slow_pointer=slow_pointer.next;
+            }
+            System.out.println(" Middle element is "+slow_pointer.data);
+        }    
     } 
   
     public void push(int new_data) 
