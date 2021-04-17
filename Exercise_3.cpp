@@ -1,5 +1,10 @@
 #include<bits/stdc++.h>  
 using namespace std;  
+
+/*
+Time complexity - O(N/2)
+Space complexity - O(1)
+*/
   
 // Struct  
 struct Node  
@@ -13,6 +18,14 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+  if (!head) return;
+  struct Node *slow = head, *fast = head;
+  while (slow->next && fast->next){
+      slow = slow->next;
+      fast = fast->next->next;
+      if (!fast) break;
+  }
+  cout << "middle element of LL is " << slow->data << endl;
 }  
   
 // Function to add a new node  
