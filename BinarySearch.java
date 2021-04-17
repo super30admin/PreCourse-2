@@ -1,4 +1,4 @@
-// Time Complexity : Worse case performance is O(log n)
+// Time Complexity : Worst case performance is O(log n)
 // Space Complexity : O(1)
 // Any problem you faced while coding this : No
 
