@@ -1,12 +1,23 @@
 #include <bits/stdc++.h> 
 using namespace std;  
+
+/*
+Avg. Time complexity - O(NlogN)
+Worst case time complexity - O(N^2)
+Avg. Space complexity - O(logN)
+Worst case space complexity - O(N)
+
+*/
   
 // A utility function to swap two elements  
 void swap(int* a, int* b)  
 {  
     //Your Code here 
+    int c = (*a);
+    (*a) = (*b);
+    (*b) = c;
 }  
-  
+
 /* This function takes last element as pivot, places  
 the pivot element at its correct position in sorted  
 array, and places all smaller (smaller than pivot)  
@@ -15,6 +26,15 @@ of pivot */
 int partition (int arr[], int low, int high)  
 {  
     //Your Code here 
+    int pivot = arr[high];
+    int idx = low - 1; //idx to place the pivot element after the smaller element
+    for (int i = low; i < high; ++i){
+        if (arr[i] <= pivot){
+            swap(&arr[++idx], &arr[i]);
+        }
+    }
+    swap(&arr[idx + 1], &arr[high]);
+    return idx + 1;
 }  
   
 /* The main function that implements QuickSort  
@@ -24,8 +44,13 @@ high --> Ending index */
 void quickSort(int arr[], int low, int high)  
 {  
     //Your Code here 
+    if (low < high){
+        int pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
 }  
-  
+
 /* Function to print an array */
 void printArray(int arr[], int size)  
 {  
@@ -33,15 +58,15 @@ void printArray(int arr[], int size)
     for (i = 0; i < size; i++)  
         cout << arr[i] << " ";  
     cout << endl;  
-}  
-  
+} 
+
 // Driver Code 
 int main()  
 {  
     int arr[] = {10, 7, 8, 9, 1, 5};  
-    int n = sizeof(arr) / sizeof(arr[0]);  
+    int n = sizeof(arr) / sizeof(arr[0]);
     quickSort(arr, 0, n - 1);  
     cout << "Sorted array: \n";  
     printArray(arr, n);  
     return 0;  
-}  
+}
