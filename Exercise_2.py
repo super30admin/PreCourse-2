@@ -6,7 +6,7 @@ def swap(arr, i, j):
 
 # give you explanation for the approach
 def partition(arr, low, high):
-    pivot_idx = random.randrange(low, high)
+    pivot_idx = random.randrange(low, high + 1)
     # pivot_idx = high
     pivot = arr[pivot_idx]
     swap(arr, pivot_idx, high)
