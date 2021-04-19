@@ -6,28 +6,23 @@ def swap(arr, i, j):
 
 # give you explanation for the approach
 def partition(arr, low, high):
-    # pivot_idx = random.randrange(low, high)
-    pivot_idx = low
+    pivot_idx = random.randrange(low, high)
+    # pivot_idx = high
     pivot = arr[pivot_idx]
-    swap(arr, pivot_idx, low)
-    curr_idx = high
+    swap(arr, pivot_idx, high)
+    curr_idx = low - 1
 
-    while high > low:
-        if arr[high] > pivot:
-            swap(arr, high, curr_idx)
-            high -= 1
-            curr_idx -= 1
-        elif arr[high] < pivot:
-            swap(arr, high, low)
-            low += 1
-        else: # arr[high] == pivot
-            high -= 1
-
+    for j in range(low, high):
+        if arr[j] < pivot:
+            curr_idx += 1
+            swap(arr, j, curr_idx)
+    curr_idx += 1
+    swap(arr, curr_idx, high)
     return curr_idx
 
 # Function to do Quick sort
 def quickSort(arr, low, high):
-    if high <= low:
+    if low >= high:
         return
     pivot = partition(arr, low, high)
     quickSort(arr, low, pivot - 1)
