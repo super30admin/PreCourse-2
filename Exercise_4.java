@@ -1,3 +1,7 @@
+// Time Complexity : O(nlogn)
+// Space Complexity : O(n)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
@@ -5,7 +9,47 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+        int s1 = m - l + 1; // size of first subarray
+        int s2 = r - m;     // size of second subarray
+
+        int left[] = new int[s1]; // left subarray
+        int right[] = new int[s2]; //right sub array
+
+        for (int i = 0; i < s1; ++i)
+            left[i] = arr[l + i];       // copy data to left array
+        for (int j = 0; j < s2; ++j)
+            right[j] = arr[m + 1 + j];      // copy data to right array
+
+
+        // Initial indexes of first and second subarrays
+        int i = 0, j = 0, k=l;        // intialize pointers for left array right array and merged array
+
+        while (i < s1 && j < s2) { // Compare left and right subarrays
+            if (left[i] <= right[j]) {  // if left element less than right 
+                arr[k] = left[i];        // rewrite new subarray with smallest value (left element )
+                                         //starting from 0 position
+                i++;                     // increment left pointer
+            }
+            else {
+                arr[k] = right[j];           // rewrite new subarray with smallest value (right element )
+                                             //starting from 0 position
+                j++;                       // increment right pointer
+            }
+            k++;                           // increment merged array pointer
+        }
+
+
+        while (i < s1) {         // Copy remaining elements of left subarray which got missed
+            arr[k] = left[i];
+            i++;
+            k++;
+        }
+
+        while (j < s2) {         // Copy remaining elements of right subarray which got missed
+            arr[k] = right[j];
+            j++;
+            k++;
+        }
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -14,6 +58,14 @@ class MergeSort
     { 
 	//Write your code here
         //Call mergeSort from here 
+        if (l < r) {
+
+            int m =l+ (r-l)/2;       // Find mid point
+            sort(arr, l, m);         // sort first subarray
+            sort(arr, m + 1, r);     // sort second subarray
+
+            merge(arr, l, m, r);     // merge both arrays
+        }
     } 
   
     /* A utility function to print array of size n */
