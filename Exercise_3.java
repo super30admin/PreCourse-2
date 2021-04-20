@@ -19,7 +19,7 @@ class LinkedList
     void printMiddle() 
     { 
         //Write your code here
-	//Implement using Fast and slow pointers
+	    //Implement using Fast and slow pointers
         //Write your code here
         //Implement using Fast and slow pointers
         Node slow = head, fast = head;
@@ -27,8 +27,10 @@ class LinkedList
             fast = fast.next.next;
             slow = slow.next;
         }
+        // If the number of elements in the LinkedList are odd then we will have only one middle element.
         System.out.print(slow.data+" ");
 
+        // If the number of elements in the LinkedList are even then we will have two middle elements.
         if(fast.next!=null){
             System.out.print(slow.next.data);
         }
