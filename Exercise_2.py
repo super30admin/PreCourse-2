@@ -1,11 +1,9 @@
-# Python program for implementation of Quicksort Sort 
+# Python program for implementation of Quicksort 
   
-# give you explanation for the approach
+# give your explanation for the approach
 def partition(arr,low,high):
-  
-  
     #write your code here
-  
+
 
 # Function to do Quick sort 
 def quickSort(arr,low,high): 
