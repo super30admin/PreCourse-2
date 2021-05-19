@@ -1,11 +1,22 @@
-#include <stdio.h> 
-  
+#include<bits/stdc++.h>
+using namespace std; 
 // A recursive binary search function. It returns 
 // location of x in given array arr[l..r] is present, 
 // otherwise -1 
-int binarySearch(int arr[], int l, int r, int x) 
+int binarySearch(int a[], int l, int r, int x) 
 {   
-    //Your Code here 
+    //Your Code here
+    if(l <= r) {
+        int m = l + (r - l) / 2;
+        if(a[m] == x) {
+            return m;
+        } else if(a[m] < x) {
+            return binarySearch(a, m+1, r, x);
+        } else {
+            return binarySearch(a, l, m-1, x);
+        }
+    }
+    return -1;
 } 
   
 int main(void) 
