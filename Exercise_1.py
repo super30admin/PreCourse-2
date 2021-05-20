@@ -6,13 +6,11 @@
 def binarySearch(arr, l, r, x): 
     mid = (l+r)//2  
     if x == arr[mid]:
-      print(arr[mid])
       return mid
-    
     elif x > arr[mid]:
-      return binarySearch(arr, mid+1, r, x)
+      return binarySearch(arr, mid, r, x)
     elif x < arr[l+r//2]:
-      return binarySearch(arr, 0, mid - 1, x) #as binarySearch is returning a value add return keyword before recursive call
+      return binarySearch(arr, 0, mid, x) #as binarySearch is returning a value add return keyword before recursive call
     return -1
   
   
