@@ -4,6 +4,20 @@
 # It returns location of x in given array arr  
 # if present, else returns -1 
 def binarySearch(arr, l, r, x): 
+    mid = (l+r)//2  
+    if x == arr[mid]:
+      print(arr[mid])
+      return mid
+    
+    elif x > arr[mid]:
+      return binarySearch(arr, mid+1, r, x)
+    elif x < arr[l+r//2]:
+      return binarySearch(arr, 0, mid - 1, x) #as binarySearch is returning a value add return keyword before recursive call
+    return -1
+  
+  
+  
+
   
   #write your code here
   
@@ -17,6 +31,6 @@ x = 10
 result = binarySearch(arr, 0, len(arr)-1, x) 
   
 if result != -1: 
-    print "Element is present at index % d" % result 
+    print("Element is present at index %d" % result)
 else: 
-    print "Element is not present in array"
+    print("Element is not present in array")
