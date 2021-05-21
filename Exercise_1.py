@@ -23,23 +23,24 @@ def binarySearch(arr, l, r, x):
         #Query element at midpoint
         if(arr[mid] == x):
             # print("Found")
-            return mid #Query element found
+            #Step 3(a): Query element found
+            return mid
         
-        #Query element is greater than mid point
+        #Step 3(b): Query element is greater than mid point
         elif x > arr[mid]:
             #Drop the search array left of the midpoint
             #By moving "left" to midpoint + 1
             l = mid + 1
             # print(f"l: {l}, r: {r}")
 
-        #Query element has to be lesser than mid point
+        #Step 3(c): Query element has to be lesser than mid point
         else:
             #Drop the search array right of the midpoint
             #By moving "right" to midpoint - 1
             r = mid - 1
             # print(f"l: {l}, r: {r}")
 
-    #If conditional loop terminates, element not found
+    #Step 3(d): If conditional loop terminates, element not found
     return -1  
     
   
