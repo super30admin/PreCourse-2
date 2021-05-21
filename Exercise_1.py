@@ -50,7 +50,6 @@ x = 10
 # Function call 
 # The assumption here is that first element is at index 0
 # So array of length "n" has max index = n-1
-#
 result = binarySearch(arr, 0, len(arr)-1, x) 
   
 if result != -1: 
