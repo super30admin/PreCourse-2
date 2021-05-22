@@ -37,30 +37,26 @@ S30 SlackID : RN32MAY2021
 # - random element 
 # - median
 
+#-----------------
 # Time Complexity:
-# Best case: O(n log n) - T(n) = 2T(n/2) + theta(n) - Tree is perfectly balanced
+#-----------------
+
+# Best case: O(n log n) - T(n) = 2T(n/2) + theta(n) 
+#                                recursion tree is perfectly balanced
+
 # Average case: O(n log n) = T(n/9) + T(9n/10) + theta(n) - 9:10 split example
+
 # Worst case: O(n^2) - Input = sorted list
 
-#Space Complexity: 
+#-----------------
+# Space Complexity: 
+#-----------------
 
+# Average case: O(log n) - Level of the recursion tree
+# Worse case: O(n) - No. of levels in recursion tree = n recursive calls
 
 def partition(arr,low,high):
-    # Pseudocode
-    # partition(A, p, r)
-    #   x = A[r]  <- x: "pivot" element
-    #   i = p-1 <- i: index of rightmost element on the left side 
-    #                 of the pivot (aka partition index)
-    #                 s.t all elements of A[p..i] are <= pivot (x)
-
-    #   for j = p to r-1  <- "j": iterator to do one pass over A
-    #       if A[j] <= x  <- Identified an element that's supposed 
-    #                        to be at the left of the pivot
-    #           i = i + 1
-    #           swap A[i] with A[j] <- Swap elements 
-    #   swap A[i+1] with A[r]  <- Place pivot at the partition index
-    #   return i+1             <- Return the index of the pivot
-    
+  
     pivot_index = high      # Choosing the rightmost as pivot element
     i = low - 1     # Initialize the partition index, i.e., rightmost element 
 #                     to the left of pivot
@@ -90,13 +86,6 @@ def partition(arr,low,high):
 # Function to do Quick sort
 
 def quickSort(arr,low,high):
-    # Pseudocode:
-    # quickSort(A, p, r)
-    # if p < r
-    #   q = partition(A, p, r)
-    #   quickSort(A, p, q-1)
-    #   quickSort(A, q+1, r)
-
     if low < high:
         #Partition the array s.t.,
         #elements to the left partition_index are less than 
