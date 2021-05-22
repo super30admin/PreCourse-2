@@ -1,11 +1,25 @@
-#include <stdio.h> 
-  
+#include<stdio.h>  
+
 // A recursive binary search function. It returns 
 // location of x in given array arr[l..r] is present, 
 // otherwise -1 
+//do I really need to do recursive?
 int binarySearch(int arr[], int l, int r, int x) 
 {   
     //Your Code here 
+    int mid = (l+r)/2;
+    if(arr[mid]==x){
+        return mid;
+    }
+    else if(arr[mid]>x){
+        return binarySearch(arr,0,mid-1,x);
+    }
+    else if(arr[mid]<x){
+        return binarySearch(arr, mid+1,r,x);
+    }
+    else{
+        return -1;
+    }
 } 
   
 int main(void) 
