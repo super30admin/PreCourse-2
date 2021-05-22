@@ -32,8 +32,8 @@ S30 SlackID : RN32MAY2021
 # returns the index of partition or the "pivot" element
 
 # There can be different strategies to select pivot:
+# - rightmost element (as done in this implementation)
 # - leftmost element
-# - rightmost element (as done above)
 # - random element 
 # - median
 
