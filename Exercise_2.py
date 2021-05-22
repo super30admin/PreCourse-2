@@ -9,8 +9,8 @@
 
 # Step 1 (Divide): Partition (rearrange) the input array A[p..r] 
 #         s.t A[p..q-1] and A[q+1, r] are two subarrays where, 
-#		  each element of A[p..q-1] <= each element of A[q+1, r]
-# 		  compute q as part of partitioning
+#         each element of A[p..q-1] <= each element of A[q+1, r]
+#         compute q as part of partitioning
 
 # Step 2 (Conquer): Sort A[p..q-1] and A[q+1..r] by recursive calls
 
@@ -36,35 +36,35 @@
 
 
 def partition(arr,low,high):
-	# Pseudocode
-	# partition(A, p, r)
-	# 	x = A[r]  <- x: "pivot" element
-	#   i = p-1 <- i: index of rightmost element on the left side 
-	# 				  of the pivot (aka partition index)
-	#                 s.t all elements of A[p..i] are <= pivot (x)
+    # Pseudocode
+    # partition(A, p, r)
+    #   x = A[r]  <- x: "pivot" element
+    #   i = p-1 <- i: index of rightmost element on the left side 
+    #                 of the pivot (aka partition index)
+    #                 s.t all elements of A[p..i] are <= pivot (x)
 
-	# 	for j = p to r-1  <- "j": iterator to do one pass over A
-	#		if A[j] <= x  <- Identified an element that's supposed 
-	#						 to be at the left of the pivot
-	# 			i = i + 1
-	#		 	swap A[i] with A[j] <- Swap elements 
-	#	swap A[i+1] with A[r]  <- Place pivot at the partition index
-	# 	return i+1             <- Return the index of the pivot
-	
-	pivot_index = high # Choosing the rightmost as pivot element
-	i = low-1 # Initialize the partition index, i.e.,  
-#			   rightmost element to the left of pivot
-#			   Note: Partition index will be i+1 in this case
-	for j in range(low, high):
-		if arr[j] <= arr[pivot_index]: 
-#		This element should be to the right of pivot
-			i += 1
+    #   for j = p to r-1  <- "j": iterator to do one pass over A
+    #       if A[j] <= x  <- Identified an element that's supposed 
+    #                        to be at the left of the pivot
+    #           i = i + 1
+    #           swap A[i] with A[j] <- Swap elements 
+    #   swap A[i+1] with A[r]  <- Place pivot at the partition index
+    #   return i+1             <- Return the index of the pivot
+    
+    pivot_index = high # Choosing the rightmost as pivot element
+    i = low-1 # Initialize the partition index, i.e.,  
+#              rightmost element to the left of pivot
+#              Note: Partition index will be i+1 in this case
+    for j in range(low, high):
+        if arr[j] <= arr[pivot_index]: 
+#       This element should be to the right of pivot
+            i += 1
 
-			arr[i], arr[j] = arr[j], arr[i] #In-place swap
-	
-	arr[i+1], arr[pivot_index] = arr[pivot_index], arr[i+1]
-	
-	return i+1 #Partition index returned
+            arr[i], arr[j] = arr[j], arr[i] #In-place swap
+    
+    arr[i+1], arr[pivot_index] = arr[pivot_index], arr[i+1]
+    
+    return i+1 #Partition index returned
 
 
 
@@ -73,28 +73,28 @@ def partition(arr,low,high):
 # Function to do Quick sort
 
 def quickSort(arr,low,high):
-	# Pseudocode:
-	# quickSort(A, p, r)
-	# if p < r
-	# 	q = partition(A, p, r)
-	#	quickSort(A, p, q-1)
-	#	quickSort(A, q+1, r)
+    # Pseudocode:
+    # quickSort(A, p, r)
+    # if p < r
+    #   q = partition(A, p, r)
+    #   quickSort(A, p, q-1)
+    #   quickSort(A, q+1, r)
 
-	if low < high:
-		#Partition the array s.t.,
-		#elements to the left partition_index are less than 
-		#elements to the right of the partition_index
-		#with pivot element at the partition 
-		partition_index = partition(arr, low, high)
+    if low < high:
+        #Partition the array s.t.,
+        #elements to the left partition_index are less than 
+        #elements to the right of the partition_index
+        #with pivot element at the partition 
+        partition_index = partition(arr, low, high)
 
-		#Recursive call to sort left side of partition
-		quickSort(arr, low, partition_index-1)
+        #Recursive call to sort left side of partition
+        quickSort(arr, low, partition_index-1)
 
-		#Recursive call to sort right side of partition
-		quickSort(arr, partition_index+1, high)
+        #Recursive call to sort right side of partition
+        quickSort(arr, partition_index+1, high)
 
-	# Process repeats until we get an empty subarray to the left
-	# Which means list is sorted    
+    # Process repeats until we get an empty subarray to the left
+    # Which means list is sorted    
   
 # Driver code to test above 
 arr = [10, 7, 8, 9, 1, 5] 
