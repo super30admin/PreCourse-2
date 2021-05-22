@@ -66,13 +66,13 @@ def partition(arr,low,high):
         if arr[j] <= arr[pivot_index]:
         #This element (arr[j]) should be to the right of pivot 
             
-            #Increment partition index because we will swap element <= pivot        #
+            #Increment partition index because we will swap element <= pivot
             i += 1      
 
             #In-place swap
             arr[i], arr[j] = arr[j], arr[i] 
     
-    #Place pivot at the partition index                                                            index
+    #Place pivot at the partition index
     arr[i+1], arr[pivot_index] = arr[pivot_index], arr[i+1] 
     
     #Return partition index at which pivot is placed
