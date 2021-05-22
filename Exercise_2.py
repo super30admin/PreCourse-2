@@ -38,9 +38,11 @@ S30 SlackID : RN32MAY2021
 # - median
 
 # Time Complexity:
-# Best case: O(nlogn)
-# Average case: O(nlogn)
+# Best case: O(n log n) - T(n) = 2T(n/2) + theta(n) - Tree is perfectly balanced
+# Average case: O(n log n) = T(n/9) + T(9n/10) + theta(n) - 9:10 split example
 # Worst case: O(n^2) - Input = sorted list
+
+#Space Complexity: 
 
 
 def partition(arr,low,high):

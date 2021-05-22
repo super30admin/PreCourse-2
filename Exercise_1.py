@@ -11,6 +11,8 @@ S30 SlackID : RN32MAY2021
   
 # It returns location of x in given array arr  
 # if present, else returns -1 
+# Time complexity: O(log n) : T(n) = T(n/2) + c
+# Space complexity: O(1) 
 def binarySearch(arr, l, r, x):
     #arr: input array
     #x  : queried element
