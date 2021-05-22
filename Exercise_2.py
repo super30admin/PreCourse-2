@@ -1,3 +1,11 @@
+'''
+====== Submission Details =======
+Student Name: Pavan Kumar K. N.
+Email       : pavan1011@gmail.com
+S30 SlackID : RN32MAY2021
+=================================
+'''
+
 # Python program for implementation of Quicksort Sort 
 
 #-------------  
@@ -51,20 +59,27 @@ def partition(arr,low,high):
     #   swap A[i+1] with A[r]  <- Place pivot at the partition index
     #   return i+1             <- Return the index of the pivot
     
-    pivot_index = high # Choosing the rightmost as pivot element
-    i = low-1 # Initialize the partition index, i.e.,  
-#              rightmost element to the left of pivot
-#              Note: Partition index will be i+1 in this case
-    for j in range(low, high):
-        if arr[j] <= arr[pivot_index]: 
-#       This element should be to the right of pivot
-            i += 1
+    pivot_index = high      # Choosing the rightmost as pivot element
+    i = low - 1     # Initialize the partition index, i.e., rightmost element 
+#                     to the left of pivot
+#                     NOTE: True partition index will be i+1
+    for j in range(low, high):    #iterator to do one pass over A
+        
+        if arr[j] <= arr[pivot_index]:
+        #This element (arr[j]) should be to the right of pivot 
+            
+            #Increment partition index because we will swap element <= pivot        #
+            i += 1      
 
-            arr[i], arr[j] = arr[j], arr[i] #In-place swap
+            #In-place swap
+            arr[i], arr[j] = arr[j], arr[i] 
     
-    arr[i+1], arr[pivot_index] = arr[pivot_index], arr[i+1]
+    #Place pivot at the partition index                                                            index
+    arr[i+1], arr[pivot_index] = arr[pivot_index], arr[i+1] 
     
-    return i+1 #Partition index returned
+    #Return partition index at which pivot is placed
+    #Now all elements to the left <= pivot <= elements to the right 
+    return i+1 
 
 
 

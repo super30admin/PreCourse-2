@@ -1,3 +1,11 @@
+'''
+====== Submission Details =======
+Student Name: Pavan Kumar K. N.
+Email       : pavan1011@gmail.com
+S30 SlackID : RN32MAY2021
+=================================
+'''
+
 # Python code to implement iterative Binary  
 # Search. 
   
@@ -9,7 +17,7 @@ def binarySearch(arr, l, r, x):
     #l  : "leftmost" element
     #r  : "rightmost" element 
 
-    #By definition of left and right, in a valid searcg array: l<r
+    #By definition of left and right, in a valid search array: l<r
     #Step 1: Iterate until search array shrinks to size 1, i.e, l==r
     while l<=r:
         #Step 2: Check if query element (x) is at the midpoint of arr
