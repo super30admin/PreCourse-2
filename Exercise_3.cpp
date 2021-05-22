@@ -11,8 +11,40 @@ struct Node
 /* Function to get the middle of the linked list*/
 void printMiddle(struct Node *head)  
 {  
-  //YourCode here
   //Use fast and slow pointer technique
+  
+    //Empty list condition
+    if(head == NULL)
+    {
+        cout << endl << "Empty List" << endl;;
+    }
+
+    struct Node *s, *f;
+    s = f = head;
+
+    //Traverse the list
+    while(f != NULL)
+    {
+        //Fast f pointer moves at double the pace
+
+        f = f->next;
+
+        //Reached the end ?
+        if(f != NULL)
+        {
+            f = f->next;
+        }
+        else
+        {
+            break;
+        }
+
+        s = s->next;
+    }
+
+    cout << s->data << endl;
+
+    return;
 }  
   
 // Function to add a new node  
@@ -47,4 +79,10 @@ int main()
     }  
   
     return 0;  
-}  
+} 
+
+/**
+ * @brief Complexity Analysis
+ * Time - O(n/2)
+ * Space - Depends on length
+ */
