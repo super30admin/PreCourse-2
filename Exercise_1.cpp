@@ -5,7 +5,24 @@
 // otherwise -1 
 int binarySearch(int arr[], int l, int r, int x) 
 {   
-    //Your Code here 
+    //Your Code here
+    if(l<=r)
+    { 
+        int mid = (l + r)/2;
+        if(arr[mid] == x){
+            return mid;
+        }
+        else if(arr[mid] < x)
+        {
+            return binarySearch(arr,mid+1,r,x);
+        }
+        else
+        {
+            return binarySearch(arr,l,mid-1,x);
+        }
+       
+    }
+     return -1;
 } 
   
 int main(void) 
@@ -19,3 +36,5 @@ int main(void)
                             result); 
     return 0; 
 } 
+
+//Time Complexity of Binary search is O(Logn) where n is the number of elements
