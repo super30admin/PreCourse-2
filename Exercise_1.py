@@ -1,13 +1,14 @@
 # Python code to implement iterative Binary  
 # Search. 
+# Time Complexity : O(log n)
+#  Space Complexity : O(log n)
+# Did this code successfully run on Leetcode : Yes
 
 # It returns location of x in given array arr  
 # if present, else returns -1 
 def binarySearch(arr1, r, l, x):
     # write your code here
-    print("aaaaa",r+(l-r))
-    med = r+(l-r) // 2
-    print(med)
+    med = r+(l-r)// 2
     if arr1[med] == x:
         return med
     elif arr1[med] < x:
