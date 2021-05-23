@@ -21,6 +21,7 @@ def quickSort(arr,low,high):
     #write your code here
     if len(arr) == 1:
         return arr
+    # if high greater than low time to put pivot at position and move on
     if low<high:
         j = partition(arr,low,high)
         quickSort(arr,low,j-1)
