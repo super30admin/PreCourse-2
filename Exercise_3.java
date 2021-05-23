@@ -11,7 +11,7 @@ class LinkedList
         { 
             data = d; 
             next = null; 
-        } 
+        }
     } 
   
     /* Function to print middle of linked list */
@@ -19,7 +19,19 @@ class LinkedList
     void printMiddle() 
     { 
         //Write your code here
-	//Implement using Fast and slow pointers
+	    //Implement using Fast and slow pointers
+        Node slowPointer = head;
+        Node fastPointer = head;
+        if(head != null){
+            while(fastPointer != null && fastPointer.next != null){
+                fastPointer = fastPointer.next.next;
+                slowPointer = slowPointer.next;
+            }
+            System.out.println("Middle Element - " + slowPointer.data);
+        }
+        else{
+            System.out.println("No Elements in SLL");
+        }
     } 
   
     public void push(int new_data) 
