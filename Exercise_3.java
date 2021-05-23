@@ -1,3 +1,10 @@
+/*
+** Time Complexity - O(n/2)
+** Space Complexity - O(1)
+** Did this code successfully run on Leetcode : Yes
+** Any problem you faced while coding this : No
+*/
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -17,10 +24,22 @@ class LinkedList
     /* Function to print middle of linked list */
    //Complete this function
     void printMiddle() 
-    { 
-        //Write your code here
-	//Implement using Fast and slow pointers
-    } 
+    {
+    //Implement using Fast and slow pointers
+        Node faster_ptr = head;
+        Node slower_ptr = head;
+
+        if(head != null) {
+            while(faster_ptr != null && faster_ptr.next != null) {
+                //forward the pointer two node ahead and move till the pointer reaches to an end
+                //forward the pointer one step ahead and once the faster pointer reaches to an end,
+                //mid is found
+                faster_ptr = faster_ptr.next.next;
+                slower_ptr = slower_ptr.next;
+            }
+            System.out.println("The middle element is :" + slower_ptr.data);
+        }
+    }
   
     public void push(int new_data) 
     { 
@@ -47,7 +66,7 @@ class LinkedList
         { 
             llist.push(i); 
             llist.printList(); 
-            llist.printMiddle(); 
+            llist.printMiddle();
         } 
     } 
 } 
