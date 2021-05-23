@@ -1,3 +1,5 @@
+//Time Complexity: O(n log n)
+//Space Complexity: O(n) since we create new arrays 
 #include<stdlib.h> 
 #include<stdio.h> 
   
@@ -6,14 +8,59 @@
 // Second subarray is arr[m+1..r] 
 void merge(int arr[], int l, int m, int r) 
 { 
-    //Your code here
+    int i, j, k;
+    int s1 = m - l + 1;
+    int s2 = r - m;
+    int arrL[s1];
+    int arrR[s2];
+
+    for(i = 0; i < s1; i++){
+        arrL[i] = arr[l + i];
+    }
+    for(j = 0; j < s2; j++){
+        arrR[j] = arr[m + 1 + j];
+    }
+
+    i = 0;
+    j = 0;
+    k = l;
+
+    while( i < s1 && j < s2){
+        if(arrL[i] <= arrR[j]){
+            arr[k] = arrL[i];
+            i++;
+        }
+        else {
+            arr[k] = arrR[j];
+            j++;
+        }
+        k++;
+    }
+
+    while(i < s1){
+        arr[k] = arrL[i];
+        i++;
+        k++;
+    }
+    
+    while(j < s2){
+        arr[k] = arrR[j];
+        j++;
+        k++;
+    }
 } 
   
 /* l is for left index and r is right index of the 
    sub-array of arr to be sorted */
 void mergeSort(int arr[], int l, int r) 
 { 
-    //Your code here
+    if(l < r){
+    int mid = l+(r-l)/2;
+    mergeSort(arr, l, mid);
+    mergeSort(arr, mid + 1, r);
+    merge(arr, l, mid, r);
+    }
+
 } 
   
 /* UTILITY FUNCTIONS */
