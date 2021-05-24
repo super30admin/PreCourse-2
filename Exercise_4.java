@@ -5,7 +5,15 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+       //Your code here
+        int subArray1[] = new int[m];
+        int subArray2[] = new int[m];
+        for (int i = l; i <= m; i++){
+            subArray1[0] = arr[i];
+        }
+        for (int j = m+1; j <= r; j++){
+            subArray1[j] = arr[j];
+        }
     } 
   
     // Main function that sorts arr[l..r] using 
