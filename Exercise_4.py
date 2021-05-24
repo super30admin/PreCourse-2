@@ -1,12 +1,44 @@
 # Python program for implementation of MergeSort 
 def mergeSort(arr):
-  
-  #write your code here
-  
+  if len(arr) <=1:
+    return arr
+   
+    mid = len(arr) //2
+    left = arr[:mid]
+    right = arr[mid:]
+    mergeSort(left)
+    mergeSort(right)
+    i=0
+    j=0
+    k=0
+
+    while i<len(left) and j<len(right):
+      if left[i] < right[j]:
+        arr[k] = left[i]
+        j=j+1
+
+      else:
+        arr[k] = right[j]
+        j=j+1
+      k=k+1
+
+    while i<len(left):
+      arr[k] = left[i]
+      i=i+1
+      k=k+1
+    
+    while j<len(right):
+      arr[k]=right[j]
+      j=j+1
+      k=k+1
+
 # Code to print the list 
 def printList(arr): 
+  for i in range(len(arr)):
+    print(arr[i], end='')
+  print()
     
-    #write your code here
+
   
 # driver code to test the above code 
 if __name__ == '__main__': 
