@@ -1,3 +1,4 @@
+//did not understand the partition part and did search online but still confused and hope this is explained in a lesson
 class QuickSort 
 { 
     /* This function takes last element as pivot, 
@@ -7,13 +8,18 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //Your code here
+    	
+    	int a = arr[i];
+    	arr[i] = arr[j];
+    	arr[j] = a;
     }
     
     int partition(int arr[], int low, int high) 
     { 
    	//Write code here for Partition and Swap 
     } 
+    
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
       low  --> Starting index, 
