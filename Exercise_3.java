@@ -1,3 +1,4 @@
+// had no idea how to do, then found what slow and fast pointers were online and how we can use next and next.next to reach the middle
 class LinkedList 
 { 
     Node head; // head of linked list 
