@@ -1,3 +1,5 @@
+//Time Complexity : O(nlogn)
+//Worst case : O(n2)
 class QuickSort 
 { 
     /* This function takes last element as pivot, 

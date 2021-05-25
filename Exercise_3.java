@@ -1,3 +1,4 @@
+//Time Complexity : O(n)
 class LinkedList 
 { 
     Node head; // head of linked list 
