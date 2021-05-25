@@ -3,6 +3,16 @@ class BinarySearch {
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
+    	while (l <= r) {
+    		int mid = l + (r - l) / 2; //To avoid overflow
+    		if(arr[mid] == x)
+    			return mid;
+    		if(x < arr[mid])
+    			r = mid - 1;
+    		else
+    			l = mid + 1;
+    	}
+    	return -1;
     } 
   
     // Driver method to test above 
@@ -18,4 +28,6 @@ class BinarySearch {
         else
             System.out.println("Element found at index " + result); 
     } 
+    /*Time Complexity : 0(log n)
+     * Space Complexity: O(n)*/
 } 
