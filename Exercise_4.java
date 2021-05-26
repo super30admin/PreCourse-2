@@ -1,5 +1,6 @@
 /**
  * Time Complexity : O(nLogn)
+ * Space Complexity: O(n)
  *
  * 1. find middle index and divide array to two halfs from middle index 
  * 2. recursively sort sub array and merge

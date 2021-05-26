@@ -1,6 +1,6 @@
 /**
- *	Time Complexity : O(nlogn)
- *	worst case : O(n2)
+ *	Time Complexity : O(nlogn)  worst case : O(n2)
+ *	Space Complexity: O(n)
  *
  * 1. Take last element in array as reference
  * 2. loop through from start element to last element if element is less than last swap it

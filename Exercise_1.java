@@ -1,6 +1,6 @@
 /**
  *	Time Complexity : O(logn)
- *
+ *  Space Complexity: O(n)
  * 1. Binary search input array should be sorted
  * 2. If array size is zero return -1
  * 3. find mid element of array and compare with search element

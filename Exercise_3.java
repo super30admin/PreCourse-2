@@ -1,6 +1,6 @@
 /**
  *	Time Complexity : O(n)
- *
+ *  Space Complexity: O(n)
  * 1. initialize midIndex to starting index
  * 2. when index is odd move midIndex by one
  * 3. print the midIndex item from the LinkedList
