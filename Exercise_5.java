@@ -18,8 +18,7 @@ class IterativeQuickSort {
         	swap(arr,i,j);
             }
         }
-        swap(arr,i,high);
-  
+        swap(arr,i,h);
         return i + 1;
     } 
   
