@@ -49,3 +49,7 @@ if __name__ == '__main__':
     mergeSort(arr) 
     print("Sorted array is: ", end="\n") 
     printList(arr) 
+"""
+TimeComplexity: O(n log n)-worstcase
+Space Compexity: O(n)
+"""
