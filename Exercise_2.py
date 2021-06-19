@@ -33,3 +33,7 @@ quickSort(arr,0,n-1)
 print ("Sorted array is:") 
 for i in range(n): 
     print("%d" %arr[i])
+"""
+TimeComplexity: O(n^2)-worst case, Best  case O(n logn)
+Space Compexity: O(n)-worst case
+"""
