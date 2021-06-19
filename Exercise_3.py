@@ -36,3 +36,10 @@ list1.push(2)
 list1.push(3) 
 list1.push(1)
 list1.printMiddle() 
+
+"""
+TimeComplexity: O(n/2)~ O(n) -As I am going through half of the nodes for printmiddle.
+                But for push time complexity is 0(1)
+                
+Space Compexity: O(n)
+"""
