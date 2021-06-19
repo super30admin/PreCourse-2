@@ -54,5 +54,5 @@ print(arr)
 """
 Please note I checked on google to understand the concept as I didn't knew iterative Quicksort
 TimeComplexity: O(n^2)-worst  case, best case- O(nlogn)
-Space Compexity: O(n)
+Space Compexity: O(n)-worst case
 """
