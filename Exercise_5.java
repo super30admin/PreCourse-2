@@ -1,4 +1,5 @@
 class IterativeQuickSort { 
+	//I couldnot come up with this iterative quick sort myself so had to refer online resources.
     void swap(int arr[], int i, int j) 
     { 
 	//Try swapping without extra variable 
@@ -13,9 +14,9 @@ class IterativeQuickSort {
     int partition(int arr[], int l, int h) 
     { 
 
-        int pivot = arr[high];
-        int i = (low - 1); // index of smaller element
-        for (int j = low; j <= high - 1; j++) {
+        int pivot = arr[h];
+        int i = (l - 1); // index of smaller element
+        for (int j = l; j <= h - 1; j++) {
             // If current element is smaller than or
             // equal to pivot
             if (arr[j] <= pivot) {
@@ -42,8 +43,8 @@ class IterativeQuickSort {
  
             // Recursively sort elements before
             // partition and after partition
-            qSort(arr, l, pi - 1);
-            qSort(arr, pi + 1, h);
+            QuickSort(arr, l, pi - 1);
+            QuickSort(arr, pi + 1, h);
         }
     } 
   
