@@ -1,13 +1,33 @@
 class IterativeQuickSort { 
+	//I couldnot come up with this iterative quick sort myself so had to refer online resources.
     void swap(int arr[], int i, int j) 
     { 
 	//Try swapping without extra variable 
+   arr[i]=arr[i]+arr[j];
+   arr[j]=arr[i]-arr[j];
+   arr[i]=arr[i]-arr[j];
+    
     } 
   
     /* This function is same in both iterative and 
        recursive*/
     int partition(int arr[], int l, int h) 
     { 
+
+        int pivot = arr[h];
+        int i = (l - 1); // index of smaller element
+        for (int j = l; j <= h - 1; j++) {
+            // If current element is smaller than or
+            // equal to pivot
+            if (arr[j] <= pivot) {
+                i++;
+ 
+                // swap arr[i] and arr[j]
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
         //Compare elements and swap.
     } 
   
@@ -15,6 +35,17 @@ class IterativeQuickSort {
     void QuickSort(int arr[], int l, int h) 
     { 
         //Try using Stack Data Structure to remove recursion.
+
+        if (l < h) {
+            /* pi is partitioning index, arr[pi] is
+            now at right place */
+            int pi = partition(arr, l, h);
+ 
+            // Recursively sort elements before
+            // partition and after partition
+            QuickSort(arr, l, pi - 1);
+            QuickSort(arr, pi + 1, h);
+        }
     } 
   
     // A utility function to print contents of arr 
