@@ -9,6 +9,7 @@ class MergeSort {
         int arr1[] = new int[n1];
         int arr2[] = new int[n2];
 
+        //divide into 2 halves
         for (int i = 0; i < n1; i++) {
             arr1[i] = arr[l + i];
         }
@@ -17,6 +18,7 @@ class MergeSort {
         }
         int i =0, j= 0, k =l;
 
+        // sort and merge
         while(i<n1 && j<n2){
            if( arr1[i]<=arr2[j]){
                arr[k] = arr1[i];
@@ -28,6 +30,7 @@ class MergeSort {
            }
             k++;
         }
+        //add remaining elements if any
         while(i<n1){
             arr[k] =arr1[i];
             i++; k++;
@@ -74,4 +77,6 @@ class MergeSort {
         System.out.println("\nSorted array");
         printArray(arr);
     }
+    // Time Complexity - O(nlogn)
+    //Space Complexity - O(n)
 } 

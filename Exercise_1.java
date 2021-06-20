@@ -1,6 +1,8 @@
 class BinarySearch {
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) {
+
+        //fins mid value and if it x is less than mid value then search in left subtree or else search in right subtree
         int mid = arr.length / 2;
         if (x == arr[mid]) {
             return mid;
@@ -18,6 +20,7 @@ class BinarySearch {
                 }
             }
         }
+        //if element is not found then return -1
 
         return -1;
     }
@@ -34,4 +37,7 @@ class BinarySearch {
         else
             System.out.println("Element found at index " + result);
     }
+
+    // Time Complexity - O(n/2)
+    //Space Complexity - O(1)
 } 

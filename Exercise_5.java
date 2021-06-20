@@ -10,6 +10,7 @@ class IterativeQuickSort {
     int partition(int arr[], int l, int h) {
         int pivot = arr[h];
         int i = l - 1;
+        //compare and swap the lesser elements than pivot to left or else to its right
         for (int j = l; j < h; j++) {
             if (arr[j] <= pivot) {
                 i++;
@@ -58,4 +59,7 @@ class IterativeQuickSort {
         ob.QuickSort(arr, 0, arr.length - 1);
         ob.printArr(arr, arr.length);
     }
+
+    // Time Complexity - O(n)
+    //Space Complexity - O(n)
 } 

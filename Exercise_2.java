@@ -17,6 +17,7 @@ class QuickSort
    	//Write code here for Partition and Swap
         int pivot = arr[high];
         int i= low-1;
+        //place all elements less than pivot to its left or else to its right
         for(int j = low; j<high; j++){
             if(arr[j]<pivot){
                 i++;
@@ -62,4 +63,7 @@ class QuickSort
         System.out.println("sorted array"); 
         printArray(arr); 
     }
+
+    // Time Complexity - O(n2)
+    //Space Complexity - O(n)
 } 
