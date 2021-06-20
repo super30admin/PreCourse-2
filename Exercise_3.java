@@ -2,6 +2,8 @@ class LinkedList
 { 
     Node head; // head of linked list 
   
+	//time- O(N)- where N are the number of nodes
+	//space- O(1)
     /* Linked list node */
     class Node 
     { 
