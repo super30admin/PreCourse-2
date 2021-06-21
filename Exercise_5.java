@@ -1,8 +1,9 @@
 class IterativeQuickSort {
     void swap(int arr[], int i, int j) {
-        int tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
+        //swapping without using extra variable
+        arr[i] = arr[i] + arr[j];
+        arr[j] = arr[i] - arr[j];
+        arr[i] = arr[i] - arr[j];
     }
 
     /* This function is same in both iterative and 
