@@ -8,7 +8,7 @@ def binarySearch(arr, l, r, x):
   #write your code here
 
     while l<r:
-        mid_point = (l+4)//2
+        mid_point = (l+r)//2
 
         if (x == arr[mid_point]):
             return mid_point
