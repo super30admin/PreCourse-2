@@ -38,6 +38,6 @@ class BinarySearch {
             System.out.println("Element found at index " + result);
     }
 
-    // Time Complexity - O(n/2)
+    // Time Complexity - O(logN)
     //Space Complexity - O(1)
 } 
