@@ -17,9 +17,20 @@ class LinkedList
     /* Function to print middle of linked list */
    //Complete this function
     void printMiddle() 
-    { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+    {
+        if(head==null){
+            return;
+        }
+        //Implement using Fast and slow pointers
+        Node slow = head;
+        Node fast = head;
+        //By the time the fast pointer reaches end of the list, slow pointer reaches mid of the list
+       while(fast!=null && fast.next!=null){
+           slow=slow.next;
+           fast=fast.next.next;
+       }
+       //slow pinter is the mid node
+        System.out.println("mid node : " + slow.data);
     } 
   
     public void push(int new_data) 
@@ -49,5 +60,8 @@ class LinkedList
             llist.printList(); 
             llist.printMiddle(); 
         } 
-    } 
+    }
+
+    // Time Complexity - O(N) where N is the number of nodes in the given list.
+    //Space Complexity - O(1)  the space used by slow and fast pointers.
 } 
