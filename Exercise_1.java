@@ -6,6 +6,7 @@ class BinarySearch {
             Time Complexity:
             - In the best case it is o(1)
             - In the worst case it is o(logn)
+           Space complexity is o(n)
          */
         //For binary search- the array should be always sorted. we cannot do binary search with unsorted array.
         //since the array is sorted. The lest side element of array should be always less than right element of array
