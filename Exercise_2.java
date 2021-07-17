@@ -19,7 +19,7 @@ class QuickSort
    	//Write code here for Partition and Swap 
         int pivot= low;
 
-        int leftPtr = low+1;
+        int leftPtr = low;
         int rightPtr = high;
 
         while(leftPtr<=rightPtr)
