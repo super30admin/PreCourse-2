@@ -5,6 +5,9 @@ using namespace std;
 void swap(int* a, int* b)  
 {  
     //Your Code here 
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }  
   
 /* This function takes last element as pivot, places  
@@ -13,8 +16,20 @@ array, and places all smaller (smaller than pivot)
 to left of pivot and all greater elements to right  
 of pivot */
 int partition (int arr[], int low, int high)  
-{  
+{
     //Your Code here 
+    int pivot = arr[high];
+    int index = low;
+
+    for(int j = low; j <= high - 1; j++){
+        if(arr[j] < pivot){
+            swap(&arr[index], &arr[j]);
+            index++;
+        }
+    }
+
+    swap(&arr[index], &arr[high]);
+    return index;
 }  
   
 /* The main function that implements QuickSort  
@@ -24,7 +39,12 @@ high --> Ending index */
 void quickSort(int arr[], int low, int high)  
 {  
     //Your Code here 
-}  
+    if(low < high){
+        int temp = partition(arr, low, high);
+        quickSort(arr, low, temp-1);
+        quickSort(arr, temp+1, high);
+    }
+}
   
 /* Function to print an array */
 void printArray(int arr[], int size)  
