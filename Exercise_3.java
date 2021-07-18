@@ -20,6 +20,25 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+
+        Node slowPointer = head;
+        Node fastPointer = head;
+
+
+        if (head != null)
+        {
+            /*
+              - We cantraverse linked list using two pointers.
+              - need to move one pointer by 1 and the other pointers by 2.
+              - When the fast pointer reaches the end slow pointer will reach the middle of the linked list.
+             */
+            while (fastPointer != null && fastPointer.next != null)
+            {
+                fastPointer = fastPointer.next.next;
+                slowPointer = slowPointer.next;
+            }
+            System.out.println("Middle point of LinkedList:"+slowPointer.data);
+        }
     } 
   
     public void push(int new_data) 
