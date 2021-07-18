@@ -1,4 +1,4 @@
-class QuickSort 
+ipublic class QuickSort 
 { 
     /* This function takes last element as pivot, 
        places the pivot element at its correct 
@@ -7,12 +7,36 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //Your code here 
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
     
     int partition(int arr[], int low, int high) 
-    { 
-   	//Write code here for Partition and Swap 
+    {
+        //choose the pivot of the array
+        int pivot = arr[high];
+        //choose the partitioning index of the array
+        int pIndex = low;
+        
+        //rearrange the array
+        //put elements smaller than pivot on LHS of pivot
+        //put elements greater than pivot on RHS of pivot
+        
+        for (int i = 0; i < high; i++)
+        {
+            if (arr[i] <= pivot)
+            {
+                swap(arr, arr[i] , arr[pIndex]);
+                pIndex ++;
+            }
+        }
+        //whole array is traversed except the end element
+        //swap the end element to assign it to pIndex (pertition index)
+        swap(arr, arr[high], arr[pIndex]);
+        //return the pIndex
+        return pIndex;
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -22,6 +46,13 @@ class QuickSort
     {  
             // Recursively sort elements before 
             // partition and after partition 
+            if (low < high)
+            {
+               int j = partition(arr, low, high);
+               sort(arr, low, j-1);
+               sort(arr, j+1, high);
+            }
+            
     } 
   
     /* A utility function to print array of size n */
@@ -45,4 +76,5 @@ class QuickSort
         System.out.println("sorted array"); 
         printArray(arr); 
     } 
-} 
+}
+
