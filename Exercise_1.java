@@ -2,6 +2,20 @@ class BinarySearch {
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
     { 
+        int mid = 0 ;
+        while(l<r){
+            mid = (l + r) / 2;
+            if (arr[mid] == x){
+                return mid;
+            }
+            else if (arr[mid] > x){
+                r = mid;
+            }
+            else{
+                l = mid;
+            }
+        }
+        return -1;
         //Write your code here
     } 
   
