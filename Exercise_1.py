@@ -7,6 +7,19 @@ def binarySearch(arr, l, r, x):
   
   #write your code here
   
+  ##if l < r
+
+  while l <= r:
+    midpoint = (l + r) // 2
+    if arr[midpoint] < x:
+     l = midpoint + 1
+
+    elif arr[midpoint] > x:
+     r = midpoint - 1
+
+    else:
+        return midpoint
+  return -1
     
   
 # Test array 
