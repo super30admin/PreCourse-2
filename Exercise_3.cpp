@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>  
+#include<iostream>  
 using namespace std;  
   
 // Struct  
@@ -13,6 +13,15 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+  struct Node* slow = head;
+  struct Node* fast = head;
+  if(head!=NULL){
+      while(fast!=NULL&&fast->next!=NULL){
+          fast = fast->next->next;
+          slow = slow->next;
+      }
+      cout<<"The middle element of the linked list is "<< slow->data<<endl;
+  }
 }  
   
 // Function to add a new node  
