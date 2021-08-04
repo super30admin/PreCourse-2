@@ -5,7 +5,7 @@
 # if present, else returns -1 
 def binarySearch(arr, left, right, x): 
     #write your code here
-    if((left+right)/2 == 0):
+    if((left+right)%2 == 0):
 
         mid = int((left+right)/2)
 
@@ -13,19 +13,17 @@ def binarySearch(arr, left, right, x):
 
         mid = int(((left+right) - 1)/2)
 
-    print(mid)
-
     if(arr[mid] == x):
-        print(mid)
+        print('Martch: ',mid)
         return mid
 
     if(x < arr[mid]):
 
-        return binarySearch(arr, left, mid, x)
+        binarySearch(arr, left, mid, x)
 
     elif(x > arr[mid]):
 
-        return binarySearch(arr, mid, right, x)
+        binarySearch(arr, mid, right, x)
 
     return None
     
