@@ -3,6 +3,12 @@ class BinarySearch {
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
+        for(int i =0;i< arr.length;i++){
+           if(arr[i]==x){
+               return i;
+           }
+        }
+        return -1;
     } 
   
     // Driver method to test above 
@@ -11,7 +17,7 @@ class BinarySearch {
         BinarySearch ob = new BinarySearch(); 
         int arr[] = { 2, 3, 4, 10, 40 }; 
         int n = arr.length; 
-        int x = 10; 
+        int x = 3; 
         int result = ob.binarySearch(arr, 0, n - 1, x); 
         if (result == -1) 
             System.out.println("Element not present"); 
