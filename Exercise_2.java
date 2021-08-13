@@ -1,4 +1,7 @@
-class QuickSort 
+
+//Time complexity o(nlog(n))
+//Space complexity o(1)
+class QuickSort
 { 
     /* This function takes last element as pivot, 
        places the pivot element at its correct 

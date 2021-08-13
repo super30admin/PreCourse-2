@@ -1,4 +1,6 @@
-class MergeSort 
+//Time complexity o(nlog(n))
+//Space complexity o(n)
+class MergeSort
 { 
     // Merges two subarrays of arr[]. 
     // First subarray is arr[l..m] 
@@ -29,7 +31,7 @@ class MergeSort
     } 
   
     // Main function that sorts arr[l..r] using 
-    // merge() 
+    // merge()
     void sort(int arr[], int l, int r) 
     { 
 	//Write your code here
