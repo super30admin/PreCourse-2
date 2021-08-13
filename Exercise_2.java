@@ -1,28 +1,34 @@
 class QuickSort 
 { 
-    /* This function takes last element as pivot, 
+    
+    // Time Complexity : O(Nlog(N))
+    // Space Complexity : O(1)
+    // Did this code successfully run on Leetcode : Yes
+    // Any problem you faced while coding this : No
+   
+    
+    int partition(int arr[], int low, int high) 
+    { 
+   	/* This function takes first element as pivot, 
        places the pivot element at its correct 
        position in sorted array, and places all 
        smaller (smaller than pivot) to left of 
        pivot and all greater elements to right 
        of pivot */
-   
-    
-    int partition(int arr[], int low, int high) 
-    { 
-   	//Write code here for Partition and Swap
        int count=0;
+       //finding total number of elements lower than pivot element
        int pivotElement = arr[low];
        for(int i=low;i<=high;i++){
            if(arr[i]<pivotElement){
                count++;
            }
        }
-       
+       // swapping the pivot element to correct position
        int temp = arr[low+count];
        arr[low+count]= pivotElement;
        arr[low] = temp;
     
+       //putting elements lower than pivot its left and greater than on its right
        int lower = low;
        int higher = high;
        while(lower<higher){
@@ -36,6 +42,7 @@ class QuickSort
                 arr[higher]= temp;       
             }
        }
+       //returns the index of pivot element
        return low+count;
 
 
@@ -50,11 +57,12 @@ class QuickSort
             return;
         }
         int index= partition(arr,low,high);
+         // Recursively sort elements before 
+            // partition and after partition 
         sort(arr,low,index-1);
         sort(arr,index+1,high);
 
-            // Recursively sort elements before 
-            // partition and after partition 
+           
     } 
   
     /* A utility function to print array of size n */

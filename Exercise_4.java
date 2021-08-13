@@ -1,11 +1,16 @@
 class MergeSort 
 { 
+    // Time Complexity : O(Nlog(N))
+    // Space Complexity : O(N)
+    // Did this code successfully run on Leetcode : Yes
+    // Any problem you faced while coding this : No
+
     // Merges two subarrays of arr[]. 
     // First subarray is arr[l..m] 
     // Second subarray is arr[m+1..r] 
     void merge(int arr1[], int arr2[], int arr[]) 
     {  
-       //Your code here  
+
        int i=0;
        int j=0;
        int k=0;
@@ -39,8 +44,8 @@ class MergeSort
     // merge() 
     void sort(int arr[]) 
     { 
-	//Write your code here
-        //Call mergeSort from here 
+	
+        
         if(arr.length<= 1){
             return;
         }
@@ -52,6 +57,7 @@ class MergeSort
 		for(int i=arr.length/2;i<arr.length;i++) {
 			b[i-(arr.length/2)]=arr[i];
 		}
+        //Call mergeSort from here 
         sort(a);
         sort(b);
         merge(a,b,arr);

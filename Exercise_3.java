@@ -1,3 +1,7 @@
+     // Time Complexity : O(N)
+    // Space Complexity : O(1)
+    // Did this code successfully run on Leetcode : Yes
+    // Any problem you faced while coding this : No
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -15,10 +19,10 @@ class LinkedList
     } 
   
     /* Function to print middle of linked list */
-   //Complete this function
+   
     void printMiddle() 
     { 
-        //Write your code here
+        
 	//Implement using Fast and slow pointers
     Node fast= head;
     Node slow= head;
@@ -26,7 +30,13 @@ class LinkedList
         fast=fast.next.next;
         slow= slow.next;
     }
-    System.out.print(slow.data);
+
+    if(fast.next == null){
+        //if length of list is odd
+        System.out.print(slow.data);
+    }    
+        // if length of list is even
+        System.out.print(slow.next.data);
     } 
   
     public void push(int new_data) 
