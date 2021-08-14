@@ -1,3 +1,5 @@
+//Time Complexity : O(log n)
+//Space Complexity: O(1)
 
 function binarySearch(arr, l, r, x) {
     //Finding the middle value of the array

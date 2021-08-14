@@ -1,5 +1,10 @@
+//Time Complexity: O(n logn)
+//Space Complexity: O(n)
+
+
 
 //function to merge two arrays in a sorted order
+//O(n) n comparisons per decomposition
 function merge(arr1, arr2) {
     let result = [];
     let i = 0;
@@ -32,6 +37,7 @@ function merge(arr1, arr2) {
 }
 
 //function to decompose the array and recursively perform merge on sub arrays
+//O(logn) decompositions
 function mergeSort(arr) {
     if (arr.length <= 1) return arr;
     let mid = Math.floor(arr.length / 2);

@@ -1,4 +1,8 @@
 
+//Time Complexity : O(nlogn)  Sorted List - O(n^2)
+//Space Complexity: O(log n)
+
+
 /*
 This function takes first element as the pivot,
 returns the correct index of the pivot element by
@@ -13,6 +17,7 @@ function pivot(arr, start = 0, end = arr.length - 1) {
     Swap function used to first swap all the smaller elemenst on one side
     then finally to swap the pivot element to its final position
     */
+    //O(n) - n comparisons per decomposition
     function swap(arr, index1, index2) {
         let temp = arr[index1];
         arr[index1] = arr[index2];
@@ -34,6 +39,7 @@ function pivot(arr, start = 0, end = arr.length - 1) {
 }
 
 //Main Quicksort function 
+//O(log n) - decompositions
 function quickSort(arr, left = 0, right = arr.length - 1) {
     if (left < right) {
         let pivotIndex = pivot(arr, left, right);

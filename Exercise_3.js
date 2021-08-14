@@ -1,3 +1,5 @@
+
+
 class Node {
     constructor(val) {
         this.val = val;
@@ -14,6 +16,7 @@ class LinkedList {
 
 
     //Inserts value at the end
+    //O(1)
     push(val) {
         let newNode = new Node(val);
         if (!this.head) {
@@ -30,6 +33,7 @@ class LinkedList {
 
     //Finds the middle elemnt in the linked list
     //Using two pointers technique
+    // O(n)
     printMiddle() {
 
         let pointer1 = this.head;
@@ -46,6 +50,7 @@ class LinkedList {
 
 
     //     Print all the values in the list
+    //O(n)
     printList() {
         let currentNode = this.head;
         let list = [];
