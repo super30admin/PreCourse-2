@@ -21,7 +21,7 @@ def binarySearch(arr, l, r, x):
         elif(arr[mid]>x):
 #            print("in loop1")
             r = mid-1
-#       elif(arr[mid]<x):  
+        elif(arr[mid]<x):  
 #            print("in loop2")
             l = mid+1
 #    
