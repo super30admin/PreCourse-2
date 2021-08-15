@@ -1,3 +1,8 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Any problem you faced while coding this : None
+// Your code here along with comments explaining your approach
+
 #include<bits/stdc++.h>  
 using namespace std;  
   
@@ -13,6 +18,17 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+
+  // initializing fast and slow pointers to head.
+    Node* fast = head;  
+    Node* slow = head;
+    while(fast!=NULL && fast->next !=NULL)
+    {
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    cout<<slow->data<<endl;
+
 }  
   
 // Function to add a new node  
@@ -44,7 +60,6 @@ int main()
         push(&head, i);  
         printList(head);  
         printMiddle(head);  
-    }  
-  
+    }   
     return 0;  
 }  
