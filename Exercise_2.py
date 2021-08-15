@@ -1,4 +1,6 @@
 # Python program for implementation of Quicksort Sort 
+
+#Time Complexity - O(n) since log n depth 2^log n = n
   
 # give you explanation for the approach
 def partition(arr,low,high):
