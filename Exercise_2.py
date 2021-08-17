@@ -14,8 +14,15 @@ pivot. After partition we will be runnning the quick sort algorithm recursively 
 Time complexity: O(nsquared) worst, during first partition, one list has 1 element while rest has all the other elements
 Space Complexity: I can't figure out
 :return: Sorted Array
-Issue: Not running on leetcode
+
+
+Issue: Not running on leetcode//
+update now running on leetcode
 """
+
+
+
+
 import random
 def partition(arr,low,high):
 
@@ -23,7 +30,7 @@ def partition(arr,low,high):
     # print("pivotindexis", pivotindex)
     border=low
     for i in range(low, high+1):
-        if arr[i]<pivotindex:
+        if arr[i]<arr[pivotindex]:
             arr[i], arr[border]=arr[border], arr[i]
             border+=1
     arr[pivotindex], arr[border]=arr[border], arr[pivotindex]
@@ -49,5 +56,3 @@ quickSort(arr,0,n-1)
 print ("Sorted array is:") 
 for i in range(n): 
     print ("%d" %arr[i])
-  
- 

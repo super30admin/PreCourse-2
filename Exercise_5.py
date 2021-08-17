@@ -53,7 +53,10 @@ def quickSortIterative(arr, l, h):
             stack.append((pivot + 1, h))
 
 
-arr=[5,1,1,2,0,0]
+# arr=[5,1,1,2,0,0]
+# arr=random.random(range(0,10),10)
+# arr=random.sample(range(0,10),10)
+arr=[0,0,0,0,1,1,2,1,0,0,0,3]
 # arr=[1,2,4,5,6,0,8]
 # arr = random.sample(range(0, 20), 20)
 print("initial array is", arr)
