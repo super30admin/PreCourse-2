@@ -2,7 +2,7 @@
 # // Time Complexity : O(logn)
 # // Space Complexity : O(n)
 # // Did this code successfully run on Leetcode : Yes
-# // Any problem you faced while coding this : Had to watch some youtube tutorials.
+# // Any problem you faced while coding this : Faced difficulty in implementing quick sorts. Had to watch some youtube tutorials.
 
 
 # // Your code here along with comments explaining your approach
