@@ -1,4 +1,4 @@
-# // Time Complexity : O(nLogn)
+# // Time Complexity : O(nLogn) worst case O(n^2)
 # // Space Complexity : O(n)
 # // Did this code successfully run on Leetcode : Yes
 # // Any problem you faced while coding this : Had to revise some concepts of quicksort from CLRS and revisit basics.
@@ -31,7 +31,7 @@ def partition(arr, low, high):
             arr[low], arr[high] = arr[high], arr[low]
     arr[high], arr[pivot_index] = arr[pivot_index], arr[high]
 
-    # Returning high pointer to divide the arr into 2
+    # Returning high pointer
     return high
 
 
