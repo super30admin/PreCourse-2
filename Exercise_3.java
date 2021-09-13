@@ -20,7 +20,22 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
-    } 
+        if(this.head==null){
+            System.out.println("No elements");
+        }
+        if(this.head!=null && this.head.next==null){
+            System.out.println("Middle element is "+this.head.data);
+        }
+        Node slow=this.head;
+		Node fast=this.head.next;
+		while(fast!=null && fast.next!=null) {
+			
+			fast=fast.next.next;
+			slow=slow.next;
+		}
+		System.out.println("Middle element is "+slow.data);
+        }
+    
   
     public void push(int new_data) 
     { 
@@ -49,5 +64,6 @@ class LinkedList
             llist.printList(); 
             llist.printMiddle(); 
         } 
+        
     } 
 } 
