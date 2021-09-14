@@ -4,17 +4,59 @@ class MergeSort
     // First subarray is arr[l..m] 
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
-    {  
-       //Your code here  
-    } 
-  
-    // Main function that sorts arr[l..r] using 
-    // merge() 
-    void sort(int arr[], int l, int r) 
-    { 
-	//Write your code here
-        //Call mergeSort from here 
-    } 
+	{  
+		//Your code here  
+		int merge1 = m - l + 1;
+		int merge2 = r - m;
+
+		int left[] = new int[merge1];
+		int right[] = new int[merge2];
+
+		for (int i = 0; i < merge1; ++i)
+			left[i] = arr[l + i];
+		for (int j = 0; j < merge2; ++j)
+			right[j] = arr[m + 1 + j];
+
+		int i = 0, j = 0;
+		int k = l;
+		while (i < merge1 && j < merge2) {
+			if (left[i] <= right[j]) {
+				arr[k] = left[i];
+				i++;
+			}
+			else {
+				arr[k] = right[j];
+				j++;
+			}
+			k++;
+		}
+
+		while (i < merge1) {
+			arr[k] = left[i];
+			i++;
+			k++;
+		}
+
+		while (j < merge2) {
+			arr[k] = right[j];
+			j++;
+			k++;
+		}
+	} 
+
+	// Main function that sorts arr[l..r] using 
+	// merge() 
+	void sort(int arr[], int l, int r) 
+	{ 
+		//Write your code here
+		//Call mergeSort from here 
+		if (l < r) {
+			int mid =l+ (r-l)/2;
+			sort(arr, l, mid);
+			sort(arr, mid + 1, r);
+			merge(arr, l, mid, r);
+		}
+	}
   
     /* A utility function to print array of size n */
     static void printArray(int arr[]) 

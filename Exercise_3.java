@@ -16,11 +16,20 @@ class LinkedList
   
     /* Function to print middle of linked list */
    //Complete this function
-    void printMiddle() 
-    { 
-        //Write your code here
-	//Implement using Fast and slow pointers
-    } 
+   void printMiddle() 
+   { 
+       //Write your code here
+       //Implement using Fast and slow pointers
+       Node pointer1 = head;
+       Node pointer2 = head;
+
+       while (pointer2 != null && pointer2.next != null)
+       {
+           pointer2 = pointer2.next.next;
+           pointer1 = pointer1.next;
+       }
+       System.out.println("Singly linked list middle element => " + pointer1.data);
+   }
   
     public void push(int new_data) 
     { 
