@@ -1,8 +1,10 @@
+//Time complexity: O(n)
+//Space complexity: O(n)
+
 class LinkedList 
 { 
-    Node head; // head of linked list 
-  
-    /* Linked list node */
+    Node head; 
+
     class Node 
     { 
         int data; 
@@ -14,12 +16,18 @@ class LinkedList
         } 
     } 
   
-    /* Function to print middle of linked list */
-   //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+
+	Node slow_ptr = head;
+        Node fast_ptr = head;
+         
+            while (fast_ptr != null && fast_ptr.next != null)
+            {
+                fast_ptr = fast_ptr.next.next;
+                slow_ptr = slow_ptr.next;
+            }
+            System.out.println(slow_ptr.data);
     } 
   
     public void push(int new_data) 
