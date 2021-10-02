@@ -1,3 +1,12 @@
+// Time Complexity : O(N)
+// Space Complexity :O(N)
+// Did this code successfully run on Leetcode :Yes
+// Any problem you faced while coding this :
+// If there are even nodes I am pointing to second middile(as suggested on Leetcode), 
+// so I found difficulty to find that case but figured it out eventually.
+
+// Your code here along with comments explaining your approach
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +29,20 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node slow = head;
+        Node fast = head;
+        
+        while(fast!=null){
+            if(fast.next == null)
+                break;
+            if(fast.next.next==null){
+                slow = slow.next;
+                break;
+            }
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        System.out.println("Middle Element for above list is:\t"+slow.data);
     } 
   
     public void push(int new_data) 

@@ -1,3 +1,13 @@
+// Time Complexity :O(n^2)
+// Space Complexity :O(n)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this :
+// I tried three approaches one Lomuto and Niave approach but it was showing time limit exceeded.
+// So I used hoare's partition, If you can tell me why that happened it will be great help.
+
+
+// Your code here along with comments explaining your approach
+
 class QuickSort 
 { 
     /* This function takes last element as pivot, 
@@ -8,11 +18,28 @@ class QuickSort
        of pivot */
     void swap(int arr[],int i,int j){
         //Your code here   
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
     
     int partition(int arr[], int low, int high) 
     { 
    	//Write code here for Partition and Swap 
+        int i=low-1;
+        int j=high+1;
+        int pivot = arr[low];
+        while(true){
+            do{
+                i++;
+            }while(arr[i]<pivot);
+            do{
+                j--;
+            }while(arr[j]>pivot);
+            if(i>=j)
+                return j;
+            swap(arr,i,j);
+        }
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -22,6 +49,12 @@ class QuickSort
     {  
             // Recursively sort elements before 
             // partition and after partition 
+            if(low<high)
+            {
+                int p = partition(arr, low, high);
+                sort(arr, low, p);
+                sort(arr, p+1, high);
+            }
     } 
   
     /* A utility function to print array of size n */
