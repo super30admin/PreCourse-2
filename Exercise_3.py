@@ -7,14 +7,27 @@ class Node:
 class LinkedList: 
   
     def __init__(self): 
-        
+        self.head = None
   
-    def push(self, new_data): 
+    def push(self, new_data):
+    	new_node = Node(new_data) 
+        new_node.next = self.head 
+        self.head = new_node
         
   
     # Function to get the middle of  
     # the linked list 
-    def printMiddle(self): 
+    def printMiddle(self):
+        slow = self.head
+        fast = self.head
+ 
+        # Iterate till fast's next is null (fast reaches end)
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+         
+        # return the slow's data, which would be the middle element.
+        print("The middle element is ", slow.data)
 
 # Driver code 
 list1 = LinkedList() 
