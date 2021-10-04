@@ -1,23 +1,25 @@
-# Python program for implementation of Quicksort Sort 
-  
-# give you explanation for the approach
-def partition(arr,low,high):
-  
-  
-    #write your code here
-  
+# Python program for implementation of Quicksort Sort
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    else:
+        pivot = arr.pop()
 
-# Function to do Quick sort 
-def quickSort(arr,low,high): 
-    
-    #write your code here
-  
-# Driver code to test above 
-arr = [10, 7, 8, 9, 1, 5] 
-n = len(arr) 
-quickSort(arr,0,n-1) 
-print ("Sorted array is:") 
-for i in range(n): 
-    print ("%d" %arr[i]), 
-  
- 
+    items_greater = []
+    items_lower = []
+
+    for item in arr:
+        if item > pivot:
+            items_greater.append(item)
+        else:
+            items_lower.append(item)
+
+    return quick_sort(items_lower) + [pivot] + quick_sort(items_greater)
+
+
+# Driver code to test above
+arr = [10, 7, 8, 9, 1, 5]
+arr = quick_sort(arr)
+print("Sorted array is:")
+for item in arr:
+    print(item)
