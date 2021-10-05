@@ -1,4 +1,7 @@
-#include<bits/stdc++.h>  
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+
+#include <iostream>
 using namespace std;  
   
 // Struct  
@@ -13,6 +16,17 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+  Node *slow = head;
+  Node *fast = head;
+  if (head == NULL)
+    cout << "List is empty" << endl;
+  else {
+     while (fast != NULL && fast -> next != NULL) {
+        slow = slow -> next;
+        fast = fast -> next -> next;
+     }
+     cout << "Middle element is: " << slow -> data << endl;
+  }
 }  
   
 // Function to add a new node  

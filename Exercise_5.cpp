@@ -1,4 +1,7 @@
-#include <bits/stdc++.h> 
+// Time Complexity : Average case - O(nlog(n) Worst case - O(n^2)
+// Space Complexity : O(n)
+
+#include <iostream>
 using namespace std; 
   
 // A utility function to swap two elements 
@@ -13,6 +16,16 @@ void swap(int* a, int* b)
 int partition(int arr[], int l, int h) 
 { 
     //Do the comparison and swapping here 
+    int pivot = arr[h];
+    int pIndex = l;
+    for (int i = l; i < h; i++){
+        if (arr[i] < pivot) {
+            swap(&arr[i], &arr[pIndex]);
+            pIndex++;
+        }
+    }
+    swap(&arr[h], &arr[pIndex]);
+    return pIndex;
 } 
   
 /* A[] --> Array to be sorted,  
@@ -21,6 +34,28 @@ h --> Ending index */
 void quickSortIterative(int arr[], int l, int h) 
 { 
     //Try to think that how you can use stack here to remove recursion.
+    int top = -1;
+    int stack[h - l + 1];
+
+    stack[++top] = l;
+    stack[++top] = h;
+
+    while (top >= 0) {
+        h = stack[top--];
+        l = stack[top--];
+
+        int p = partition(arr, l, h);
+
+        if (p - 1 > l) {
+            stack[++top] = l;
+            stack[++top] = p - 1;
+        }
+
+        if (p + 1 < h) {
+            stack[++top] = p + 1;
+            stack[++top] = h;
+        }
+    }
 } 
   
 // A utility function to print contents of arr 
@@ -38,5 +73,6 @@ int main()
     int n = sizeof(arr) / sizeof(*arr); 
     quickSortIterative(arr, 0, n - 1); 
     printArr(arr, n); 
+    cout << endl;
     return 0; 
 } 

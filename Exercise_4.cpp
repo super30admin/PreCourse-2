@@ -1,3 +1,5 @@
+// Time Complexity : Average case: O(nlog(n)) Worst case: O(n^2) 
+// Space Complexity : O(n)
 #include<stdlib.h> 
 #include<stdio.h> 
   
@@ -7,6 +9,35 @@
 void merge(int arr[], int l, int m, int r) 
 { 
     //Your code here
+    int i = l; 
+    int j = m+1;
+    int k = l;
+    int temp[100];
+    while (i <=m && j <= r) {
+        if (arr[i] <= arr[j]) {
+            temp[k] = arr[i];
+            i++;
+            k++;
+        }
+        else {
+            temp[k] = arr[j];
+            j++;
+            k++;
+        }
+    }
+    while (i <= m) {
+        temp[k] = arr[i];
+        i++;
+        k++;
+    }
+    while (j <= r) {
+        temp[k] = arr[j];
+        j++;
+        k++;
+    }
+    for (int s = l; s <= r; s++) {
+        arr[s] = temp[s];
+    }
 } 
   
 /* l is for left index and r is right index of the 
@@ -14,6 +45,12 @@ void merge(int arr[], int l, int m, int r)
 void mergeSort(int arr[], int l, int r) 
 { 
     //Your code here
+    if (l < r) {
+        int m = l + (r - l) / 2;
+        mergeSort(arr, l, m);
+        mergeSort(arr, m+1, r);
+        merge(arr, l, m, r);
+    }
 } 
   
 /* UTILITY FUNCTIONS */
