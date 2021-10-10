@@ -1,4 +1,8 @@
-class LinkedList 
+// ran on leetcode successfully
+// tc is o(n)
+//sc is o(n)
+
+class LinkedList1 
 { 
     Node head; // head of linked list 
   
@@ -20,6 +24,19 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        
+    if(head==null) System.out.print("LinkedList Empty!");
+        
+    Node fastPtr = head;
+    
+    Node slowPtr = head;
+    
+    while(fastPtr!=null && fastPtr.next!=null)
+    {
+        fastPtr=fastPtr.next.next;
+        slowPtr=slowPtr.next;
+    }
+    System.out.println(slowPtr.data);
     } 
   
     public void push(int new_data) 
@@ -42,7 +59,7 @@ class LinkedList
   
     public static void main(String [] args) 
     { 
-        LinkedList llist = new LinkedList(); 
+        LinkedList1 llist = new LinkedList1(); 
         for (int i=15; i>0; --i) 
         { 
             llist.push(i); 
