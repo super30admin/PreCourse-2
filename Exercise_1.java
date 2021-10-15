@@ -1,8 +1,26 @@
-class BinarySearch { 
+// Time Complexity : O(nlogn)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+class BinarySearch {
     // Returns index of x if it is present in arr[l.. r], else return -1 
-    int binarySearch(int arr[], int l, int r, int x) 
-    { 
+    int binarySearch(int A[], int l, int r, int x)
+    {
+        int mid;
         //Write your code here
+        while(l<r){
+            mid = l + (r-l)/2;
+            if(A[mid] == x)
+                return mid;
+            else if(A[mid]<x)
+                l = mid + 1;
+            else
+                r = mid - 1;
+        }
+        if(l == A.length || A[l] !=x)
+            return -1;
+        return l;
     } 
   
     // Driver method to test above 
