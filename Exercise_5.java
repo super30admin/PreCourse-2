@@ -3,9 +3,9 @@ import java.util.Stack;
 class IterativeQuickSort {
     void swap(int arr[], int i, int j) {
         // Try swapping without extra variable
-        arr[i] = arr[i] + arr[j];
-        arr[j] = arr[i] - arr[j];
-        arr[i] = arr[i] - arr[j];
+        arr[i] = arr[i] * arr[j];
+        arr[j] = arr[i] / arr[j];
+        arr[i] = arr[i] / arr[j];
         // int temp = arr[i];
         // arr[i] = arr[j];
         // arr[j] = temp;
