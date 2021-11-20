@@ -1,3 +1,6 @@
+// Time Complexity : O(logn)
+// Space Complexity : O(1)
+
 import javax.lang.model.util.ElementScanner6;
 
 class BinarySearch {
