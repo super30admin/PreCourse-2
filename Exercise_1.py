@@ -1,3 +1,5 @@
+# time complexity = O(n)
+# space complexity= O(n)
 # Python code to implement iterative Binary  
 # Search. 
   
@@ -6,7 +8,9 @@
 def binarySearch(arr, l, r, x): 
   
   #write your code here
-  
+  for i in range(0,r):
+    if arr[i]==x:
+      return i
     
   
 # Test array 
@@ -17,6 +21,6 @@ x = 10
 result = binarySearch(arr, 0, len(arr)-1, x) 
   
 if result != -1: 
-    print "Element is present at index % d" % result 
+    print(f"Element is present at index {result}")
 else: 
-    print "Element is not present in array"
+    print("Element is not present in array")
