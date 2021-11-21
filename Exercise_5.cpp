@@ -1,3 +1,5 @@
+//TimeComplexity=T(n)=O(nlogn)
+//SpaceComplexity=S(n)=O(n)
 #include <bits/stdc++.h> 
 using namespace std; 
   
@@ -13,6 +15,18 @@ void swap(int* a, int* b)
 int partition(int arr[], int l, int h) 
 { 
     //Do the comparison and swapping here 
+     int pivot=arr[h];
+      int partitionIndex=l;
+      for(int i=l;i<h;i++)
+      {
+          if(arr[i]<=pivot)
+          {
+              swap(arr[i],arr[partitionIndex]);
+              partitionIndex++; 
+          }
+      }
+      swap(arr[partitionIndex],arr[h]);
+      return partitionIndex;
 } 
   
 /* A[] --> Array to be sorted,  
@@ -21,6 +35,27 @@ h --> Ending index */
 void quickSortIterative(int arr[], int l, int h) 
 { 
     //Try to think that how you can use stack here to remove recursion.
+    stack<pair<int,int> > st;
+
+    st.push(make_pair(l,h));
+
+    while(!st.empty())
+    {
+        l=st.top().first;
+        h=st.top().second;
+        st.pop();
+
+        int pivot=partition(arr,l,h);
+        if(pivot-1>l)
+        {
+            st.push(make_pair(l,pivot-1));
+
+        }
+        if(pivot+1<h)
+        {
+            st.push(make_pair(pivot+1,h));
+        }
+    }
 } 
   
 // A utility function to print contents of arr 
