@@ -1,6 +1,7 @@
 # Python program for implementation of Quicksort
 
 # This function is same in both iterative and recursive
+#Time Complexity - O(nlogn)
 def partition(arr, l, h):
   #write your code here
     i = ( l - 1 )
