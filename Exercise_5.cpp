@@ -1,6 +1,11 @@
-#include <bits/stdc++.h> 
+#include<iostream>
+#include<stack>
 using namespace std; 
-  
+
+// Time Complexity : O(n log n) 
+// Space Complexity : O(n) //Extra space for stack
+// Any problem you faced while coding this : No
+
 // A utility function to swap two elements 
 void swap(int* a, int* b) 
 { 
@@ -13,6 +18,20 @@ void swap(int* a, int* b)
 int partition(int arr[], int l, int h) 
 { 
     //Do the comparison and swapping here 
+    int pivot = arr[h];
+    int temp_l = l;
+    for(int i = l; i < h; i++)
+    {
+        if(arr[i] < pivot)
+        {
+            swap(&arr[i],&arr[temp_l]);
+            temp_l++;
+        }
+    }
+
+    swap(&arr[temp_l], &arr[h]);
+
+    return temp_l;
 } 
   
 /* A[] --> Array to be sorted,  
@@ -21,6 +40,33 @@ h --> Ending index */
 void quickSortIterative(int arr[], int l, int h) 
 { 
     //Try to think that how you can use stack here to remove recursion.
+    stack<int> s;
+    s.push(l);
+    s.push(h);
+
+    while(!s.empty())
+    {
+        h = s.top();
+        s.pop();
+        l = s.top();
+        s.pop();
+
+        int pivot_index = partition(arr, l , h);
+
+        //Left subarray if any
+        if(pivot_index - 1 > l)
+        {
+            s.push(l);
+            s.push(pivot_index - 1);
+        }
+
+        //Right subarray if any
+        if(pivot_index + 1 < h)
+        {
+            s.push(pivot_index + 1);
+            s.push(h);
+        }
+    }
 } 
   
 // A utility function to print contents of arr 
