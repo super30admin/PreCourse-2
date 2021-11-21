@@ -71,13 +71,14 @@ class MergeSort
     public static void main(String args[]) 
     { 
         int arr[] = {12, 11, 13, 5, 6, 0, 7}; 
-  
+        int arr2[] = {-12, -11, -13, -5, -6, 0, -7};
         System.out.println("Given Array"); 
         printArray(arr); 
   
         MergeSort ob = new MergeSort(); 
         ob.sort(arr, 0, arr.length-1); 
-  
+        ob.sort(arr2, 0, arr2.length-1);
+
         System.out.println("\nSorted array"); 
         printArray(arr); 
     } 
