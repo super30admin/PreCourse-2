@@ -1,4 +1,5 @@
 # Node class  
+#Time Complexity - O(n)
 class Node:  
   
     # Function to initialise the node object  
