@@ -13,7 +13,7 @@ struct Node
 // Space Complexity : O(1)
 
 /* Increment fast pointer by two locations and slow pointer by one location
-*  until slow pointer reaches to end of linked list.
+*  until fast pointer reaches to end of linked list.
 */
 void printMiddle(struct Node *head)  
 {  
