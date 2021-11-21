@@ -1,3 +1,11 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : N/A
+// Any problem you faced while coding this : Not sure about complexities
+
+
+// Your code here along with comments explaining your approach
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,7 +28,15 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
-    } 
+    Node pointer_that_moves_one_step = head;
+    Node pointer_that_moves_two_step = head; 
+    while(pointer_that_moves_two_step!=null && pointer_that_moves_two_step.next != null){
+        pointer_that_moves_two_step = pointer_that_moves_two_step.next.next;
+        pointer_that_moves_one_step = pointer_that_moves_one_step.next;
+    }
+    System.out.println("MidTerm ["+ pointer_that_moves_one_step.data +"]");
+    }
+     
   
     public void push(int new_data) 
     { 
