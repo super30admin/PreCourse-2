@@ -1,30 +1,62 @@
-#include <iostream>
+#include<bits/stdc++.h>
+#include <stdio.h>
 using namespace std;
-
-//Time Complexity --> O(Logn)
-//Space Complexity --> O(Logn)
-int binarySearch(int arr[], int l, int r, int x)
+// Time complexity --> O(Logn)
+// Space Complexity --> O(1)
+// Struct
+struct Node
 {
-    if(l > r) return -1;
-    int mid = (l+r)/2;
-    if(arr[mid] == x){
-        return mid;
-    }else if(arr[mid] < x){
-        return binarySearch(arr, mid +1,r, x);
-    }else if(arr[mid] > x){
-        return binarySearch(arr, l,mid-1, x);
+    int data;
+    struct Node* next;
+};
+
+/* Function to get the middle of the linked list*/
+void printMiddle(struct Node *head)
+{
+    Node * fast = head;
+    Node * slow = head;//14
+    while(fast != NULL){
+       fast = fast->next;
+       if(fast != NULL){
+           fast = fast->next;
+       }
+        if(fast != NULL){
+            slow = slow->next;
+        }
     }
-    return 0;
+    cout<<"The middle element is " <<slow->data<<endl;
 }
 
-int main(void)
+// Function to add a new node
+void push(struct Node** head_ref, int new_data)
 {
-    int arr[] = { 2, 3, 4, 10, 40 };
-    int n = sizeof(arr) / sizeof(arr[0]);
-    int x = 10;
-    int result = binarySearch(arr, 0, n - 1, x);
-    (result == -1) ? printf("Element is not present in array")
-                   : printf("Element is present at index %d",
-                            result);
+    struct Node* new_node = new Node;
+    new_node->data = new_data;
+    new_node->next = (*head_ref);
+    (*head_ref) = new_node;
+}
+
+// A utility function to print a given linked list
+void printList(struct Node *ptr)
+{
+    while (ptr != NULL)
+    {
+        printf("%d->", ptr->data);
+        ptr = ptr->next;
+    }
+    printf("NULL\n");
+}
+
+// Driver Code
+int main()
+{
+    struct Node* head = NULL;
+    for (int i=15; i>0; i--)
+    {
+        push(&head, i);
+        printList(head);
+        printMiddle(head);
+    }
+
     return 0;
 }
