@@ -1,3 +1,7 @@
+// Time Complexity :O(N) to traverse through the whole list
+// Space Complexity :O(1) only nreded for slow and fast pointers
+// Did this code successfully run on Leetcode :Yes
+// Any problem you faced while coding this :No
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +24,13 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    Node fast=head;
+    Node slow=head;
+    while(fast!=null&&fast.next!=null){
+        fast=fast.next.next;
+        slow=slow.next;
+    }
+    System.out.println(slow.data);
     } 
   
     public void push(int new_data) 
