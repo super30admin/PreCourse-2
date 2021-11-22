@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
@@ -5,7 +7,47 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
+    
        //Your code here  
+       int larr[]=new int[m-l+1];
+       int rarr[]=new int[r-m];
+
+       for(int i=0;i<m-l+1;i++)
+       {
+           larr[i]=arr[l+i];
+       }
+
+       for(int i=0;i<r-m;i++)
+       {
+           rarr[i]=arr[m+1+i];
+       }
+
+       int size1=m-l+1;
+       int size2=r-m;
+       int minSize=Math.min(size1,size2);
+       int k=l;
+       int i=0,j=0;
+       while(i<size1 && j<size2)
+       {
+           if(larr[i]<=rarr[j])
+           {
+             arr[k++]=larr[i++];
+           }
+           else{
+               arr[k++]=rarr[j++];
+           }
+       }
+       while(i<size1)
+       {
+        arr[k++]=larr[i++];
+       }
+       while(j<size2)
+       {
+        arr[k++]=rarr[j++];
+       }
+
+    //   System.out.println(Arrays.toString(arr));
+
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -14,6 +56,16 @@ class MergeSort
     { 
 	//Write your code here
         //Call mergeSort from here 
+    
+        if(l!=r)
+        {
+            int mid=(l+r)/2;
+            sort(arr,l,mid);
+            sort(arr,mid+1,r);
+            merge(arr,l,mid,r);
+        }
+
+    
     } 
   
     /* A utility function to print array of size n */
