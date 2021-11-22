@@ -1,4 +1,4 @@
-// Time Complexity :O(logn)
+// Time Complexity :O(nlogn)
 // Space Complexity :O(n) needed for auxiliary array
 // Did this code successfully run on Leetcode :Yes
 // Any problem you faced while coding this :No
