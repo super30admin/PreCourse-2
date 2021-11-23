@@ -1,5 +1,5 @@
 // Time Complexity :O(logn)
-// Space Complexity :O(1) only nreded for mid point element
+// Space Complexity :O(1) only needed for mid point element
 // Did this code successfully run on Leetcode :Yes
 // Any problem you faced while coding this :No
 class BinarySearch { 
