@@ -3,17 +3,62 @@ class MergeSort
     // Merges two subarrays of arr[]. 
     // First subarray is arr[l..m] 
     // Second subarray is arr[m+1..r] 
+    //Time Complexity : O(n)
+    //Space Complexity : O(n)
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+       int n1 = m - l + 1;
+        int n2 = r - m;
+  
+        int L[] = new int[n1];
+        int R[] = new int[n2];
+
+        for (int i = 0; i < n1; ++i)
+            L[i] = arr[l + i];
+        for (int j = 0; j < n2; ++j)
+            R[j] = arr[m + 1 + j];
+        
+        int i = 0;
+        int j = 0;
+        int k = l;
+        while(i<n1 || j<n2){
+            int m1 = 100000;
+            int m2 = 100000;
+            if(i<n1){
+                m1  = L[i];
+            }
+            if(j<n2){
+                m2 = R[j];
+            }
+            if(m1<=m2){
+                arr[k] = m1;
+
+                i++;
+            }
+            else if(m1>m2){
+                arr[k] = m2;
+                j++;
+            }
+            k++;
+
+
+        }
     } 
   
     // Main function that sorts arr[l..r] using 
     // merge() 
+    //Time Complexity = O(nlogn)
+    //Space Complexity = O(1)
     void sort(int arr[], int l, int r) 
     { 
 	//Write your code here
         //Call mergeSort from here 
+        if(l<r){
+            int m =l+ (r-l)/2;
+            sort(arr, l, m);
+            sort(arr,m+1,r);
+            merge(arr, l, m, r);
+        }
     } 
   
     /* A utility function to print array of size n */
