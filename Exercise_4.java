@@ -1,6 +1,6 @@
 /*
  Time complexity: O(NlogN) where N is size of array.
- Scpace complexity: O(N) to maintaing the call recursive call stack
+ Scpace complexity: O(N) to maintaing the call recursive call stack and temp array to store intermediate sorted array
  Did this code successfully run on Leetcode : Yes
  Any problem you faced while coding this : Yes, i had to brushup merge sort algorithm
 */
