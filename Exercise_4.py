@@ -1,4 +1,12 @@
-# Python program for implementation of MergeSort 
+# Time Complexity : 
+# Best Case: O(N(log(N))) 
+# Worst Case: O(N(log(N)))  
+
+# Space Complexity : (Recursion Stack = log(N) + Auxiliarry Array = N)
+# Best, Worst, Average Case = O(N)
+
+# Did this code successfully run on Leetcode : N/A
+# Any problem you faced while coding this : No
 def mergeSort(arr):
 
   def recur(arr):
