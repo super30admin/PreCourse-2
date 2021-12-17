@@ -2,6 +2,7 @@
   
 # give you explanation for the approach
 def partition(arr,low,high):
+    pass
   
   
     #write your code here
@@ -9,6 +10,7 @@ def partition(arr,low,high):
 
 # Function to do Quick sort 
 def quickSort(arr,low,high): 
+    pass
     
     #write your code here
   
