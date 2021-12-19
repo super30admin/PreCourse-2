@@ -18,7 +18,7 @@ class LinkedList:
             self.head = Newnode
             return
         last = self.head
-        while(last.next)
+        while(last.next):
             last = last.next
         last.next = Newnode
         
@@ -27,7 +27,7 @@ class LinkedList:
     # the linked list 
     def printMiddle(self): 
         slow = self.head
-        fast = fast.head
+        fast = self.head
         while(fast is not None and fast.next is not None):
             slow = slow.next
             fast = fast.next.next
