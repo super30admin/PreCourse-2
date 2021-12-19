@@ -1,5 +1,6 @@
 # Python program for implementation of Quicksort
-
+# T.C O(nlogn)
+# S.C O(logn)
 # This function is same in both iterative and recursive
 def partition(arr, low, high):
   pivot = arr[high]
