@@ -4,7 +4,16 @@
 # It returns location of x in given array arr  
 # if present, else returns -1 
 def binarySearch(arr, l, r, x): 
-  
+  while l <= r:
+    middle = (l + r) // 2
+    guess = int(arr[middle])
+    if guess == x:
+      return middle
+    if guess < x:
+      l = middle + 1
+    else:
+      r = middle - 1
+  return None
   #write your code here
   
     
