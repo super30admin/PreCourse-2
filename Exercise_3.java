@@ -1,3 +1,6 @@
+//Time Complexity is O(N) and space complexity is O(1)
+// Logic of the code is if we use slow and fast pointer then while traversing the linkedlist slow pointer will be in the mid of the linkedlist and henceforth we return the slow pointer 
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -19,8 +22,13 @@ class LinkedList
     void printMiddle() 
     { 
         //Write your code here
-	//Implement using Fast and slow pointers
+	ListNode slow = head, fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
     } 
+    return slow;
+}
   
     public void push(int new_data) 
     { 
