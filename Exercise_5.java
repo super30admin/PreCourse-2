@@ -1,20 +1,61 @@
+// Time Complexity : O(n2)
+// Space Complexity : O(n)
+
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
-	//Try swapping without extra variable 
+        if(i == j)
+            return;
+        arr[i] = arr[i] + arr[j];
+        arr[j] = arr[i] - arr[j];
+        arr[i] = arr[i] - arr[j]; 
     } 
   
     /* This function is same in both iterative and 
        recursive*/
     int partition(int arr[], int l, int h) 
     { 
-        //Compare elements and swap.
+        int p = l-1;
+        int i = l;
+        int pivot = arr[h];
+        while(i < h) {
+            if(arr[i] < pivot) {
+                p++;
+                swap(arr, i, p);
+            }
+            i++;
+        }
+        swap(arr, h, p+1);
+        return p+1;
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
     { 
-        //Try using Stack Data Structure to remove recursion.
+        int[] stack = new int[h - l + 1];
+ 
+        int top = -1;
+ 
+        stack[++top] = l;
+        stack[++top] = h;
+ 
+        while (top >= 0) {
+      
+            h = stack[top--];
+            l = stack[top--];
+ 
+            int p = partition(arr, l, h);
+ 
+            if (p - 1 > l) {
+                stack[++top] = l;
+                stack[++top] = p - 1;
+            }
+ 
+            if (p + 1 < h) {
+                stack[++top] = p + 1;
+                stack[++top] = h;
+            }
+        }
     } 
   
     // A utility function to print contents of arr 
