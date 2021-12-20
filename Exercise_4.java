@@ -1,3 +1,9 @@
+// Time Complexity : O(N log N)
+// Space Complexity :O(N) - extra spac etaken by the array used for the merge operation
+// Did this code successfully run on Leetcode : N/A
+// Any problem you faced while coding this : N/A
+
+
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
@@ -6,14 +12,64 @@ class MergeSort
     void merge(int arr[], int l, int m, int r) 
     {  
        //Your code here  
-    } 
+       int result[] = new int[r-l+1];
+       System.out.println(l +", "+ m +", "+ r);
+       int i = l;
+       int j = m+1;
+       int k=0;
+
+       while(i<=m && j <= r)
+       {
+            if(arr[i] <= arr[j])
+            {
+                result[k]= arr[i];
+                i++;
+                k++;
+            }
+            else
+            {
+                result[k] = arr[j];
+                j++;
+                k++;
+            }
+       }
+
+       while( i <= m)
+       {
+            result[k] =arr[i];
+            i++;
+            k++;
+
+       }
+
+       while(j <= r)
+       {
+           result[k]= arr[j];
+           j++;
+           k++;
+       }
+
+       for(int index =l; index<=r; index++)
+       {
+            arr[index]= result[index-l];
+       }  
+     } 
   
     // Main function that sorts arr[l..r] using 
     // merge() 
     void sort(int arr[], int l, int r) 
     { 
-	//Write your code here
-        //Call mergeSort from here 
+        //Write your code here
+        if( l< r)
+        {
+            int m = l + (r-l)/2;
+            sort(arr, l, m);
+            sort(arr, m+1, r);
+             //Call mergeSort from here 
+            merge(arr, l, m, r);
+        }
+       
+
     } 
   
     /* A utility function to print array of size n */

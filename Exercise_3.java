@@ -1,3 +1,9 @@
+// Time Complexity : printMiddle function traverses through the array once - O(N)
+// Space Complexity : O(1) - no extra space used
+// Did this code successfully run on Leetcode : N/A
+// Any problem you faced while coding this :  intially, I was only checking for fast_pointer.naxt != null in the while loop
+//- which lead to a null pointer exception because when the fast_pointer becomes null - I cannot access it's next  
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -19,7 +25,24 @@ class LinkedList
     void printMiddle() 
     { 
         //Write your code here
-	//Implement using Fast and slow pointers
+        Node fast_pointer = head;
+        Node slow_pointer = head;
+        if(head!= null && head.next == null)
+        {
+            //only one element 
+            System.out.println("The Middle element is: " + head.data);
+        }
+        else
+        {
+            while(fast_pointer!= null && fast_pointer.next!= null)
+            {
+                fast_pointer = fast_pointer.next.next;
+                slow_pointer = slow_pointer.next;
+            }
+
+        System.out.println("The Middle element is: " + slow_pointer.data);
+	    //Implement using Fast and slow pointers
+        }
     } 
   
     public void push(int new_data) 
@@ -49,5 +72,7 @@ class LinkedList
             llist.printList(); 
             llist.printMiddle(); 
         } 
+
+      
     } 
 } 
