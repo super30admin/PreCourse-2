@@ -1,6 +1,15 @@
 # Python program for implementation of Quicksort Sort 
   
+
+
 # give you explanation for the approach
+"""
+We take a pivot in array then we shift all elements lower that the pivot to the left and the higher elements to the right
+we do this recursively, by breaking down into smaller sub arrays 
+
+Time complexity : avg O(n * logn) worst O(n*n)
+Space Complexity : normal O(1) 
+"""
 def partition(arr, low, high):
     pivot = arr[high]
     l = low -1
