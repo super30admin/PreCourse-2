@@ -1,3 +1,22 @@
+// Time Complexity : O(N)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : 
+// Any problem you faced while coding this : No
+
+
+// Your code here along with comments explaining your approach
+//1. using two pointers approach, initialise slow and fast pointers
+//2. when fast pointer reaches end of linked list, slow pointer reaches middle of list
+//15 -> 14 -> 13 -> 12 -> 11 -> 10 -> 9 -> 8 -> 7 -> 6 -> 5 -> 4 -> 3 -> 2 -> 1
+//s f 
+//       s     f 
+//             s           f
+//                   s                f 
+//                         s                    f  
+//                               s                         f 
+//                                    s                              f 
+//                                          s                                  f  
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +39,13 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node Fast = head;
+        Node Slow = head;
+        while(Fast != null && Fast.next != null){
+            Fast = Fast.next.next;
+            Slow = Slow.next;
+        }
+        System.out.println("Middle element is " + Slow.data);
     } 
   
     public void push(int new_data) 
