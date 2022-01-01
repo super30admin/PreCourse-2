@@ -1,9 +1,21 @@
+//Time complexity O(logn)
+//Space complexity O(1)
+
 class BinarySearch { 
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
     { 
-        //Write your code here
-    } 
+        int pivot  = (l+r)/2;
+        if(arr[pivot]==x){
+            return pivot;
+        }else if(arr[pivot]>x){
+            r=pivot;
+             return binarySearch(arr,l,r,x);
+        }else{
+            l = pivot;
+            return binarySearch(arr,l,r,x);
+        }
+    }
   
     // Driver method to test above 
     public static void main(String args[]) 
