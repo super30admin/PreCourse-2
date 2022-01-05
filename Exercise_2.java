@@ -1,4 +1,9 @@
-class QuickSort 
+// Time Complexity :
+// Space Complexity :
+// Did this code successfully run on Leetcode :
+// Any problem you faced while coding this :
+
+class QuickSort
 { 
     /* This function takes last element as pivot, 
        places the pivot element at its correct 
@@ -7,12 +12,23 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
     
     int partition(int arr[], int low, int high) 
-    { 
-   	//Write code here for Partition and Swap 
+    {
+        int x = arr[high];
+        int i = (low - 1);
+        for (int j = low; j <= high - 1; j++){
+            if (arr[j] <= x){
+                i++;
+                swap(arr, i, j);
+            }
+        }
+        swap(arr, i + 1, high);
+        return (i + 1);
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -30,7 +46,7 @@ class QuickSort
         int n = arr.length; 
         for (int i=0; i<n; ++i) 
             System.out.print(arr[i]+" "); 
-        System.out.println(); 
+        System.out.println();
     } 
   
     // Driver program 
