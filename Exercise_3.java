@@ -1,3 +1,5 @@
+//time o(n) where n is the number of nodes
+//space o(1) 
 class LinkedList {
     Node head; // head of linked list
 

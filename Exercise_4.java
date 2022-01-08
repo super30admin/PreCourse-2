@@ -1,3 +1,5 @@
+//time o(nlogn) where n is the length of the array
+//space o(1) 
 class MergeSort {
     // Merges two subarrays of arr[].
     // First subarray is arr[l..m]

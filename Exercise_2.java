@@ -1,3 +1,5 @@
+//time o(nlogn) where n is the length of the array
+//space o(1) 
 class QuickSort {
     /*
      * This function takes last element as pivot,

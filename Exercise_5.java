@@ -1,3 +1,6 @@
+
+//time o(n*n) where n is the length of the array
+//space o(1) 
 import java.util.Stack;
 
 class IterativeQuickSort {
