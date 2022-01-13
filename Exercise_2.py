@@ -1,17 +1,62 @@
 # Python program for implementation of Quicksort Sort 
-  
+ # picking last element to pivot around
+ #time complexity : O(nlogn)
+ #space complexity: o(1)
 # give you explanation for the approach
 def partition(arr,low,high):
-  
+  i = (low-1)         # index of smaller element
+  pivot = arr[high]     # pivot
+  for j in range(low, high):
+ 
+        # If current element is smaller than or
+        # equal to pivot
+        if arr[j] <= pivot:
+ 
+            # increment index of smaller element
+            i = i+1
+            arr[i], arr[j] = arr[j], arr[i]
+ 
+  arr[i+1], arr[high] = arr[high], arr[i+1]
+  return (i+1)
+ 
   
     #write your code here
-  
+ # m = (low + high)//2
+  #while( low<=high):
+   #     while( arr[low]<m):
+    #      low +=1
+     #   while( arr[high]>m):
+      #    high +=1
+
+       # if( low<= high):
+        #    swap(arr,low,high)
+          #  low +=1
+         #   high +=1
+  #return low 
 
 # Function to do Quick sort 
 def quickSort(arr,low,high): 
-    
+    if len(arr) == 1:
+        return arr
+    if low < high:
+ 
+        # pi is partitioning index, arr[p] is now
+        # at right place
+        pi = partition(arr, low, high)
+ 
+        # Separately sort elements before
+        # partition and after partition
+        quickSort(arr, low, pi-1)
+        quickSort(arr, pi+1, high)
     #write your code here
+  # if low>=high :
+   #   return 
   
+  #i=partition(arr, low ,high)
+  #quickSort(arr,low, i-1)
+  #quickSort(arr, i,high) */
+
+
 # Driver code to test above 
 arr = [10, 7, 8, 9, 1, 5] 
 n = len(arr) 
