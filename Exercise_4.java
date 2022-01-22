@@ -1,61 +1,86 @@
 /**
-Quick Sort - It's a devide & Conqure algorithm.
+Merge Sort - It's a devide & Conqure algorithm.
 // Time Complexity :
-    Sorting - in the worst case O(n^2) where n is the length of an array. It occurs if the partiion process picks every time the largest element as pivot. Best case O(nlogn) where n is the length of an array. It occurs when the partition process every time picks the median as the pivot from the array.  
+    Sorting - Overall O(nlogn), where n is the length of an array. Time complexity for devide operation is O(logn) and merging will happen in linear time O(n).
 // Space Complexity :
     Total space complexity = Auxilary space + space used towards input.
-    O(n) in worst case and O(logn) for best case. where n is the length of an array.
+    original array O(n) where n is the length of an array + O(n/2) n/2 is length of first_array used for merging +
+    O(n/2) n/2 is length of second_array used for merging.
 // Did this code successfully run on Leetcode : Yes
 // Any problem you faced while coding this : No
 **/
-class QuickSort 
+class MergeSort 
 { 
-    /* This function takes last element as pivot, 
-       places the pivot element at its correct 
-       position in sorted array, and places all 
-       smaller (smaller than pivot) to left of 
-       pivot and all greater elements to right 
-       of pivot */
-    void swap(int arr[],int i,int j){
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-    
-    int getPartitionIndex(int arr[], int low, int high) 
-    { 
-   	    int pivot_element = arr[high];
-        
-        int i = low - 1;
-        int j;
-        for (j=low; j<high; j++)
-        {
-            if (arr[j] < pivot_element)
-            {
-                i++;
-                swap(arr, i, j);
-            }
-        } 
-        i++;
-        swap(arr, i, j);
-        return i;
-    } 
-    /* The main function that implements QuickSort() 
-      arr[] --> Array to be sorted, 
-      low  --> Starting index, 
-      high  --> Ending index */
-    void sort(int arr[], int low, int high) 
+    // Merges two subarrays of arr[]. 
+    // First subarray is arr[l..m] 
+    // Second subarray is arr[m+1..r] 
+    void merge(int arr[], int l, int m, int r) 
     {  
-        if (low >= high)
+        // 12, 11, 13, 5, 6, 7
+        int fLength = (m-l) + 1;
+        int sLength = r - m;
+        int first_arra[] = new int[fLength];
+        int second_arra[] = new int[sLength];
+        
+        for (int i=0; i<fLength; i++)
+        {
+            first_arra[i] = arr[l + i];
+        }
+        
+        for (int i=0; i<sLength; i++)
+        {
+            second_arra[i] = arr[m + i + 1];
+        }
+        
+        int fPtr = 0;
+        int sPtr = 0;
+        int outPtr = l;
+        
+        while (fPtr <fLength && sPtr < sLength)
+        {
+            if (first_arra[fPtr] <= second_arra[sPtr])
+            {
+                arr[outPtr] = first_arra[fPtr];
+                fPtr++;
+            }
+            else if (first_arra[fPtr] > second_arra[sPtr])
+            {
+                arr[outPtr] = second_arra[sPtr];
+                sPtr++;
+            }
+            outPtr++;
+        }
+        
+        // transfer remaining elements from first_arra into the output array
+        while (fPtr <fLength)
+        {
+            arr[outPtr] = first_arra[fPtr];
+            fPtr++;
+            outPtr++;
+        }
+        
+        // transfer remaining elements from second_arra into the output array
+        while (sPtr <sLength)
+        {
+            arr[outPtr] = second_arra[sPtr];
+            sPtr++;
+            outPtr++;
+        }
+    } 
+  
+    // Main function that sorts arr[l..r] using 
+    // merge() 
+    void sort(int arr[], int l, int r) 
+    { 
+        if (l >= r)
         {
             return;
         }
         
-            // Recursively sort elements before 
-            // partition and after partition 
-        int partition_index = getPartitionIndex(arr, low, high);
-        sort(arr, low, partition_index - 1);
-        sort(arr, partition_index + 1, high);
+	    int mid = l + (r - l) / 2;
+        sort(arr, l, mid);
+        sort(arr, mid + 1, r);
+        merge(arr, l, mid, r);
     } 
   
     /* A utility function to print array of size n */
@@ -63,20 +88,22 @@ class QuickSort
     { 
         int n = arr.length; 
         for (int i=0; i<n; ++i) 
-            System.out.print(arr[i]+" "); 
+            System.out.print(arr[i] + " "); 
         System.out.println(); 
     } 
   
-    // Driver program 
+    // Driver method 
     public static void main(String args[]) 
     { 
-        int arr[] = {12,11,13,-5,6,7,-4,1,8,-9,2,1}; 
-        int n = arr.length; 
+        int arr[] = {12, 11, 13, -5, 6, 7, -4 ,1 ,8 ,-9 ,2 ,1}; 
   
-        QuickSort ob = new QuickSort(); 
-        ob.sort(arr, 0, n-1); 
+        System.out.println("Given Array"); 
+        printArray(arr); 
   
-        System.out.println("sorted array"); 
+        MergeSort ob = new MergeSort(); 
+        ob.sort(arr, 0, arr.length-1); 
+  
+        System.out.println("\nSorted array"); 
         printArray(arr); 
     } 
-} 
+}
