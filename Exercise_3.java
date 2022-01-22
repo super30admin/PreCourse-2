@@ -1,4 +1,4 @@
-// Time Complexity : O(N/2)
+// Time Complexity : O(N) - [N/2 by both fast ptr and slow ptr]
 // Space Complexity : 2 References + N*SizeOf(Node)
 // Did this code successfully run on Leetcode : Yes
 // Any problem you faced while coding this : Odd Even case what happens, which one to show ? ceil or floor rule.
