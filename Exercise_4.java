@@ -1,3 +1,5 @@
+//time complexity = O(nlogn)
+//space complexity = O(n)
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
@@ -6,7 +8,36 @@ class MergeSort
     void merge(int arr[], int l, int m, int r) 
     {  
        //Your code here  
-    } 
+	    int p1 = m - l +1;
+	    int p2 =r - m;
+	    int P[] = new int [p1]; 
+            int Q[] = new int [p2];
+	    for (int i = 0; i < n1; i++){
+      P[i] = arr[l + i];
+	    }
+    for (int j = 0; j < n2; j++){
+      Q[j] = arr[m + 1 + j];
+    }
+	    int i = 0;
+	    int j = 0;
+	    int k = l;
+	    while(i < p1 && j < p2){
+		    if(P[i] <= Q[j]){
+			    arr[k] = P[i];
+			    i++;
+		    } else {
+			    arr[k] = Q[j];
+			    j++;
+		    }
+		    k++;
+	    }
+	    while(i < p1){
+		    arr[k++] = arr[P++];
+	    }
+	    while(j < p2){
+		    arr[k++] = arr[Q++];
+	    }
+    }
   
     // Main function that sorts arr[l..r] using 
     // merge() 
@@ -14,6 +45,12 @@ class MergeSort
     { 
 	//Write your code here
         //Call mergeSort from here 
+	     if (l < r) {
+            int mid = (l + r) / 2;
+            sort(arr, l, mid);
+            sort(arr, mid + 1, r);
+            merge(arr, l, mid, r);
+        }
     } 
   
     /* A utility function to print array of size n */
