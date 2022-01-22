@@ -33,9 +33,13 @@ class MergeSort
 	    }
 	    while(i < p1){
 		    arr[k++] = arr[P++];
+		    i++;
+		    K++;
 	    }
 	    while(j < p2){
 		    arr[k++] = arr[Q++];
+		    J++;
+		    K++;
 	    }
     }
   
