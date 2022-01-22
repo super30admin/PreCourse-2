@@ -3,6 +3,7 @@ class BinarySearch {
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
+        return -1;//SU TODO
     } 
   
     // Driver method to test above 

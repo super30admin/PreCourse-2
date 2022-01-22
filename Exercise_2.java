@@ -10,10 +10,11 @@ class QuickSort
         //Your code here   
     }
     
-    int partition(int arr[], int low, int high) 
+    int partition(int arr[], int low, int high)
     { 
    	//Write code here for Partition and Swap 
-    } 
+        return -1;//SU TODO
+    }
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
       low  --> Starting index, 
