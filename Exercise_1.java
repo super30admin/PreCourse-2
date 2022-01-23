@@ -1,7 +1,7 @@
 // Time Complexity : It is O(Log(N)) since getting half everytime
 // Space Complexity : Temp Var in Iterative, But Recursively function stack would grow I guess so space it will be required.
 // Did this code successfully run on Leetcode : Yes
-// Any problem you faced while coding this : How would you know which algorithm to choose ?
+// Any problem you faced while coding this : How would you decide between recursive and iterative ?
 class BinarySearch {
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x)
