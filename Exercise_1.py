@@ -1,3 +1,6 @@
+# time complexity: O(log n)
+# space complexity: O(1)
+
 # Python code to implement iterative Binary  
 # Search. 
   
@@ -6,6 +9,21 @@
 def binarySearch(arr, l, r, x): 
   
   #write your code here
+  mid = 0
+
+  while l <= r:
+    mid = (l+r) // 2
+
+    if arr[mid] < x:
+      l = mid + 1
+
+    elif arr[mid] > x:
+      r = mid - 1
+
+    else:
+      return mid
+
+  return -1
   
     
   
