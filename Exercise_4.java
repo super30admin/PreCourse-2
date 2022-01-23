@@ -1,5 +1,5 @@
-// Time Complexity : Still working;
-// Space Complexity : Using new array for copy, so "O(N) + Stack Function O(Log(N))"
+// Time Complexity : [Merging Algo - O(n)] + [2*M.S.(n/2)] ~ O(nlog(n))
+// Space Complexity : Using new array for copy and dividing by 2 , so O(n) + Recursive Stack Function O(Log(n)) ~~ O(Log(n))
 // Did this code successfully run on Leetcode : Yes
 // Any problem you faced while coding this : Calculating  complexities
 import java.util.Arrays;
@@ -13,6 +13,7 @@ class MergeSort {
         System.out.println("Merge : l,mid,r : " + l + "," + m + "," + r);
         int arr1_ctr = 0;
         int arr2_ctr = 0;
+        // Copying to two split arrays from mid
         int[] arr1 = Arrays.copyOfRange(arr, l, m + 1);
         int[] arr2 = Arrays.copyOfRange(arr, m + 1, r + 1);
         // Checking array splits
