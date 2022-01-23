@@ -1,5 +1,4 @@
-// Time Complexity :
-// AVG : [Partition algo O(n)] + 2*Q.S.[n/2] ~~ 0(nLog(n));
+// Time Complexity : // AVG : [Partition algo O(n)] + 2*Q.S.[n/2] ~~ 0(nLog(n));
 // Worst : [Partition algo O(n)] + Q.S(n-1) ~~ O(n^2)
 // Space Complexity : If partitioned balanced then O(Log(n)) like Merge sort; but in worst case unbalanced then levels would be equal to N so O(nLog(n))
 // Did this code successfully run on Leetcode : Yes
@@ -28,12 +27,13 @@ class QuickSort {
         for (i = 0; i < high; i++) {
             // System.out.println("Checking i with pivot : " + arr[i] + "," + arr[pivot]);
             if (arr[i] <= arr[pivot]) {
-                //  divider point to elems less than picot; so increment divider and swap;
+                //  divider point to elems less than pivot; so increment divider and swap;
                 divider++;
                 swap(arr, i, divider);
             }
         }
         swap(arr, divider + 1, pivot);
+        System.out.println("Pivot idx "+(divider+1));
         return divider + 1;
     }
 
@@ -44,12 +44,13 @@ class QuickSort {
     void sort(int arr[], int low, int high) {
         // Recursively sort elements before
         // partition and after partition
-        System.out.println("QS low,high " + low + "," + high);
         if (low < high) {
+            System.out.println("QS low,high " + low + "," + high);
             int pivot = partition(arr, low, high);
             sort(arr, low, pivot - 1);
             sort(arr, pivot + 1, high);
         }
+        printArray(arr);
     }
 
     /* A utility function to print array of size n */
