@@ -25,6 +25,7 @@ class LinkedList_Custom {
         Node fastPtr = head, slowPtr = head;
 
         int ctr = 0;
+        // fastptr reaches end and slow ptr will reach N/2
         while (fastPtr != null && fastPtr.next != null) {
             System.out.print("[S_" + slowPtr.data + ",F_" + fastPtr.data + "]->");
             slowPtr = slowPtr.next;

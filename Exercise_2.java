@@ -32,6 +32,7 @@ class QuickSort {
                 swap(arr, i, divider);
             }
         }
+        // increment and swapt the pivot with the divider elem
         swap(arr, divider + 1, pivot);
         System.out.println("Pivot idx "+(divider+1));
         return divider + 1;

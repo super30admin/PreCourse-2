@@ -42,12 +42,14 @@ class MergeSort {
             main_arr++;
         }
         //System.out.print("Rem elem 1 : "+arr1_ctr+" /len "+arr1.length);
+        // Copying arr1 elems to main array
         while (arr1_ctr < arr1.length) {
             arr[main_arr] = arr1[arr1_ctr];
             arr1_ctr++;
             main_arr++;
         }
         System.out.println();
+        // Copying arr2 elems to main array
         while (arr2_ctr < arr2.length) {
             //System.out.println("Rem elem 2 :"+arr1_ctr+" /len "+arr2.length);
             arr[main_arr] = arr2[arr2_ctr];

@@ -7,6 +7,7 @@ class BinarySearch {
     int binarySearch(int arr[], int l, int r, int x)
     {
         //Write your code here
+        // Calculating mid
         int mid = (l + r) / 2;
         System.out.println(" Var : l,r,mid : " + l + "," + r + "," + mid);
 

@@ -1,4 +1,4 @@
-// Time Complexity :  0(nLog(n)); // Should be similar to the recursive Q.S, but should be faster since stack call and function activation calss would be avoided.
+// Time Complexity :  0(nLog(n)); // Should be similar to the recursive Q.S, but should be faster since stack call and function activation calls would be avoided.
 // Space Complexity : O(nLog(n)); // Similar to recursive Q.S since the core partitioning algorithm is same.
 // Did this code successfully run on Leetcode : Yes
 // Any problem you faced while coding this : determining complexity
@@ -31,6 +31,7 @@ class IterativeQuickSort {
             }
             printArr(arr, arr.length);
         }
+        // increment and swapt the pivot with the divider elem
         swap(arr, divider + 1, pivot);
         return divider + 1;
     }
