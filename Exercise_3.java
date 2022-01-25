@@ -1,4 +1,13 @@
-class LinkedList 
+// Time Complexity : O(N), iterate over the linked list
+// Space Complexity : O(1), slow and fast pointer
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : no
+/*
+Finding middle of the linked list using slow and fast pointer, the slow pointer moves one by one element,
+whereas the fast pointer moves twice of that, so as the fast pointer reaches to the end of the linked list
+slow pointer reaches to the middle of the linked list and we can print the middle value
+ */
+class LinkedList
 { 
     Node head; // head of linked list 
   
@@ -20,6 +29,14 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node slow = head;
+        Node fast = head;
+
+        while(fast!= null && fast.next!= null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        System.out.println("Middle linked list: "+ slow.data);
     } 
   
     public void push(int new_data) 
