@@ -1,6 +1,6 @@
 // Time Complexity : O(nlog(n)) worst case can be O(n^2)
 // Space Complexity : O(log(n)) worst case can be O(n)
-// Did this code successfully run on Leetcode : No
+// Did this code successfully run on Leetcode : N/A
 // Any problem you faced while coding this : no
 /*
 Quick sort is a sorting algorithm which uses divide and conquer approach, we set a pivot element and then compare other
