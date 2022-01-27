@@ -19,25 +19,17 @@ class QuickSort
     {
    	//Write code here for Partition and Swap
         int pivot = arr[high];
-        while(low <= high )
+        int i = low-1;
+        for (int j = low ; j <= high ; j++)
         {
-            while (arr[low] < pivot)
+            if (arr[j] < pivot)
             {
-                low++;
-            }
-            while(arr[high]> pivot)
-            {
-                high--;
-            }
-            if (low < high)
-            {
-                swap(arr,low,high-1);
-                low++;
-                high--;
+                i++;
+                swap(arr, i, j);
             }
         }
-        return low+1;
-
+        swap(arr, i+1, high);
+        return i+1;
     }
     /* The main function that implements QuickSort()
       arr[] --> Array to be sorted,
@@ -50,10 +42,9 @@ class QuickSort
         if( low < high)
         {
             int pivot = partition(arr, low,high);
-            sort(arr, low , pivot);
-            sort(arr , pivot, high);
+            sort(arr, low , pivot-1);
+            sort(arr , pivot+1, high);
         }
-
 
     }
 
