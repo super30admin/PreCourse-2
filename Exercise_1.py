@@ -3,6 +3,12 @@
   
 # It returns location of x in given array arr  
 # if present, else returns -1 
+
+# Time Complexity : O(log N)
+# Space Complexity :O(log N)
+# Did this code successfully run on Leetcode? : Verified by succesfully running on code editor
+# Any problem you faced while coding this : No
+  
 def binarySearch(arr, l, r, x): 
   
   #write your code here
