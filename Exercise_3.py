@@ -1,4 +1,10 @@
-# Node class  
+# Node class 
+
+# Time Complexity : O(n)
+# Space Complexity :O(1)
+# Did this code successfully run on Leetcode? : Verified by succesfully running on code editor
+# Any problem you faced while coding this : No
+
 class Node:  
   
     # Function to initialise the node object  
