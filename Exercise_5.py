@@ -1,5 +1,10 @@
 # Python program for implementation of Quicksort
 
+# Time Complexity : O(N log N) --> best and average case; O(n^2) --> worst case
+# Space Complexity :O(log N) --> best and average case; O(n) --> worst case
+# Did this code successfully run on Leetcode? : Verified by succesfully running on code editor
+# Any problem you faced while coding this : No
+
 # This function is same in both iterative and recursive
 def partition(arr, l, h):
   #write your code here
