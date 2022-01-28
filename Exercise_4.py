@@ -1,4 +1,10 @@
 # Python program for implementation of MergeSort 
+
+# Time Complexity : O(N log N)
+# Space Complexity :O(N)
+# Did this code successfully run on Leetcode? : Verified by succesfully running on code editor
+# Any problem you faced while coding this : No
+
 def mergeSort(arr):
   
   #write your code here
