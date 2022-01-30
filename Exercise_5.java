@@ -1,4 +1,9 @@
 class IterativeQuickSort {
+// Time Complexity : O(n log n)
+// Space Complexity : O(log n)
+// Did this code successfully run on Leetcode : NA
+// Any problem you faced while coding this : No
+
     void swap(int arr[], int i, int j)
     {
         //Try swapping without extra variable

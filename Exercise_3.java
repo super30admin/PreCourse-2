@@ -1,5 +1,10 @@
 class LinkedList
 {
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : NA
+// Any problem you faced while coding this : No
+
     Node head; // head of linked list 
 
     /* Linked list node */

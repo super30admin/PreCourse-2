@@ -1,5 +1,10 @@
 class QuickSort
 {
+// Time Complexity : O(n log n)
+// Space Complexity : O(log n)
+// Did this code successfully run on Leetcode : NA
+// Any problem you faced while coding this : No
+
     /* This function takes last element as pivot,
        places the pivot element at its correct
        position in sorted array, and places all
