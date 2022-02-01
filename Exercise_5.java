@@ -14,17 +14,17 @@ class IterativeQuickSort {
     int partition(int arr[], int low, int high)
     {
         int i = low - 1;
+        int p = arr[high];
 
         for (int k = low;  k < high ; k++) {
 
-            if (arr[k] < arr[high]) {
+            if (arr[k] <= p) {
                 i++;
                 swap(arr, i , k);
             }
 
             printArr(arr, arr.length);
         }
-
 
         i = i + 1;
         swap(arr, i , high);
@@ -45,16 +45,10 @@ class IterativeQuickSort {
         stack.push(l);
         stack.push(h);
 
-        int i = 0 ;
-
+      int i = 0 ;
        for ( ; !stack.isEmpty(); ) {
 
 
-
-           if ( ++i == 5)
-           {
-               break;
-           }
 
            h = (int)stack.pop();
            l = (int) stack.pop();
@@ -65,9 +59,9 @@ class IterativeQuickSort {
            System.out.println("mid : "+mid);
 
 
-           if (mid - 1 > 1){
+           if (mid - 1 > l){
                stack.push(l);
-               stack.push(mid);
+               stack.push(mid-1);
 
            }
 
@@ -78,7 +72,6 @@ class IterativeQuickSort {
            }
 
            System.out.println(stack.toString());
-
 
        }
 
