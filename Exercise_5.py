@@ -2,6 +2,9 @@
 
 # This function is same in both iterative and recursive
 
+#time complexity : O(nlogn)
+#space complexity O(1)
+
 def partition(arr, l ,h):
   #write your code here
   start = l

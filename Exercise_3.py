@@ -1,3 +1,6 @@
+#time complexity : O(n)
+#space complexity : O(1)
+
 # Node class  
 class Node:  
   
