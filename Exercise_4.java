@@ -1,28 +1,70 @@
+/*
+Time Complexity : O(N * Log N)
+Space Complexity : O(N) extra array
+Did this code successfully run on Leetcode : yes
+Any problem you faced while coding this : No
+
+*/
+
 class MergeSort 
 { 
-    // Merges two subarrays of arr[]. 
-    // First subarray is arr[l..m] 
-    // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+       
+       int i=l;
+       int ind=0;
+       int j=m+1;
+       int len = arr.length ;
+       int[] arr1 = new int[len];
+
+       while(i<=l && j<=r){
+           if(arr[i]<arr[j]){
+               arr1[ind] = arr[i];
+               i++;
+           }
+           else{
+               arr1[ind] = arr[j];
+               j++;
+           }
+            ind++;
+       }
+        if(i>m){
+            while(j<=r){
+                arr1[ind] = arr[j];
+               j++;
+               ind++;
+            }
+        }
+        if(j>r){
+            while(i<=m){
+                arr1[ind] = arr[i];
+               i++;
+               ind++;
+            }
+        }
+
+        for(int k=l;k<ind;k++){
+            arr[l]=arr1[k];
+            l++;
+        }
     } 
-  
-    // Main function that sorts arr[l..r] using 
-    // merge() 
+
     void sort(int arr[], int l, int r) 
     { 
-	//Write your code here
-        //Call mergeSort from here 
+        if(l<r){
+            int m = (l+r)/2;
+            sort(arr,l,m);
+            sort(arr,m+1,r);
+            merge(arr,l,m,r);
+        }
+
     } 
-  
-    /* A utility function to print array of size n */
+
     static void printArray(int arr[]) 
     { 
         int n = arr.length; 
         for (int i=0; i<n; ++i) 
-            System.out.print(arr[i] + " "); 
-        System.out.println(); 
+        System.out.print(arr[i] + " "); 
     } 
   
     // Driver method 
