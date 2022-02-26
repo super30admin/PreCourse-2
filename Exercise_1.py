@@ -1,3 +1,5 @@
+# Time Complexity: O(logn)
+# Space Complexity: O(1)
 # Python code to implement iterative Binary  
 # Search. 
   
