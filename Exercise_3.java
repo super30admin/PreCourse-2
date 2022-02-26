@@ -1,3 +1,20 @@
+// Time Complexity : O(N)
+// Space Complexity : O(1)
+
+// Did this code successfully run on Leetcode : n/a
+// Any problem you faced while coding this : No
+
+
+// Your code here along with comments explaining your approach
+/*
+--> Used 2 pointers: slow and fast
+--> Slow pointter will skip 1 element and fast will skip 2 elements.
+--> We will execute loop until fast pointer  is null or it's next is null or not 
+--> When any 1 from above 2 conditions become true we will stop and will print slow as middle element of LinkedList
+*/
+
+
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +37,15 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node slow = head;
+        Node fast = head;
+
+        while(fast  != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        System.out.println("Middle element is : " + slow.data);
+
     } 
   
     public void push(int new_data) 
