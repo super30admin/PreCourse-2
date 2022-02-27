@@ -36,7 +36,6 @@ class IterativeQuickSort {
     void QuickSort(int arr[], int l, int h) 
     { 
         //Try using Stack Data Structure to remove recursion.
-        // I tried using Stack<Integer> but it wouldn't compile for some reason
        
         Stack<Integer> stack = new Stack<Integer>();
 
