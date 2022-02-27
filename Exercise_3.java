@@ -1,4 +1,8 @@
-class LinkedList 
+// Time Complexity : O(n) (n - number of nodes)
+// Space Complexity : O(1) (space used by fast and slow)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : N/A
+class LinkedList1 
 { 
     Node head; // head of linked list 
   
@@ -20,6 +24,21 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node slow = head;
+        Node fast = head;
+        
+        while(fast!=null && fast.next!=null)
+        {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        System.out.println("Mid Point of the above Singly Linked List is: ");
+        while(slow!=null)
+        {
+            System.out.print(slow.data+"->");
+            slow=slow.next;
+        }
+        System.out.println("NULL");   
     } 
   
     public void push(int new_data) 
@@ -31,6 +50,7 @@ class LinkedList
 
     public void printList() 
     { 
+        System.out.println(); 
         Node tnode = head; 
         while (tnode != null) 
         { 
@@ -42,7 +62,7 @@ class LinkedList
   
     public static void main(String [] args) 
     { 
-        LinkedList llist = new LinkedList(); 
+        LinkedList1 llist = new LinkedList1(); 
         for (int i=15; i>0; --i) 
         { 
             llist.push(i); 
