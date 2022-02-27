@@ -1,3 +1,9 @@
+/**
+ * Space complexity is O(n) where n is the number of elements.
+ * Time complexity is O(n) as well as the fast pointer needs to traverse entire list so that slow pointer reaches the mid node.
+ * 
+ * Note that (n/2 + 1)th node is treated as mid point for all n.
+ */
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +26,13 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node slow = head;
+        Node fast = head;
+        while(fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        System.out.println(slow.data);
     } 
   
     public void push(int new_data) 
