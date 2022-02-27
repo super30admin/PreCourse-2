@@ -1,4 +1,6 @@
-# Node class  
+# Node class 
+# Time Complexity O(n)
+# Space Complexity O(n) 
 from tkinter.messagebox import NO
 
 
@@ -34,7 +36,6 @@ class LinkedList:
             fast_node = fast_node.next.next
         
         print(slow_node.data)
-        return slow_node.data
 
 # Driver code de.next
 list1 = LinkedList() 

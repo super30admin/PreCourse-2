@@ -7,7 +7,7 @@
 # if present, else returns -1 
 def binarySearch(arr, l, r, x): 
   while l < r:
-    mid = int((l+r)/2)
+    mid = (l+r)//2
     if arr[mid] == x:
       return mid
     
