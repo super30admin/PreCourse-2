@@ -1,4 +1,19 @@
-class LinkedList 
+/*
+Time Complexity : O(n) since traversing the entire arraylist.
+Space Complexity : O(n) since we create memory when linked list is generated
+
+Did this code successfully run on Leetcode :
+Finished in 81 ms
+1->2->3->4->5->6->7->8->9->10->11->12->13->14->15->NULL
+Mid of the list is 8
+
+Any problem you faced while coding this :
+Renamed the class due to Leetcode giving compiling issues due to Conflict with java.util.LinkedList class.
+
+Your code here along with comments explaining your approach :
+Straight forward approach for two pointers.
+*/
+class MyLinkedList 
 { 
     Node head; // head of linked list 
   
@@ -18,8 +33,15 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+	    //Implement using Fast and slow pointers
+        Node slowPointer = head;
+        Node fastPointer = head;
+         
+        while (fastPointer != null && fastPointer.next != null){
+            slowPointer = slowPointer.next;
+            fastPointer = fastPointer.next.next;
+        }
+        System.out.println("Mid of the list is " + slowPointer.data);
     } 
   
     public void push(int new_data) 
@@ -42,12 +64,12 @@ class LinkedList
   
     public static void main(String [] args) 
     { 
-        LinkedList llist = new LinkedList(); 
+        MyLinkedList llist = new MyLinkedList(); 
         for (int i=15; i>0; --i) 
         { 
             llist.push(i); 
-            llist.printList(); 
-            llist.printMiddle(); 
-        } 
+        }
+        llist.printList(); 
+        llist.printMiddle(); 
     } 
 } 
