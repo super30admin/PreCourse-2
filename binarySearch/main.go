@@ -1,12 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
+// time: o(logN)-- since we cut the search size by half each iteration
+// space: o(1)
 func binarySearch(nums []int, lookup int) int {
 	if len(nums) == 0 {
 		return -1
 	}
-
 	left := 0
 	right := len(nums) - 1
 
@@ -24,7 +27,7 @@ func binarySearch(nums []int, lookup int) int {
 }
 
 func main() {
-	result := binarySearch([]int{2, 3, 4, 10, 4}, 10)
+	result := binarySearch([]int{2, 3, 4, 10, 40}, 10)
 	if result != -1 {
 		fmt.Println("Element is present at index: ", result)
 	} else {
