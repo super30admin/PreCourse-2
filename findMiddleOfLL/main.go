@@ -66,7 +66,8 @@ func (l *LinkedList) PrintMiddleWithoutMaintaingSize() {
 	slow := l.head
 	fast := l.head
 	// if fast ptr moves 2 times faster than slow, then when fast has reached the end of the LL
-	// slow was moving half the speed, therefore slow is in the middle right now
+	// slow was moving half the speed, therefore slow is half way of fast
+	// if fast is at the end and slow is half way of fast - i.e slow is in the middle
 	for fast != nil && fast.Next != nil {
 		slow = slow.Next
 		fast = fast.Next.Next
