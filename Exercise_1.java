@@ -3,6 +3,15 @@ class BinarySearch {
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
+        if(arr == null || arr.length==0) return -1;
+        int left = 0, right = arr.length -1;
+        while(left <= right) {
+            int mid = left + (right-left)/2;
+            if(arr[mid] == x) return mid;
+            else if(arr[mid] > x) right = mid - 1;
+            else left = mid + 1;
+        }
+        return -1;
     } 
   
     // Driver method to test above 
