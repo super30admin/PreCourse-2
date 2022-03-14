@@ -1,20 +1,42 @@
+
+# Time Complexity : θ(1) 
+# Space Complexity : O(1)
+# Did this code successfully run on Leetcode : No
+# Any problem you faced while coding this : No
+
 # Node class  
 class Node:  
   
     # Function to initialise the node object  
-    def __init__(self, data):  
+    def __init__(self, data):
+        self.data = data
+        self.next = None  
         
 class LinkedList: 
   
     def __init__(self): 
+        self.head = None
         
-  
     def push(self, new_data): 
         
+        newNode = Node(new_data)
+        if self.head is None:
+            self.head = newNode
+        else:
+            curr = self.head
+            while curr.next is not None:
+                curr = curr.next
+            curr.next = newNode
   
-    # Function to get the middle of  
-    # the linked list 
     def printMiddle(self): 
+
+        slow = fast = self.head
+        
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            
+        print("The Middle Element is", slow.data)
 
 # Driver code 
 list1 = LinkedList() 
