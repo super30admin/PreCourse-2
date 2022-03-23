@@ -1,6 +1,6 @@
 // Time Complexity : O(n log n)
 // Space Complexity : O(n)
-// Did this code successfully run on Leetcode : Did not run it on leetcode
+// Did this code successfully run on Leetcode : ran successfully on another online Java compiler
 // Any problem you faced while coding this : No
 class MergeSort 
 { 
