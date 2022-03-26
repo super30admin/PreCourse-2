@@ -9,6 +9,7 @@ class IterativeQuickSort {
     int partition(int arr[], int l, int h) 
     { 
         //Compare elements and swap.
+        return 1;
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
