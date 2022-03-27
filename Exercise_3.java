@@ -1,7 +1,8 @@
-class LinkedList 
+//Space time complexity : O(n)
+class LinkedList
 { 
     Node head; // head of linked list 
-  
+    int lengthOfLinkedList = 0;
     /* Linked list node */
     class Node 
     { 
@@ -20,13 +21,23 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node n = head;
+
+        int mid = lengthOfLinkedList/2;
+        Node findMid = head;
+        for(int i=1;i<=mid;i++)
+        {
+            n=n.next;
+        }
+        System.out.println("Middle Element : "+n.data);
     } 
   
     public void push(int new_data) 
     { 
         Node new_node = new Node(new_data); 
         new_node.next = head; 
-        head = new_node; 
+        head = new_node;
+        lengthOfLinkedList++;
     } 
 
     public void printList() 
