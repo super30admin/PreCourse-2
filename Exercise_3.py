@@ -43,6 +43,7 @@ class LinkedList:
 
         return sp.data
 
+
         # Driver code
 list1 = LinkedList()
 list1.push(5)

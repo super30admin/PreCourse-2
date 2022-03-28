@@ -48,7 +48,7 @@ def quickSortIterative(arr, l, h):
 
 
 arr = [80, 90, 70, 60, 50, 40, 30]
-# arr = [7, 4, 1, 2, 5, 7, 9]
+arr = [7, 4, 1, 2, 5, 7, 9]
 n = len(arr)
 quickSortIterative(arr, 0, n-1)
 print("Sorted array is:")

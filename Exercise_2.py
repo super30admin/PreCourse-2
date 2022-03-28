@@ -1,10 +1,9 @@
 # Python program for implementation of Quicksort Sort
+
 # Time Complexity : O(nlogn)
 # Space Complexity : O(1)
 # Did this code successfully run on Leetcode : Ran this in VS Code ide
-# Any problem you faced while coding this : Yes
-# Problem - I made a mistake of checking "if partition_index - 1 >= 0:" that condition broke the code
-# instead of comparing with the low pointer of current context -- line 46
+# Any problem you faced while coding this : No
 
 # give you explanation for the approach
 def partition(arr, low, high):

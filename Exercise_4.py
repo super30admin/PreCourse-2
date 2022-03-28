@@ -51,9 +51,6 @@ def mergeSort(arr, lp, rp):
         merged_arr = merge(sort_left, sort_right)
         return merged_arr
 
-
-# write your code here
-
 # Code to print the list
 
 
@@ -62,7 +59,6 @@ def printList(arr):
         print(element,  end="\t")
     print()
     # write your code here
-
 
     # driver code to test the above code
 if __name__ == '__main__':
