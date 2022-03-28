@@ -1,3 +1,7 @@
+// Time Complexity : O(n)
+// Space Complexity :   O(1) just using pointers
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
 class LinkedList 
 { 
     Node head; // head of linked list 
