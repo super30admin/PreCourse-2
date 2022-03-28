@@ -1,3 +1,5 @@
+//time complexity for nlogn 
+// it is in space no extra memory
 #include <stdio.h> 
   
 // A recursive binary search function. It returns 

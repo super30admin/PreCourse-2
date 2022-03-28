@@ -1,3 +1,5 @@
+//time complexity O(n).
+// it is in space no extra memory
 #include<bits/stdc++.h>  
 using namespace std;  
   

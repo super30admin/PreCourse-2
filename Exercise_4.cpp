@@ -1,3 +1,5 @@
+//time complexity for worst case nlogn
+// Space O(n) extra memory  the extra space is taking in merge logic.
 #include<stdlib.h> 
 #include<stdio.h> 
   

@@ -1,3 +1,6 @@
+//time complexity for best case nlogn when pivot is in middle and worst case n^2 because if we find array is sorted in ascending or desending.
+// it is in space no extra memory
+// approach is like first we have to take pivot by partition logic and then call qucik sort left and right
 #include <bits/stdc++.h> 
 using namespace std;  
   
