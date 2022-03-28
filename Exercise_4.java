@@ -1,3 +1,8 @@
+// Time Complexity : O(nlogn)
+// Space Complexity : O(n)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : Yes, confused about the base condition in recursion
+
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
@@ -5,15 +10,51 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+       int[] mergedArray = new int[r-l];
+
+       int i = l, j = m, k = 0;
+
+       while(i < m && j < r) {
+
+            if(arr[i] < arr[j]) {               // if the left array has the smallest value then copy the left one
+                mergedArray[k++] = arr[i++];
+            } else {                            // if the right array has the smallest value then copy the right one
+                mergedArray[k++] = arr[j++];
+            }
+       }
+
+       // Copy all the remaining elements from left or right arrays
+       while(i < m) {
+           mergedArray[k++] = arr[i++];
+       }
+
+       while(j < r) {
+            mergedArray[k++] = arr[j++];
+       }
+
+       // Copy the result into the original array
+        for(int itr = 0; itr < mergedArray.length; itr++) {
+            arr[l + itr] = mergedArray[itr];
+        }
+       
     } 
   
     // Main function that sorts arr[l..r] using 
     // merge() 
     void sort(int arr[], int l, int r) 
     { 
-	//Write your code here
-        //Call mergeSort from here 
+    
+        if(r - l == 1) {
+            return;
+        }
+
+        // Dividing array into half recursively until there's only one element
+        int m = l + (r - l) / 2;
+        sort(arr, l, m);
+        sort(arr, m, r);
+
+        // Merging two unsorted arrays
+        merge(arr, l, m, r+1);
     } 
   
     /* A utility function to print array of size n */
