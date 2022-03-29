@@ -28,8 +28,7 @@ class LinkedList
         Node hare, tortoise;        
         hare = tortoise = head;
 
-        while(hare != null && hare.next != null) {  //loop shall end only when fast pointer ( hare ) reaches null or its next node is null
-        )
+        while(hare != null && hare.next != null) {  //loop shall end only when fast pointer ( hare ) reaches null or its next node is null)
             hare = hare.next.next;
             tortoise = tortoise.next;
         }
