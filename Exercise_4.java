@@ -1,49 +1,48 @@
-class MergeSort 
+// Time Complexity : O(m+n)
+// Space Complexity : O(nlogn)
+// Did this code successfully run on Leetcode : Yes - Used IntelliJ
+// Any problem you faced while coding this : I was not aware of the concept before, so went through it
+
+class MergeSort
 { 
     // Merges two subarrays of arr[]. 
     // First subarray is arr[l..m] 
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {
-        System.out.println(l+ " "+m+" "+r);
-        int i = l;
-        int j = m;
-        int k = 0;
-        //Your code here
-        while(i<=l && j<=m) {
-            if(arr[i] < arr[j]) {
-                System.out.println(arr[i]);
-                arr[k] = arr[i];
-                i++;
-                k++;
-            } else if(arr[j] < arr[i]) {
-                arr[k] = arr[j];
-                j++;
-                k++;
+        int len1 = (m-l)+1;
+        int len2 = (r-m);
+        int L[] = new int[len1];
+        int R[] = new int[len2];
+        for(int i=0;i<len1;i++) {
+            L[i] = arr[l+i];
+        }
+        for(int j=0;j<len2;j++) {
+            R[j] = arr[m+j+1];
+        }
+        int p=0;
+        int q=0;
+        int s=l;
+        while(p<len1 && q<len2) {
+            if(L[p]<=R[q]) {
+                arr[s++] = L[p++];
             } else {
-                arr[k] = arr[i];
-                i++;
-                j++;
-                k++;
+                arr[s++] = R[q++];
             }
-
         }
-        while(i<=l && k<=r) {
-            arr[k] = arr[i];
-            i++;
-            k++;
+        while(p<len1) {
+            arr[s++] = L[p++];
         }
-        while(j<=m && k<=r) {
-            arr[k] = arr[j];
-            j++;
-            k++;
+        while(q<len2) {
+            arr[s++] = R[q++];
         }
     }
   
     // Main function that sorts arr[l..r] using 
     // merge() 
-    void sort(int arr[], int l, int r) 
-    { 
+    void sort(int arr[], int l, int r)
+    {
+
 	//Write your code here
         //Call mergeSort from here
         if(l<r) {
@@ -51,8 +50,6 @@ class MergeSort
             sort(arr, l, m);
             sort(arr, m+1, r);
             merge(arr, l, m, r);
-        } else {
-            return;
         }
     } 
   
@@ -68,13 +65,13 @@ class MergeSort
     // Driver method 
     public static void main(String args[]) 
     { 
-        int arr[] = {12, 11, 13, 5, 6, 7}; 
+        int arr[] = {12, 11, 13, 5, 6, 7};
   
         System.out.println("Given Array"); 
         printArray(arr); 
   
         MergeSort ob = new MergeSort(); 
-        ob.sort(arr, 0, arr.length-1); 
+        ob.sort(arr, 0, arr.length-1);
   
         System.out.println("\nSorted array"); 
         printArray(arr); 
