@@ -1,4 +1,4 @@
-class QuickSort {
+public class Exercise_2 {
     /*
      * This function takes last element as pivot,
      * places the pivot element at its correct
@@ -16,21 +16,19 @@ class QuickSort {
 
     int partition(int arr[], int low, int high) {
         // Write code here for Partition and Swap
-
-        low = arr[0];
-        high = arr.length - 1;
         int pivot = arr[high];
-        while (low < high) {
-            if (arr[low] > pivot && arr[high] < pivot) {
-                swap(arr, low, high);
-            } else if (arr[low] <= pivot) {
-                low++;
-            } else {
-                high--;
+        int idx1 = (low - 1);
+
+        for (int idx2 = low; idx2 <= high; idx2++) {
+            if (arr[idx2] < pivot) {
+                idx1++;
+                swap(arr, idx1, idx2);
             }
         }
-        pivot = low;
-        return pivot;
+
+        swap(arr, idx1 + 1, high);
+        return idx1 + 1;
+
     }
 
     /*
@@ -42,9 +40,11 @@ class QuickSort {
     void sort(int arr[], int low, int high) {
         // Recursively sort elements before
         // partition and after partition
-        int pivot = partition(arr, low, high);
-        sort(arr, low, pivot - 1);
-        sort(arr, pivot + 1, high);
+        if (low < high) {
+            int pivot = partition(arr, low, high);
+            sort(arr, low, pivot - 1);
+            sort(arr, pivot + 1, high);
+        }
     }
 
     /* A utility function to print array of size n */
@@ -60,7 +60,7 @@ class QuickSort {
         int arr[] = { 10, 7, 8, 9, 1, 5 };
         int n = arr.length;
 
-        QuickSort ob = new QuickSort();
+        Exercise_2 ob = new Exercise_2();
         ob.sort(arr, 0, n - 1);
 
         System.out.println("sorted array");
