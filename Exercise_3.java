@@ -1,3 +1,5 @@
+//time complexity: O(n/2)
+//space complexity: O(n)
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +22,15 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    Node slowptr= head;
+    Node fastptr=head;
+    while(fastptr!=null && fastptr.next!=null)
+    {
+        fastptr=fastptr.next.next;
+        slowptr=slowptr.next;
+    }
+    System.out.println(slowptr.data);
+
     } 
   
     public void push(int new_data) 
