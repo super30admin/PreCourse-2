@@ -1,6 +1,11 @@
 class Exercise_3 {
     Node head; // head of linked list
 
+    /*
+     * Time complexity to Middle Element in SLL is O(n).
+     *
+     * Space complexity will be O(1)
+     */
     /* Linked list node */
     class Node {
         int data;
