@@ -1,5 +1,10 @@
 public class Exercise_2 {
     /*
+     * Time complexity for QuickSort is nlog(n).
+     * half for each iteration.
+     * Space complexity will be O(1)
+     */
+    /*
      * This function takes last element as pivot,
      * places the pivot element at its correct
      * position in sorted array, and places all
