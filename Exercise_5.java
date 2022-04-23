@@ -1,3 +1,5 @@
+// Time Complexity : O(N*logN) 
+// Space Complexity : O(logN)
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
