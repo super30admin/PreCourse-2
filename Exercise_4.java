@@ -7,6 +7,7 @@ class Exercise_4 {
         // index and respective mid value.
         // Your code here
         // Find sizes of two subarrays to be merged
+        // Time complexity is O(n) and space is also O(n)
         /**
          * Logic is we get sizes two halved arrays and their respective index range.
          * We are creating subArrays based on that, provided mid value, begin and end
