@@ -3,6 +3,9 @@
 # This function is same in both iterative and recursive
 from tkinter import E
 
+#Time complexity - 
+#Space complexity - 
+
 #the same partition function used in recursive quick sort 
 def partition(arr, l, h):
   #write your code here

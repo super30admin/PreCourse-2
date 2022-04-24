@@ -1,5 +1,7 @@
 # Node class  
 from platform import node
+#Time complexity - O(n)
+#space complexity- O(1)
 
 
 class Node:  

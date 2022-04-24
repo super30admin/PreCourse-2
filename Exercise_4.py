@@ -3,6 +3,11 @@ from heapq import merge
 #using divide and conquer approach
 #divide the array into sub arrays until only single element is left in each subarray
 #merge the subarrays (sort them while merging) to finally get the original array
+
+
+#Time complexity- 0(logn)
+#space complexity- 0(n)
+
 def merge(left,right):
   
   arr1=[]  

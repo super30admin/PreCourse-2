@@ -7,6 +7,9 @@
 #and elements greater than pivot are to the right of it.
 #this function returns the partition index (index at which the array must be divided into two sub-arrays)
 
+#Time complexity - O(n^2)
+#Space complexity - O(logn)
+
 def partition(arr,low,high):
     i=low-1          #index (pointer) to larger element
     pivot=arr[high]  #pivot
