@@ -3,6 +3,21 @@ class BinarySearch {
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
+        int mid= l+r/2;
+        // Check whether the middle element is equal to the given element
+        if(arr[mid]==x){
+          return mid;
+        }
+        // check whether the middle element is greater than the given element then traverse the first half of the array
+        else if(arr[mid]>x){
+          return binarySearch(arr, l, mid-1, x);
+        }
+        // check whether the middle element is smaller than the given element then traverse the second half of the array
+        else if(arr[mid]<x){
+          return binarySearch(arr, mid+1, r, x);
+        }
+        return -1;
+          
     } 
   
     // Driver method to test above 
