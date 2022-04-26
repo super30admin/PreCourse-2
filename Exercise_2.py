@@ -1,6 +1,9 @@
 # Python program for implementation of Quicksort Sort 
   
 # give you explanation for the approach
+
+# give you explanation for the approach
+# Time Complexity for partition is O(n).
 def partition(arr,low,high):
     p_ind = low
     p = arr[p_ind]
@@ -20,6 +23,8 @@ def partition(arr,low,high):
   
 
 # Function to do Quick sort 
+# Time complexity: O(nlogn)
+# Space Complexity: O(1). 
 def quickSort(arr,low,high): 
     if low < high:
         partition_index = partition(arr, low, high)

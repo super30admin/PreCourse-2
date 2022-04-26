@@ -1,6 +1,8 @@
 # Node class  
 from hashlib import new
 
+# Time complexity: O(n)
+# Space complexity: O(1) 
 
 class Node:  
   
@@ -31,20 +33,13 @@ class LinkedList:
     def printMiddle(self):
         if self.head is None:
             print("LL is empty")
+            return
         else:
-            itr = self.head
-            count = 0
-            while itr:
-                count += 1
-                itr = itr.next
-            count = count // 2
-            a = 0
-            itr = self.head
-            while itr:
-                if a == count:
-                    return itr.data
-                itr = itr.next
-                a += 1
+            slow, fast = self.head, self.head
+            while fast and fast.next:
+                slow = slow.next
+                fast = fast.next.next
+            return slow.data
 
 # Driver code 
 list1 = LinkedList() 

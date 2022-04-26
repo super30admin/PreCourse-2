@@ -19,6 +19,9 @@
 #       return binarySearch(arr,l,r,x)
 #   return -1
 
+#Time Complexity: O(logn)
+#Space Complexity: O(1)
+
 def binarySearch(arr, l, r, x):
     #write your code here
   while l <= r:
