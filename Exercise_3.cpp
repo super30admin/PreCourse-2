@@ -7,12 +7,33 @@ struct Node
     int data;  
     struct Node* next;  
 };  
-  
+
 /* Function to get the middle of the linked list*/
+
+// Time Complexity : O(n)
+// Space Complexity : O(1)
 void printMiddle(struct Node *head)  
 {  
-  //YourCode here
-  //Use fast and slow pointer technique
+    //YourCode here
+    //Use fast and slow pointer technique
+
+    // Initialising fast pointer and slow pointer with the head of the list.
+    struct Node *fast_ptr = head;
+    struct Node *slow_ptr = head;
+  
+    if (head!=NULL)
+    {
+        while (fast_ptr != NULL && fast_ptr->next != NULL)
+        {
+            // Slow pointer moves forward by one node.
+            slow_ptr = slow_ptr->next;
+
+            // Fast pointer moves forward by 2 nodes.
+            fast_ptr = fast_ptr->next->next;
+            
+        }
+        cout << "The middle element is: " << slow_ptr->data << "\n\n";
+    }
 }  
   
 // Function to add a new node  
