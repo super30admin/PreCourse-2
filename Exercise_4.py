@@ -1,4 +1,6 @@
 # Python program for implementation of MergeSort 
+#Timecomplexity: O(nlogn)
+#Spacecomplexity: O(1)
 def merge(left,right,arr):
   i=0
   j=0

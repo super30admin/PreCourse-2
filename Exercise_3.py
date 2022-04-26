@@ -1,4 +1,6 @@
-# Node class  
+# Node class 
+# Time complexity: O(n)
+# Space complexity:O(1) 
 class Node:  
   
     # Function to initialise the node object  
@@ -25,20 +27,12 @@ class LinkedList:
     # Function to get the middle of  
     # the linked list 
     def printMiddle(self):
-        curr = self.head
-        count = 0
-        while curr:
-            curr = curr.next
-            count += 1
-        mid = count//2
-        curr = self.head
-        count = 0
-        while curr:
-            if count == mid:
-                return curr.data
-            else:
-                curr = curr.next
-                count += 1
+        fast = self.head
+        slow = self.head
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+        return slow.data
 
 # Driver code 
 list1 = LinkedList() 
