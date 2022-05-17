@@ -1,5 +1,7 @@
 class LinkedList 
 { 
+    //Time complexity: O(n)
+    //Space complexity: O(1)
     Node head; // head of linked list 
   
     /* Linked list node */
@@ -20,6 +22,16 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+	    Node sp=head,fp=head;
+	    while(fp!=null && fp.next!=null){
+	        sp=sp.next;
+	        fp=fp.next.next;
+	    }
+	    while(sp!=null){
+	        System.out.print(sp.data+"->");
+	        sp=sp.next;
+	    }
+	    System.out.println("NULL");
     } 
   
     public void push(int new_data) 
@@ -50,4 +62,4 @@ class LinkedList
             llist.printMiddle(); 
         } 
     } 
-} 
+}
