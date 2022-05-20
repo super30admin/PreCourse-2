@@ -1,10 +1,23 @@
-#include <bits/stdc++.h> 
+
+// Time Complexity : Average case O( n log(n) ) as each time the array gets divided into two parts ( log n ) and iteration of array cause the n times for each.
+                     // worst case can be O( n*n ) but randomized pivot element can help in dividing the array into two almost equal halves. 
+// Space Complexity : No extra space complexity. In place swapping.
+// Any problem you faced while coding this : 
+// only partially remembered the algo, but after revising was able to write.
+
+// Your code here along with comments explaining your approach
+/* Divide and conquer approach on array and on each iteraion making the pivot element in correct position. */
+
+#include<iostream>
 using namespace std;  
   
 // A utility function to swap two elements  
 void swap(int* a, int* b)  
 {  
-    //Your Code here 
+    //Your Code here
+    int temp = *b;
+    *b = *a;
+    *a = temp;
 }  
   
 /* This function takes last element as pivot, places  
@@ -15,6 +28,20 @@ of pivot */
 int partition (int arr[], int low, int high)  
 {  
     //Your Code here 
+    int index = low;
+    int pivot = high;
+    int temp = low;
+    // going till just before the pivot element hence < not <=
+    while( temp < high ) {
+        if ( arr[temp] <= arr[pivot] ){
+           swap( &arr[temp], &arr[index] );
+	   index = index + 1;
+        }
+        temp = temp + 1;
+    }
+    // swapping the pivot with index so pivot is at correct position.
+    swap( &arr[pivot], &arr[index] );
+    return index;
 }  
   
 /* The main function that implements QuickSort  
@@ -23,7 +50,14 @@ low --> Starting index,
 high --> Ending index */
 void quickSort(int arr[], int low, int high)  
 {  
-    //Your Code here 
+    //Your Code here
+    if( low >= high ) {
+        // >= because with one element it is already sorted
+        return; 
+    }
+    int index = partition( arr, low, high );
+    quickSort( arr, low, index - 1 );
+    quickSort( arr, index+1 , high );
 }  
   
 /* Function to print an array */
