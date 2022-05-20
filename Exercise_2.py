@@ -12,6 +12,7 @@
 # Now the element at pivot position is at its correct sorted position in the array and its index is called as pi(partition index)
 # pi divides the array into 2 unsorted arrays to its left and right
 # now simply apply quicksort to the elements left to pi and then to the right of pi
+
 def partition(arr, low, high):
     pivot_index = low
     pivot = arr[low]
