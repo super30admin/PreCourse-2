@@ -1,12 +1,43 @@
 #include<stdlib.h> 
 #include<stdio.h> 
   
+
+  // Time Complexity- O(nlogn)
 // Merges two subarrays of arr[]. 
 // First subarray is arr[l..m] 
 // Second subarray is arr[m+1..r] 
 void merge(int arr[], int l, int m, int r) 
 { 
     //Your code here
+   int i, j, k, nl, nr;
+
+   nl = m-l+1; nr = r-m;
+   int larr[nl], rarr[nr];
+
+   for(i = 0; i<nl; i++)
+      larr[i] = arr[l+i];
+   for(j = 0; j<nr; j++)
+      rarr[j] = arr[m+1+j];
+   i = 0; j = 0; k = l;
+
+   while(i < nl && j<nr) {
+      if(larr[i] <= rarr[j]) {
+         arr[k] = larr[i];
+         i++;
+      }else{
+         arr[k] = rarr[j];
+         j++;
+      }
+      k++;
+   }
+   while(i<nl) {       
+      arr[k] = larr[i];
+      i++; k++;
+   }
+   while(j<nr) {     
+      arr[k] = rarr[j];
+      j++; k++;
+   }
 } 
   
 /* l is for left index and r is right index of the 
@@ -14,6 +45,13 @@ void merge(int arr[], int l, int m, int r)
 void mergeSort(int arr[], int l, int r) 
 { 
     //Your code here
+    int m;
+   if(l < r) {
+      int m = l+(r-l)/2;
+      mergeSort(arr, l, m);
+      mergeSort(arr, m+1, r);
+      merge(arr, l, m, r);
+   }
 } 
   
 /* UTILITY FUNCTIONS */
