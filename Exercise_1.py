@@ -15,13 +15,18 @@ def binarySearch(arr, l, r, x):
   #write your code here
   
   while l<=r:
+      #Find the midpoint
       mid=(l+r)//2
+      
+      #Check if the element to be searched is the middle element or not and return the if yes
       if arr[mid]==x:
           return mid
+      #else check where the element could lie, on the left side or at the right side
       elif x > arr[mid]:
           l=mid+1
       else:
           r=mid-1
+  #return -1 if element is not present in the list
   return -1
     
   
