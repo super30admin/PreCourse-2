@@ -15,16 +15,21 @@ def partition(arr,low,high):
     
     #Selecting last element as the pivot element
     pivot=arr[high]
+    i=low
+    j=high-1
     
-    #Let pointer be low-1
-    i=low-1
-    for j in range(low,high):
+    for i in range(low,high):
         #Shifting the elements less than the pivot element to the left
-        if arr[j]<=pivot:
+        
+        while i<high and arr[i]<pivot:
             i=i+1
+        while j>low and arr[j]>=pivot:
+            j=j-1
+        if i<j:
             arr[i],arr[j]=arr[j],arr[i]
-    arr[i+1], arr[high]=arr[high], arr[i+1]
-    return i+1
+    if arr[i] > pivot:
+        arr[i], arr[high]=arr[high], arr[i]
+    return i
     
   
 
