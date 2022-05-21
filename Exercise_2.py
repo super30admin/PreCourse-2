@@ -15,11 +15,15 @@ def partition(arr,low,high):
     
     #Selecting last element as the pivot element
     pivot=arr[high]
+    
+    #pointer i as the low index
     i=low
+    
+    #pointer j as the last index -1 
     j=high-1
     
-    for i in range(low,high):
-        #Shifting the elements less than the pivot element to the left
+    for i in range(low,j):
+        #Swapping the elements less than the pivot element to the left and those greater than the pivot elements to the right
         
         while i<high and arr[i]<pivot:
             i=i+1
