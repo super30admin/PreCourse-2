@@ -26,10 +26,6 @@ def binarySearch(arr, l, r, x):
       print(" !! arr[mid]>item result=",result2)
       return result2
 
-  #write your code here
-  
-    
-  
 # Test array 
 arr = [ 2, 3, 4, 10, 40 ] 
 x = 50
