@@ -25,8 +25,9 @@ class LinkedList:
     # Function to get the middle of  
     # the linked list 
     def printMiddle(self): 
-        
+        #let us consider the head of the linked list as the midpoint
         mid=self.head
+        
         count=0
         pointer=self.head
         
@@ -34,9 +35,11 @@ class LinkedList:
             print("Linked List is empty")
         else:
             while pointer is not None:
+                #Check if the counter is odd, if yes then update the midpoint as the next node
                 if(count%2)!=0:
                     mid=mid.next
                 count+=1
+               
                 pointer=pointer.next
         
             print("Middle element is: ", mid.data)
