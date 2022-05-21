@@ -1,3 +1,5 @@
+//Timecomplexity:o(NlogN);
+//Spacecomplexity:o(n);
 public class QuickSort 
 { 
     /* This function takes last element as pivot, 
