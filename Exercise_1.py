@@ -5,10 +5,10 @@
 # if present, else returns -1 
 
 
-// Time Complexity : O(log n)
-// Space Complexity : O(1)
-// Did this code successfully run on Leetcode : Yes
-// Any problem you faced while coding this : No
+# Time Complexity : O(log n)
+# Space Complexity : O(1)
+# Did this code successfully run on Leetcode : Yes
+# Any problem you faced while coding this : No
 
 def binarySearch(arr, l, r, x): 
   
