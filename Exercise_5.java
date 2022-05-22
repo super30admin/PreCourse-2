@@ -1,4 +1,4 @@
-//Time complexity = O(N LOGN)
+//Time complexity = O(N LOGN), worst case = O(n^2)
 
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
