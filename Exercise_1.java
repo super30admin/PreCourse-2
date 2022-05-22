@@ -1,21 +1,40 @@
-class BinarySearch { 
-    // Returns index of x if it is present in arr[l.. r], else return -1 
-    int binarySearch(int arr[], int l, int r, int x) 
-    { 
-        //Write your code here
-    } 
+// class BinarySearch { 
+//     // Returns index of x if it is present in arr[l.. r], else return -1 
+//     int binarySearch(int arr[], int l, int r, int x) 
+//     { 
+//         int m;
+//         while(l <= r) 
+//         {
+        
+//             m = (l + r) / 2;
+//             if (arr[m] > x)
+//             {
+//                 r = m - 1;
+//             }
+//             else if (arr[m] < x)
+//             {
+//                 l = m + 1;
+//             }
+//             else
+//             {
+//                 return m;
+//             }
+//     }
+//     return -1;
+//         //Write your code here
+//     } 
   
-    // Driver method to test above 
-    public static void main(String args[]) 
-    { 
-        BinarySearch ob = new BinarySearch(); 
-        int arr[] = { 2, 3, 4, 10, 40 }; 
-        int n = arr.length; 
-        int x = 10; 
-        int result = ob.binarySearch(arr, 0, n - 1, x); 
-        if (result == -1) 
-            System.out.println("Element not present"); 
-        else
-            System.out.println("Element found at index " + result); 
-    } 
-} 
+//     // Driver method to test above 
+//     public static void main(String args[]) 
+//     { 
+//         BinarySearch ob = new BinarySearch(); 
+//         int arr[] = { 2, 3, 4, 10, 40 }; 
+//         int n = arr.length; 
+//         int x = 10; 
+//         int result = ob.binarySearch(arr, 0, n - 1, x); 
+//         if (result == -1) 
+//             System.out.println("Element not present"); 
+//         else
+//             System.out.println("Element found at index " + result); 
+//     } 
+// } 
