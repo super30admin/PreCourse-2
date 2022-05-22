@@ -1,7 +1,18 @@
-class BinarySearch { 
+import java.util.Arrays;
+
+class BinarySearch {
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
-    { 
+    {
+        Arrays.sort(arr);
+        int mid = (l+r)/2;
+        if(arr.length%2==1) mid++;
+        while(l<=r){
+            if(x==arr[mid]) return mid;
+            else if(arr[mid]>x) r=mid-1;
+            else l = mid+1;
+        }
+        return -1;
         //Write your code here
     } 
   
