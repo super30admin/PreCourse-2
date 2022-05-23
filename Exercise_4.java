@@ -1,3 +1,7 @@
+// Time Complexity : O(nlogn)
+// Space Complexity : O(n)
+// Did this code successfully run on Leetcode : I have a question how to run my code on Leetcode. Is there 
+                                                //any specific links associated with it.
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
@@ -6,6 +10,43 @@ class MergeSort
     void merge(int arr[], int l, int m, int r) 
     {  
        //Your code here  
+         int temp1 = m-l+1;
+         int temp2 = r-m;
+
+        int L[] = new int[temp1];
+        int R[] = new int[temp2];
+
+        for(int i=0;i<temp1;i++){
+            L[i] = arr[l+i];
+        }
+        for(int j=0;j<temp2;j++){
+            R[j] = arr[m+j+1];
+        }
+
+        int i=0, j=0;
+        int k=0;
+        while(i<temp1 && j<temp2){
+            if(L[i] <= R[j]){
+              arr[k] = L[i];
+              i++;   
+            }
+            else{
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+        while(i<temp1){
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+        while(j<temp2){
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -14,6 +55,16 @@ class MergeSort
     { 
 	//Write your code here
         //Call mergeSort from here 
+
+        if(l<r){
+            int mid = (l+r)/2;
+            if(arr.length%2 ==1 ){
+                mid = mid+1;
+            }
+            sort(arr, l, mid);
+            sort (arr,mid+1,r);
+            merge(arr, l , mid, r);
+        }
     } 
   
     /* A utility function to print array of size n */

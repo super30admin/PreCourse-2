@@ -1,3 +1,7 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : I have a question how to run my code on Leetcode. Is there 
+                                                //any specific links associated with it.
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +24,19 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+
+         if(this.head == null)
+           return;
+         
+         Node slow = this.head;
+         Node fast = this.head;
+
+         while(fast != null && fast.next != null){
+             fast = fast.next.next;
+             slow = slow.next;
+         }
+         System.out.println(slow.data);
+
     } 
   
     public void push(int new_data) 
