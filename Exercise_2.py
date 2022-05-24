@@ -1,5 +1,6 @@
 # Python program for implementation of Quicksort Sort 
-  
+#Time Complexity is nlogn as there is use of recursion function
+#Space Complexity is log n as recursion is needed for at max half the size of original array  
 # give you explanation for the approach
 def partition(arr,low,high):
   
