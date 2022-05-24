@@ -1,6 +1,8 @@
 # Python code to implement iterative Binary  
 # Search. 
-  
+#Time Complexity is O(logn) i.e. sign of the binary tree
+#Space Complexity  O(1) as there is just search
+ 
 # It returns location of x in given array arr  
 # if present, else returns -1 
 def binarySearch(arr, l, r, x): 
