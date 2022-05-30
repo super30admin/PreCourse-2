@@ -1,5 +1,7 @@
 class QuickSort 
-{ 
+{
+    // Time Complexity :O(nlogn)
+// Space Complexity :O(n)
     /* This function takes last element as pivot, 
        places the pivot element at its correct 
        position in sorted array, and places all 
@@ -7,19 +9,38 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;//Your code here
     }
     
     int partition(int arr[], int low, int high) 
-    { 
-   	//Write code here for Partition and Swap 
+    {
+        if(low>=high) return -1;
+        int pivot=arr[high];
+        int leftPointer=low;
+        int rightPointer=high;
+        while(leftPointer<rightPointer){
+            while (arr[leftPointer]<=pivot&&leftPointer<rightPointer){
+                leftPointer++;
+            }
+            while (arr[rightPointer]>=pivot&& leftPointer<rightPointer){
+                rightPointer--;
+            }
+            swap(arr,leftPointer,rightPointer);
+        }
+        swap(arr,leftPointer,high);
+   	 return leftPointer;//Write code here for Partition and Swap
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
       low  --> Starting index, 
       high  --> Ending index */
     void sort(int arr[], int low, int high) 
-    {  
+    {
+        int index=partition(arr,low,high);
+        if(low < index-1) sort(arr,low,index-1);
+        if(index+1<high) sort(arr,index+1,high);
             // Recursively sort elements before 
             // partition and after partition 
     } 
@@ -36,7 +57,7 @@ class QuickSort
     // Driver program 
     public static void main(String args[]) 
     { 
-        int arr[] = {10, 7, 8, 9, 1, 5}; 
+        int arr[] = {10, 7, 8, 9, 1, 6};
         int n = arr.length; 
   
         QuickSort ob = new QuickSort(); 
