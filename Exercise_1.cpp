@@ -1,3 +1,10 @@
+// Time Complexity : O(logn)
+// Space Complexity  O(logn)
+
+
+
+// Your code here along with comments explaining your approach
+
 #include <stdio.h> 
   
 // A recursive binary search function. It returns 
