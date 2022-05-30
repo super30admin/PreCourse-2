@@ -1,3 +1,6 @@
+// Time = O(nlogn)
+//Space = O(n)
+
 #include<stdlib.h> 
 #include<stdio.h> 
   
