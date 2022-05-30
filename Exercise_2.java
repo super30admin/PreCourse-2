@@ -1,3 +1,7 @@
+// Time Complexity : O(NlogN)
+// Space Complexity : O(1)
+// Space Complexity : O(logN) - On average if recursive stack space is considered
+
 class QuickSort {
     /* This function takes last element as pivot, 
        places the pivot element at its correct 

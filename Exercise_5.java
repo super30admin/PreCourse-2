@@ -1,5 +1,8 @@
 import java.util.Stack;
 
+// Time Complexity : O(NlogN)
+// Space Complexity : O(N) -> Stack is used as external data structure
+
 class IterativeQuickSort {
     void swap(int arr[], int i, int j) {
         //Try swapping without extra variable

@@ -1,3 +1,6 @@
+// Time Complexity : O(NlogN)
+// Space Complexity : O(N) -> because we are using auxillary array to store the element
+
 class MergeSort {
     // Merges two subarrays of arr[]. 
     // First subarray is arr[l..m] 

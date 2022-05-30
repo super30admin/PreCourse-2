@@ -1,3 +1,6 @@
+// Time Complexity : O(N) -> Ideally O(N/2)
+// Space Complexity : O(1)
+
 class LinkedList {
     Node head; // head of linked list 
 
