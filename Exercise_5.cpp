@@ -1,3 +1,6 @@
+// Time Complexity :O(n^2)
+// Space Complexity :O(logn)
+
 #include <bits/stdc++.h> 
 #include <stack>
 
