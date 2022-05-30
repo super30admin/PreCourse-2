@@ -1,6 +1,7 @@
+// Time Complexity :O(n*log(n))
+// Space Complexity :O(n)
 #include <bits/stdc++.h> 
 using namespace std;  
-  
 // A utility function to swap two elements  
 void swap(int* a, int* b)  
 {  
