@@ -1,8 +1,20 @@
-class BinarySearch { 
+//TIme Complexity:- O(log(N))
+//Space Complexity:- O(1)
+class BinarySearch {
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
     { 
-        //Write your code here
+        while(r>=1){
+            int mid = l + (r-1)/2;
+            if(arr[mid]==x){
+                return mid;
+            }else if(x<arr[mid]){
+                r = mid;
+            }else if(x>arr[mid]){
+                l=mid;
+            }
+        }
+        return -1;
     } 
   
     // Driver method to test above 
