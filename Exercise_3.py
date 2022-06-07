@@ -12,6 +12,8 @@ class LinkedList:
         self.head = None
   
     def push(self, new_data): 
+        # Time O(n) , we can optimize this if we maintain a tail pointer
+        # space O(1) for new Node
         n = Node(new_data)
         if not self.head:
             self.head = n
@@ -22,6 +24,8 @@ class LinkedList:
             p.next = n
   
     def print(self):
+        # Time O(n)
+        # space O(1)
         p = self.head
         while p:
             print(p.data)
@@ -30,6 +34,8 @@ class LinkedList:
     # Function to get the middle of  
     # the linked list 
     def printMiddle(self): 
+        # Time O(n)
+        # space O(1)
         p1 = p2 = self.head
         while p1 and p1.next:
             p1 = p1.next.next
@@ -38,6 +44,8 @@ class LinkedList:
         print(p2.data)
     
     def printMiddleTwoPass(self):
+        # Time O(n)
+        # space O(1)
         size = 0
         p = self.head
         while p.next:

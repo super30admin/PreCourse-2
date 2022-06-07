@@ -4,6 +4,8 @@
 # It returns location of x in given array arr  
 # if present, else returns -1 
 def binarySearch(arr, l, r, x): 
+  # Time O(logN)
+  # space O(1)
   #write your code here
   for i in range(r):
     if arr[i] > arr[i+1]:
