@@ -10,10 +10,7 @@ class IterativeQuickSort {
 	//Try swapping without extra variable
         int temp = arr[i];
         arr[i] = arr[j];
-        arr[j] = temp; 
-        //arr[i] = arr[i] + arr[j];   
-        //arr[j] = arr[i] - arr[j];   
-        //arr[i] = arr[i] - arr[j];
+        arr[j] = temp;
     } 
   
     /* This function is same in both iterative and 
