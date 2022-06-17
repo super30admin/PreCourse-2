@@ -1,7 +1,19 @@
+// Time Complexity: O(nlogn)
+// Space Complexity: O(n)
+// Did this code successfully run on Leetcode :
+// Any problem you faced while coding this :  n
+
+
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
-	//Try swapping without extra variable 
+	//Try swapping without extra variable
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp; 
+        //arr[i] = arr[i] + arr[j];   
+        //arr[j] = arr[i] - arr[j];   
+        //arr[i] = arr[i] - arr[j];
     } 
   
     /* This function is same in both iterative and 
@@ -15,14 +27,10 @@ class IterativeQuickSort {
         for (int j = l; j <= h - 1; j++) {
             if (arr[j] <= pivot) {
                 i++;
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+                swap(arr,i,j);
             }
         }
-        int temp = arr[i + 1];
-        arr[i + 1] = arr[h];
-        arr[h] = temp;
+        swap(arr,i+1,h);
         return i + 1;
     } 
   
