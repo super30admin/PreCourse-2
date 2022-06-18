@@ -3,8 +3,10 @@ using namespace std;
   
 // A utility function to swap two elements  
 void swap(int* a, int* b)  
-{  
-    //Your Code here 
+{
+    int temp=*a;
+    *a=*b;
+    *b=temp;
 }  
   
 /* This function takes last element as pivot, places  
@@ -13,8 +15,18 @@ array, and places all smaller (smaller than pivot)
 to left of pivot and all greater elements to right  
 of pivot */
 int partition (int arr[], int low, int high)  
-{  
-    //Your Code here 
+{
+   int pivot = arr[high];
+    int j = low;
+    for(int i = low; i < high; i++) {
+        if(arr[i] <= pivot) {
+            swap(arr[i], arr[j]);
+            j++;
+        }
+    }
+    swap(arr[j], arr[high]);
+    return j;
+
 }  
   
 /* The main function that implements QuickSort  
@@ -22,8 +34,13 @@ arr[] --> Array to be sorted,
 low --> Starting index,  
 high --> Ending index */
 void quickSort(int arr[], int low, int high)  
-{  
-    //Your Code here 
+{
+    if(low<high)
+    {
+        int i = partition(arr, low, high);
+        quickSort(arr,low,i-1);
+        quickSort(arr,i+1,high);
+    }  
 }  
   
 /* Function to print an array */
