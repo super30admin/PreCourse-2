@@ -1,3 +1,6 @@
+//Time Complexity : O(n)
+//Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +23,20 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    	if(head!=null)
+    	{
+    		
+    	Node slptr = head;
+    	Node fptr = head;
+    	
+    	while(fptr!=null && fptr.next!=null)
+    	{
+    		slptr = slptr.next;
+    		fptr = fptr.next.next;
+    	}
+    	
+    	System.out.println(slptr.data);
+    	}
     } 
   
     public void push(int new_data) 
