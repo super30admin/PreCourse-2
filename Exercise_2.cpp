@@ -1,3 +1,8 @@
+// Time Complexity : O(nlogn) where n is number of elements  
+// Space Complexity : O(n)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
 #include <bits/stdc++.h> 
 using namespace std;  
   
@@ -5,6 +10,9 @@ using namespace std;
 void swap(int* a, int* b)  
 {  
     //Your Code here 
+    int t = *a;
+    *a = *b;
+    *b = t;
 }  
   
 /* This function takes last element as pivot, places  
@@ -15,6 +23,18 @@ of pivot */
 int partition (int arr[], int low, int high)  
 {  
     //Your Code here 
+    int pivot = arr[high];
+    int i = low -1 ;
+     for (int j = low; j <= high - 1; j++)
+    {
+        if (arr[j] < pivot)
+        {
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[high]);
+    return (i + 1);
 }  
   
 /* The main function that implements QuickSort  
@@ -24,6 +44,12 @@ high --> Ending index */
 void quickSort(int arr[], int low, int high)  
 {  
     //Your Code here 
+    if(low < high)
+    {
+        int pivot = partition(arr,low,high);
+        quickSort(arr,low,pivot-1);
+        quickSort(arr, pivot + 1, high);
+    }
 }  
   
 /* Function to print an array */
