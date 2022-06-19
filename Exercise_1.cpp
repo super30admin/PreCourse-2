@@ -3,9 +3,23 @@
 // A recursive binary search function. It returns 
 // location of x in given array arr[l..r] is present, 
 // otherwise -1 
+tc-O(LOGN)
+sc-O(LOGN)
 int binarySearch(int arr[], int l, int r, int x) 
 {   
     //Your Code here 
+   
+while(l<=r){
+ int mid=l+(r-l)>>1;
+ if(arr[mid]==x)return mid;
+ if(arr[mid]>x){
+    r=mid-1;
+ }
+ else{
+    l=mid+1;
+ }
+    }
+    return -1;
 } 
   
 int main(void) 
