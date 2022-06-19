@@ -1,6 +1,6 @@
 // Time Complexity : O(lg n)
 // Space Complexity : O(1)
-// Did this code successfully run on Leetcode : Yes
+// Did this code successfully run on Leetcode : NA
 // Any problem you faced while coding this : No
 
 
