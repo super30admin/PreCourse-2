@@ -1,4 +1,9 @@
-class LinkedList 
+// Time Complexity : o(n)
+// Space Complexity : o(n) to store the n elements in an linkedlist
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
+// slow pointer jumps once while fast pointer jumps twice.So when the fast poineter reaches the end, slow pointere will have the middle value.
+class LinkedList1 
 { 
     Node head; // head of linked list 
   
@@ -20,6 +25,13 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        System.out.println("middle :" +slow.data );
     } 
   
     public void push(int new_data) 
@@ -42,7 +54,7 @@ class LinkedList
   
     public static void main(String [] args) 
     { 
-        LinkedList llist = new LinkedList(); 
+        LinkedList1 llist = new LinkedList1(); 
         for (int i=15; i>0; --i) 
         { 
             llist.push(i); 
