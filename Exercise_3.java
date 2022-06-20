@@ -1,4 +1,8 @@
-class LinkedList 
+// Time Complexity :O(n)
+// Space Complexity :O(n)
+// Did this code successfully run on Leetcode :
+// Any problem you faced while coding this :
+class LinkedList
 { 
     Node head; // head of linked list 
   
@@ -20,13 +24,31 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node currNode = head;
+        int length=0;
+        while(currNode.next !=null){
+            currNode = currNode.next;
+            length++;
+        }
+        currNode = head;
+        for(int i=0;i<length/2;i++){
+            currNode = currNode.next;
+        }
+        System.out.println("Execise 3: The middle element in LinkedList is: " + currNode.data);
     } 
   
     public void push(int new_data) 
     { 
-        Node new_node = new Node(new_data); 
-        new_node.next = head; 
-        head = new_node; 
+        Node new_node = new Node(new_data);
+        if(head == null){
+            head = new_node;
+        }else{
+            Node currNode = head;
+            while(currNode.next != null){
+                currNode = currNode.next;
+            }
+            currNode.next = new_node;
+        }
     } 
 
     public void printList() 
@@ -40,14 +62,14 @@ class LinkedList
         System.out.println("NULL"); 
     } 
   
-    public static void main(String [] args) 
-    { 
-        LinkedList llist = new LinkedList(); 
-        for (int i=15; i>0; --i) 
-        { 
-            llist.push(i); 
-            llist.printList(); 
-            llist.printMiddle(); 
-        } 
-    } 
+//    public static void main(String [] args)
+//    {
+//        LinkedList llist = new LinkedList();
+//        for (int i=15; i>0; --i)
+//        {
+//            llist.push(i);
+//            llist.printList();
+//            llist.printMiddle();
+//        }
+//    }
 } 
