@@ -1,5 +1,5 @@
 // Time Complexity : O(Nlog(N))
-// Space Complexity : O(Log(N)
+// Space Complexity : O(N)
 // Did this code successfully run on Leetcode : Yes
 
 class QuickSort {
