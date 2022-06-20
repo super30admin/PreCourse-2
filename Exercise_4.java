@@ -5,6 +5,17 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
+        int n1 = m - l + 1;
+        int n2 = r - m;
+ 
+        /* Create temp arrays */
+        int arrL[] = new int[n1];
+        int arrR[] = new int[n2];
+
+        for (int i = 0; i < n1; ++i)
+            arrL[i] = arr[l + i];
+        for (int j = 0; j < n2; ++j)
+            arrR[j] = arr[m + 1 + j];
        //Your code here  
     } 
   
