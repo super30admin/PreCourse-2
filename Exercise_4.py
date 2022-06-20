@@ -1,5 +1,6 @@
 # Python program for implementation of MergeSort 
 # time complexity: O(n logn)
+# space complexity: O(N) , making the array of individual elements and merging them back into single array of n elements
 
 #approach: divide the elements into two halves each time until all the elements are separated into single array
 # then merge from bottom with mergesort_list function in a sorted manner

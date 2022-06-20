@@ -1,5 +1,8 @@
 # approach:
 #Create a function partition()-same as in recursion
+#  average time complexity: O(n log n)
+#  worst case time complexity: O(n^2)
+#  space complexity : O(n) ,  maximum size of stack will be n
 
 #in quick sort,
 #Pass three-parameters array, low, high

@@ -1,6 +1,7 @@
 # Python program for implementation of Quicksort Sort 
-#  average time complexity: O(log n)
+#  average time complexity: O(n log n)
 #  worst case time complexity: O(n^2)
+#  space complexity : O(n)
 
 # approach:
 # initially, low is at index 0, high is at len(arr)-1
@@ -47,6 +48,6 @@ n = len(arr)
 quickSort(arr,0,n-1) 
 print ("Sorted array is:") 
 for i in range(n): 
-    print ("%d" %arr[i]), 
+    print ("%d" %arr[i])
   
  

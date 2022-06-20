@@ -1,4 +1,5 @@
 # time complexity: O(N) since traversing the linked-list once 
+# space complexity: O(1) since using only constant extra space
 # approach: use two pointer technique- slow and fast. 
 # both start from head and slow moves one node while fast moves two nodes each time.
 
