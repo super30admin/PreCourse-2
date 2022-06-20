@@ -1,4 +1,8 @@
-class LinkedList 
+// Time complexity is O(N)
+// Space complexity is O(1)
+// No problems while writing the code
+
+class LinkedList
 { 
     Node head; // head of linked list 
   
@@ -18,8 +22,14 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+      Node slow = head;
+      Node fast = head;
+
+      while (fast.next != null && fast != null) {
+          fast = fast.next.next;
+          slow = slow.next;
+      }
+        System.out.println("Middle number: " + slow.data);
     } 
   
     public void push(int new_data) 

@@ -4,8 +4,18 @@ class MergeSort
     // First subarray is arr[l..m] 
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
-    {  
-       //Your code here  
+    {
+        int size1 = m - l + 1;
+        int size2 = r - m;
+
+        int temp1[] = new int[size1];
+        int temp2[] = new int[size2];
+
+        for (int i = 0; i < size1; ++i)
+            temp1[i] = arr[l + i];
+
+        for (int j = 0; j < size2; ++j)
+            temp2[j] = arr[m + 1 + j];
     } 
   
     // Main function that sorts arr[l..r] using 
