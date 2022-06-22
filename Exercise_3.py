@@ -1,4 +1,8 @@
 # Node class  
+# Time Complexity Push: O(N)
+# Time Complexity Middle : O(N)
+# Space Complexity Push: O(1)
+# Space Complexity Middle: O(N)
 class Node:    
     # Function to initialise the node object  
     def __init__(self, data): 
@@ -24,6 +28,8 @@ class LinkedList:
 
     # Function to get the middle of  
     # the linked list 
+    # Travrse the linked list and store the elements
+    # In another array and then get the middle
     def printMiddle(self): 
         arr = []
         current = self.head

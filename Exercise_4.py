@@ -2,6 +2,7 @@
 # Merge Sort fuction 
 # First divide the array into 2 sorted halves
 # merge the sorted arrays
+  
 def mergeSort(arr):
   if len(arr)>1:
     # Dividing the array into 2 sections
