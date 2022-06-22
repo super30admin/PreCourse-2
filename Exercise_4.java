@@ -1,42 +1,34 @@
-class MergeSort 
-{ 
-    // Merges two subarrays of arr[]. 
-    // First subarray is arr[l..m] 
-    // Second subarray is arr[m+1..r] 
-    void merge(int arr[], int l, int m, int r) 
-    {  
-       //Your code here  
-    } 
-  
-    // Main function that sorts arr[l..r] using 
-    // merge() 
-    void sort(int arr[], int l, int r) 
-    { 
-	//Write your code here
-        //Call mergeSort from here 
-    } 
-  
-    /* A utility function to print array of size n */
-    static void printArray(int arr[]) 
-    { 
-        int n = arr.length; 
-        for (int i=0; i<n; ++i) 
-            System.out.print(arr[i] + " "); 
-        System.out.println(); 
-    } 
-  
-    // Driver method 
-    public static void main(String args[]) 
-    { 
-        int arr[] = {12, 11, 13, 5, 6, 7}; 
-  
-        System.out.println("Given Array"); 
-        printArray(arr); 
-  
-        MergeSort ob = new MergeSort(); 
-        ob.sort(arr, 0, arr.length-1); 
-  
-        System.out.println("\nSorted array"); 
-        printArray(arr); 
-    } 
-} 
+import java.util.*;
+// O(nlogn) time || O(nlogn) space
+class Program {
+  public static int[] mergeSort(int[] array) {
+    // Write your code here.
+		if (array.length<=1){
+			return array;
+		}
+    int middleIdx= array.length/2;
+		int [] leftHalf= Arrays.copyOfRange(array,0,middleIdx);
+		int [] rightHalf =  Arrays.copyOfRange(array,middleIdx,array.length);
+		
+		return mergeSortedArrays(mergeSort(leftHalf),mergeSort(rightHalf));
+}
+	public static int[] mergeSortedArrays(int[] leftHalf, int[] rightHalf){
+		int [] sortedArray = new int [leftHalf.length+rightHalf.length];
+		int k=0;
+		int i=0;
+		int j=0;
+		while(i<leftHalf.length && j< rightHalf.length){
+			if (leftHalf[i]<=rightHalf[j]){
+				sortedArray[k++]=leftHalf[i++];
+			}else{
+				sortedArray[k++]=rightHalf[j++];
+				
+			}
+		}while (i<leftHalf.length){
+			sortedArray[k++]= leftHalf[i++];
+		}while (j<rightHalf.length){
+			sortedArray[k++]= rightHalf[j++];
+		}
+		return sortedArray;
+	}
+}
