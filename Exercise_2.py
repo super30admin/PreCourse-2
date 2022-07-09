@@ -26,7 +26,7 @@ def partition(arr, low, high):
 
     # write your code here
     pivot = arr[low]
-    left = low + 1
+    left = low
     right = high
     while right >= left:
 
@@ -67,7 +67,7 @@ def quickSort(arr, low, high):
 
 
 # Driver code to test above
-arr = [1, 1, 10, 1, 1]
+arr = [50, 100, 0, 111, 23, 0, 4, 1]
 n = len(arr)
 quickSort(arr, 0, n - 1)
 print("Sorted array is:")
