@@ -1,6 +1,6 @@
 # Python program for implementation of Quicksort Sort
 # Time Complexity : O(nlogn): It follows Divide and Conquer. Breaks down problem into smaller sub problems
-# Space Complexity : O(1)
+# Space Complexity : O(n) : Please can you explain if this is correct?
 # Approach:
 
 # I pick the Pivot as the First Element, Left pointer would be Low + 1, Right would be High
@@ -52,7 +52,7 @@ def quickSort(arr, low, high):
     Recursive Function to Perform Quicksort
 
     Time Complexity: O(logn). Worst Case O(n ^ 2)
-    Space Complexity: O(1) ? Please can you confirm?
+    Space Complexity: O(n) ? Please can you confirm?
 
     """
 
