@@ -11,15 +11,15 @@ Algorithm
         5. If element at j is less than the pivot element swap elemnts at j and i. 
         6. Set j to i and increment i by 1
         7. Swap element at i and pivot element at index high as all values before index i are 
-           less than the pivot element and all values at and after i are greater 
+           less then the pivot element and all values at and after i are greater 
            than the pivot element 
         8. Return i as this is the index of the pivot element
 
     quickSort(arr, low, high):
-        1. If low > high go to step 4
+        1. If low greater then high go to step 4
         2. Get index of pivot element by calling function partition(arr, low, high)
         3. Recursively call quicksort using the new pivot
-        4. Return arr
+        4. If low less high repeat step 2 else return arr
 
 quickSort:
     Space Complexity: O(logn) as the nested function calls will create a call stack
@@ -72,7 +72,8 @@ print(f"Sorted array is: {arr}")
 
 # ######################Additional Test Cases##########################
 # (1) Empty Array
-assert quickSort([], 0, 0) == [], f"Expected [] as output but instead got {op}"
+assert quickSort(
+    [], 0, 0) == [], f"Expected [] as output but instead got {quickSort([], 0, 0)}"
 
 # (2) Single Element Array
 op = quickSort([1], 0, 0)
