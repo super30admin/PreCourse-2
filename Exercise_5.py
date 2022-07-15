@@ -1,3 +1,4 @@
+'''1 Approach'''
 # Python program for implementation of Quicksort
 '''
 Algorithm
@@ -10,18 +11,18 @@ Algorithm
         5. If element at j is less than the pivot element swap elemnts at j and i. 
         6. Set j to i and increment i by 1
         7. Swap element at i and pivot element at index high as all values before index i are 
-           less then the pivot element and all values at and after i are greater 
+           less than the pivot element and all values at and after i are greater 
            than the pivot element 
         8. Return i as this is the index of the pivot element
 
     quickSort(arr, low, high):
-        1. Check if length of array is less then 2 if so simply return the arr
+        1. Check if length of array is less than 2 if so simply return the arr
         2. Initialize empty stack and push the low and high index to the stack 
-        2. Iterate through the stack until it is empty then go to step 7
+        2. Iterate through the stack until it is empty than go to step 7
         3. Pop 2 elements from the stack as new low and high
         4. Store the pivot after calling partition(arr, low, high) using these 2 new values
-        5. If low is less then pivot - 1, we push both of them to the stack 
-        6. If high is greater then pivot + 1, we push both of them to the stack
+        5. If low is less than pivot - 1, we push both of them to the stack 
+        6. If high is greater than pivot + 1, we push both of them to the stack
         7. If stack is empty we return arr else we repeat from step 2
 
 quickSort:
@@ -35,11 +36,13 @@ quickSort:
 
 '''
 # Imports
-import random
 
 # This function is same in both iterative and recursive
 
 
+
+
+import random
 def partition(arr, low, high):
   # Function to do Quick sort
     random_pivot_index = random.randint(low, high)

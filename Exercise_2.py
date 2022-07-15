@@ -1,3 +1,4 @@
+'''1 Approach'''
 # Python program for implementation of Quicksort Sort
 # Give your explanation for the approach
 '''
@@ -11,12 +12,12 @@ Algorithm
         5. If element at j is less than the pivot element swap elemnts at j and i. 
         6. Set j to i and increment i by 1
         7. Swap element at i and pivot element at index high as all values before index i are 
-           less then the pivot element and all values at and after i are greater 
+           less than the pivot element and all values at and after i are greater 
            than the pivot element 
         8. Return i as this is the index of the pivot element
 
     quickSort(arr, low, high):
-        1. If low greater then high go to step 4
+        1. If low greater than high go to step 4
         2. Get index of pivot element by calling function partition(arr, low, high)
         3. Recursively call quicksort using the new pivot
         4. If low less high repeat step 2 else return arr
@@ -32,9 +33,11 @@ quickSort:
 
 '''
 # Imports
+
+
+
+
 import random
-
-
 def partition(arr, low, high):
     # Write your code here
     # To Do implement median-3 method to choose pivot

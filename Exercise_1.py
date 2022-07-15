@@ -1,3 +1,4 @@
+'''2 Approaches'''
 '''
 binarySearch:
   Recursive Approach
