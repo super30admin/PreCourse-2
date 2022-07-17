@@ -25,7 +25,8 @@ this is repeated until the array is completely sorted
 once we have the value of p, we'll now sort the left elements of p and sort right elements of p by recursively calling 
 quicksort function which recursively calls the partition function again and again 
 
-"""
+""" 
+
 def partition(arr,low,high):
     
     pivot = arr[high]
