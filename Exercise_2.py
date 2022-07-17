@@ -19,7 +19,7 @@ if the element is lesser than pivot, we'll swap it with current greater element 
 we will repeat it until we have the elements smaller than pivot in the left and elements greater than or equal to pivot on the right hand side 
 once this is done, the iterator loop ends 
 now we'll swap the pivot in between those two groups (group which is smaller than pivot and group which is larger than pivot) 
-once swapped, the index of the pivot must be returned as it will the permanent correct index of the pivot 
+once swapped, the index of the pivot must be returned as it will be the permanent correct index of the pivot. 
 this is repeated until the array is completely sorted 
 
 once we have the value of p, we'll now sort the left elements of p and sort right elements of p by recursively calling 
