@@ -1,3 +1,8 @@
+// Time Complexity : O(nlog n)
+// Space Complexity :  O(n)
+// Did this code successfully run on Leetcode : Y
+// Any problem you faced while coding this : N
+
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
@@ -6,6 +11,42 @@ class MergeSort
     void merge(int arr[], int l, int m, int r) 
     {  
        //Your code here  
+
+       int n1 = m - l + 1;
+       int n2 = r - m;
+
+       int left[] = new int[n1];
+       int right[] = new int[n2];
+
+        for (int i = 0; i < n1; ++i)
+            left[i] = arr[l + i];
+        for (int j = 0; j < n2; ++j)
+            right[j] = arr[m + 1 + j];
+        int i = 0, j = 0;
+         int index = l;
+        while (i < n1 && j < n2) {
+            if (left[i] <= right[j]) {
+                arr[index] = left[i];
+                i++;
+            }
+            else {
+                arr[index] = right[j];
+                j++;
+            }
+            index++;
+        }
+        while (i < n1) {
+            arr[index] = left[i];
+            i++;
+            index++;
+        }
+  
+        
+        while (j < n2) {
+            arr[index] = right[j];
+            j++;
+            index++;
+        }
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -14,6 +55,14 @@ class MergeSort
     { 
 	//Write your code here
         //Call mergeSort from here 
+        if (l < r) {
+            int m =l+ (r-l)/2;
+
+            sort(arr, l, m);
+            sort(arr, m + 1, r);
+  
+            merge(arr, l, m, r);
+        }
     } 
   
     /* A utility function to print array of size n */
@@ -21,7 +70,7 @@ class MergeSort
     { 
         int n = arr.length; 
         for (int i=0; i<n; ++i) 
-            System.out.print(arr[i] + " "); 
+        System.out.print(arr[i] + " "); 
         System.out.println(); 
     } 
   
