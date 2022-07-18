@@ -1,3 +1,9 @@
+// Time Complexity : O(n) as we need to iterate through n nodes
+// Space Complexity : O(1) we are not using any extra space
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
+
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -18,8 +24,15 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+	//Implemented using Fast and slow pointers
+	    Node slow = head;
+        Node fast = head;
+        while(fast!=null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+       System.out.println(slow.data);
+	
     } 
   
     public void push(int new_data) 
@@ -50,4 +63,4 @@ class LinkedList
             llist.printMiddle(); 
         } 
     } 
-} 
+}

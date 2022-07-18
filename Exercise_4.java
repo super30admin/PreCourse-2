@@ -1,3 +1,10 @@
+// Time Complexity : O(nlogn) as we need to divide array everytime into half log(n) and then to merge n
+// Space Complexity : O(n) we are using a temp array
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : yes needed to refer how does merge sort work
+
+
+
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
@@ -5,15 +12,48 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+       int[] temp = new int[r-l+1];
+        int i = l;
+        int j = m +1;
+        int c=0;
+        while(i<=m && j<=r){
+            if(arr[i]<arr[j]){
+                temp[c] = arr[i];
+                i++;
+            }
+            else {
+                temp[c] = arr[j];
+                j++;
+            }
+            c++;
+        }
+        while(i<=m){
+            temp[c] = arr[i];
+            i++;
+            c++;
+        }
+        while(j<=r){
+            temp[c] = arr[j];
+            j++;
+            c++;
+        }
+        c=0;
+        for(int k=l;k<=r;k++) {
+            arr[k] = temp[c];
+            c++;
+        } 
     } 
   
     // Main function that sorts arr[l..r] using 
     // merge() 
     void sort(int arr[], int l, int r) 
     { 
-	//Write your code here
-        //Call mergeSort from here 
+    	if(l>=r)
+            return;
+        int mid = l + (r-l)/2;
+        sort(arr,l,mid);
+        sort(arr,mid+1,r);
+        merge(arr,l,mid,r);
     } 
   
     /* A utility function to print array of size n */
