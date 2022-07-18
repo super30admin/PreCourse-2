@@ -16,11 +16,25 @@ class LinkedList
   
     /* Function to print middle of linked list */
    //Complete this function
-    void printMiddle() 
-    { 
+    void printMiddle()
+    {
         //Write your code here
-	//Implement using Fast and slow pointers
-    } 
+        //Implement using Fast and slow pointers
+
+        Node fast = head;
+        Node slow = head;
+
+        while(fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        if(fast == null) {
+            System.out.println("middle number doesn't exist!!");
+        } else {
+            System.out.println("middle number is: " + slow.data);
+        }
+    }
   
     public void push(int new_data) 
     { 
