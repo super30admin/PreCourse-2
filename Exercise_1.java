@@ -1,5 +1,5 @@
 // Time Complexity : O(log n)
-// Space Complexity :  O(1) if the Array is provided, O(n) if not
+// Space Complexity :  O(1)
 // Did this code successfully run on Leetcode : Y
 // Any problem you faced while coding this : N
 
