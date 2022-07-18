@@ -1,4 +1,18 @@
-class LinkedList 
+// Time Complexity : O(N)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
+
+
+/*Your code here along with comments explaining your approach
+Traverse linked list using two-pointers(slow and fast). Move one pointer by one and the other pointers by two.
+When the fast pointer reaches the end, the slow pointer will reach the middle of the linked list.
+condition - while(fast!null && fast.next!=null)
+*/
+
+
+
+class Exercise_3 
 { 
     Node head; // head of linked list 
   
@@ -20,6 +34,15 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    	Node slow = head;
+    	Node fast = head;
+    	while(fast!=null && fast.next!=null) {
+    		
+    		slow = slow.next;
+    		fast = fast.next.next;
+    		
+    	}
+    	System.out.println("middle element ="+slow.data);
     } 
   
     public void push(int new_data) 
@@ -42,7 +65,7 @@ class LinkedList
   
     public static void main(String [] args) 
     { 
-        LinkedList llist = new LinkedList(); 
+    	Exercise_3 llist = new Exercise_3(); 
         for (int i=15; i>0; --i) 
         { 
             llist.push(i); 
