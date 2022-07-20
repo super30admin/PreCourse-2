@@ -3,6 +3,13 @@
 
 # It returns location of x in given array arr
 # if present, else returns -1
+
+'''
+Time Complexity - O(logn) as we are diving the array and searching 
+
+'''
+
+
 def binarySearch(arr, l, r, x):
     mid = 0
     while (l <= r):
