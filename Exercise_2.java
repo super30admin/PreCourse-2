@@ -1,5 +1,5 @@
-// Time Complexity : O(n^2)
-// Space Complexity : 
+// Time Complexity : O(n*logn)
+// Space Complexity :  O(1)
 
 class QuickSort
 { 
