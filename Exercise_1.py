@@ -4,20 +4,17 @@
 # It returns location of x in given array arr  
 # if present, else returns -1 
 def binarySearch(arr, l, r, x):
-    m = (r+l) // 2
-    if l > r:
-        return None
-    if arr[m] == x:
-        return m
-    elif arr[m] < x:
-        l = m + 1
-        return binarySearch(arr, l, r, x)
-    elif arr[m] > x:
-        r = m - 1
-        return binarySearch(arr, l, r, x)
+    while l <= r:
+        m = (r+l) // 2
+        if arr[m] == x:
+            return m
+        elif arr[m] < x:
+    	    l = m + 1
+        elif arr[m] > x:
+    	    r = m - 1
+    return -1
 
-
-# Test array 
+# Test array
 arr = [ 2, 3, 4, 10, 40 ] 
 x = 40
   
