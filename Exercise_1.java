@@ -1,21 +1,34 @@
-class BinarySearch { 
-    // Returns index of x if it is present in arr[l.. r], else return -1 
-    int binarySearch(int arr[], int l, int r, int x) 
-    { 
-        //Write your code here
-    } 
-  
-    // Driver method to test above 
-    public static void main(String args[]) 
-    { 
-        BinarySearch ob = new BinarySearch(); 
-        int arr[] = { 2, 3, 4, 10, 40 }; 
-        int n = arr.length; 
-        int x = 10; 
-        int result = ob.binarySearch(arr, 0, n - 1, x); 
-        if (result == -1) 
-            System.out.println("Element not present"); 
-        else
-            System.out.println("Element found at index " + result); 
-    } 
-} 
+class BinarySearch {
+	public static int low, high, mid;
+
+	public static void binarySearch(int arr[],int key) {
+			low=0;
+			high=arr.length-1;
+			while(low<=high) {
+				mid=(low+high);
+				if(arr[mid]==key)//checking if mid is equal to key
+					{
+	
+					System.out.print("key "+key+" found at "+ mid+"th\sposition");
+					return;
+				}else if(arr[mid]<key)//search in left subarray  
+				{    
+					low=mid+1;
+				}
+				else {
+					//search in right subarray
+					high=mid-1;
+				}
+			}
+			//once low is greater then high that means key not found
+			if ( low >high ){  
+				System.out.println("Element is not found!");  
+			}  
+		}
+//main
+	public static void main(String arg[]) {
+		int a[] = { 10, 20, 30, 40, 50 };
+		BinarySearch.binarySearch(a, 50);
+
+	}
+}

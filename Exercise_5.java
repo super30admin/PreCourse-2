@@ -1,36 +1,67 @@
-class IterativeQuickSort { 
-    void swap(int arr[], int i, int j) 
-    { 
-	//Try swapping without extra variable 
-    } 
-  
-    /* This function is same in both iterative and 
-       recursive*/
-    int partition(int arr[], int l, int h) 
-    { 
-        //Compare elements and swap.
-    } 
-  
-    // Sorts arr[l..h] using iterative QuickSort 
-    void QuickSort(int arr[], int l, int h) 
-    { 
-        //Try using Stack Data Structure to remove recursion.
-    } 
-  
-    // A utility function to print contents of arr 
-    void printArr(int arr[], int n) 
-    { 
-        int i; 
-        for (i = 0; i < n; ++i) 
-            System.out.print(arr[i] + " "); 
-    } 
-  
-    // Driver code to test above 
-    public static void main(String args[]) 
-    { 
-        IterativeQuickSort ob = new IterativeQuickSort(); 
-        int arr[] = { 4, 3, 5, 2, 1, 3, 2, 3 }; 
-        ob.QuickSort(arr, 0, arr.length - 1); 
-        ob.printArr(arr, arr.length); 
-    } 
-} 
+import java.util.Arrays;
+import java.util.Stack;
+class IterativeQuickSort
+{
+	private final int x;
+	private final int y;
+
+	IterativeQuickSort(int x, int y)
+	{
+		this.x = x;
+		this.y = y;
+	}
+
+	public int getX() { return x; }
+	public int getY() { return y; }
+
+	public static void swap (int[] arr, int i, int j)
+	{   //for swapping
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
+
+	public static int partition(int a[], int start, int end)
+	{   //partition function for dividing array
+		int pivot = a[end];
+        int pIndex = start;
+        for (int i = start; i < end; i++)
+		{
+			if (a[i] <= pivot)
+			{
+				swap(a, i, pIndex);
+				pIndex++;
+			}
+		}
+        swap (a, pIndex, end);
+        return pIndex;
+	}
+
+
+	public static void iterativeQuicksort(int[] a)
+	{
+		Stack<IterativeQuickSort> stack = new Stack<>();
+		int start = 0;
+		int end = a.length - 1;
+		stack.push(new IterativeQuickSort(start, end));
+		while (!stack.empty())
+		{   start = stack.peek().getX();
+		end = stack.peek().getY();
+		stack.pop();
+		int pivot = partition(a, start, end);
+		if (pivot - 1 > start) {
+			stack.push(new IterativeQuickSort(start, pivot - 1));
+		}
+		if (pivot + 1 < end) {
+			stack.push(new IterativeQuickSort(pivot + 1, end));
+		}
+		}
+	}
+
+	public static void main(String[] args)
+	{
+		int a[] = { 9, -3, 5, 2, 6, 8, -6, 1, 3 };
+		iterativeQuicksort(a);
+		System.out.println("Sorted Array"+Arrays.toString(a));
+	}
+}
