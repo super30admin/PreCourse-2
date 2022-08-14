@@ -1,3 +1,8 @@
+#Time Complexity : O(logn)
+ #Space Complexity : O(1)
+ #Did this code successfully run on Leetcode :
+ #Any problem you faced while coding this :
+ 
 # Python code to implement iterative Binary  
 # Search. 
   
