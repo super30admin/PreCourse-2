@@ -3,10 +3,19 @@
   
 # It returns location of x in given array arr  
 # if present, else returns -1 
-def binarySearch(arr, l, r, x): 
-  
+def binarySearch(arr, l, r, x):
   #write your code here
-  
+  low = l
+  high = r
+  while low < high:
+    mid = (low + high) // 2
+    if x == arr[mid]:
+      return mid
+    elif x < arr[mid]:
+      high = mid - 1
+    elif x > arr[mid]:
+      low = mid + 1
+  return -1
     
   
 # Test array 
@@ -17,6 +26,6 @@ x = 10
 result = binarySearch(arr, 0, len(arr)-1, x) 
   
 if result != -1: 
-    print "Element is present at index % d" % result 
+    print ("Element is present at index ",result) 
 else: 
-    print "Element is not present in array"
+    print ("Element is not present in array")
