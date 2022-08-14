@@ -1,5 +1,4 @@
 # Python program for implementation of Quicksort
-
 # This function is same in both iterative and recursive
 def partition(arr, l, h):
     pivot = arr[l]
@@ -17,7 +16,6 @@ def partition(arr, l, h):
     arr[l], arr[j] = arr[j], arr[l]
     return j
     # write your code here
-
 
 def quickSortIterative(arr, l, h):
     size = h - l + 1

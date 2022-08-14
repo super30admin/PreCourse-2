@@ -1,6 +1,5 @@
 # Python program for implementation of MergeSort
 def mergeSort(arr):
-
     # write your code here
     mid = len(arr) // 2
     left = arr[:mid]

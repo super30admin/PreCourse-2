@@ -1,6 +1,5 @@
 # Python code to implement iterative Binary
 # Search.
-
 # It returns location of x in given array arr
 # if present, else returns -1
 def binarySearch(arr, l, r, x):
@@ -17,7 +16,6 @@ def binarySearch(arr, l, r, x):
     return -1
 
     # write your code here
-
 
 # Test array
 arr = [2, 3, 4, 10, 40]

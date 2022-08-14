@@ -1,5 +1,4 @@
 # Python program for implementation of Quicksort Sort
-
 # give you explanation for the approach
 def partition(arr, low, high):
     i = low - 1  # index of smaler element
@@ -11,7 +10,6 @@ def partition(arr, low, high):
             arr[i], arr[j] = arr[j], arr[i]  # swapping in python in place
     arr[i + 1], arr[high] = arr[high], arr[i + 1]
     return i + 1
-
 
 # SECONDARY WAY OF WRITING PARTION CODE
 #    pivot = arr[l]
