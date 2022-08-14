@@ -17,7 +17,7 @@ def quickSort(arr,low,high):
     #write your code here
     #divide the arr into 2 parts and call the quicksort function recursively
     if len(arr)>1:
-      mid = parition(arr,low,high)
+      mid = partition(arr,low,high)
       quickSort(arr,low,mid-1)
       quickSort(arr,mid+1,high)
     return arr
