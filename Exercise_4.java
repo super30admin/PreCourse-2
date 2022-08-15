@@ -1,42 +1,84 @@
-class MergeSort 
-{ 
-    // Merges two subarrays of arr[]. 
-    // First subarray is arr[l..m] 
-    // Second subarray is arr[m+1..r] 
-    void merge(int arr[], int l, int m, int r) 
-    {  
-       //Your code here  
-    } 
-  
-    // Main function that sorts arr[l..r] using 
-    // merge() 
-    void sort(int arr[], int l, int r) 
-    { 
-	//Write your code here
-        //Call mergeSort from here 
-    } 
-  
-    /* A utility function to print array of size n */
-    static void printArray(int arr[]) 
-    { 
-        int n = arr.length; 
-        for (int i=0; i<n; ++i) 
-            System.out.print(arr[i] + " "); 
-        System.out.println(); 
-    } 
-  
-    // Driver method 
-    public static void main(String args[]) 
-    { 
-        int arr[] = {12, 11, 13, 5, 6, 7}; 
-  
-        System.out.println("Given Array"); 
-        printArray(arr); 
-  
-        MergeSort ob = new MergeSort(); 
-        ob.sort(arr, 0, arr.length-1); 
-  
-        System.out.println("\nSorted array"); 
-        printArray(arr); 
-    } 
-} 
+
+class MergeSort {
+	
+	void merge(int [] arr,int [] l_arr,int [] r_arr)
+	{
+		int a=0,l=0,r=0;
+		while(l<l_arr.length && r<r_arr.length)
+		{
+			if(l_arr[l]<=r_arr[r])
+			{
+				arr[a]= l_arr[l];
+				a++;
+				l++;
+			}
+			
+			else
+			{
+				arr[a]= r_arr[r];
+				a++;
+				r++;
+			}
+		 }
+		
+		while(l<l_arr.length)
+		{
+			arr[a] = l_arr[l];
+			a++;
+			l++;
+		}
+		while(r<r_arr.length)
+		{
+			arr[a] = r_arr[r];
+			a++;
+			r++;
+		}	
+		
+	}
+	
+	void sort(int[]arr)
+	{   
+		if(arr.length>1)
+		{
+			int mid = (arr.length)/2;
+			int [] left_arr = new int [mid];
+			for(int i=0;i<mid;i++)
+			{
+				left_arr[i] = arr[i];
+			}
+			
+			int [] right_arr = new int[(arr.length)-mid];
+			for(int i=0;i<arr.length-mid;i++)
+			{
+				right_arr[i] = arr[mid+i];
+			}
+			
+			sort(left_arr);
+			sort(right_arr);
+			merge(arr,left_arr,right_arr);
+					
+		}
+	}
+		void print_array(int []arr)
+		{
+			for(int i=0;i<arr.length;i++)
+			{
+				System.out.println(arr[i]);
+				
+			}
+			System.out.println(" ");
+		}
+			
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int arr[] = {12, 11, 13, 5, 6, 7};
+		MergeSort ob = new MergeSort(); 
+		ob.sort(arr);
+		ob.print_array(arr);
+        
+
+	}
+
+}
