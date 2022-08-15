@@ -1,3 +1,10 @@
+// Time complexity
+// Avg case: O(nlogn)
+// Worst case: O(n^2)
+
+// Space complexity
+// O(logn)
+
 import java.util.*;
 
 class IterativeQuickSort { 
