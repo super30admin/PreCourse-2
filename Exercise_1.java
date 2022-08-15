@@ -1,8 +1,30 @@
+// Time complexity
+// O(nlogn)
+// O(logn) - if we assume that the array is sorted
+
+// Space complexity
+// O(1)
+
+import java.util.Arrays;
+
 class BinarySearch { 
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
-    { 
-        //Write your code here
+    {
+        Arrays.sort(arr);
+        while (l <= r) {
+            int midPoint = (l+r) / 2;
+            if (arr[midPoint] == x) {
+                return midPoint;
+            }
+            if (arr[midPoint] > x) {
+                r = midPoint - 1;
+            }
+            else {
+                l = midPoint + 1;
+            }
+        }
+        return -1;
     } 
   
     // Driver method to test above 
