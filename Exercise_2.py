@@ -1,11 +1,14 @@
 # Python program for implementation of Quicksort Sort 
 # TIME COMPLEXITY: # Unfortunately I don't remember
 # SPACE COMPLEXITY: O(1) # this is an in-place algorithm
-# Did it run in leetcode successfully: Nope - failed for a large input
+# Did it run in leetcode successfully: Yep
 # Any problems faced: Quite a few until I figured out the
 
 # give you explanation for the approach
 def partition(arr,low,high):
+    # selecting a random index between low and high as a pivot point
+    m = random.randint(low, high)
+    arr[low], arr[m] = arr[m], arr[low]
 
     pe = arr[low] # pivot element is first element
     i = low + 1
