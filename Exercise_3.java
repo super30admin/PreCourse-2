@@ -18,9 +18,34 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
+	 if(head!=null)
+	 {
+	int len=getLen();
+	 Node temp=head;
+         int middle=len/2;
+         while(middle!=0)
+	 {
+		 temp=temp.next;
+		 middle=middle-1;
+	 }
+          System.out.println("Middle element:" + temp.data);
+         
+	 }
+	   
         //Write your code here
 	//Implement using Fast and slow pointers
     } 
+    int getLen()
+    {
+	    Node temp=head;
+	    int length=0;
+	    whiile(temp!=null){
+	    temp=temp.next;
+            length=length+1;
+		    
+	    }
+	    return length;
+    }
   
     public void push(int new_data) 
     { 
