@@ -1,15 +1,11 @@
-# PreCourse_2
+# PreCourse_1
 
 # All Instructions are already provided in the respective files.
 
-Exercise_1 : Binary Search.
+Exercise_1 : Implement Stack using Array.
 
-Exercise_2 : Quick sort.
+Exercise_2 : Implement Stack using Linked List.
 
-Exercise_3 : Find Mid Point of a Singly Linked List.
-
-Exercise_4 : Merge Sort.
-
-Exercise_5 : Iterative Quick Sort.
+Exercise_3 : Implement Singly Linked List.
 
 *After completing the project kindly submit a pull request*

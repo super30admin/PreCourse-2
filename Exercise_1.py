@@ -1,22 +1,24 @@
-# Python code to implement iterative Binary  
-# Search. 
-  
-# It returns location of x in given array arr  
-# if present, else returns -1 
-def binarySearch(arr, l, r, x): 
-  
-  #write your code here
-  
-    
-  
-# Test array 
-arr = [ 2, 3, 4, 10, 40 ] 
-x = 10
-  
-# Function call 
-result = binarySearch(arr, 0, len(arr)-1, x) 
-  
-if result != -1: 
-    print "Element is present at index % d" % result 
-else: 
-    print "Element is not present in array"
+class myStack:
+  #Please read sample.java file before starting.
+  #Kindly include Time and Space complexity at top of each file
+     def __init__(self):
+         
+     def isEmpty(self):
+         
+     def push(self, item):
+         
+     def pop(self):
+        
+        
+     def peek(self):
+        
+     def size(self):
+         
+     def show(self):
+         
+
+s = myStack()
+s.push('1')
+s.push('2')
+print(s.pop())
+print(s.show())

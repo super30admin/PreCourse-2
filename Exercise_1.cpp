@@ -1,21 +1,54 @@
-#include <stdio.h> 
+#include <bits/stdc++.h> 
   
-// A recursive binary search function. It returns 
-// location of x in given array arr[l..r] is present, 
-// otherwise -1 
-int binarySearch(int arr[], int l, int r, int x) 
-{   
-    //Your Code here 
+using namespace std; 
+  
+#define MAX 1000 
+  
+class Stack {
+  //Please read sample.java file before starting.
+  //Kindly include Time and Space complexity at top of each file
+    int top; 
+  
+public: 
+    int a[MAX]; // Maximum size of Stack 
+  
+    Stack() { //Constructor here } 
+    bool push(int x); 
+    int pop(); 
+    int peek(); 
+    bool isEmpty(); 
+}; 
+  
+bool Stack::push(int x) 
+{ 
+    //Your code here
+    //Check Stack overflow as well
 } 
   
-int main(void) 
+int Stack::pop() 
 { 
-    int arr[] = { 2, 3, 4, 10, 40 }; 
-    int n = sizeof(arr) / sizeof(arr[0]); 
-    int x = 10; 
-    int result = binarySearch(arr, 0, n - 1, x); 
-    (result == -1) ? printf("Element is not present in array") 
-                   : printf("Element is present at index %d", 
-                            result); 
+    //Your code here
+    //Check Stack Underflow as well 
+} 
+int Stack::peek() 
+{ 
+    //Your code here
+    //Check empty condition too
+} 
+  
+bool Stack::isEmpty() 
+{ 
+    //Your code here 
+} 
+  
+// Driver program to test above functions 
+int main() 
+{ 
+    class Stack s; 
+    s.push(10); 
+    s.push(20); 
+    s.push(30); 
+    cout << s.pop() << " Popped from stack\n"; 
+  
     return 0; 
 } 
