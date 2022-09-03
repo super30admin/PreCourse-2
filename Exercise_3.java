@@ -4,6 +4,7 @@
 // Any problem you faced while coding this : no
 
 // Your code here along with comments explaining your approach
+
 class LinkedList 
 { 
     Node head; // head of linked list 
