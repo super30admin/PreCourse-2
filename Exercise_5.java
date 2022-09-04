@@ -7,6 +7,7 @@ class IterativeQuickSort {
     void swap(int arr[], int i, int j) 
     { 
 	//Try swapping without extra variable 
+    //if the numbers are equal, no need to swap
     if(arr[i]==arr[j]){
         return;
     }
@@ -17,16 +18,13 @@ class IterativeQuickSort {
     System.out.println("afterswap"+"i"+arr[i]+"j"+arr[j]);
     } 
   
-    /* This function is same in both iterative and 
-       recursive*/
     int partition(int arr[], int l, int h) 
     { 
-        //Compare elements and swap.
+        
         int pivot = arr[h];
         int i = (l - 1); // index of smaller element
         for (int j = l; j <= h - 1; j++) {
-            // If current element is smaller than or
-            // equal to pivot
+            // If current element is smaller than or equal to pivot
             if (arr[j] <= pivot) {
                 i++;
  

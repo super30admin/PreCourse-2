@@ -12,8 +12,10 @@ class BinarySearch {
         while (r - l > 1) {
             int mid = (r + l) / 2;
             if (arr[mid] < x) {
+                //if mid is less than x, then make the next element of the mid as l
                 l = mid + 1;
             } else {
+                //make the mid as r if mid is greater than x
                 r = mid;
             }
         }
