@@ -6,7 +6,22 @@
 int binarySearch(int arr[], int l, int r, int x) 
 {   
     //Your Code here 
-} 
+    if(l>r)
+		return -1;
+    
+       int m = l + ((r-l)/2);
+    
+     	if(arr[m]==x)
+    	return m;
+    
+    	else if(arr[m]<x)
+    	return  binarySearch(arr, m+1,r,x);
+ 
+    	else
+		return	binarySearch(arr,l,m-1,x);
+    	
+    }
+
   
 int main(void) 
 { 
