@@ -1,4 +1,5 @@
-class LinkedList 
+
+class LinkedList
 { 
     Node head; // head of linked list 
   
@@ -20,6 +21,21 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+
+        if (head != null) {
+            int length = 0;
+            Node temp = head;
+            if (temp != null) {
+                length++;
+                temp = temp.next;
+            }
+            temp = head;
+            int middleLength = length / 2;
+            while (middleLength != 0) {
+                temp = temp.next;
+                middleLength--;
+            }
+        }
     } 
   
     public void push(int new_data) 
