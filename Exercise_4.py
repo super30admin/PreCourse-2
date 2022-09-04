@@ -15,7 +15,7 @@ def mergeSort(arr):
         # declare mid
         mid = len(arr) // 2
 
-        # Create temp arrays
+        # Create temp arrays with left and right values from mid-point
         left_arr = arr[:mid]
         right_arr = arr[mid:]
 
@@ -37,14 +37,16 @@ def mergeSort(arr):
                 j += 1
             k += 1
 
-        # check if any elements were left
+        # check if any elements are remaining
         while i < len(left_arr):
+            # add any remaining elements to arr
             arr[k] = left_arr[i]
             i += 1
             k += 1
-            
-        # check if any elements were left
+
+        # check if any elements are remaining
         while j < len(right_arr):
+            # add any remaining elements to arr
             arr[k] = right_arr[j]
             j += 1
             k += 1
