@@ -1,3 +1,4 @@
+//O(nlogn)
 function merge(left, right) {
     let arr = []
     while (left.length && right.length) {

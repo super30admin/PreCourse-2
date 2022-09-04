@@ -1,3 +1,5 @@
+//O(nlogn)
+
 function partition(arr,start,end){
     let pivot = arr[end];
     let pivot_index = start;

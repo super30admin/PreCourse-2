@@ -1,3 +1,4 @@
+//O(n)
 class LinkedList {
     constructor(data, head){
         this.data = data

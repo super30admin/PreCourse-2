@@ -1,3 +1,5 @@
+//O(nlogn)
+
 function quickSortIterative(arr) {
     stack = [];
     stack.push(0);
