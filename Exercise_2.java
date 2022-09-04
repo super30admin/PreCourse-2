@@ -1,3 +1,10 @@
+// Time Complexity : O(nlogn)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode :
+// Any problem you faced while coding this :
+
+// Your code here along with comments explaining your approach
+
 class QuickSort 
 { 
     /* This function takes last element as pivot, 
@@ -7,11 +14,24 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //Your code here
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
     
     int partition(int arr[], int low, int high) 
-    { 
+    {
+        int pivot = arr[high];
+        int ptr = low - 1;
+        for(int j = low; j < high; j++) {
+            if (arr[j] <= pivot) {
+                ptr++;
+                swap(arr, ptr, j);
+            }
+        }
+        swap(arr, ptr + 1, high);
+        return ptr + 1;
    	//Write code here for Partition and Swap 
     } 
     /* The main function that implements QuickSort() 
@@ -19,7 +39,12 @@ class QuickSort
       low  --> Starting index, 
       high  --> Ending index */
     void sort(int arr[], int low, int high) 
-    {  
+    {
+        if(low < high) {
+            int index_partition = partition(arr, low, high);
+            sort(arr, low, index_partition - 1);
+            sort(arr, index_partition + 1, high);
+        }
             // Recursively sort elements before 
             // partition and after partition 
     } 
