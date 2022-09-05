@@ -1,3 +1,6 @@
+// time complexity is O(nlog n), as dividing the array is o(log n) and merging takes O(n)
+// space complexity :  we have used 2 temp arrays, so space complexity is O(n)
+
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
@@ -5,25 +8,50 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+       //Your code here 
+    	int lasize = m-l+1;
+    	int rasize=r-m;
+    	int[] left= new int[lasize];
+    	int[] right= new int[rasize];
+   
+    	
+    	for(int i=0;i<lasize;i++) {
+    		left[i]=arr[l+i];
+    	}
+    	
+    	for(int j=0;j<rasize;j++) {
+    		right[j]=arr[m+1+j];
+    	}
+    	
+    	//  Merge the temp arrays
+    	int i=0,j=0,k=l;
+    	while(i<lasize && j<rasize) {
+    		if(left[i]<=right[j]) {
+    			arr[k]=left[i];
+    			i++;
+    			k++;
+    		}
+    		else {
+    			arr[k]=right[j];
+    			j++;
+    			k++;
+    		}
+    	}
+    	 // Copy remaining elements of left[]
+    	while(i<lasize) {
+    		arr[k]=left[i];
+			i++;
+			k++;
+    	}
+    	
+   	 // Copy remaining elements of right[]
+    	while(j<rasize) {
+    		arr[k]=right[j];
+			j++;
+			k++;
+    	}
     } 
   
-    // Main function that sorts arr[l..r] using 
-    // merge() 
-    void sort(int arr[], int l, int r) 
-    { 
-	//Write your code here
-        //Call mergeSort from here 
-    } 
-  
-    /* A utility function to print array of size n */
-    static void printArray(int arr[]) 
-    { 
-        int n = arr.length; 
-        for (int i=0; i<n; ++i) 
-            System.out.print(arr[i] + " "); 
-        System.out.println(); 
-    } 
   
     // Driver method 
     public static void main(String args[]) 
