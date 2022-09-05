@@ -1,8 +1,24 @@
+// Time Complexity : O(Log n)
 class BinarySearch { 
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
+    	// finding the middle element to search the desired element in one of the 2 halves 
+    	
+    	while(l<=r) {
+    		int mid = (l+r)/2;
+    		if(arr[mid]==x)
+    			return mid;
+    	// narrowing the search based on the below conditions
+    		else if(x>arr[mid]) {
+    			l++;
+    		}
+    		else {
+    			r--;
+    		}
+    	}
+    	return -1;
     } 
   
     // Driver method to test above 
