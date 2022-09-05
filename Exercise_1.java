@@ -1,8 +1,29 @@
+// Did this code successfully run on Leetcode : It runs successfully on Eclipse
+// Any problem you faced while coding this : Not much
+
 class BinarySearch { 
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
+    	   int mid = (l + r)/2;  
+    	   if ( l > r ){  
+     	      return -1;  
+     	   }  
+    	   else
+    	   {
+    		   while( l <= r ){  
+    	    	      if ( arr[mid] < x ){  
+    	    	        l = mid + 1;     
+    	    	      }else if ( arr[mid] == x ){  
+    	    	        break;   
+    	    	      }else{  
+    	    	         r = mid - 1;  
+    	    	      }  
+    	    	      mid = (l + r)/2;  
+    	    	   }
+    		   return mid;
+    	   }
     } 
   
     // Driver method to test above 
