@@ -1,5 +1,9 @@
 class LinkedList 
 { 
+// Time Complexity : O(n)
+// Space Complexity : O(n) n-> number of elemts present in array.
+// Did this code successfully run on Leetcode :Yes
+// Any problem you faced while coding this :No
     Node head; // head of linked list 
   
     /* Linked list node */
@@ -18,8 +22,18 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+        if (head != null) {
+            int length = 0;
+            Node temp = head;
+            int middleLength = length / 2;
+            while (middleLength != 0) {
+                temp = temp.next;
+                middleLength--;
+            }
+            System.out.print("The middle element is ["
+                             + temp.data + "]");
+            System.out.println();
+        }
     } 
   
     public void push(int new_data) 

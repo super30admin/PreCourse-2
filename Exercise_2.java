@@ -1,18 +1,36 @@
 class QuickSort 
 { 
-    /* This function takes last element as pivot, 
-       places the pivot element at its correct 
-       position in sorted array, and places all 
-       smaller (smaller than pivot) to left of 
-       pivot and all greater elements to right 
-       of pivot */
-    void swap(int arr[],int i,int j){
-        //Your code here   
+// Time Complexity : O(n log n)
+// Space Complexity : O(1) n-> number of elemts present in array.
+// Did this code successfully run on Leetcode :Yes
+// Any problem you faced while coding this :No
+     void swap(int arr[],int i,int j){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;  
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+        int pivot = arr[high];
+    int i = (low-1);
+
+    for (int j = low; j < high; j++) {
+        if (arr[j] <= pivot) {
+            i++;
+
+            int swapTemp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = swapTemp;
+        }
+    }
+
+    int swapTemp = arr[i+1];
+    arr[i+1] = arr[high];
+    arr[high] = swapTemp;
+
+    return i+1;
+        
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -20,8 +38,13 @@ class QuickSort
       high  --> Ending index */
     void sort(int arr[], int low, int high) 
     {  
-            // Recursively sort elements before 
-            // partition and after partition 
+        if (low < high) {
+            int partitionIndex = partition(arr, low, high);
+    
+            sort(arr, low, partitionIndex-1);
+            sort(arr, partitionIndex+1, high);
+
+        }
     } 
   
     /* A utility function to print array of size n */
