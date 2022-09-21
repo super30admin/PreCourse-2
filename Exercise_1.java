@@ -2,9 +2,9 @@ class BinarySearch {
 
 // Time Complexity : O(log n)
 // Space Complexity : O(1) n-> number of elemts present in array.
-// Did this code successfully run on Leetcode :
-// Any problem you faced while coding this :
-    // Returns index of x if it is present in arr[l.. r], else return -1 
+// Did this code successfully run on Leetcode :Yes
+// Any problem you faced while coding this :No
+    
     int binarySearch(int arr[], int l, int r, int x) 
     { 
     while(l<=r){
@@ -20,7 +20,6 @@ class BinarySearch {
 
     } 
   
-    // Driver method to test above 
     public static void main(String args[]) 
     { 
         BinarySearch ob = new BinarySearch(); 
