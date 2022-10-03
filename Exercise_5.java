@@ -1,20 +1,52 @@
+// Time Complexity :O(n.logn)
+// Space Complexity :O(n)
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this :no
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
-	//Try swapping without extra variable 
+	  int t = arr[i];
+      arr[i] = arr[j];
+      arr[j] = t;//Try swapping without extra variable 
     } 
   
     /* This function is same in both iterative and 
        recursive*/
     int partition(int arr[], int l, int h) 
     { 
-        //Compare elements and swap.
+        int x = arr[h];
+        int i = (l - 1);
+ 
+        for (int j = l; j <= h - 1; j++) {
+          if (arr[j] <= x) {
+          i++;
+           // swap arr[i] and arr[j]
+           swap(arr, i, j);
+              }
+  }
+  // swap arr[i+1] and arr[h]
+  swap(arr, i + 1, h);
+  return (i + 1);
     } 
-  
-    // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
     { 
-        //Try using Stack Data Structure to remove recursion.
+        int stack[] = new int[h - l + 1];
+        int top = -1;
+        stack[++top] = l;
+        stack[++top] = h;
+        while (top >= 0) {
+          h = stack[top--];
+          l = stack[top--];
+          int p = partition(arr, l, h);
+          if (p - 1 > l) {
+            stack[++top] = l;
+            stack[++top] = p - 1;
+          }
+          if (p + 1 < h) {
+             stack[++top] = p + 1;
+             stack[++top] = h;
+          }
+  }//Try using Stack Data Structure to remove recursion.
     } 
   
     // A utility function to print contents of arr 
