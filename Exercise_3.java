@@ -1,3 +1,8 @@
+// Time Complexity :O(n)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode : No
+// Any problem you faced while coding this :LinkedList is already defined in this compilation unit [in LinkedList.java]
+import java.util.LinkedList;
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -18,9 +23,20 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
+        if (head != null) {
+            int length = getLen();
+            Node temp = head;
+            int middleLength = length / 2;
+            while (middleLength != 0) {
+                temp = temp.next;
+                middleLength--;
+            }
+            System.out.print("The middle element is ["
+                             + temp.data + "]");
+            System.out.println();//Write your code here
 	//Implement using Fast and slow pointers
-    } 
+    }
+    }
   
     public void push(int new_data) 
     { 
