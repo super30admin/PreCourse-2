@@ -13,11 +13,16 @@ class IterativeQuickSort {
     { 
         //Compare elements and swap.
 	    
-	    int pivot = arr[h];
-	   
-	    for(int i = 0; 
-	    if(arr[l] <= arr[pivot]
-	       swap(arr,l,h)
+	   int pivot = arr[high];
+            int pIndex = low;
+        
+        for(int i = low; i <= high; i++){
+            if(arr[i] < arr[pivot]){
+                swap(arr,pIndex,i);
+            }
+        }
+        swap(arr,pIndex,pivot);
+        return pIndex;
 	    
 	    
 	    
