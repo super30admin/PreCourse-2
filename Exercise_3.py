@@ -1,3 +1,4 @@
+# Space Complexity - O(n) (Linked list to store n values)
 # Node class  
 class Node:  
   
@@ -11,6 +12,7 @@ class LinkedList:
     def __init__(self): 
         self.head = None
   
+    # Time Complexity - O(1)
     def push(self, new_data): 
         if self.head is None:
             self.head = Node(new_data)
@@ -19,8 +21,7 @@ class LinkedList:
             newNode.next = self.head
             self.head = newNode
   
-    # Function to get the middle of  
-    # the linked list 
+    #Time Complexity - O(n)
     def printMiddle(self): 
         if self.head == None:
             print('Linked list is empty')
@@ -31,6 +32,7 @@ class LinkedList:
             slow = slow.next
             fast = fast.next.next
         print slow.data
+        
 # Driver code 
 list1 = LinkedList() 
 list1.push(5) 

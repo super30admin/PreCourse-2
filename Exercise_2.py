@@ -1,3 +1,5 @@
+# Time Complexity - O(n log n)
+# Space Complexity - O(1)
 # Python program for implementation of Quicksort Sort 
   
 def swap(index1, index2, arr):

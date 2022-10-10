@@ -1,3 +1,6 @@
+#Time Complexity - O(log n)
+#Space Complexity - O(1) 
+
 # Python code to implement iterative Binary  
 # Search. 
   
