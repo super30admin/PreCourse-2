@@ -1,4 +1,6 @@
 // Binary search array.
+// Time complexity O(LogN)
+// Space complexity O(1)
 
 func binarySearch(_ array:[Int], _ start: Int, _ end: Int, _ target: Int) -> Int {
     if end < start {
