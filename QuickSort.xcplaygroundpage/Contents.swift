@@ -1,4 +1,5 @@
 // Time complexity O(n*logn)
+// Space complexity O(1)
 
 func quickSory(_ array: inout [Int],_ low: Int,_ high: Int) {
     if low < high {
