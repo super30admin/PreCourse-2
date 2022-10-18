@@ -1,4 +1,5 @@
 // Time complexity O(nLogN)
+// Space complexity O(2N)
 
 func mergeSort(_ array: inout [Int],_ low: Int,_ high: Int)  {
     if low < high {
