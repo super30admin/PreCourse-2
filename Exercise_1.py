@@ -3,6 +3,9 @@
   
 # It returns location of x in given array arr  
 # if present, else returns -1 
+
+#Time Complexity : O(logN) - where n is no of elems
+#Space Complexity: O(1)
 def binarySearch(arr, l, r, x):
   assert l <= r < len(arr)
   mid = -1
