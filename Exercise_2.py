@@ -2,7 +2,7 @@
 # give you explanation for the approach
 
 #Time Complexity: O(n^2)
-#Space Complexity: O(1)
+#Space Complexity: O(n)
 
 def partition(arr,low,high):
     #last element is the pivot elem by default
