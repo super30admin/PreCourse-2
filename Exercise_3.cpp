@@ -1,4 +1,14 @@
+/*
+
+TC: O(n)
+SC: O(1)
+Logic:
+The way slow and fast pointers move, slow always ends up travelling half of fast. Hence we are able to reach mid in one traversal, and we stop when fast has made the last jump.
+
+*/
+
 #include<bits/stdc++.h>  
+#include<iostream>
 using namespace std;  
   
 // Struct  
@@ -11,8 +21,12 @@ struct Node
 /* Function to get the middle of the linked list*/
 void printMiddle(struct Node *head)  
 {  
-  //YourCode here
+    //Not specified what to do when even, so assuming input to be odd.
   //Use fast and slow pointer technique
+  if(head == NULL)  return;
+  Node* fast = head;    Node* slow = head;
+  while(fast->next && fast->next->next) slow = slow->next, fast = fast->next->next;
+  cout<<slow->data<<endl;
 }  
   
 // Function to add a new node  
