@@ -1,6 +1,5 @@
-//  Python program for implementation of Quicksort
-
-// This function is same in both iterative and recursive
+//Time : O(nlogn)
+//Space: O(n)
 const partition = (arr, low, high) => {
   let pivotItem = arr[Math.floor((high + low) / 2)];
   let left = low;

@@ -1,8 +1,5 @@
-//  Python program for implementation of MergeSort
-
 //Time Complexity: O(nlogn)
 //Space Complexity: O(n)
-
 const mergeSort = arr => {
   if (arr.length === 1) {
     return arr;
