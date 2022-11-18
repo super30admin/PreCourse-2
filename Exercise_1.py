@@ -1,3 +1,11 @@
+# Time Complexity : O(1)
+# Space Complexity : O(1)
+# Did this code successfully run on Leetcode : N/A
+# Any problem you faced while coding this : No
+
+
+# Your code here along with comments explaining your approach
+
 # Python code to implement iterative Binary  
 # Search. 
   
@@ -6,6 +14,20 @@
 def binarySearch(arr, l, r, x): 
   
   #write your code here
+  # using two pointers to keep track for start and end
+  # check middle, if middle is not x, ckeck if mid is less than 
+  # or grater than x
+  l = 0
+  r = len(arr) - 1
+  while l <= r:
+    mid = (l+r)//2
+    if mid > x:
+      mid = r - 1
+    elif mid < x:
+      mid = l
+    else:
+      return mid
+  return -1
   
     
   
