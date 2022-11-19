@@ -1,3 +1,12 @@
+//Time Complexity : O(n), as fast pointer would need to traverse the complete list
+//Space Complexity : Space is constant in terms of printing the middle, however the space complexity of linkedlist would be O(n)
+//Did this code successfully run on Leetcode :
+//Any problem you faced while coding this : no
+
+
+//Your code here along with comments explaining your approach
+
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +29,17 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    	
+    	Node fast = head;
+    	Node slow = head;
+    	// Moving fast pointer two times, and slow pointer 1 time, when fast reaches null, the slow would point to the middle element
+    	while(fast!=null && fast.next!=null) {
+    		fast = fast.next.next;
+    		slow = slow.next;
+    		
+    	}
+    	
+    	System.out.println("Middle is : " + slow.data);
     } 
   
     public void push(int new_data) 
@@ -50,4 +70,4 @@ class LinkedList
             llist.printMiddle(); 
         } 
     } 
-} 
+}
