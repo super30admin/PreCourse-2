@@ -25,27 +25,22 @@ def quickSortIterative(arr, l, h):
   size = h - l + 1
   st = [0] * size
   top = -1
-  # push initial values
   top += 1
   st[top] = l
   top += 1
   st[top] = h
-  # pop from stack
   while top >= 0:
       # Pop
       h = st[top]
       top -= 1
       l = st[top]
       top -= 1
-      # Set pivot element at its correct position
       m = partition(arr,l,h)
-      # elements on the left
       if m-1 > l:
           top += 1
           st[top] = l
           top += 1
           st[top] = m - 1
-      # elements on the right
       if m+1 < h:
           top += 1
           st[top] = m + 1
