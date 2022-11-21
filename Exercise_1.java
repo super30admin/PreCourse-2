@@ -1,8 +1,28 @@
-class BinarySearch { 
+// Time Complexity : O(log n)
+// Space Complexity : O(log n)
+// Did this code successfully run on Leetcode :
+// Any problem you faced while coding this : no
+
+class BinarySearch {
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
+        if(r >= l) {
+            int mid = l + (r-l)/2;
+
+            //element position is at middle
+            if(arr[mid] = x)
+                return mid;
+
+            //element is smaller than mid element, should consider left subarray
+            if(arr[mid] > x)
+                return binarySearch(arr, l, mid-1, x);
+
+            //element is bigger than mid element, should consider right subarray
+            return binarySearch(arr, mid+1, r, x);
+        }
+        return -1;
     } 
   
     // Driver method to test above 
