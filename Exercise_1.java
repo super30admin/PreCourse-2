@@ -16,6 +16,7 @@ class BinarySearch {
     		}
     		m = (l+r)/2;
     	}
+        if(arr[l] == x) return l;
     	return -1;
     } 
   
