@@ -1,3 +1,6 @@
+# Time Complexity : O(nlogn)
+# Space Complexity : O(n)
+
 # Python program for implementation of Quicksort
 
 # This function is same in both iterative and recursive

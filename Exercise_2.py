@@ -3,6 +3,8 @@
 # give you explanation for the approach
 # from socket import J1939_NLA_BYTES_ACKED
 
+# Time Complexity : O(n^2) {O(nlogn) when pivot is the median}
+# Space Complexity : O(1)
 
 def partition(arr,low,high):
     #write your code here
