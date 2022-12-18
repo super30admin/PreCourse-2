@@ -1,4 +1,10 @@
-class QuickSort 
+//Quick Sort
+// Time Complexity : O(nlogn)
+// Space Complexity : O(nlogn) , worst case - O(n^2)
+// Did this code successfully run on Leetcode :NA
+// Any problem you faced while coding this : No
+
+class Exercise_2 
 { 
     /* This function takes last element as pivot, 
        places the pivot element at its correct 
@@ -7,19 +13,49 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //Your code here 
+    	int temp;
+    	
+    	temp = arr[i];
+    	arr[i] = arr[j];
+    	arr[j] = temp;
+    	
     }
     
     int partition(int arr[], int low, int high) 
     { 
+    	int pivot = arr[high];
+    	
+    	int i = low - 1;
+    	
+    	for (int j = low; j <= high -1; j++) {
+    		
+    		if (arr[j] < pivot) {
+    			i ++;	
+    			swap (arr, i, j);
+    			
+    		}
+    	}
+    	swap (arr, i+1, high);
+    	
    	//Write code here for Partition and Swap 
+    	return (i+1);
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
       low  --> Starting index, 
       high  --> Ending index */
+    
     void sort(int arr[], int low, int high) 
     {  
+    		if (low< high) {
+    			int p = partition(arr, low, high);
+    			
+    			sort (arr, low, p-1);
+    			sort (arr, p+1, high);
+    			
+    		}
+    	
             // Recursively sort elements before 
             // partition and after partition 
     } 
@@ -39,7 +75,7 @@ class QuickSort
         int arr[] = {10, 7, 8, 9, 1, 5}; 
         int n = arr.length; 
   
-        QuickSort ob = new QuickSort(); 
+        Exercise_2 ob = new Exercise_2(); 
         ob.sort(arr, 0, n-1); 
   
         System.out.println("sorted array"); 
