@@ -1,11 +1,10 @@
-# Exercise_4 : Merge Sort.
+# Exercise_4 : Merge Sort
 
 # Time Complexity: O(N log N), N = number of elements in array
 # Space Complexity: O(N), since we use an additional array to store the sorted elements
 # Successful Run on Leetcode: Yes (https://leetcode.com/problems/sort-an-array/)
 # Challenges: None
 
-# Python program for implementation of MergeSort 
 def mergeSort(arr):
   # if the array has more than one element, split the array into two halves
   if len(arr) >= 2:
@@ -44,8 +43,7 @@ def merge(arr, left, right):
     arr[k] = right[j]
     j += 1
     k += 1
-  
-# Code to print the list 
+
 def printList(arr): 
     for i in range(len(arr)):         
         print(arr[i],end=" ")

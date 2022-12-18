@@ -2,13 +2,10 @@
 
 # Average-Case Time Complexity: O(N log N), N = number of elements in array
 # Worst-Case Time Complexity: O(N^2), N = number of elements in array
-# Space Complexity: O(N), N = number of elements in array
+# Space Complexity: O(N), N = number of elements in the stack
 # Successful Run on Leetcode: Yes (https://leetcode.com/problems/sort-an-array/)
 # Challenges: None
 
-# Python program for implementation of Quicksort
-
-# This function is same in both iterative and recursive
 def partition(arr, l, h):
   # partition the array using the last element as the pivot
   pivot = arr[h]
@@ -27,11 +24,7 @@ def partition(arr, l, h):
   # return the index of the pivot
   return i + 1
 
-
-
-
 def quickSortIterative(arr, l, h):
-  # quicksort using an iterative approach
   # create a stack
   stack = []
   # push the initial values of l and h to the stack

@@ -1,9 +1,8 @@
-# Python program for implementation of Quicksort Sort 
+# Exercise_2 : Recursive QuickSort
 
 # Average-Case Time Complexity: O(N log N), N = number of elements in array
 # Worst-Case Time Complexity: O(N^2), N = number of elements in array
-# Best-Case Space Complexity: O(log N), N = number of elements in array (Partition is balanced, and two recursive calls are made at each level. The depth of the tree is log N, so recursion call stack size is O(log N))
-# Worst-Case Space Complexity: O(N), N = number of elements in array (Partition is unbalanced, and one recursive call is made at each level. The depth of the tree is N, so recursion call stack size is O(N))
+# Space Complexity: O(N), N = number of elements in array (Partition is unbalanced, and one recursive call is made at each level. The depth of the tree is N, so recursion call stack size is O(N))
 # Successful Run on Leetcode: Yes (https://leetcode.com/problems/sort-an-array/)
 # Challenges: None
 
@@ -26,7 +25,6 @@ def partition(arr,low,high):
   return i + 1
   
 
-# Function to do Quick sort 
 def quickSort(arr,low,high): 
     if low < high:
         # p is the partitioning index

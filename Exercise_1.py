@@ -1,8 +1,8 @@
-# Python code to implement iterative Binary Search
+# Exercise_1 : Binary Search
 
 # Assumption: Array is sorted in ascending order
 # Time Complexity: O(log N), N = number of elements in array
-# Space Complexity: O(1), since we do not use any additional space
+# Space Complexity: O(1), since we use the same array to store the sorted elements
 # Successful Run on Leetcode: Yes (https://leetcode.com/problems/binary-search/)
 # Challenges: None
 
