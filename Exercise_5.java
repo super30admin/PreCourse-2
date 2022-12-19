@@ -51,16 +51,11 @@ class IterativeQuickSort {
         // push l and h to the stack to find the initila partition index
         stack.push(l);
         stack.push(h);
-        // run the below logic till the stack is empty, we use stack to remove
-        // recursion.
+
         while (!stack.isEmpty()) {
             int high = stack.pop();
             int low = stack.pop();
-            // run partition function to generate the index to split.
             int j = partition(arr, low, high);
-
-            // split the array on the left and right side of the partition satisfying the
-            // greater than and less than condition for split.
             if (j - 1 > low) {
                 stack.push(low);
                 stack.push(j - 1);
