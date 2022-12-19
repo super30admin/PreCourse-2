@@ -1,20 +1,77 @@
+// Time Complexity : O(NlogN)
+// Space Complexity : O(logN)
+// Any problem you faced while coding this : No
+import java.util.Stack;
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
 	//Try swapping without extra variable 
+        if (arr[i] != arr[j]) {
+            arr[i] = arr[i] + arr[j];
+            arr[j] = arr[i] - arr[j];
+            arr[i] = arr[i] - arr[j];
+        }
     } 
   
     /* This function is same in both iterative and 
        recursive*/
     int partition(int arr[], int l, int h) 
     { 
-        //Compare elements and swap.
+        //Compare elements and swap
+        int pivot = arr[h];
+        int i = l, j = h;
+        while (i < j) {
+
+            // increment i till we find a value greater than pivot element
+            while (arr[i] <= pivot && i < j) {
+                i++;
+            }
+
+            // decrement j till we find value smaller than pivot element
+            while (arr[j] >= pivot && i < j) {
+                j--;
+            }
+
+            // swap element at index i and j
+            swap(arr, i, j);
+        }
+
+        // swap element at i and high(pivot) to get the partition index
+        swap(arr, i, h);
+
+        return i;
+        
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
     { 
         //Try using Stack Data Structure to remove recursion.
+        Stack<Integer> stack = new Stack<Integer>();
+        // push l and h to the stack to find the initila partition index
+        stack.push(l);
+        stack.push(h);
+        // run the below logic till the stack is empty, we use stack to remove
+        // recursion.
+        while (!stack.isEmpty()) {
+            int high = stack.pop();
+            int low = stack.pop();
+            // run partition function to generate the index to split.
+            int j = partition(arr, low, high);
+
+            // split the array on the left and right side of the partition satisfying the
+            // greater than and less than condition for split.
+            if (j - 1 > low) {
+                stack.push(low);
+                stack.push(j - 1);
+
+            }
+            if (j + 1 < high) {
+                stack.push(j + 1);
+                stack.push(high);
+            }
+
+        }
     } 
   
     // A utility function to print contents of arr 
