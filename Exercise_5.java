@@ -48,7 +48,6 @@ class IterativeQuickSort {
     { 
         //Try using Stack Data Structure to remove recursion.
         Stack<Integer> stack = new Stack<Integer>();
-        // push l and h to the stack to find the initila partition index
         stack.push(l);
         stack.push(h);
 
