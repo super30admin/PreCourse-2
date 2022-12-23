@@ -1,3 +1,12 @@
+// Time Complexity :  O(logn)
+// Space Complexity :  O(logn)
+// Did this code successfully run on Leetcode :  Yes
+// Any problem you faced while coding this :  No
+
+
+// Your code here along with comments explaining your approach
+
+
 class BinarySearch { 
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
