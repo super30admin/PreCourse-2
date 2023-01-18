@@ -1,3 +1,12 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
+
+// Your code here along with comments explaining your approach
+/* We use two pointers slow and fast. The pointer fast moves twice as fast as slow pointer. When fast pointer reaches the end, the
+   slow pointer must be in the middle.
+ */
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +29,13 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    Node slow = head;
+    Node fast = head;
+    while(fast != null && fast.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    System.out.println("The middle of list is: " + slow.data); 
     } 
   
     public void push(int new_data) 
