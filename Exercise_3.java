@@ -1,3 +1,11 @@
+// Time Complexity :O(n)
+// Space Complexity :O(n)
+// Did this code successfully run on Leetcode :yes
+// Any problem you faced while coding this :NO
+
+
+// Your code here along with comments explaining your approach
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -18,6 +26,13 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
+        Node slow= head;
+        Node fast=head;
+        while(fast!=null &&fast.next!=null){
+        slow=slow.next;
+        fast=fast.next.next;
+        }
+        System.out.println("middle element is :" + slow.data);
         //Write your code here
 	//Implement using Fast and slow pointers
     } 
