@@ -1,3 +1,6 @@
+
+//left it completely as I am not the best with Quick Sort. I will add it once I am confident about it.
+
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
