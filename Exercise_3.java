@@ -1,4 +1,7 @@
-class LinkedList 
+// Time Complexity :push - O(1), pop - O(1), printmiddle - O(n)
+// Space Complexity : O(n)
+// Any problem you faced while coding this : Trying to determine the space nad time complexity of this
+class Exercise_3 
 { 
     Node head; // head of linked list 
   
@@ -18,14 +21,30 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+        //Both the pointers point to the head of the list
+        Node slowPtr=head;
+        Node fastPtr = head;
+        //Iterate until the fast pointer doesn't reach the last node wherein either fastPtr=null or fastPtr.next=null 
+        while(fastPtr!=null && fastPtr.next!=null){
+            /*For every 2 nodes fast ptr traverses, the slow pointer only traverses once, 
+             * therefore, by the time the fast pointer reaches the last node,
+             * the slow pointer would have only reached half of the nodes
+             */
+            //Just moves to the next node
+            slowPtr = slowPtr.next;
+            //fast ptr moves to the next node of the next node
+            fastPtr = fastPtr.next.next;
+        }
+        System.out.println("Middle element is "+slowPtr.data);
     } 
   
-    public void push(int new_data) 
+    public void push(int new_data)  
     { 
+        //Create a new node
         Node new_node = new Node(new_data); 
+        //Let the next of this node point to the head node
         new_node.next = head; 
+        //assign head to point to this node
         head = new_node; 
     } 
 
@@ -42,7 +61,7 @@ class LinkedList
   
     public static void main(String [] args) 
     { 
-        LinkedList llist = new LinkedList(); 
+        Exercise_3 llist = new Exercise_3(); 
         for (int i=15; i>0; --i) 
         { 
             llist.push(i); 
