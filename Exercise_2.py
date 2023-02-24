@@ -4,6 +4,7 @@
 # - O(N^2) worst case scenario (when input array is already sorted)
 # - O(Nlog(N)) average case scenario
 # Reason: For 'N' elements it runs on average 'height of tree' times (log(N)).
+# Space Complexity: O(log(N))
 def partition(arr,low,high):
     pivot = arr[low]
     while low < high:
