@@ -5,18 +5,21 @@
 # if present, else returns -1 
 
 #Time complexity: O(log(N))
+# Space Complexity: O(1)
 def binarySearch(arr, l, r, x):
-  if l <= r:
+  while l <= r:
     mid = (l + r) // 2
     # Target found, return index
     if arr[mid] == x:
       return mid
     # Target lesser than value at mid, search in left half
     elif arr[mid] > x:
-      return binarySearch(arr, l, mid - 1, x)
+      # return binarySearch(arr, l, mid - 1, x)
+      r = mid - 1
     # Target greater than value at mid, search in right half
     else:
-      return binarySearch(arr, mid + 1, r, x)
+      # return binarySearch(arr, mid + 1, r, x)
+      l = mid + 1
 
   # Target not found
   return -1
