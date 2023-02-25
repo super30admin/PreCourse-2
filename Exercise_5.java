@@ -13,7 +13,7 @@ class Exercise_5 {
   
     int partition(int arr[], int l, int h) 
     { 
-        // Choosing the last element as pivot
+        // Choosing the first element as pivot
         int pivot = arr[l];
         int i = l - 1;
         
