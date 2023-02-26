@@ -33,7 +33,7 @@ class QuickSort
             if(arr[leftPointer] > arr[high])
               swap(arr, leftPointer, high);
             else
-              leftPointer = highIndex;
+              leftPointer = high;
 
             return leftPointer;
     } 
@@ -49,9 +49,9 @@ class QuickSort
         
             if (low >= high)
               return;
-            int leftPointer = partition(array, lowIndex, highIndex);
-            sort(array, lowIndex, leftPointer - 1);
-            sort(array, leftPointer + 1, highIndex);
+            int leftPointer = partition(arr, low, high);
+            sort(arr, low, leftPointer - 1);
+            sort(arr, leftPointer + 1, high);
     } 
   
     /* A utility function to print array of size n */
