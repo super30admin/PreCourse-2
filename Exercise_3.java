@@ -1,3 +1,8 @@
+/*
+    Time Complexity - O(N/2) i.e O(N) where N is the size of the linked list.
+    Space Complexity - O(1).
+
+*/
 class LinkedList 
 { 
     Node head; // head of linked list 
