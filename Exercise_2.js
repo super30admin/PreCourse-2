@@ -10,7 +10,7 @@ function partition(array, leftIndex, rightIndex) {
   let a = array
     let start = leftIndex
     let end = rightIndex
-    let pivot = a[start]
+    let pivot = a[Math.floor((start + end) / 2)]
     
     while (start <= end ) {
       while (a[start] < pivot) {
@@ -38,6 +38,6 @@ function quickSort(array, leftIndex, rightIndex) {
 }
 
 
-var unsortedArray = [5,3,7,6,2,9]
+var unsortedArray = [1,10,8,9,7,2]
 var sortedArray = quickSort(unsortedArray, 0, unsortedArray.length - 1)
 console.log(sortedArray)
