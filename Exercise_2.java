@@ -39,17 +39,10 @@ class QuickSort
       high  --> Ending index */
     void sort(int arr[], int low, int high) 
     {  
-            // Recursively sort elements before 
-            // partition and after partition 
 
             if (low < high) {
- 
-                // pi is partitioning index, arr[p]
-                // is now at right place
                 int p = partition(arr, low, high);
      
-                // Separately sort elements before
-                // partition and after partition
                 sort(arr, low, p - 1);
                 sort(arr, p + 1, high);
             }
@@ -63,8 +56,6 @@ class QuickSort
             System.out.print(arr[i]+" "); 
         System.out.println(); 
     } 
-  
-    // Driver program 
     public static void main(String args[]) 
     { 
         int arr[] = {10, 7, 8, 9, 1, 5}; 
