@@ -1,5 +1,9 @@
 class BinarySearch { 
-   
+   /*
+   	Time complexity - O(log N) where N is the size of the input array "arr".
+   	Space complexity - O(log N) for recursive binary search for storing variables in stack space. 
+			   
+   */
     public static void main(String[] args) {
 		
 		BinarySearch ob = new BinarySearch(); 
