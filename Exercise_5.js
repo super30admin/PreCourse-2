@@ -28,13 +28,8 @@ function partition(array, leftIndex, rightIndex) {
     return start
   }
   
-function quickSort(array, leftIndex, rightIndex) {
-  if (leftIndex < rightIndex) {
-    let index = partition(array, leftIndex, rightIndex)
-    quickSort(array, leftIndex, index-1)
-    quickSort(array, index+1, rightIndex)
-  }
-  return array
+function quickSort() {
+  //Tired with stack in JS but didn't get anywhere
 }
 
 
