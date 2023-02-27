@@ -11,8 +11,17 @@ struct Node
 /* Function to get the middle of the linked list*/
 void printMiddle(struct Node *head)  
 {  
-  //YourCode here
-  //Use fast and slow pointer technique
+  // YourCode here
+  // Use fast and slow pointer technique
+  // time complexity : O(n) n is length of linkedlist
+  // space complexity : O(c) some constant c (pointers created)
+  Node* slowPointer = head;
+  Node* fastPointer = head;
+  while(fastPointer && fastPointer->next){
+      fastPointer = fastPointer->next->next;
+	  slowPointer = slowPointer ->next;
+  }
+  printf("Middle Element is %d\n", slowPointer -> data); 
 }  
   
 // Function to add a new node  
