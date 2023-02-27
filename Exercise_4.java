@@ -1,3 +1,4 @@
+package learning;
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
@@ -6,14 +7,57 @@ class MergeSort
     void merge(int arr[], int l, int m, int r) 
     {  
        //Your code here  
-    } 
-  
+    	int leftPortion = m-l+1;
+    	int rightPortion = r-m;
+    	int leftArr[] = new int [leftPortion];
+    	int rightArr[] = new int[rightPortion];
+    	
+    	int i = 0;
+    	while (i<leftPortion)	{
+    		leftArr[i]= arr[l+i];
+    	}
+    	i=0;
+    	while(i<rightPortion)	{
+    		rightArr[i] = arr[m+l+i];
+    	}	
+    	
+    i=0;
+    int j=0,k=l;
+    while(i<leftPortion && j<rightPortion) {
+        if(leftArr[i] <= rightArr[j]){
+            arr[k] = leftArr[i];
+            i++;
+        } else {
+            arr[j] = rightArr[j];
+            j++;
+        }
+        k++;
+    }
+
+    while(i<leftPortion){
+        arr[k] = leftArr[i];
+        i++;
+        k++;
+    }
+    while(j<rightPortion){
+        arr[k] = rightArr[j];
+        j++;
+        k++;
+    	}
+    }
+
     // Main function that sorts arr[l..r] using 
     // merge() 
     void sort(int arr[], int l, int r) 
     { 
 	//Write your code here
         //Call mergeSort from here 
+    	if(l<r) {
+            int mid = (l+r)/2;
+            sort(arr, l,mid);
+            sort(arr, mid+1,r);
+            merge(arr, l, mid, r);
+        }
     } 
   
     /* A utility function to print array of size n */
