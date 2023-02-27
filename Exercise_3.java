@@ -1,3 +1,7 @@
+//Time Complexity:O(n)
+//Space Complexity:O(1)
+// code executed successfully
+
 class LinkedList 
 { 
     Node head; // head of linked list 
