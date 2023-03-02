@@ -20,6 +20,7 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+
     } 
   
     public void push(int new_data) 
