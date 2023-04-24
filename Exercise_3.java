@@ -1,3 +1,6 @@
+// TC: O(n)
+// SC: O(1)
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -18,6 +21,15 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
+        if(head==null) return;
+        Node s = head;
+        Node f =head;
+        while(f!=null && f.next!=null)
+        {
+            s = s.next;
+            f = f.next.next;
+        }
+        System.out.println(s.data);
         //Write your code here
 	//Implement using Fast and slow pointers
     } 

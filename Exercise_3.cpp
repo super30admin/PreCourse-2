@@ -1,6 +1,10 @@
-#include<bits/stdc++.h>  
+// #include<bits/stdc++.h>  
+#include<iostream>
 using namespace std;  
   
+// TC: O(n)
+// SC: O(1)
+
 // Struct  
 struct Node  
 {  
@@ -10,9 +14,17 @@ struct Node
   
 /* Function to get the middle of the linked list*/
 void printMiddle(struct Node *head)  
-{  
+{  if(head==nullptr) return;
   //YourCode here
   //Use fast and slow pointer technique
+  Node * f = head;
+  Node * s = head;
+  while(f!=nullptr && f->next!=nullptr)
+  {
+    s=s->next;
+    f=f->next->next;
+  }
+  cout << s->data<< endl;
 }  
   
 // Function to add a new node  
