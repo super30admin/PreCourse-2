@@ -4,7 +4,7 @@ O(nlogn)
 */
 
 /*Space complexity
-O(n) as we are maintaining a stack to store low and high markers for reach recursive call 
+O(n) as we are maintaining a stack to store low and high markers for each function call
 */
 
 // Did this code successfully run on Leetcode : yes
