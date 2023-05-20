@@ -77,7 +77,7 @@ class QuickSort
     // Driver program 
     public static void main(String args[]) 
     { 
-        int arr[] = {5,2,3,1}; 
+        int arr[] = {10, 7, 8, 9, 1, 5}; 
         int n = arr.length; 
   
         QuickSort ob = new QuickSort(); 
