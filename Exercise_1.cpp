@@ -5,7 +5,29 @@
 // otherwise -1 
 int binarySearch(int arr[], int l, int r, int x) 
 {   
-    //Your Code here 
+    // Time complexity: O(log n)
+    // Space complexity: O(log n) (due to recursive function calls)
+    // Did this code successfully run on Leetcode : Yes
+    // Any problem you faced while coding this : No
+
+    if (r >= l) {
+        int mid = l + (r - l) / 2;
+
+        // If the element is present at the middle itself
+        if (arr[mid] == x)
+            return mid;
+
+        // If the element is smaller than the middle element,
+        // then it can only be present in the left subarray
+        if (arr[mid] > x)
+            return binarySearch(arr, l, mid - 1, x);
+
+        // Else the element can only be present in the right subarray
+        return binarySearch(arr, mid + 1, r, x);
+    }
+
+    // Element is not present in the array
+    return -1;
 } 
   
 int main(void) 
@@ -19,3 +41,6 @@ int main(void)
                             result); 
     return 0; 
 } 
+
+
+
