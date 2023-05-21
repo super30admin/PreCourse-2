@@ -1,3 +1,11 @@
+# Time Complexity : O(nlogn)
+# Space Complexity : O(logn) for the maximum size of the stack at any point in time
+# Did this code successfully run on Leetcode : Yes, but TLEd on large array consisting of just one number duplicated everywhere.
+# Any problem you faced while coding this : -
+
+# The quickSort function is called iteratively on various splits of the array.
+# We use a stack to maintain the bounds of the various sub-arrays resulting from each partition() call
+
 # Python program for implementation of Quicksort
 
 # This function is same in both iterative and recursive

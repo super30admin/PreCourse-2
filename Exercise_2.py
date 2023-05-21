@@ -1,3 +1,11 @@
+# Time Complexity : O(nlogn)
+# Space Complexity : O(logn) for the recursive stack, no additional space due to in-place quick sort
+# Did this code successfully run on Leetcode : Yes, but TLEd on large array consisting of just one number duplicated everywhere.
+# Any problem you faced while coding this : -
+
+# The quickSort function is called recursively for log(n) time and each time partitioning function 
+# finds a pivot (last element is used in this) and then swaps O(n) elements. Hence leading to a time of O(nlogn).
+
 # Python program for implementation of Quicksort Sort 
   
 # give you explanation for the approach

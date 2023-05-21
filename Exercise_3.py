@@ -1,3 +1,14 @@
+# Time Complexity : O(1) for all operation
+# Space Complexity : O(1) since only one extra variable needed
+# Did this code successfully run on Leetcode : Did not find exact problem on Leetcode
+# Any problem you faced while coding this : -
+
+# The classic way is to use slow pointer, fast pointer to obtain the middle which takes O(n) time.
+# However, since we did not the 'remove' function in this implementation. 
+# I use a flipper variable "self.odd" to track every alternate insert into the linked list.
+# For every alternate insert, I increment the "self.mid" pointer, 
+# which can lead to O(1) lookups since `mid` only moves in one direction .
+
 # Node class  
 class Node:  
   

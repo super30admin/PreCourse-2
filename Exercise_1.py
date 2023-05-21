@@ -1,3 +1,11 @@
+# Time Complexity : O(log(n))
+# Space Complexity : O(1)
+# Did this code successfully run on Leetcode : Yes
+# Any problem you faced while coding this : No
+
+# A basic iterative binary search, where we shrink the search space by half durig every iteration
+
+
 # Python code to implement iterative Binary  
 # Search. 
   

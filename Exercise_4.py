@@ -1,3 +1,12 @@
+# Time Complexity : Average case O(nlogn), Best case O(n) when elements are already ordered.
+# Space Complexity : O(n) since the merge() is not an inplace merge.
+# Did this code successfully run on Leetcode : Yes
+# Any problem you faced while coding this : Did not know if there exists an inplace merge algorithm for 2 sorted subarrays.
+
+# Merge sort recursively merges sorted sub arrays to form the final sorted array. 
+# The base cases for the sub-arrays are size 0 and size 1
+# merge() function is very optimal if the highest element of left subarray is less then lowest element of right subarray.
+
 # Python program for implementation of MergeSort 
 def mergeSort(arr):
   mergeSortInner(arr, 0, len(arr)-1)
