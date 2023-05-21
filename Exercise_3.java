@@ -20,7 +20,23 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
-    } 
+        Node fast = head;
+        Node slow = head;
+        boolean printed = false;
+        while(fast != null) {
+            if (fast.next == null) // fast ptr reached to end of list
+            {
+                System.out.println(slow.data);
+                printed = true;
+                break;
+            } else {
+                fast = fast.next.next;
+                slow = slow.next;
+            }
+        }
+        if (!printed && slow!= null) System.out.println(slow.data);
+        
+    }
   
     public void push(int new_data) 
     { 
