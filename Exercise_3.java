@@ -1,3 +1,13 @@
+// Time Complexity : 
+//                    middle: O(n)
+// Space Complexity : 
+//                    middle: O(1)
+// Did this code successfully run on Leetcode : Not applicable
+// Any problem you faced while coding this : Understanding middle element if the number of elements in the linked list are even
+
+// Approach : Use two pointers Fast and slow .. fast moves 2 steps where as the slow pointer moves only 1 step. When the fast pointer
+// reaches the end of the linked list the slow pointer will be in the middle. 
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -18,8 +28,19 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
+    //Write your code here
 	//Implement using Fast and slow pointers
+        Node fast=head;
+        Node slow=head;
+
+        while(fast!= null && fast.next != null)
+        {
+            slow= slow.next;
+            fast= fast.next.next;
+        }
+
+
+        System.out.println(slow.data);
     } 
   
     public void push(int new_data) 
