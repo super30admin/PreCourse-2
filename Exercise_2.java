@@ -7,28 +7,34 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //Your code here
+        int temp =arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
     
     int partition(int arr[], int low, int high) 
     { 
    	//Write code here for Partition and Swap
+        // edge case : if length<3
+        if ((high-low) <= 1) { 
+            if (arr[high] < arr[low]) swap(arr, low, high);
+            return low;
+        } 
+
         int i = low;
         int j = high-1;
         int pivot = arr[high]; // last elment as pivot
         while(i<j) {
-            while (arr[i]<pivot) i++;
-            while (arr[j]>pivot) j--;
-            // swap a[i] and a[j]
-            int temp =arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-            i++;
-            j--;
+            while (i<j && arr[i]< pivot) i++;
+            while (i<j && arr[j]> pivot) j--;
+            
+            if (i<j){
+                swap(arr, i, j);
+            }
         }
         // swap 
-        arr[high] = arr[i];
-        arr[i] = pivot;
+        swap(arr, i, high);
 
         return i; 
     } 
@@ -57,7 +63,11 @@ class QuickSort
     // Driver program 
     public static void main(String args[]) 
     { 
-        int arr[] = {10, 7, 8, 9, 1, 5}; 
+        // int arr[] = {10, 7, 8, 9, 1, 5};
+        // int arr[] = {10, 1, 5};
+        // int arr[] = {10, 7};
+        int arr[] = {10, 5};
+        // int arr[] = { 4, 3, 5, 2, 1, 3, 2, 3 }; 
         int n = arr.length; 
   
         QuickSort ob = new QuickSort(); 
