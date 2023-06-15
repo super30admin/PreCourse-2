@@ -1,10 +1,14 @@
-#include <bits/stdc++.h> 
+#include <iostream> 
 using namespace std;  
   
 // A utility function to swap two elements  
 void swap(int* a, int* b)  
 {  
+
     //Your Code here 
+    int *c=b;
+    b=a;
+    a=c;
 }  
   
 /* This function takes last element as pivot, places  
@@ -14,7 +18,31 @@ to left of pivot and all greater elements to right
 of pivot */
 int partition (int arr[], int low, int high)  
 {  
-    //Your Code here 
+
+    //Your Code here
+        int i=low;
+    int j=low;
+    while(j<high){
+        if(arr[i]<=arr[high]){
+i++;
+j++;
+        }
+        else{
+            while(j<high && arr[j]>arr[high] ){
+            j++;
+            }
+     
+            if(j<high){
+                swap(arr[i],arr[j]);
+               i++;
+            j++;
+            }
+
+        }
+
+    }
+    swap(arr[high],arr[i]);
+    return i; 
 }  
   
 /* The main function that implements QuickSort  
@@ -24,6 +52,14 @@ high --> Ending index */
 void quickSort(int arr[], int low, int high)  
 {  
     //Your Code here 
+    if(low>=high){
+        return;
+    }
+
+int pivot= partition(arr,low,high);
+quickSort(arr,low,pivot-1);
+quickSort(arr,pivot+1,high);
+
 }  
   
 /* Function to print an array */
@@ -38,7 +74,7 @@ void printArray(int arr[], int size)
 // Driver Code 
 int main()  
 {  
-    int arr[] = {10, 7, 8, 9, 1, 5};  
+   int arr[] = {10, 7, 8, 9, 1, 5};  
     int n = sizeof(arr) / sizeof(arr[0]);  
     quickSort(arr, 0, n - 1);  
     cout << "Sorted array: \n";  
