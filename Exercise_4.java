@@ -1,6 +1,6 @@
 /*
- Time Complexity: O(nlog(n))->n for merge() and logn for recrusive calls
- Space Complexity:O(n)->since we have declare temp arrays of size n
+ Time Complexity: O(nlog(n))->n for merge() and log(n) for recursive calls
+ Space Complexity:O(n)->since we have declared temp arrays of size n
  */
 
 class MergeSort
