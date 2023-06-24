@@ -5,7 +5,52 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+       //Your code here 
+    	int n1 = m - l + 1;
+    	int n2 = r - m;
+    	// create temp array
+    	int leftArray[] = new int [n1];
+    	int rightArray[] = new int [n2];
+    	// copy data to temp arrays
+    	for (int i=0; i<n1; ++i)
+    		leftArray[i] = arr[l + i];
+    	for (int j=0; j<n2; ++j)
+    		rightArray[j] = arr[m + 1+ j];
+    	/* merge the temp arrays */
+    	// initial indexes of first and second list
+    	int i = 0, j = 0;
+    	// initial index of merged sub list
+    	int k = l;
+    	while (i < n1 && j < n2)
+    	{
+    	if (leftArray[i] <= rightArray[j])
+    	{
+    	arr[k] = leftArray[i];
+    	i++;
+    	}
+    	else
+    	{
+    	arr[k] = rightArray[j];
+    	j++;
+    	}
+    	k++;
+    	}
+    	// copy remaining elements of L[] if any
+    	while (i < n1)
+    	{
+    	arr[k] = leftArray[i];
+    	i++;
+    	k++;
+    	}
+    	// copy remaining elements of R[] if any
+    	while (j < n2)
+    	{
+    	arr[k] = rightArray[j];
+    	j++;
+    	k++;
+    	}
+    	
+    	
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -13,7 +58,17 @@ class MergeSort
     void sort(int arr[], int l, int r) 
     { 
 	//Write your code here
-        //Call mergeSort from here 
+        //Call mergeSort from here
+    	if(l<r) {
+    		int m = (l+r)/2;
+    		//Sort first half
+    		sort(arr,l,m);
+    		//Sort second half
+    		sort(arr,m+1,r);
+    		//Merge 2 arrays
+    		merge(arr,l,m,r);
+    		
+    	}
     } 
   
     /* A utility function to print array of size n */
