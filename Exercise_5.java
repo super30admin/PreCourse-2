@@ -1,6 +1,6 @@
 /*
  * Time Complexity: O(N^2) -> Worst case
- * Space Complexity: O(N)
+ * Space Complexity: O(logN)
  */
 
 import java.util.*;
