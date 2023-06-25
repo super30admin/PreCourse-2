@@ -8,11 +8,31 @@ class QuickSort
        of pivot */
     void swap(int arr[],int i,int j){
         //Your code here   
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+   	//Write code   
+   	
+   	    int pivot = arr[high];
+   	    int left = low, right = high;  //create two pointers as left and right
+   	    while(left < right)
+   	    {
+   	        while((arr[left] <= pivot) && (left < right)) 
+       	    {
+       	        left++; //increment left if it is less than pivot
+       	    }
+       	    while((arr[right] >= pivot) && (left < right))
+       	    {
+       	        right--;    //decrement right if it is greater than pivot
+       	    }
+       	    swap(arr, left, right); 
+       	}
+       	swap(arr, left, high);
+       	return left;
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -22,6 +42,12 @@ class QuickSort
     {  
             // Recursively sort elements before 
             // partition and after partition 
+            if(low < high)
+            {
+                int partitionIndex = partition(arr, low, high);
+                sort(arr, low, partitionIndex-1);
+                sort(arr, partitionIndex+1, high);
+            }
     } 
   
     /* A utility function to print array of size n */
@@ -36,7 +62,7 @@ class QuickSort
     // Driver program 
     public static void main(String args[]) 
     { 
-        int arr[] = {10, 7, 8, 9, 1, 5}; 
+        int arr[] = {10,7,8,9,1,5};
         int n = arr.length; 
   
         QuickSort ob = new QuickSort(); 
