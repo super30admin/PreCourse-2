@@ -1,3 +1,5 @@
+// Time Complexity : O(n logn)
+// Space Complexity : O(n)
 class QuickSort 
 { 
     /* This function takes last element as pivot, 
@@ -6,7 +8,7 @@ class QuickSort
        smaller (smaller than pivot) to left of 
        pivot and all greater elements to right 
        of pivot */
-       void swap(int arr[],int i,int j){
+    void swap(int arr[],int i,int j){
 		//Your code here
 		int tmp = arr[i];
 		arr[i] = arr[j];
@@ -29,6 +31,7 @@ class QuickSort
 				swap(arr, index, j);
 			}
 		}
+
 		swap(arr, index + 1, high);
 		return (index + 1);
 	} 
@@ -51,8 +54,8 @@ class QuickSort
     static void printArray(int arr[]) 
     { 
         int n = arr.length; 
-        for (int i=0; i<n; ++i) 
-            System.out.print(arr[i]+" "); 
+        for (int i = 0; i < n; ++i) 
+            System.out.print(arr[i] + " "); 
         System.out.println(); 
     } 
   

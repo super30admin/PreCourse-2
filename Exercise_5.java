@@ -1,14 +1,14 @@
+// Time Complexity : Worst Case: O(n^2), Best Case and Average Case: O(n logn) 
+// Space Complexity : O(log n)
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
 	{ 
 		//Try swapping without extra variable 
-		System.out.println(arr[i] + " and " + arr[j]);
-		arr[i] = arr[i] ^ arr[j];
-		arr[j] = arr[i] ^ arr[j]; 
-		arr[i] = arr[i] ^ arr[j]; 
- 
-        System.out.println(arr[i] + " and " + arr[j]);
-		
+		if(i != j) {
+			arr[i] = arr[i] ^ arr[j];
+			arr[j] = arr[i] ^ arr[j]; 
+			arr[i] = arr[i] ^ arr[j];	
+		}	
 	} 
 
 	/* This function is same in both iterative and 
@@ -17,33 +17,44 @@ class IterativeQuickSort {
 	{ 
 		//Compare elements and swap.
 		int top = arr[h];
-		int indx = (l - 1);
+		int index = (l - 1);
 		for (int i = l; i <= h - 1; i++) {
 			if (arr[i] <= top) {
-				indx++;
-				int tmp = arr[indx];
-				arr[indx] = arr[i];
-				arr[i] = tmp;
+				index++;
+				swap(arr, index, i);
 			}
 		}
 
-		int tmp = arr[indx + 1];
-		arr[indx + 1] = arr[h];
+		int tmp = arr[index + 1];
+		arr[index + 1] = arr[h];
 		arr[h] = tmp;
 
-		return indx + 1;
+		return index + 1;
 	} 
 
 	// Sorts arr[l..h] using iterative QuickSort 
 	void QuickSort(int arr[], int l, int h) 
 	{ 
 		//Try using Stack Data Structure to remove recursion.
-		if (l < h) {
-			int mid = partition(arr, l, h);
+		Stack<Integer> st = new Stack<>();
+        st.push(l);
+        st.push(h);
+        while (!st.isEmpty()) {
+            int high = st.pop();
+            int low = st.pop();
+            int index = partition(arr, low, high);
 
-			QuickSort(arr, l, mid - 1);
-			QuickSort(arr, mid + 1, h);
-		}
+            if (index - 1 > low) {
+                st.push(low);
+                st.push(index - 1);
+            }
+
+            if (index + 1 < high) {
+                st.push(index + 1);
+                st.push(high);
+            }
+
+        }
 	} 
   
     // A utility function to print contents of arr 
