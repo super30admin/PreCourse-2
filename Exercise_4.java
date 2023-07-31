@@ -1,3 +1,8 @@
+// Time Complexity : Finding Middle is of O(N log N)
+// Space Complexity : O(N)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
 class MergeSort {
     // Merges two subarrays of arr[].
     // First subarray is arr[l..m]
