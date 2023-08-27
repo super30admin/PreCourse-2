@@ -1,4 +1,6 @@
 # Python program for implementation of MergeSort 
+# Time Complexity:- O(n log n)
+# Space Complexity:- O(log n)
 def mergeSort(arr):
   if len(arr)>1:
     mid=len(arr)//2 #Middle of the array
