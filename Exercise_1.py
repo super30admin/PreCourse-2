@@ -6,7 +6,10 @@
 def binarySearch(arr, l, r, x): 
   
   #write your code here
-  
+  for i in range(len(arr)):
+     if arr[i] == x:
+        return i
+  return -1
     
   
 # Test array 
