@@ -1,4 +1,9 @@
-class LinkedList 
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+class LinkedList_1 
 { 
     Node head; // head of linked list 
   
@@ -14,12 +19,31 @@ class LinkedList
         } 
     } 
   
-    /* Function to print middle of linked list */
-   //Complete this function
+ 
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+        Node slow_pointer = head;
+        Node fast_pointer = head;
+        int check = 0;
+        while(fast_pointer != null && slow_pointer != null){
+            if(fast_pointer.next == null ){
+                check = 1;
+                break;
+            }
+            else if(fast_pointer.next.next == null){
+                check = 2;
+                break;
+            }
+            slow_pointer = slow_pointer.next;
+            fast_pointer = fast_pointer.next.next;
+        }
+        if(check == 1){
+            System.out.println(slow_pointer.data);
+        }
+        if(check == 2){
+            System.out.println(slow_pointer.next.data);
+        }
+        
     } 
   
     public void push(int new_data) 
@@ -42,7 +66,7 @@ class LinkedList
   
     public static void main(String [] args) 
     { 
-        LinkedList llist = new LinkedList(); 
+        LinkedList_1 llist = new LinkedList_1(); 
         for (int i=15; i>0; --i) 
         { 
             llist.push(i); 
