@@ -1,12 +1,14 @@
 class LinkedList 
 { 
     Node head; // head of linked list 
-  
+    int counter=0;
+
     /* Linked list node */
     class Node 
     { 
         int data; 
         Node next; 
+       
         Node(int d) 
         { 
             data = d; 
@@ -18,6 +20,27 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
+        if (counter ==0 || head == null)
+        {
+          System.out.println("List is empty");
+          return;
+        }
+        
+        //System.out.println(counter);
+        int mid = counter/2;
+        Node temp = head;
+        if(temp.next==null)
+        {
+            System.out.println(temp.data);
+            return;
+        }
+        for(int i=0;i<mid;i++)
+        {
+            temp = temp.next;
+        } 
+
+        System.out.println(temp.data);
+
         //Write your code here
 	//Implement using Fast and slow pointers
     } 
@@ -27,6 +50,7 @@ class LinkedList
         Node new_node = new Node(new_data); 
         new_node.next = head; 
         head = new_node; 
+        counter+=1;
     } 
 
     public void printList() 
