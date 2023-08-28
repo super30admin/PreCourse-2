@@ -7,12 +7,24 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //Your code here 
+        int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
     }
     
     int partition(int arr[], int low, int high) 
     { 
    	//Write code here for Partition and Swap 
+        int pivot = arr[high], start = low-1;
+        for(int i=low;i<high;i++){
+            if(arr[i] <= pivot){
+                start++;
+            }
+            swap(arr, start, i);
+        }
+        swap(arr, i+1, high);
+        return start+1;
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -22,7 +34,12 @@ class QuickSort
     {  
             // Recursively sort elements before 
             // partition and after partition 
-    } 
+        if(low < high){
+            int index = partition(arr, low, high);
+            quicksort(arr, 0, index);
+            quicksort(arr, index+1, high);
+        }
+    }    
   
     /* A utility function to print array of size n */
     static void printArray(int arr[]) 
