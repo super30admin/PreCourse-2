@@ -31,4 +31,4 @@ class MergeSort {
      ob.printArray(arr);
 ​
 ​
-MergeSort.main();
+
