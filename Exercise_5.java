@@ -1,5 +1,6 @@
-
 class IterativeQuickSort { 
+    //Method to swap elements at index i & j
+    
     void swap(int arr[], int i, int j) 
     { 
 	//Try swapping without extra variable 
@@ -13,10 +14,11 @@ class IterativeQuickSort {
   
     /* This function is same in both iterative and 
        recursive*/
+       // 
     int partition(int arr[], int l, int h) 
     { 
         int x = arr[h];
-  int i = (l - 1);
+        int i = (l - 1);
  
   for (int j = l; j <= h - 1; j++) {
    if (arr[j] <= x) {
@@ -30,6 +32,7 @@ class IterativeQuickSort {
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
+    // Time Complexity: O(n log())
     void QuickSort(int arr[], int l, int h) 
     { 
         int stack[] = new int[h - l + 1];

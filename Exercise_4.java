@@ -3,6 +3,7 @@ class MergeSort
     // Merges two subarrays of arr[]. 
     // First subarray is arr[l..m] 
     // Second subarray is arr[m+1..r] 
+    // Method to merge Left and Right array
     void merge(int arr[], int l, int m, int r) 
     {  
     int n1 = m - l + 1;
@@ -51,6 +52,7 @@ class MergeSort
   
     // Main function that sorts arr[l..r] using 
     // merge() 
+    // Time Complexity: O (n log(n))
     void sort(int arr[], int l, int r) 
     { 
     if (l < r) {
