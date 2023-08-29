@@ -1,5 +1,7 @@
 #include <stdio.h> 
   
+//Time complexity: O(logn)-> average case, best case : O(1)
+//Space complexity: O(1)
 // A recursive binary search function. It returns 
 // location of x in given array arr[l..r] is present, 
 // otherwise -1 

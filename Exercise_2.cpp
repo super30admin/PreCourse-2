@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;  
-  
+ //time complexit: O(nlogn)
+// space complexity: O(n) 
 // A utility function to swap two elements  
 void swap(int* a, int* b)  
 {  
