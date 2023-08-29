@@ -1,8 +1,9 @@
 class BinarySearch { 
     // Returns index of x if it is present in arr[l.. r], else return -1 
+    // Method to search specific element in binary serach tree
+    // Time complexity : O(log(n))
     int binarySearch(int arr[], int l, int r, int x) 
     { 
-        
         while(l<=r)
         {
            int mid = (l+r)/2;
