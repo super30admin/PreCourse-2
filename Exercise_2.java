@@ -1,4 +1,9 @@
-
+//TC - O(n^2)
+//SC - O(1)
+//Challenges: 
+//1. To understand the functionality of this algorithm
+//2. It was difficult to translate the functionality into code, with a lot of conditions and variables.
+//3. Method descriptions were not clear.
 class QuickSort 
 { 
     /* This function takes last element as pivot, 

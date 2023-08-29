@@ -1,3 +1,7 @@
+//TC - O(log n)
+//SC - O(1)
+//Challenges: 
+//1. To translate the functionality into code, with a lot of conditions and variables.
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 

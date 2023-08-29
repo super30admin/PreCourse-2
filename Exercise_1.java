@@ -1,3 +1,8 @@
+//TC - O(log n)
+//SC - O(1)
+//Challenges: 
+//1. To figure out the base condition (line 12) to avoid infinite loop
+
 class BinarySearch { 
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
@@ -6,7 +11,6 @@ class BinarySearch {
         int mid = l+(r-l)/2;
         if(l!=mid){
 
-        
         if(arr[mid] == x) {
             return mid;
         }
@@ -14,8 +18,7 @@ class BinarySearch {
             r = mid;
             return binarySearch(arr, l, r, x);
         } 
-            
-            return binarySearch(arr, mid, r, x);
+        return binarySearch(arr, mid, r, x);
     } else  return -1;
     } 
   

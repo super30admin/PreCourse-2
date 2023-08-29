@@ -1,3 +1,8 @@
+//TC - O(log n)
+//SC - O(1)
+//Challenges: 
+//1. Still couldn't understand why stack is used to implement this.
+
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 

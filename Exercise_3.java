@@ -1,3 +1,7 @@
+//TC - O(n)
+//SC - O(1)
+//Challenges: None
+
 class LinkedList 
 { 
     Node head; // head of linked list 
