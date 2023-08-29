@@ -28,9 +28,7 @@ class IterativeQuickSort {
   }
   swap(arr, i + 1, h);
   return (i + 1);
-
     } 
-  
     // Sorts arr[l..h] using iterative QuickSort 
     // Time Complexity: O(n log())
     void QuickSort(int arr[], int l, int h) 
