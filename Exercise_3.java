@@ -4,6 +4,7 @@ class LinkedList
     int counter=0;
 
     /* Linked list node */
+     // Class Node used to create a Node whenever new element is added.
     class Node 
     { 
         int data; 
@@ -18,6 +19,7 @@ class LinkedList
   
     /* Function to print middle of linked list */
    //Complete this function
+   // Time complexity O(n/2)
     void printMiddle() 
     { 
         if (counter ==0 || head == null)
@@ -45,6 +47,7 @@ class LinkedList
 	//Implement using Fast and slow pointers
     } 
   
+    // Method to push/ insert element in the Linked List
     public void push(int new_data) 
     { 
         Node new_node = new Node(new_data); 
@@ -53,6 +56,9 @@ class LinkedList
         counter+=1;
     } 
 
+    // Print Linked List 
+    // Time complexity: O(n) where n is number 
+    //of elements in the Linked List
     public void printList() 
     { 
         Node tnode = head; 
@@ -63,7 +69,9 @@ class LinkedList
         } 
         System.out.println("NULL"); 
     } 
-  
+
+
+  // Driver code
     public static void main(String [] args) 
     { 
         LinkedList llist = new LinkedList(); 
