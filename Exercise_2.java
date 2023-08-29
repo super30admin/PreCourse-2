@@ -6,6 +6,8 @@ class QuickSort
        smaller (smaller than pivot) to left of 
        pivot and all greater elements to right 
        of pivot */
+    
+       // Overall Time Complexity is O(n log(n)) where n is number of elements in the array.
     void swap(int arr[],int i,int j){
         //Your code here 
         int swapper = arr[i];
