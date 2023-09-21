@@ -1,7 +1,7 @@
 # Python program for implementation of Quicksort
-# Time Complexity : O(logn)
-# Space Complexity : O(1) as l, r, mid take constant space
-# Did this code successfully run on Leetcode : NA
+# Time Complexity : O(nlogn)
+# Space Complexity : O(n) n , is the length of stack
+# Did this code successfully run on Leetcode : LC 912 yes
 # Any problem you faced while coding this : Never coded quick sort iterative, just learnt, thanks
 
 # This function is same in both iterative and recursive

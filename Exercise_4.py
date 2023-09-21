@@ -1,6 +1,6 @@
 # Python program for implementation of MergeSort
-# Time Complexity : O(logn)
-# Space Complexity : O(1) as l, r, mid take constant space
+# Time Complexity : O(nlogn)
+# Space Complexity : O(n) as n is length of arr, left and right
 # Did this code successfully run on Leetcode : LC 912 yes
 # Any problem you faced while coding this : NA
  
