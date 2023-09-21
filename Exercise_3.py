@@ -1,4 +1,9 @@
 # Exercise_3 : Find Mid Point of a Singly Linked List.
+# Time Complexity : O(logn)
+# Space Complexity : O(1) as l, r, mid take constant space
+# Did this code successfully run on Leetcode : LC 876 yes
+# Any problem you faced while coding this : NA
+
 # Node class  
 class Node:  
   

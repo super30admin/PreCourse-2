@@ -1,7 +1,7 @@
-# Time Complexity :
-# Space Complexity :
-# Did this code successfully run on Leetcode :
-# Any problem you faced while coding this :
+# Time Complexity : O(logn)
+# Space Complexity : O(1) as l, r, mid take constant space
+# Did this code successfully run on Leetcode : LC 704 yes
+# Any problem you faced while coding this : NA
 
 # Python code to implement iterative Binary  
 # Search. 
