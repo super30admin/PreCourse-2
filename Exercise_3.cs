@@ -56,7 +56,7 @@ public class LinkedList
 // Driver method to test above 
 public static void Main(String[] args)
 {
-    MiddleLinkedList llist = new MiddleLinkedList();
+    LinkedList llist = new LinkedList();
     for (int i = 16; i > 0; --i)
     {
         llist.push(i);
