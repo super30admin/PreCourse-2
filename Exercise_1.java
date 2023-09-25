@@ -1,8 +1,19 @@
+//Time Complexity: O(log n)
+//Space Complexity: O(n)
 class BinarySearch { 
     // Returns index of x if it is present in arr[l.. r], else return -1 
-    int binarySearch(int arr[], int l, int r, int x) 
+    int binarySearch(int arr[], int x, int left, int right) 
     { 
-        //Write your code here
+        int pivot   = left;
+        while (left <= right) 
+        {
+            pivot = left + (right - left) / 2; 
+            if(arr[pivot]==x) return pivot; 
+            if(x<arr[pivot]) right = pivot - 1; 
+            else left = pivot + 1; 
+        }
+        return -1;
+
     } 
   
     // Driver method to test above 
@@ -12,7 +23,7 @@ class BinarySearch {
         int arr[] = { 2, 3, 4, 10, 40 }; 
         int n = arr.length; 
         int x = 10; 
-        int result = ob.binarySearch(arr, 0, n - 1, x); 
+        int result = ob.binarySearch(arr, x, 0, n); 
         if (result == -1) 
             System.out.println("Element not present"); 
         else
