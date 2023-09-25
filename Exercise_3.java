@@ -1,3 +1,8 @@
+// Time Complexity : O(n) 
+// Space Complexity : O(1) 
+// Did this code successfully run on Leetcode : -
+// Any problem you faced while coding this : -
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -19,7 +24,19 @@ class LinkedList
     void printMiddle() 
     { 
         //Write your code here
+    	
+    /*	Assumption: If no. of Nodes is even, considered second middle node as the middle node 
+     * 
+     * */
 	//Implement using Fast and slow pointers
+    	Node slowPointer = head;
+    	Node fastPointer = head;
+    	
+    	while(fastPointer != null && fastPointer.next != null) {
+    		fastPointer = fastPointer.next.next;
+    		slowPointer = slowPointer.next;
+    	}
+    	System.out.println("Middle element of list : " + slowPointer.data);
     } 
   
     public void push(int new_data) 
@@ -47,7 +64,8 @@ class LinkedList
         { 
             llist.push(i); 
             llist.printList(); 
-            llist.printMiddle(); 
+            llist.printMiddle();
+            System.out.println("-----------------------------");
         } 
     } 
 } 
