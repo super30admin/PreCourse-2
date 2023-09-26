@@ -3,7 +3,7 @@ class IterativeQuickSort {
 //        arr[i] = arr[i] ^ arr[j];
 //        arr[j] = arr[i] ^ arr[j];
 //        arr[i] = arr[i] ^ arr[j];
-
+// Swapping using bit manipulation gives errors
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
