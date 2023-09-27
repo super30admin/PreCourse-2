@@ -6,7 +6,7 @@ class BinarySearch {
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
-        while(l<r)
+        while(l<=r)
         {
             int mid = (l+r)/2;
             if (arr[mid] == x) {
