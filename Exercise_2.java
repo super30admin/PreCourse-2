@@ -7,11 +7,24 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //Your code here 
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;  
     }
     
     int partition(int arr[], int low, int high) 
     { 
+        int pivot = arr[high];
+        int ptr = low;
+        for(int i = low; i < high; i++){
+            if(arr[i] <= pivot){
+                swap(arr,i,ptr);
+                ptr++;
+            }
+        }
+        swap(arr,ptr,high);
+        return ptr;
    	//Write code here for Partition and Swap 
     } 
     /* The main function that implements QuickSort() 
@@ -20,7 +33,10 @@ class QuickSort
       high  --> Ending index */
     void sort(int arr[], int low, int high) 
     {  
-            // Recursively sort elements before 
+        if(low < high){
+         int pivot = partition(arr,low,high); 
+         sort(arr,low,pivot-1);
+         sort(arr,pivot+1,high);}  // Recursively sort elements before 
             // partition and after partition 
     } 
   
