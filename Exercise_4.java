@@ -5,7 +5,39 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+       //Your code here
+       int leftLen = m-l+1;
+       int rightLen = r-m;
+
+       int leftArr[] = new int[leftLen];
+       int rightArr[] = new int[rightLen];
+
+       for(int i = 0; i < leftLen; i++){
+           leftArr[i] = arr[l+i];
+       }
+
+        for(int i = 0; i < rightLen; i++){
+            rightArr[i] = arr[m+i+1];
+        }
+
+        int i = 0, j = 0, k = l;
+
+        while(i < leftLen && j < rightLen){
+            if(leftArr[i] <= rightArr[j]){
+                arr[k++] = leftArr[i++];
+            }
+            else{
+                arr[k++] = rightArr[j++];
+            }
+        }
+
+        while(i < leftLen){
+            arr[k++] = leftArr[i++];
+        }
+
+        while(j < rightLen){
+            arr[k++] = rightArr[j++];
+        }
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -13,7 +45,15 @@ class MergeSort
     void sort(int arr[], int l, int r) 
     { 
 	//Write your code here
-        //Call mergeSort from here 
+        //Call mergeSort from here
+        if(l >= r) return;
+
+        int m = l +(r-l)/2;
+
+        sort(arr, l, m);
+        sort(arr, m+1, r);
+
+        merge(arr, l, m, r);
     } 
   
     /* A utility function to print array of size n */
