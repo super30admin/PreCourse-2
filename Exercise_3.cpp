@@ -1,3 +1,5 @@
+//printMiddle function has a time complexity of O(n)
+//space complexity is O(n)
 #include<bits/stdc++.h>  
 using namespace std;  
   
@@ -13,6 +15,16 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+  if(head==NULL)return;
+  struct Node* slow_ptr = head;
+  struct Node* fast_ptr = head;
+  while(fast_ptr!=NULL && fast_ptr->next!=NULL)
+  {
+    /* data */
+    slow_ptr=slow_ptr->next;
+    fast_ptr=fast_ptr->next->next;
+  };
+  cout<<slow_ptr->data<<endl;
 }  
   
 // Function to add a new node  
