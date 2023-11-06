@@ -8,11 +8,16 @@ class QuickSort
        of pivot */
     void swap(int arr[],int i,int j){
         //Your code here   
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
     }
     
     int partition(int arr[], int low, int high) 
     { 
    	//Write code here for Partition and Swap 
+    int pivot =arr[high];
+
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
