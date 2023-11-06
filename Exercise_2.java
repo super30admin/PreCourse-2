@@ -1,3 +1,5 @@
+//Time complexity : Worst Case -> O(N^2), Average and Best Case -> O(N logN)
+//Space Complexity : O(N) -> If recursive stack space is considered, O(1) -> If it is not considered
 class QuickSort
 { 
     /* This function takes last element as pivot, 
@@ -8,17 +10,22 @@ class QuickSort
        of pivot */
     void swap(int arr[],int i,int j){
         //Your code here
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+        //Eg : arr[i] = 10, arr[j] = 15
+        int temp = arr[i]; //temp=10
+        arr[i] = arr[j]; //arr[i]=15
+        arr[j] = temp; //arr[j]=10
     }
     
     int partition(int arr[], int low, int high) 
     { 
    	//Write code here for Partition and Swap
+        //Considering pivot as the last element of the range
         int pivot = arr[high];
+        //Maintaining a pointer to push further the elements with greater value
         int i = low;
 
+        //Check each element in the range if it is less than pivot,
+        //If yes, then swap i and j
         for(int j=low; j<high; j++) {
             if(arr[j] < pivot) {
                 if(i != j)
@@ -27,6 +34,7 @@ class QuickSort
             }
         }
 
+        //place the pivot at its correct position
         if(i != high)
             swap(arr, i, high);
 

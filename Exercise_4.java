@@ -1,5 +1,5 @@
-import java.util.Arrays;
-
+//Time Complexity : O(N logN)
+//Space Complexity : O(N)
 class MergeSort
 { 
     // Merges two subarrays of arr[]. 
@@ -14,12 +14,15 @@ class MergeSort
         int[] leftArr = new int[leftSize];
         int[] rightArr = new int[rightSize];
 
+        //Copy the range of left to mid from original array to leftArr
         for(int i=0; i<leftSize; i++)
             leftArr[i] = arr[l+i];
 
+        //Copy the range of mid+1 to right from original array to rightArr
         for(int i=0; i<rightSize; i++)
             rightArr[i] = arr[m+1+i];
 
+        //Compare the elements of leftArr and rightArr and place the smaller one in original arr
         int i=0, j=0, index=l;
         while (i<leftSize && j<rightSize) {
 
@@ -34,12 +37,14 @@ class MergeSort
             index++;
         }
 
+        //If all elements of leftArr are not copied into original arr, then do so
         while (i < leftSize) {
             arr[index] = leftArr[i];
             i++;
             index++;
         }
 
+        //If all elements of rightArr are not copied into original arr, then do so
         while(j < rightSize) {
             arr[index] = rightArr[j];
             j++;
@@ -53,6 +58,7 @@ class MergeSort
     { 
 	//Write your code here
         //Call mergeSort from here
+        //break the array into 2 till the length of the array is 1, then call merge
         if(l < r) {
             int m = l+(r-l)/2;
 
