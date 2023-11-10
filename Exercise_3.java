@@ -20,6 +20,13 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+	 Node slow = head, fast = head;
+	 while(fast != null && fast.next != null)
+	 {
+	     slow = slow.next;
+	     fast = fast.next.next;
+	 }
+	 System.out.println("Middle of linked list is : "+slow.data); //when fast reaches end of the list, slow will be in half the way.
     } 
   
     public void push(int new_data) 
