@@ -1,7 +1,13 @@
-class IterativeQuickSort { 
+//Time complexity:o(NlogN)
+//Space complexity: O(n)
+
+public class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
 	//Try swapping without extra variable 
+    	int temp = i;
+        i = j;
+        j = temp;
     } 
   
     /* This function is same in both iterative and 
@@ -9,13 +15,37 @@ class IterativeQuickSort {
     int partition(int arr[], int l, int h) 
     { 
         //Compare elements and swap.
+        int pivot = arr[h];
+        int i = (l - 1); 
+        for (int j = l; j <= h - 1; j++) 
+        {
+            
+            if (arr[j] <= pivot) 
+            {
+                i++;
+ 
+                // swap arr[i] and arr[j]
+                swap(arr,arr[i],arr[j]);
+            }
+        }
+        swap(arr,arr[i+1],arr[h]);
+        return i+1;
     } 
   
-    // Sorts arr[l..h] using iterative QuickSort 
+    
     void QuickSort(int arr[], int l, int h) 
     { 
-        //Try using Stack Data Structure to remove recursion.
-    } 
+        if (l < h) 
+        {
+            
+            int pi = partition(arr, l, h);
+ 
+            //Recursion for sorting elements
+            QuickSort(arr, l, pi - 1);
+            QuickSort(arr, pi + 1, h);
+        
+        }
+    }
   
     // A utility function to print contents of arr 
     void printArr(int arr[], int n) 
@@ -33,4 +63,6 @@ class IterativeQuickSort {
         ob.QuickSort(arr, 0, arr.length - 1); 
         ob.printArr(arr, arr.length); 
     } 
-} 
+
+}
+
