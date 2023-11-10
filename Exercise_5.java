@@ -1,7 +1,10 @@
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
-	//Try swapping without extra variable 
+	//Try swapping without extra variable
+    
+    
+    // sorry, I did not understand this problem.
     } 
   
     /* This function is same in both iterative and 
