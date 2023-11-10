@@ -1,20 +1,58 @@
+//Time Complexity = O(n logn), Space complexity = n
+
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
     // First subarray is arr[l..m] 
     // Second subarray is arr[m+1..r] 
-    void merge(int arr[], int l, int m, int r) 
-    {  
-       //Your code here  
-    } 
+    void merge(int []arr, int beg, int mid, int end)
+    {
+          int i = beg, j = mid + 1, index = beg;
+          int []temp = new int[10];
+          int k;
+          while((i<=mid) && (j<=end))
+          {
+              if(arr[i]<arr[j]){
+                  temp[index] = arr[i];
+                  i++;
+              }
+              else{
+                  temp[index] = arr[j];
+                  j++;
+              }
+              index++;
+          }
+          if(i>mid){
+              while(j<=end){
+                  temp[index]=arr[j];
+                  j++;
+                  index++;
+              }
+          }
+          else{
+              while(i<=mid){
+                  temp[index] = arr[i];
+                  i++;
+                  index++;
+              }
+          }
+          for(k=beg;k<index;k++){
+              arr[k]=temp[k];
+          }
+    }
   
     // Main function that sorts arr[l..r] using 
     // merge() 
-    void sort(int arr[], int l, int r) 
-    { 
-	//Write your code here
-        //Call mergeSort from here 
-    } 
+   void sort(int []arr, int beg, int end)
+    {
+        int mid;
+        if(beg<end){
+            mid = (beg+end)/2;
+            sort(arr,beg,mid);
+            sort(arr,mid+1,end);
+            merge(arr,beg,mid,end);
+        }
+    }
   
     /* A utility function to print array of size n */
     static void printArray(int arr[]) 
