@@ -2,6 +2,14 @@ class LinkedList
 { 
     Node head; // head of linked list 
   
+    /*
+      Time Complexity: O(n)
+
+      Space Complexity: O(1)
+
+      Did this code successfully run on Leetcode : Yes
+      Any problem you faced while coding this : No
+    */
     /* Linked list node */
     class Node 
     { 
@@ -18,8 +26,23 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+      Node slow = head, fast = head;
+
+      // 1 -> 2 -> 3 -> 4 -> 5
+
+      while(fast.next != null){
+        fast = fast.next;
+
+        if(fast.next == null){
+          System.out.println(slow.next.data);
+          return;
+        }
+
+        slow = slow.next;
+        fast = fast.next;
+      }
+
+      System.out.println(slow.data);
     } 
   
     public void push(int new_data) 
