@@ -1,7 +1,19 @@
+import java.util.Stack;
+/**Time Complexity: O(n log n)
+ * Space Complexity: O(n)**/
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
-	//Try swapping without extra variable 
+    	//Try swapping without extra variable 
+    	int x= arr[i];
+		int y= arr[j];
+		//swap
+    	x = x+y;
+		y= x-y;
+		x = x-y;
+		//Set swapped
+		arr[i]= x;
+		arr[j]= y;
     } 
   
     /* This function is same in both iterative and 
@@ -9,12 +21,47 @@ class IterativeQuickSort {
     int partition(int arr[], int l, int h) 
     { 
         //Compare elements and swap.
+    	int pivot= arr[h];
+    	int i= l-1;
+    	
+    	for(int j=l; j<h; j++) {
+    		if(arr[j] <= pivot) {
+    			i++;    			
+    			//swap
+    			swap(arr, i , j);
+    		}
+    	}
+    	
+    	//Swap i+1 to high
+    	swap(arr, i+1 , h);
+    	
+    	return (i+1);
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
     { 
         //Try using Stack Data Structure to remove recursion.
+    	Stack<Integer> stk= new Stack<>();
+    	stk.push(l);
+    	stk.push(h);
+    	while(!stk.isEmpty()) {
+    		h=stk.pop();
+    		l=stk.pop();
+    	
+    		int partitionIndex= partition(arr, l, h);    		
+	    	
+    		//If elements are at right side of partition
+    		if(partitionIndex+1 < h) {
+    			stk.push(partitionIndex+1);
+    			stk.push(h);
+    		}
+    		//If elements are at left side of partition
+    		if(partitionIndex-1 > l) {
+    			stk.push(l);
+    			stk.push(partitionIndex-1);
+    		}
+    	}
     } 
   
     // A utility function to print contents of arr 
