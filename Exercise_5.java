@@ -11,7 +11,7 @@ class IterativeQuickSort {
         //Compare elements and swap.
     } 
   
-    // Sorts arr[l..h] using iterative QuickSort 
+    // Sorts arr[l..h] using iterative QuickSort
     void QuickSort(int arr[], int l, int h) 
     { 
         //Try using Stack Data Structure to remove recursion.
