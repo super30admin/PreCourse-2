@@ -1,0 +1,81 @@
+
+class MergeSort {
+
+    void msort(int arr[], int start, int end)
+    {
+
+        if( start >= end)
+            return;
+
+        int mid = start +(end-start)/2;
+
+        msort(arr, start, mid);
+        msort(arr, mid+1, end);
+
+        int i=start;
+        int j=mid+1;
+
+        ArrayList<Integer> aux = new ArrayList<>();
+
+        while(i <=mid && j <=end)
+        {
+            if(arr[i] < arr[j])
+            {
+                aux.add(arr[i]);
+                i++;
+            }
+            else
+            {
+                aux.add(arr[j]);
+                j++;
+            }
+        }
+
+        while(i<=mid)
+        {
+            aux.add(arr[i]);
+            i++;
+        }
+
+        while(j<=end)
+        {
+            aux.add(arr[j]);
+            j++;
+        }
+        if(aux.size() == arr.length)
+        {
+            arrayCopy(arr, aux);
+        }
+
+    }
+
+    void arrayCopy(int arr[], ArrayList<Integer> aux)
+    {
+        for(int i=0; i<arr.length; i++)
+        {
+            arr[i] = aux.get(i);
+        }
+    }
+
+    void printArray(int arr[]) {
+        int n = arr.length;
+        for (int i = 0; i < n; ++i)
+            System.out.print(arr[i] + " ");
+        System.out.println();
+    }
+    
+    public static void main(String args[])
+    {
+        int arr[] = {12, 11, 13, 5, 6, 7};
+
+        MergeSort ob = new MergeSort();
+
+        System.out.println("Given Array");
+        ob.printArray(arr);
+
+        ob.msort(arr, 0, arr.length-1);
+
+        System.out.println("\nSorted array");
+        ob.printArray(arr);
+    }
+}

@@ -1,0 +1,45 @@
+
+public class preCourse2 {
+
+   
+    //ex-1 Binary Search
+    public static void main(String args[])
+    {
+        BinarySearch ob = new BinarySearch();
+        int arr[] = { 2, 3, 4, 10, 40 };
+        int n = arr.length;
+        int x = 10;
+        int result = ob.binarySearch(arr, 0, n - 1, x);
+        if (result == -1)
+            System.out.println("Element not present");
+        else
+            System.out.println("Element found at index " + result);
+    }
+     
+}
+
+
+class BinarySearch {
+    // Returns index of x if it is present in arr[l.. r], else return -1
+    int binarySearch(int arr[], int low, int high, int search)
+    {
+        //Write your code here
+        if(low<=high)
+        {
+            int mid = low + (high-low) /2; //
+
+            if(arr[mid] == search)
+                return mid;
+            if (arr[mid] > search)
+                return binarySearch(arr, low, mid-1, search);
+            else
+                return binarySearch(arr, mid+1, high, search);
+
+        }
+
+        return -1;
+    }
+
+
+
+}
