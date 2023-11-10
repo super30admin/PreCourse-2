@@ -1,4 +1,10 @@
-class LinkedList 
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode :
+
+// Your code here along with comments explaining your approach
+
+class LinkedList
 { 
     Node head; // head of linked list 
   
@@ -20,6 +26,16 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        // we maintain two pointers slow and fast both start from head of the list and make one pointer(fast pointer) move twice as fast as the other(slow pointer), once fast pointer becaomes null or fast pointer next is null we return the slow pointer
+        if(head==null)
+            System.out.println("List is empty");
+        Node slow=head;
+        Node fast=head;
+        while(fast!=null || fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        System.out.println(slow.data);
     } 
   
     public void push(int new_data) 
