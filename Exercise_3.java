@@ -1,7 +1,9 @@
-class LinkedList 
-{ 
+package precourse2;
+
+public class LinkedList {
+
     Node head; // head of linked list 
-  
+    
     /* Linked list node */
     class Node 
     { 
@@ -20,6 +22,19 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    	Node slowPtr = head;
+    	Node fastPtr = head;
+    	if (head.next == null || head.next.next == null) {
+    		System.out.println("Mid element "+ head.data);
+    	}
+    	else {
+        	while(fastPtr.next!=null && fastPtr.next.next!=null) {
+        		fastPtr = fastPtr.next.next;
+        		slowPtr = slowPtr.next;
+        	}
+        	System.out.println("Mid element "+ slowPtr.data);
+    	}
+
     } 
   
     public void push(int new_data) 
@@ -43,11 +58,12 @@ class LinkedList
     public static void main(String [] args) 
     { 
         LinkedList llist = new LinkedList(); 
-        for (int i=15; i>0; --i) 
+        for (int i=10; i>0; --i) 
         { 
             llist.push(i); 
             llist.printList(); 
             llist.printMiddle(); 
         } 
     } 
-} 
+
+}
