@@ -1,3 +1,8 @@
+// TIME: O(nlogn)
+// SPACE: O(n)
+
+// SUCCESS on LeetCode
+
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
@@ -5,15 +10,48 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+         int mid = m;
+         m = m + 1;
+        int sortedArr[] = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            sortedArr[i] = arr[i];
+        }
+
+        int k = l;
+        while (l <= mid && m <= r) {
+            if (sortedArr[l] >= sortedArr[m]) {
+                arr[k] = sortedArr[m]; 
+                m++;
+            } else {
+                arr[k] = sortedArr[l];
+                l++;
+            }
+            k++;
+        }
+
+        while (l <= mid) {
+            arr[k] = sortedArr[l];
+            k++;
+            l++;
+        }
+
+        while (m <= r) {
+            arr[k] = sortedArr[m];
+            k++;
+            m++;
+        }
     } 
   
     // Main function that sorts arr[l..r] using 
     // merge() 
     void sort(int arr[], int l, int r) 
     { 
-	//Write your code here
-        //Call mergeSort from here 
+        if ( l < r) {
+        int mid = l + (r - l) / 2;
+        sort(arr, l, mid);
+        sort(arr, mid + 1, r);
+        merge(arr, l, mid, r);
+        }
     } 
   
     /* A utility function to print array of size n */

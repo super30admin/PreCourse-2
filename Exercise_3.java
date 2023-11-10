@@ -1,3 +1,7 @@
+// TIME: O(N)
+// SPACE: O(1)
+// SUCCESS on LeetCode
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -18,8 +22,13 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+        Node fastPointer = head;
+        Node slowPointer = head;
+        while (fastPointer != null && fastPointer.next != null) {
+            slowPointer = slowPointer.next;
+            fastPointer = fastPointer.next.next;
+        }
+        System.out.println(slowPointer.data);
     } 
   
     public void push(int new_data) 
