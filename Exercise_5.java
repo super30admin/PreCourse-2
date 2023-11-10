@@ -1,4 +1,5 @@
-class IterativeQuickSort { 
+//Time Complexity - O(NlogN)
+class IterativeQuickSort {
     void swap(int arr[], int i, int j) 
     { 
 	//Try swapping without extra variable 
