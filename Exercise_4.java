@@ -1,11 +1,77 @@
-class MergeSort 
+
+// Time Complexity: O(n logn)
+// Space Complexity: O(n)
+
+class MergeSort
 { 
     // Merges two subarrays of arr[]. 
     // First subarray is arr[l..m] 
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+       //Your code here
+
+        int n1 = m - l + 1;
+        int n2 = r - m;
+
+
+        // Creating temporary arrays
+        int left[] = new int[n1];
+        int right[] = new int[n2];
+
+        // Copy data to temporary arrays
+        for(int i = 0; i < n1; i++)
+        {
+            left[i] = arr[l+i];
+        }
+
+        for(int j = 0; j < n2; j++)
+        {
+            right[j] = arr[m + 1 + j];
+        }
+
+        // We merge the temporary arrays
+
+        // Initial indexes of first and second subarrays
+
+        int i = 0, j = 0;
+
+        // Initial index of merged subarray
+        int k = l;
+        while(i < n1 && j < n2)
+        {
+            if(left[i] <= right[j])
+            {
+                arr[k] = left[i];
+                i++;
+            }
+
+            else
+            {
+               arr[k] = right[j];
+               j++;
+            }
+
+            k++;
+
+        }
+
+        // Copy the remaining elements of left[] if any
+        while(i < n1)
+        {
+            arr[k] = left[i];
+            i++;
+            k++;
+        }
+
+        // Copy the remaining elements of right[] if any
+        while(j < n2)
+        {
+            arr[k] = right[j];
+            j++;
+            k++;
+        }
+
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -13,7 +79,21 @@ class MergeSort
     void sort(int arr[], int l, int r) 
     { 
 	//Write your code here
-        //Call mergeSort from here 
+        //Call mergeSort from here
+
+        if(l < r)
+        {
+            // Searching for the middle point
+            int m = (l + r)/2; // or int m = l + (r-l)/2;
+
+            // Sort the first and second halves
+            sort(arr, l, m);
+            sort(arr, m + 1, r);
+
+            // Merge the sorted halves
+            merge(arr, l, m, r);
+        }
+
     } 
   
     /* A utility function to print array of size n */
