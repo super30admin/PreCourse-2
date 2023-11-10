@@ -1,3 +1,7 @@
+// Time Complexity : O(n)
+// Space Complexity :   O(1) just using pointers
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -19,7 +23,18 @@ class LinkedList
     void printMiddle() 
     { 
         //Write your code here
-	//Implement using Fast and slow pointers
+	    //Implement using Fast and slow pointers
+
+        Node hare, tortoise;        
+        hare = tortoise = head;
+
+        while(hare != null && hare.next != null) {  //loop shall end only when fast pointer ( hare ) reaches null or its next node is null)
+            hare = hare.next.next;
+            tortoise = tortoise.next;
+        }
+
+        System.out.println("The middle element is [" + tortoise.data + "] \n");
+
     } 
   
     public void push(int new_data) 

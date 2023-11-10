@@ -1,3 +1,8 @@
+// Time Complexity : O(nlogn)
+// Space Complexity : O(1) because it is in-place
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
+
 class QuickSort 
 { 
     /* This function takes last element as pivot, 
@@ -6,13 +11,28 @@ class QuickSort
        smaller (smaller than pivot) to left of 
        pivot and all greater elements to right 
        of pivot */
+
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //Your code here  
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp; 
     }
     
     int partition(int arr[], int low, int high) 
     { 
    	//Write code here for Partition and Swap 
+
+       int pivot = arr[high];
+       int partitionIndex = low;
+       for(int i = low; i < high; i++) {
+           if(arr[i] <= pivot) {
+               swap(arr,i,partitionIndex);
+               partitionIndex++;
+           }
+       }
+       swap(arr, partitionIndex, high);
+       return partitionIndex;
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -22,13 +42,18 @@ class QuickSort
     {  
             // Recursively sort elements before 
             // partition and after partition 
+            if(low < high) {
+                int partitionIndex = partition(arr, low, high);
+                sort(arr, low, partitionIndex - 1);
+                sort(arr, partitionIndex + 1, high);
+            }
     } 
   
     /* A utility function to print array of size n */
     static void printArray(int arr[]) 
     { 
         int n = arr.length; 
-        for (int i=0; i<n; ++i) 
+        for (int i = 0; i < n; ++i) 
             System.out.print(arr[i]+" "); 
         System.out.println(); 
     } 
