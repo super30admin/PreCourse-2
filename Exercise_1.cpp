@@ -5,7 +5,7 @@
 // otherwise -1 
 int binarySearch(int arr[], int l, int r, int x) 
 {   
-    //Your Code here 
+     
 } 
   
 int main(void) 
