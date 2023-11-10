@@ -1,48 +1,40 @@
-class QuickSort 
-{ 
-    /* This function takes last element as pivot, 
-       places the pivot element at its correct 
-       position in sorted array, and places all 
-       smaller (smaller than pivot) to left of 
-       pivot and all greater elements to right 
-       of pivot */
-    void swap(int arr[],int i,int j){
-        //Your code here   
-    }
-    
-    int partition(int arr[], int low, int high) 
-    { 
-   	//Write code here for Partition and Swap 
-    } 
-    /* The main function that implements QuickSort() 
-      arr[] --> Array to be sorted, 
-      low  --> Starting index, 
-      high  --> Ending index */
-    void sort(int arr[], int low, int high) 
-    {  
-            // Recursively sort elements before 
-            // partition and after partition 
-    } 
-  
-    /* A utility function to print array of size n */
-    static void printArray(int arr[]) 
-    { 
-        int n = arr.length; 
-        for (int i=0; i<n; ++i) 
-            System.out.print(arr[i]+" "); 
-        System.out.println(); 
-    } 
-  
-    // Driver program 
-    public static void main(String args[]) 
-    { 
-        int arr[] = {10, 7, 8, 9, 1, 5}; 
-        int n = arr.length; 
-  
-        QuickSort ob = new QuickSort(); 
-        ob.sort(arr, 0, n-1); 
-  
-        System.out.println("sorted array"); 
-        printArray(arr); 
-    } 
-} 
+import java.util.Arrays;
+class Quicksort {
+	public static int partition(int a[],int low,int high) {
+		int i=low;
+		int j=low;
+		int pivot=a[high];
+		while(i<=high) {
+			if(a[i]<=pivot) {
+				int temp=a[i];
+				a[i]=a[j];
+				a[j]=temp;
+				j++;
+			}
+			i++;
+		}
+		return j-1; 
+	}
+	
+	public static void quickSort(int a[],int low,int high) {
+		if(low<high) {
+			int p=partition(a,low,high);
+			//Recursion
+			quickSort(a,low,p-1); //sorting for left
+			quickSort(a,p+1,high);//sorting for right
+			 
+		}
+		
+	}
+  public static void main(String args[]) {
+
+    int[] data = { 8, 7, 2, 1, 0, 9, 6 };
+    System.out.println("Unsorted Array");
+    System.out.println(Arrays.toString(data));
+    int size = data.length;
+    Quicksort.quickSort(data, 0, size - 1);
+    System.out.println("Sorted Array in Ascending Order ");
+    System.out.println(Arrays.toString(data));
+   
+}}
+

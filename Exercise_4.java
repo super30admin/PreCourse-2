@@ -1,42 +1,46 @@
-class MergeSort 
-{ 
-    // Merges two subarrays of arr[]. 
-    // First subarray is arr[l..m] 
-    // Second subarray is arr[m+1..r] 
-    void merge(int arr[], int l, int m, int r) 
-    {  
-       //Your code here  
-    } 
-  
-    // Main function that sorts arr[l..r] using 
-    // merge() 
-    void sort(int arr[], int l, int r) 
-    { 
-	//Write your code here
-        //Call mergeSort from here 
-    } 
-  
-    /* A utility function to print array of size n */
-    static void printArray(int arr[]) 
-    { 
-        int n = arr.length; 
-        for (int i=0; i<n; ++i) 
-            System.out.print(arr[i] + " "); 
-        System.out.println(); 
-    } 
-  
-    // Driver method 
-    public static void main(String args[]) 
-    { 
-        int arr[] = {12, 11, 13, 5, 6, 7}; 
-  
-        System.out.println("Given Array"); 
-        printArray(arr); 
-  
-        MergeSort ob = new MergeSort(); 
-        ob.sort(arr, 0, arr.length-1); 
-  
-        System.out.println("\nSorted array"); 
-        printArray(arr); 
-    } 
-} 
+import java.util.Arrays;
+class MergeSort {
+
+    public void sort(int[] arr, int[] temp, int low, int high){
+        if(low < high){ // base case
+            int mid = low + (high - low) / 2; // overflow condition (low + high) / 2;
+            sort(arr, temp, low, mid);
+            sort(arr, temp, mid + 1, high);
+            merge(arr, temp, low, mid, high);
+        }
+    }
+
+    private void merge(int[] arr, int[] temp, int low, int mid, int high) {
+        for(int i = low; i <= high; i++){
+            temp[i] = arr[i];
+        }
+        int i = low; // traverse left sorted subarray
+        int j = mid + 1; // traverse right sorted subarray
+        int k = low; // will merge both arrays into original array (arr)
+
+        while(i <= mid && j <= high){
+            if(temp[i] <= temp[j]){
+                arr[k] = temp[i];
+                i++;
+            } else {
+                arr[k] = temp[j];
+                j++;
+            }
+            k++;
+        }
+
+        while(i <= mid){
+            arr[k] = temp[i];
+            k++;
+            i++;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[] {9, 5, 2, 4, 3, -1};
+        MergeSort ms = new MergeSort();
+        ms.sort(arr, new int[arr.length], 0, arr.length - 1);
+        System.out.print("Sorted Array"+Arrays.toString(arr));
+    }
+
+}

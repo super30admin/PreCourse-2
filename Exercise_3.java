@@ -1,53 +1,50 @@
-class LinkedList 
-{ 
-    Node head; // head of linked list 
-  
-    /* Linked list node */
-    class Node 
-    { 
-        int data; 
-        Node next; 
-        Node(int d) 
-        { 
-            data = d; 
-            next = null; 
-        } 
-    } 
-  
-    /* Function to print middle of linked list */
-   //Complete this function
-    void printMiddle() 
-    { 
-        //Write your code here
-	//Implement using Fast and slow pointers
-    } 
-  
-    public void push(int new_data) 
-    { 
-        Node new_node = new Node(new_data); 
-        new_node.next = head; 
-        head = new_node; 
-    } 
+class LinkedList {
+	ListNode head;
+	public static class ListNode{
+		int data;
+		ListNode next;
+		ListNode(int data){
+			//Initializing Node data
+			this.data=data;
+			this.next=null;
+		}
+	}
+	
+	//Displaying Nodes of List
+	void display() {
+		ListNode temp=head;
+		while(temp!=null) {
+			System.out.print(temp.data+"-->");
+			temp=temp.next;
+		}
+		System.out.println("Null");
+	}
+    void findMidofList() {
+    	ListNode slowPtr=head; //move forward with step
+    	ListNode fstPtr=head;  //move forward with two steps
+    	while(fstPtr!=null && fstPtr.next!=null) {
+    		fstPtr=fstPtr.next.next;
+    		slowPtr=slowPtr.next;
+    	}
+    	System.out.print("Middle of singly linked list is \s"+slowPtr.data);
+    	}
+	public static void main(String[] args) {
+		LinkedList h=new LinkedList();
+		h.head=new ListNode(20);
+		ListNode a=new ListNode(30);
+		ListNode b=new ListNode(40);
+		ListNode c=new ListNode(50);
+		ListNode d=new ListNode(60);
+		ListNode e=new ListNode(70);
+		h.head.next=a;
+		a.next=b;
+		b.next=c;
+		c.next=d;
+		d.next=e;
+		e.next=null;
+		h.display();
+		h.findMidofList();
 
-    public void printList() 
-    { 
-        Node tnode = head; 
-        while (tnode != null) 
-        { 
-            System.out.print(tnode.data+"->"); 
-            tnode = tnode.next; 
-        } 
-        System.out.println("NULL"); 
-    } 
-  
-    public static void main(String [] args) 
-    { 
-        LinkedList llist = new LinkedList(); 
-        for (int i=15; i>0; --i) 
-        { 
-            llist.push(i); 
-            llist.printList(); 
-            llist.printMiddle(); 
-        } 
-    } 
-} 
+	}
+
+}
