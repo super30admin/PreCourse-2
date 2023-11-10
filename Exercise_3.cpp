@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>  
+#include<iostream>  
 using namespace std;  
   
 // Struct  
@@ -12,6 +12,20 @@ struct Node
 void printMiddle(struct Node *head)  
 {  
   //YourCode here
+    Node* slow=head;
+    Node* fast=head;
+    while(fast && fast->next){
+        slow=slow->next;
+        if(fast->next->next){
+fast=fast->next->next;
+        }
+        else{
+            fast=fast->next;
+        }
+    }
+    if(slow){
+    cout << slow->data << endl;
+    }
   //Use fast and slow pointer technique
 }  
   
