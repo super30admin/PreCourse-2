@@ -1,3 +1,9 @@
+/*
+Time Complexity: O(nlogn)
+Space Complexity: constant throughout, O(n)
+Code runs successfully on Leetcode.
+I did not face any problems while coding.
+*/
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
@@ -6,6 +12,43 @@ class MergeSort
     void merge(int arr[], int l, int m, int r) 
     {  
        //Your code here  
+	int[] lhalf = new int[m-l+1];
+	int[] rhalf = new int[r-m];
+	
+	for(int i=0; i<lhalf.length; i++){
+		lhalf[i] = arr[i + l];
+	}
+
+	for(int i=0; i<rhalf.length; i++){
+		rhalf[i] = arr[i+m+1];
+	}
+	
+	int k=l;
+	int i=0;
+	int j=0;
+	while(i < lhalf.length && j < rhalf.length){
+		if(lhalf[i] <= rhalf[j]){
+			arr[k] = lhalf[i];
+			i++;
+		}else{
+			arr[k] = rhalf[j];
+			j++;
+		}
+		k++;
+	}
+	
+	while(i < lhalf.length){
+		arr[k] = lhalf[i];
+		i++;
+		k++;	
+	}
+
+	while(j < rhalf.length){
+		arr[k] = rhalf[j];
+		j++;
+		k++;
+	}
+
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -14,6 +57,14 @@ class MergeSort
     { 
 	//Write your code here
         //Call mergeSort from here 
+	if(l>=r){
+		return;
+	}
+	int m = (l+r)/2;
+	sort(arr, l, m);
+	sort(arr, m+1, r);
+	merge(arr, l, m, r);
+	
     } 
   
     /* A utility function to print array of size n */
