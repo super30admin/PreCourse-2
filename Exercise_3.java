@@ -1,5 +1,8 @@
 class LinkedList 
-{ 
+{
+    // Time Complexity : O(n/2) = O(n)
+    // Space Complexity : O(n) n elements in an array
+    // Any problem you faced while coding this : forgot to check if node and next.next is null or not.
     Node head; // head of linked list 
   
     /* Linked list node */
@@ -20,6 +23,24 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+
+        if(head==null || head.next==null){
+            System.out.println("No middle?!");
+        }
+        else {
+            Node slow = head;
+            Node fast = head;
+
+            while (fast.next != null && fast.next.next != null) {
+                slow = slow.next;
+                fast = fast.next.next;
+                if (fast == null) {
+                    break;
+                }
+            }
+
+            System.out.println("The middle element is - " + slow.data);
+        }
     } 
   
     public void push(int new_data) 
