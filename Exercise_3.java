@@ -1,3 +1,13 @@
+/* Algorithm: Slow and Fast Pointer
+ * 1. Slow = Fast ==> head
+ * 2. Slow move 1 step at a time
+ * 3. Fast moves 2 steps at a time
+ * 4 When fast reaches the end means slow has reached half of it means middle.
+ * 
+ * Time Complexity: O(N) => number of nodes in list
+ * Space Complexity: O(1)
+*/
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -18,8 +28,18 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+	    //Implement using Fast and slow pointers
+        Node slow = this.head;
+        Node fast = this.head;
+
+        //Traverse the list till end --> Null
+        while(fast != null && fast.next != null)
+        {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        System.out.println(slow.data);
     } 
   
     public void push(int new_data) 
