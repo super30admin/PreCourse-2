@@ -7,12 +7,36 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+
+        arr[i] = arr[i] + arr[j];
+        arr[j] =  arr[i]-arr[j];
+        arr[i]  = arr[i] - arr[j];
+
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+   	//Write code here for Partition and Swap
+
+        int i = low - 1;
+
+        for (int k = low;  k < high ; k++) {
+
+            if (arr[k] < arr[high]) {
+                i++;
+                swap(arr, i , k);
+            }
+
+        }
+
+//        System.out.println("Printing new array " +  low + " high " +  high);
+//        printArray(arr);
+
+        i = i + 1;
+        swap(arr, i , high);
+
+        return i;
+
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -21,7 +45,24 @@ class QuickSort
     void sort(int arr[], int low, int high) 
     {  
             // Recursively sort elements before 
-            // partition and after partition 
+            // partition and after partition
+
+        if (low < high) {
+
+
+            int mid = partition(arr, low , high);
+
+            System.out.println(mid);
+           // printArray(arr);
+
+            sort(arr, low, mid-1);
+            sort(arr, mid+1, high);
+
+        }
+
+
+
+
     } 
   
     /* A utility function to print array of size n */
@@ -36,7 +77,7 @@ class QuickSort
     // Driver program 
     public static void main(String args[]) 
     { 
-        int arr[] = {10, 7, 8, 9, 1, 5}; 
+        int arr[] = {10, 7, 8, 8, 1, 5};
         int n = arr.length; 
   
         QuickSort ob = new QuickSort(); 
@@ -46,3 +87,13 @@ class QuickSort
         printArray(arr); 
     } 
 } 
+
+
+/*
+
+Time complexity : O (nlogn)
+
+Space complexity : O (1) constant
+
+
+ */

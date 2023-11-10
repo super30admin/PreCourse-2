@@ -1,20 +1,81 @@
-class IterativeQuickSort { 
+import java.util.Stack;
+
+class IterativeQuickSort {
     void swap(int arr[], int i, int j) 
-    { 
-	//Try swapping without extra variable 
-    } 
+    {
+        int temp = arr[i] ;
+        arr[i] = arr[j];
+        arr[j] = temp;
+
+    }
   
     /* This function is same in both iterative and 
        recursive*/
-    int partition(int arr[], int l, int h) 
-    { 
-        //Compare elements and swap.
+    int partition(int arr[], int low, int high)
+    {
+        int i = low - 1;
+        int p = arr[high];
+
+        for (int k = low;  k < high ; k++) {
+
+            if (arr[k] <= p) {
+                i++;
+                swap(arr, i , k);
+            }
+
+            printArr(arr, arr.length);
+        }
+
+        i = i + 1;
+        swap(arr, i , high);
+
+        System.out.println("Printing new array " +  low + " high " +  high);
+        printArr(arr, arr.length);
+
+        System.out.print("\n\n");
+        return i;
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
-    { 
-        //Try using Stack Data Structure to remove recursion.
+    {
+        Stack stack= new Stack();
+
+
+        stack.push(l);
+        stack.push(h);
+
+      int i = 0 ;
+       for ( ; !stack.isEmpty(); ) {
+
+
+
+           h = (int)stack.pop();
+           l = (int) stack.pop();
+
+
+           int mid = partition(arr, l , h);
+
+           System.out.println("mid : "+mid);
+
+
+           if (mid - 1 > l){
+               stack.push(l);
+               stack.push(mid-1);
+
+           }
+
+
+           if (mid + 1 < h) {
+               stack.push(mid+1);
+               stack.push(h);
+           }
+
+           System.out.println(stack.toString());
+
+       }
+
+
     } 
   
     // A utility function to print contents of arr 
@@ -22,7 +83,8 @@ class IterativeQuickSort {
     { 
         int i; 
         for (i = 0; i < n; ++i) 
-            System.out.print(arr[i] + " "); 
+            System.out.print(arr[i] + " ");
+        System.out.println();
     } 
   
     // Driver code to test above 
@@ -34,3 +96,12 @@ class IterativeQuickSort {
         ob.printArr(arr, arr.length); 
     } 
 } 
+
+/*
+
+Time complexity : O (nlogn)
+
+Space complexity : O (n) for stack
+
+
+ */
