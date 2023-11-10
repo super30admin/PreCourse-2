@@ -1,3 +1,9 @@
+// Time Complexity : O(nlogn)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode : n/a
+// Any problem you faced while coding this : no
+
+// Your code here along with comments explaining your approach
 class QuickSort 
 { 
     /* This function takes last element as pivot, 
@@ -8,11 +14,25 @@ class QuickSort
        of pivot */
     void swap(int arr[],int i,int j){
         //Your code here   
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp; 
     }
     
     int partition(int arr[], int low, int high) 
     { 
    	//Write code here for Partition and Swap 
+       int p = arr[high];
+       int k = low-1; 
+       for (int i=low; i<high; i++)
+       {
+           if (arr[i] <= p)
+           { k++;
+            swap(arr,k,i);            
+           }
+       }
+       swap(arr,k+1,high); 
+       return k+1;
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -22,14 +42,22 @@ class QuickSort
     {  
             // Recursively sort elements before 
             // partition and after partition 
+        if (low < high)
+        {   
+            int p = partition(arr, low, high);
+            sort(arr, low, p-1);
+            sort(arr, p+1, high);
+        }
     } 
   
     /* A utility function to print array of size n */
     static void printArray(int arr[]) 
     { 
         int n = arr.length; 
+
         for (int i=0; i<n; ++i) 
-            System.out.print(arr[i]+" "); 
+            System.out.print(arr[i] + " "); 
+
         System.out.println(); 
     } 
   
