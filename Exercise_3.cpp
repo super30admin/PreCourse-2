@@ -1,4 +1,17 @@
-#include<bits/stdc++.h>  
+/*
+
+// Time Complexity : O(N) cause going through complete list atleast N/2 times.
+// Space Complexity : O(1) cause no new memory instance were created
+// Did this code successfully run on Leetcode :
+// Any problem you faced while coding this :
+
+
+// Your code here along with comments explaining your approach
+
+*/
+
+
+#include<iostream>
 using namespace std;  
   
 // Struct  
@@ -11,8 +24,28 @@ struct Node
 /* Function to get the middle of the linked list*/
 void printMiddle(struct Node *head)  
 {  
-  //YourCode here
-  //Use fast and slow pointer technique
+    //YourCode here
+
+    if(!head)
+    {
+        cout<<"the linked list is empty "<<endl;
+        return;
+    }
+
+    struct Node* slow = new Node;
+    struct Node* fast = new Node;
+    slow = head;
+    fast = head;
+
+    while(fast->next && (fast->next)->next)
+    {
+        slow = slow->next;
+        fast = (fast->next)->next;
+    }
+
+    cout<<"The first middle element is "<<slow->data;
+
+    //Use fast and slow pointer technique
 }  
   
 // Function to add a new node  
@@ -43,7 +76,8 @@ int main()
     {  
         push(&head, i);  
         printList(head);  
-        printMiddle(head);  
+        printMiddle(head);
+        cout<<endl;  
     }  
   
     return 0;  
