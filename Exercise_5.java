@@ -1,20 +1,41 @@
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
-	//Try swapping without extra variable 
-    } 
+	//Try swapping without extra variable
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+
+    }
   
     /* This function is same in both iterative and 
        recursive*/
     int partition(int arr[], int l, int h) 
     { 
         //Compare elements and swap.
+        int pivot = arr[h];
+        int i = (l-1);
+        for(int j = 0; j <= h-1; j++){
+            if(arr[j] <= pivot){
+                i++;
+                swap(arr,i,j);
+            }
+        }
+        swap(arr,i+1,h);
+        return (i+1);
+
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
     { 
         //Try using Stack Data Structure to remove recursion.
+        if(l<h){
+            int pi = partition(arr, l, h);
+            QuickSort(arr,l,pi-1);
+            QuickSort(arr,pi+1, h);
+
+        }
     } 
   
     // A utility function to print contents of arr 
