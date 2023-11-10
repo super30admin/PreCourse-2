@@ -1,4 +1,13 @@
 class LinkedList 
+
+// Time Complexity :  O(n) 
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+//  (Floyd's Cycle detection algorithm)
+               /*Traversing the linked list using two pointers - fast and slow. Move slow pointer by one 
+               and the fast pointer by two. When the fast pointer reaches the end,
+               slow pointer will reach the middle of the linked list.*/
 { 
     Node head; // head of linked list 
   
@@ -18,8 +27,17 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
 	//Implement using Fast and slow pointers
+   if(head != null) {
+         Node fast = head;
+         Node slow = head;
+         
+         while(fast!=null && fast.next!=null) {
+               fast.next.next = fast;
+               slow.next = slow;
+         }
+        System.out.println(slow.data);
+        }
     } 
   
     public void push(int new_data) 
