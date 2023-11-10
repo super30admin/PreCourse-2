@@ -1,5 +1,8 @@
 #include<stdlib.h> 
 #include<stdio.h> 
+
+// TC: O(nlogn)
+// SC: O(n)
   
 // Merges two subarrays of arr[]. 
 // First subarray is arr[l..m] 
@@ -7,6 +10,28 @@
 void merge(int arr[], int l, int m, int r) 
 { 
     //Your code here
+    int p1 = l,p2 = m+1;
+    int temp[r-l+1];
+    int k=0;
+    while(p1<=m && p2<=r)
+    {
+        if(arr[p1]<=arr[p2]){
+            temp[k++] = arr[p1++];
+        }
+        else{
+            temp[k++] = arr[p2++];
+        }
+    }
+    while(p1<=m){
+        temp[k++] = arr[p1++];
+    }
+    while(p2<=r){
+        temp[k++] = arr[p2++];
+    }
+    for(int i=l;i<r+1;i++)
+    {
+        arr[i] = temp[i-l];
+    }
 } 
   
 /* l is for left index and r is right index of the 
@@ -14,6 +39,12 @@ void merge(int arr[], int l, int m, int r)
 void mergeSort(int arr[], int l, int r) 
 { 
     //Your code here
+    if(l==r) return;
+    int mid = l + (r-l)/2;
+    mergeSort(arr,l,mid);
+    mergeSort(arr,mid+1,r);
+    merge(arr,l,mid,r);
+
 } 
   
 /* UTILITY FUNCTIONS */
