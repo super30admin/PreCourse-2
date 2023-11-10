@@ -1,4 +1,6 @@
-class LinkedList 
+
+
+class LinkedList
 { 
     Node head; // head of linked list 
   
@@ -20,6 +22,16 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node ptr1 = head;  // slow pointer
+        Node ptr2 = head; // fast pointer
+
+        while ( ptr2!=null && ptr2.next!=null)
+        {
+            ptr2 = ptr2.next.next;
+            ptr1 = ptr1.next;
+        }
+        System.out.println("Mid point is  "+ ptr1.data + "\n" );
+
     } 
   
     public void push(int new_data) 
