@@ -1,20 +1,80 @@
-class IterativeQuickSort { 
+/*
+    Time Complexity = O(NlogN)
+    Space Complexity = O(N)
+    Did this code successfully run on Leetcode : yes
+
+ */
+
+class IterativeQuickSort {
     void swap(int arr[], int i, int j) 
-    { 
-	//Try swapping without extra variable 
+    {
+
+	//Try swapping without extra variable
+
+        if(arr[i] == arr[j])
+            return;
+
+        arr[i] = arr[i] + arr[j];
+        arr[j] = arr[i] - arr[j];
+        arr[i] = arr[i] - arr[j];
+
+
     } 
   
     /* This function is same in both iterative and 
        recursive*/
-    int partition(int arr[], int l, int h) 
+    int partition(int arr[], int l, int h)
     { 
         //Compare elements and swap.
+        int pivot = arr[h];
+        int smaller = l - 1;
+
+        for(int j = l; j <= h - 1; j++){
+            if(arr[j] <= pivot){
+                smaller++;
+                swap(arr, smaller, j);
+            }
+        }
+
+        swap(arr, smaller + 1, h);
+
+        return smaller + 1;
+
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
     { 
         //Try using Stack Data Structure to remove recursion.
+        int[] stack = new int[h-l + 1];
+        //let top of stack = -1
+        int top = -1;
+
+        //push initial values of l and h to stack
+        stack[++top] = l;
+        stack[++top] = h;
+
+        //pop from stack till its empty
+        while(top >= 0){
+            h = stack[top--];
+            l = stack[top--];
+
+            //place pivot in correct place
+            int p = partition(arr, l, h);
+
+            //push elements on left side of pivot to stack
+            if(p-1 > l){
+                stack[++top] = l;
+                stack[++top] = p-1;
+            }
+
+            //push elements on right side of pivot to stack
+            if(p+1 < h){
+                stack[++top] = p+1;
+                stack[++top] = h;
+            }
+
+        }
     } 
   
     // A utility function to print contents of arr 

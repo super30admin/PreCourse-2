@@ -1,4 +1,10 @@
-class QuickSort 
+/*
+    Time Complexity = O(NlogN)
+    Space Complexity = O(N)
+    Did this code successfully run on Leetcode : yes
+ */
+
+class QuickSort
 { 
     /* This function takes last element as pivot, 
        places the pivot element at its correct 
@@ -7,12 +13,29 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //Your code here
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+   	//Write code here for Partition and Swap
+        int pivot = arr[high];
+        int smaller = low - 1;
+
+        for(int j = low; j <= high - 1; j++){
+            if(arr[j] < pivot){
+                smaller++;
+                swap(arr, smaller, j);
+            }
+        }
+
+        swap(arr, smaller + 1, high);
+
+        return smaller + 1;
+
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -21,7 +44,12 @@ class QuickSort
     void sort(int arr[], int low, int high) 
     {  
             // Recursively sort elements before 
-            // partition and after partition 
+            // partition and after partition
+        if(low < high) {
+            int pi = partition(arr, low, high);
+            sort(arr, low, pi - 1);
+            sort(arr, pi + 1, high);
+        }
     } 
   
     /* A utility function to print array of size n */
@@ -36,7 +64,7 @@ class QuickSort
     // Driver program 
     public static void main(String args[]) 
     { 
-        int arr[] = {10, 7, 8, 9, 1, 5}; 
+        int arr[] = {10, 7, 8, 9, 1, 5};
         int n = arr.length; 
   
         QuickSort ob = new QuickSort(); 
