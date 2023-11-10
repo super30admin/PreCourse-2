@@ -1,27 +1,77 @@
-class IterativeQuickSort { 
+/*
+Time Complexity - O(N logN)
+Space Complexity - O(N)
+*/
+
+public class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
-	//Try swapping without extra variable 
+	//Try swapping without extra variable
+	/*arr[i] = arr[i] + arr[j];
+	arr[j] = arr[i] - arr[j];
+	arr[i] = arr[i] - arr[j]; */
+	int temp = arr[i];
+	arr[i] = arr[j];
+	arr[j] = temp;
     } 
   
     /* This function is same in both iterative and 
        recursive*/
-    int partition(int arr[], int l, int h) 
+    int partition(int arr[], int low, int high) 
     { 
-        //Compare elements and swap.
+	int leftPointer = low;
+	int rightPointer = high - 1;
+   	int pivot = arr[high];
+
+	while (leftPointer < rightPointer) {             
+		while (arr[leftPointer] <= pivot && leftPointer < rightPointer)
+			leftPointer++;
+
+		while (arr[rightPointer] >= pivot && leftPointer < rightPointer)
+			rightPointer--;
+
+		swap(arr, leftPointer, rightPointer);
+	}
+	if(arr[leftPointer] > arr[high])
+		swap(arr, leftPointer, high);
+	else
+		leftPointer = high;
+	return leftPointer;
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
     { 
-        //Try using Stack Data Structure to remove recursion.
+        int[] stack = new int[h - l + 1];
+        int top = -1;
+	    
+        stack[++top] = l;
+        stack[++top] = h;
+  
+        while (top >= 0) {
+            h = stack[top--];
+            l = stack[top--];
+  
+            // Set pivot element at its correct position in sorted array
+            int p = partition(arr, l, h);
+  
+            // If there are elements on left side of pivot, then push left side to stack
+            if (p - 1 > l) {
+                stack[++top] = l;
+                stack[++top] = p - 1;
+            }
+
+            // If there are elements on right side of pivot, then push right side to stack
+            if (p + 1 < h) {
+                stack[++top] = p + 1;
+                stack[++top] = h;
+            }
+        }
     } 
   
     // A utility function to print contents of arr 
-    void printArr(int arr[], int n) 
-    { 
-        int i; 
-        for (i = 0; i < n; ++i) 
+    void printArr(int arr[], int n) {  
+        for (int i = 0; i < n; ++i) 
             System.out.print(arr[i] + " "); 
     } 
   
