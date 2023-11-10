@@ -1,3 +1,7 @@
+//Time Complexity:O(n)
+//Space Complexity:O(1)
+// code executed successfully
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -18,9 +22,32 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+     //iterate till mid node
+    	if(head!=null) {
+    		int mid = getLength()/2;
+    		Node curr= head;
+    		for(int i =1; i<=mid;i++) {
+    			curr= curr.next;
+    		}
+    		System.out.println("middle element " + curr.data);
+    		
+    	}
+   
+    	    	
     } 
+    //find length of linkedlist
+   int getLength() {
+	   int len =0;
+	   Node curr= head;
+	   while(curr!= null) {
+		   
+		   len++;
+		   curr= curr.next;
+		
+	   }
+	   return len;
+	   
+   }
   
     public void push(int new_data) 
     { 
