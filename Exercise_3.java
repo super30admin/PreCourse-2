@@ -1,3 +1,6 @@
+//time complexity 0(n)
+//space complexity o(1)
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +23,13 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    Node p1=head; //juming 2 twice the P2
+    Node p2=head;
+    while (p2!=null && p2.next !=null){
+        p1=p1.next;
+        p2=p2.next.next;
+    }
+    System.out.println(p1.data);
     } 
   
     public void push(int new_data) 
