@@ -4,7 +4,9 @@ using namespace std;
 // A utility function to swap two elements  
 void swap(int* a, int* b)  
 {  
-    //Your Code here 
+      int t = *a;
+  *a = *b;
+  *b = t;
 }  
   
 /* This function takes last element as pivot, places  
@@ -14,7 +16,21 @@ to left of pivot and all greater elements to right
 of pivot */
 int partition (int arr[], int low, int high)  
 {  
-    //Your Code here 
+     int i=low,j=high;
+    int pivot = arr[low];
+  while(i<j){
+    do{
+      i++;
+    }while(arr[i] <= pivot);
+    do{
+      j--;
+    }while(arr[i] > pivot);
+    if(i<j){
+        swap(arr[i],arr[j]);
+    }
+  }
+  swap(arr[low],arr[j]);
+  return j;
 }  
   
 /* The main function that implements QuickSort  
@@ -23,7 +39,11 @@ low --> Starting index,
 high --> Ending index */
 void quickSort(int arr[], int low, int high)  
 {  
-    //Your Code here 
+       if(low<high){
+      int j= partition(arr,low,high);
+      quickSort(arr,low,j);
+      quickSort(arr,j+1,high);
+    }
 }  
   
 /* Function to print an array */
