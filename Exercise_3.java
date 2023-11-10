@@ -1,5 +1,6 @@
 class LinkedList 
-{ 
+{
+    //Time Complexity of this linked list is 0(n)
     Node head; // head of linked list 
   
     /* Linked list node */
@@ -20,9 +21,18 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node Slowpointer = head;
+        Node FastPointer = head;
+        if (head != null){
+            while (FastPointer != null && FastPointer.next !=null){
+                FastPointer = FastPointer.next.next;
+                Slowpointer = Slowpointer.next;
+            }
+            System.out.println("The middle element is "+ Slowpointer.data);
+        }
     } 
   
-    public void push(int new_data) 
+    public void push(int new_data)
     { 
         Node new_node = new Node(new_data); 
         new_node.next = head; 
