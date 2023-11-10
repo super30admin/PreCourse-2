@@ -1,3 +1,25 @@
+/**
+ * Time complexity:
+ * The time complexity is O(N)
+ * 
+ */
+
+/**
+ * Space Complexity:
+ * The space complexity is O(1) as we are not creating any extra space.
+ */
+
+/**
+ * Approach:
+ * We are using fast and slow pointers. The idea is slow pointer
+ * moves by one step and fast pointer moves by two step. When the
+ * fast pointer will reach at the end of the list, the slow
+ * pointer will be at the middle of the list.
+ */
+
+//The code ran perfectly
+
+
 #include<bits/stdc++.h>  
 using namespace std;  
   
@@ -13,6 +35,14 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+  Node* slow = head;
+  Node* fast = head;
+
+  while(fast != nullptr && fast -> next != nullptr){
+      slow = slow->next;
+      fast = fast->next->next;
+  }
+  cout << "The middle is " << slow->val << endl;
 }  
   
 // Function to add a new node  
