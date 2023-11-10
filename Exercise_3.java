@@ -1,4 +1,13 @@
-class LinkedList 
+/*
+Time Complexity 
+printmiddle O(logn)
+printlist O(n)
+push O(1)
+
+Space Complexity
+O(n) For list maintained
+*/
+class LinkedList
 { 
     Node head; // head of linked list 
   
@@ -20,6 +29,13 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+	Node slow=this.head;
+	Node fast=this.head;
+	while(fast!=null&&fast.next!=null) {
+		slow=slow.next;
+		fast=fast.next.next;
+	}
+	System.out.println(slow.data);
     } 
   
     public void push(int new_data) 
