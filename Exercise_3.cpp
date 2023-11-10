@@ -9,10 +9,30 @@ struct Node
 };  
   
 /* Function to get the middle of the linked list*/
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+
+/* Increment fast pointer by two locations and slow pointer by one location
+*  until fast pointer reaches to end of linked list.
+*/
 void printMiddle(struct Node *head)  
 {  
   //YourCode here
   //Use fast and slow pointer technique
+
+  if (head == NULL)
+    return;
+
+  Node *fastPointer, *slowPointer;
+  
+  slowPointer = fastPointer = head;
+  while (fastPointer->next != NULL && fastPointer->next->next != NULL)
+  {
+      slowPointer = slowPointer->next;
+      fastPointer = fastPointer->next->next;
+  }
+  
+  printf("Middle element is : %d \n\n", slowPointer->data);
 }  
   
 // Function to add a new node  
