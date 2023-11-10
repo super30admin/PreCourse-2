@@ -1,3 +1,10 @@
+/*
+ Time complexity: O(N) where N is size of linked list.
+ Scpace complexity: O(1)
+ Did this code successfully run on Leetcode : Yes
+ Any problem you faced while coding this : No
+*/
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +27,14 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node fast = head;
+        Node slow = head;
+
+        while(fast != null && fast.next != null && slow != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        System.out.println("Middle element is: " + slow.data);
     } 
   
     public void push(int new_data) 
