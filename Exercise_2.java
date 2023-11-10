@@ -1,3 +1,8 @@
+// Time Complexity : nlog(n)
+// Space Complexity : O(1) - no extra space is used.
+// Did this code successfully run on Leetcode : no, this algorithm fails for large inputs.
+// Any problem you faced while coding this : no
+
 class QuickSort 
 { 
     /* This function takes last element as pivot, 
@@ -7,26 +12,45 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
     
-    int partition(int arr[], int low, int high) 
-    { 
-   	//Write code here for Partition and Swap 
+    int partition(int arr[], int low, int high) { 
+   	    //Write code here for Partition and Swap 
+        int i = low, j = high, pivot = arr[low];
+        while(i<j){
+            while(arr[i] <= pivot && i<high){
+                i++;
+            }
+
+            while(arr[j] > pivot && j>low){
+                j--;
+            }
+
+            if(i<j){
+                swap(arr, i, j);
+            }
+        }
+
+        swap(arr, low, j);
+        return j;
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
       low  --> Starting index, 
       high  --> Ending index */
-    void sort(int arr[], int low, int high) 
-    {  
-            // Recursively sort elements before 
-            // partition and after partition 
+    void sort(int arr[], int low, int high) {  
+        if(low < high){
+            int pIndex = partition(arr, low, high);
+            sort(arr, low, pIndex-1);
+            sort(arr, pIndex+1, high);
+        }
     } 
   
     /* A utility function to print array of size n */
-    static void printArray(int arr[]) 
-    { 
+    static void printArray(int arr[]) { 
         int n = arr.length; 
         for (int i=0; i<n; ++i) 
             System.out.print(arr[i]+" "); 
@@ -34,8 +58,7 @@ class QuickSort
     } 
   
     // Driver program 
-    public static void main(String args[]) 
-    { 
+    public static void main(String args[]) { 
         int arr[] = {10, 7, 8, 9, 1, 5}; 
         int n = arr.length; 
   
