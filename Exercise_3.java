@@ -1,3 +1,18 @@
+// Time Complexity : O(N) where N is the number of elements in the list
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : None
+
+
+// Your code here along with comments explaining your approach
+
+
+/**
+ * @author akhilreddy619
+ * Using slow and fast pointers, middle element is found. Set slow and fast pointers
+ * to head. Iterate till fast and fast.next is not null. In every iteration, move
+ * slow pointer by 1 element and fast pointer by 2 elements.
+ */
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +35,13 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    	Node slow = head;
+    	Node fast = head;
+    	while(fast != null && fast.next != null) {
+    		slow = slow.next;
+    		fast = fast.next.next;
+    	}
+    	System.out.println("The middle element is " + slow.data);
     } 
   
     public void push(int new_data) 
