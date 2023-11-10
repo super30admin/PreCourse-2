@@ -1,4 +1,12 @@
-#include<bits/stdc++.h>  
+
+// Time Complexity : O( n ) as iterating only once the entire linked list.
+// Space Complexity : No extra space complexity other than provided linked list..
+// Any problem you faced while coding this : None, knew the algo
+
+// Your code here along with comments explaining your approach
+/* Rabbit and tortoise algo or floyd something algo can be used for cycle detection as well*/
+
+#include <iostream> 
 using namespace std;  
   
 // Struct  
@@ -13,6 +21,24 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+  if( head == NULL ) {
+     cout<< "Empty linked list";
+  } else if ( head->next == NULL ){
+     cout<<"Only one element, so no middle just printing that val " << head->data;
+     cout<<endl;
+  } else {
+     // Atleast two elements case
+     struct Node* slow = head;
+     struct Node* fast = head->next;
+     while( true ){
+        if( fast == NULL || fast->next == NULL ) {
+            break;
+        }
+        slow = slow->next;
+        fast = fast->next->next;
+     }
+     cout<<"middle is "<<slow->data<<endl;
+  }
 }  
   
 // Function to add a new node  
