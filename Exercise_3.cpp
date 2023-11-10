@@ -1,6 +1,11 @@
-#include<bits/stdc++.h>  
+#include<iostream>
 using namespace std;  
   
+
+// Time Complexity : O(log n) 
+// Space Complexity : O(1) constant space.
+// Any problem you faced while coding this : No
+
 // Struct  
 struct Node  
 {  
@@ -13,6 +18,17 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+
+  struct Node* fast_pointer = head;
+  struct Node* slow_pointer = head;
+
+  while(fast_pointer != nullptr && fast_pointer->next != nullptr && fast_pointer->next->next != nullptr)
+  {
+      fast_pointer = fast_pointer->next->next;
+      slow_pointer = slow_pointer->next;
+  }
+
+  cout << slow_pointer->data << endl;
 }  
   
 // Function to add a new node  
@@ -41,10 +57,10 @@ int main()
     struct Node* head = NULL;    
     for (int i=15; i>0; i--)  
     {  
-        push(&head, i);  
-        printList(head);  
+        push(&head, i);    
+        printList(head);
         printMiddle(head);  
     }  
-  
+
     return 0;  
 }  
