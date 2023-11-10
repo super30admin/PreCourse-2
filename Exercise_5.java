@@ -1,36 +1,83 @@
-class IterativeQuickSort { 
-    void swap(int arr[], int i, int j) 
-    { 
-	//Try swapping without extra variable 
+// Time Complexity : O(nlogn)
+// Space Complexity : O(n)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+class MergeSort 
+{ 
+    // Merges two subarrays of arr[]. 
+    // First subarray is arr[l..m] 
+    // Second subarray is arr[m+1..r] 
+    void merge(int arr[], int l, int m, int r) 
+    {  
+       int[] mergedArray = new int[r-l];
+
+       int i = l, j = m, k = 0;
+
+       while(i < m && j < r) {
+
+            if(arr[i] < arr[j]) {               // if the left array has the smallest value then copy the left one
+                mergedArray[k++] = arr[i++];
+            } else {                            // if the right array has the smallest value then copy the right one
+                mergedArray[k++] = arr[j++];
+            }
+       }
+
+       // Copy all the remaining elements from left or right arrays
+       while(i < m) {
+           mergedArray[k++] = arr[i++];
+       }
+
+       while(j < r) {
+            mergedArray[k++] = arr[j++];
+       }
+
+       // Copy the result into the original array
+        for(int itr = 0; itr < mergedArray.length; itr++) {
+            arr[l + itr] = mergedArray[itr];
+        }
+       
     } 
   
-    /* This function is same in both iterative and 
-       recursive*/
-    int partition(int arr[], int l, int h) 
+    // Main function that sorts arr[l..r] using 
+    // merge() 
+    void sort(int arr[], int l, int r) 
     { 
-        //Compare elements and swap.
+    
+        if(r - l == 1) {
+            return;
+        }
+
+        // Dividing array into half recursively until there's only one element
+        int m = l + (r - l) / 2;
+        sort(arr, l, m);
+        sort(arr, m, r);
+
+        // Merging two unsorted arrays
+        merge(arr, l, m, r+1);
     } 
   
-    // Sorts arr[l..h] using iterative QuickSort 
-    void QuickSort(int arr[], int l, int h) 
+    /* A utility function to print array of size n */
+    static void printArray(int arr[]) 
     { 
-        //Try using Stack Data Structure to remove recursion.
-    } 
-  
-    // A utility function to print contents of arr 
-    void printArr(int arr[], int n) 
-    { 
-        int i; 
-        for (i = 0; i < n; ++i) 
+        int n = arr.length; 
+        for (int i=0; i<n; ++i) 
             System.out.print(arr[i] + " "); 
+        System.out.println(); 
     } 
   
-    // Driver code to test above 
+    // Driver method 
     public static void main(String args[]) 
     { 
-        IterativeQuickSort ob = new IterativeQuickSort(); 
-        int arr[] = { 4, 3, 5, 2, 1, 3, 2, 3 }; 
-        ob.QuickSort(arr, 0, arr.length - 1); 
-        ob.printArr(arr, arr.length); 
+        int arr[] = {12, 11, 13, 5, 6, 7}; 
+  
+        System.out.println("Given Array"); 
+        printArray(arr); 
+  
+        MergeSort ob = new MergeSort(); 
+        ob.sort(arr, 0, arr.length-1); 
+  
+        System.out.println("\nSorted array"); 
+        printArray(arr); 
     } 
 } 
