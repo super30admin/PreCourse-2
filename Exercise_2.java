@@ -1,3 +1,15 @@
+// Time Complexity : O(Nlog N)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : 
+// Any problem you faced while coding this : No
+
+
+// Your code here along with comments explaining your approach
+//1. initialise pivot element as mid position by considering low and high pointer
+//2. call partition function(to calculate pivot element)
+//3. compare and swap left element with right element if(left element > pivot element) or if(right element < pivot element) and return low index(final partition index)
+//4. using pivot index value, call quick sort of both halves left and right subarrays recursively
+
 class QuickSort 
 { 
     /* This function takes last element as pivot, 
@@ -7,12 +19,31 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //Your code here  
+        int temp = 0;
+        temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp; 
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+   	  //Write code here for Partition and Swap
+         int pivot = arr[(low+high)/2];
+         while(low <= high){
+             while(arr[low] < pivot){
+                 low++;
+             }
+             while(arr[high] > pivot){
+                 high--;
+             }
+             if(low <= high){
+                 swap(arr, low, high);
+                 low++;
+                 high--;
+             }
+         }
+         return low; 
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -22,6 +53,12 @@ class QuickSort
     {  
             // Recursively sort elements before 
             // partition and after partition 
+            if(low >= high){
+                return;
+            }
+            int index = partition(arr, low, high);
+            sort(arr, low, index-1);
+            sort(arr, index, high);
     } 
   
     /* A utility function to print array of size n */
