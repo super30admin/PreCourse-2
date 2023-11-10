@@ -1,4 +1,4 @@
-class QuickSort 
+class Exercise_2 
 { 
     /* This function takes last element as pivot, 
        places the pivot element at its correct 
@@ -7,12 +7,32 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //store first element in temp variable
+        int temp= arr[i];
+        //allocate the value of second variable
+        arr[i]=arr[j]; 
+        //allocate stored value of first variable in second variable
+        arr[j] = temp; 
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+        //assign the last element as pivot
+       int pivot = arr[high];
+  
+       //for reference store index of smaller element
+       int x = (low - 1);
+ 
+       for (int i = low; i <= high - 1; i++) {
+            //check if the current element is smaller than pivot
+           if (arr[i] < pivot) {
+               //increament smaller index  
+               x++;
+               swap(arr, x, i);
+           }
+       }
+       swap(arr, x + 1, high);
+       return (x + 1); 
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -20,8 +40,15 @@ class QuickSort
       high  --> Ending index */
     void sort(int arr[], int low, int high) 
     {  
-            // Recursively sort elements before 
-            // partition and after partition 
+        //check if low does not exceed high
+        if(low<high){
+            //we have found the split index 
+            int split=partition(arr,low,high);
+            //sort elements before split index
+            sort(arr, low, split - 1);
+            //sort elements after split index
+            sort(arr, split + 1, high);
+        }
     } 
   
     /* A utility function to print array of size n */
@@ -39,7 +66,7 @@ class QuickSort
         int arr[] = {10, 7, 8, 9, 1, 5}; 
         int n = arr.length; 
   
-        QuickSort ob = new QuickSort(); 
+        Exercise_2 ob = new Exercise_2(); 
         ob.sort(arr, 0, n-1); 
   
         System.out.println("sorted array"); 
