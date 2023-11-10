@@ -1,4 +1,6 @@
-class QuickSort 
+// Struggling with this problem, need to revise Sorting Algorithms
+
+class QuickSort
 { 
     /* This function takes last element as pivot, 
        places the pivot element at its correct 
