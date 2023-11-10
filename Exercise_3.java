@@ -13,14 +13,33 @@ class LinkedList
             next = null; 
         } 
     } 
-  
+   int getSize()
+    {
+        int size = 0;
+        Node dummyNode = head;
+        while (dummyNode != null) {
+            size++;
+            dummyNode = dummyNode.next;
+        }
+        return size;
+    }
     /* Function to print middle of linked list */
    //Complete this function
-    void printMiddle() 
-    { 
+     void printMiddle()
+    {
         //Write your code here
-	//Implement using Fast and slow pointers
-    } 
+        //Implement using Fast and slow pointers
+        if (head != null) {
+            int sizeofLL = getSize();
+            Node dummyNode = head;
+            int mid = sizeofLL / 2;
+            while (mid != 0) {
+                dummyNode = dummyNode.next;
+                mid--;
+            }
+            System.out.print(dummyNode.data+"->");
+        }
+    }
   
     public void push(int new_data) 
     { 
