@@ -1,3 +1,8 @@
+// Time Complexity :O(n(logn))
+// Space Complexity :O(n)
+// Did this code successfully run on Leetcode :couldnt find exact problem in leetcode
+// Any problem you faced while coding this :N/A
+
 #include<stdlib.h> 
 #include<stdio.h> 
   
@@ -6,14 +11,56 @@
 // Second subarray is arr[m+1..r] 
 void merge(int arr[], int l, int m, int r) 
 { 
-    //Your code here
+    int i, j, k;
+    int p = m - l + 1;
+    int q = r - m;
+ 
+    int L[p], R[q];
+ 
+    for (i = 0; i < p; i++)
+        L[i] = arr[l + i];
+    for (j = 0; j < q; j++)
+        R[j] = arr[m + 1 + j];
+ 
+    i = 0; 
+    j = 0;
+    k = l;
+    while (i < p && j < q) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        }
+        else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+ 
+    while (i < p) {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+ 
+    while (j < q) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
 } 
   
 /* l is for left index and r is right index of the 
    sub-array of arr to be sorted */
 void mergeSort(int arr[], int l, int r) 
 { 
-    //Your code here
+    if (l < r) {
+        int m = l + (r - l) / 2;
+ 
+        mergeSort(arr, l, m);
+        mergeSort(arr, m + 1, r);
+        merge(arr, l, m, r);
+    }
 } 
   
 /* UTILITY FUNCTIONS */
