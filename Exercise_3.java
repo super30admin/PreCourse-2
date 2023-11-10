@@ -1,7 +1,7 @@
+
 class LinkedList 
 { 
     Node head; // head of linked list 
-  
     /* Linked list node */
     class Node 
     { 
@@ -14,11 +14,22 @@ class LinkedList
         } 
     } 
   
+
     /* Function to print middle of linked list */
-   //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
+        Node i=head;//slow pointer
+        Node j=head;//fast pointer
+        if (j.next==null || j.next.next==null){
+            System.out.println(i.data);
+        }
+        else{
+            while(j.next!=null && j.next.next!=null) {
+                i=i.next;
+                j=j.next.next;
+            }
+            System.out.println(i.data);
+        }
 	//Implement using Fast and slow pointers
     } 
   
@@ -29,6 +40,8 @@ class LinkedList
         head = new_node; 
     } 
 
+
+    
     public void printList() 
     { 
         Node tnode = head; 
