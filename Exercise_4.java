@@ -1,19 +1,58 @@
-class MergeSort 
+
+
+// Time Complexity : O(nlogn)
+// Space Complexity : O(n)
+
+
+package S30_Codes.PreCourse_2;
+
+class MergeSort
 { 
     // Merges two subarrays of arr[]. 
     // First subarray is arr[l..m] 
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+        int i = l;
+        int j = m+1;
+        int tempArr[] = new int[r-l+1];
+        int tempIdx = 0;
+
+        // returns true until one subarray is not completed
+        while (i<=m && j<=r){
+            if(arr[i] <= arr[j])
+                tempArr[tempIdx++] = arr[i++];
+            else
+                tempArr[tempIdx++] = arr[j++];
+        }
+
+        // if First subarray is not completed
+        while (i <= m){
+            tempArr[tempIdx++] = arr[i++];
+        }
+
+        // if Second subarray is not completed
+        while (j <= r){
+            tempArr[tempIdx++] = arr[j++];
+        }
+
+        // replacing sorted tempArray to original array
+        tempIdx = 0;
+        for (int k=l; k<=r; k++){
+            arr[k] = tempArr[tempIdx++];
+        }
     } 
   
     // Main function that sorts arr[l..r] using 
     // merge() 
     void sort(int arr[], int l, int r) 
-    { 
-	//Write your code here
-        //Call mergeSort from here 
+    {
+        if(l < r) {
+            int m = (l + r) / 2;
+            sort(arr, l, m);
+            sort(arr, m + 1, r);
+            merge(arr, l, m, r);
+        }
     } 
   
     /* A utility function to print array of size n */

@@ -1,4 +1,15 @@
-class LinkedList 
+
+
+// Time Complexity printMiddle : O(n)
+// Space Complexity printMiddle : O(1)
+// Notes : increase slowPtr only when fastPtr can go ahead.
+// Because when fastPtr become null,  slow pointer will come 1 step forward
+// which was not required, and it will give wrong answer.
+
+
+package S30_Codes.PreCourse_2;
+
+class LinkedList
 { 
     Node head; // head of linked list 
   
@@ -18,8 +29,19 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+        Node slowPtr = head;
+        Node fastPtr = head;
+
+        while(fastPtr != null){
+            if(fastPtr.next != null && fastPtr.next.next != null) {
+                fastPtr = fastPtr.next.next;
+                slowPtr = slowPtr.next;
+            }
+            else
+                fastPtr = null;
+        }
+
+        System.out.println(slowPtr.data);
     } 
   
     public void push(int new_data) 
@@ -47,7 +69,7 @@ class LinkedList
         { 
             llist.push(i); 
             llist.printList(); 
-            llist.printMiddle(); 
+            llist.printMiddle();
         } 
     } 
 } 
