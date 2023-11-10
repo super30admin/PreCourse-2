@@ -1,8 +1,33 @@
+import javax.lang.model.util.ElementScanner14;
+
 class BinarySearch { 
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
+        if (r >= l) {
+            int mid = l + (r - l) / 2;
+ 
+            // If the element is present at the
+            // middle itself
+            if (arr[mid] == x)
+                return mid;
+ 
+            // If element is greater than mid, then
+            // it can only be present in right subarray
+            if (arr[mid] < x)
+                return binarySearch(arr, mid + 1, r, x);
+ 
+            // Else the element can only be present
+            // in left subarray
+            return binarySearch(arr, l, mid - 1, x);
+        }
+ 
+        // We reach here when element is not present
+        // in array
+        return -1;
+        
+        
     } 
   
     // Driver method to test above 
