@@ -2,7 +2,28 @@ class BinarySearch {
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
     { 
-        //Write your code here
+        l=0;
+        r= arr.length -1;
+        while(l<=r)
+        {
+            int m = (l + r)/2;
+            if(arr[m]== x)
+            {
+                return m;
+            }
+            else if (arr[m]<x)
+            {
+                l = m + 1;
+            }
+            else
+            {
+                r = m - 1;
+            }
+        }
+
+        return -1;
+
+
     } 
   
     // Driver method to test above 
