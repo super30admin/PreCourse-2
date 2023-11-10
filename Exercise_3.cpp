@@ -1,3 +1,6 @@
+//PrintMiddle 
+//TimeComplexity=T(n)=O(n)
+//SpaceComplexity=S(n)=O(1)
 #include<bits/stdc++.h>  
 using namespace std;  
   
@@ -13,6 +16,15 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+  Node *fastPtr=head;
+  Node *slowPtr=head;
+  
+  while(fastPtr->next!=nullptr && fastPtr->next->next!=nullptr)
+  {
+      slowPtr=slowPtr->next;
+      fastPtr=fastPtr->next->next;
+  }
+  std::cout<<slowPtr->data;
 }  
   
 // Function to add a new node  

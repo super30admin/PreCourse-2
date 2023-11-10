@@ -1,3 +1,5 @@
+//TimeComplexity=T(n)=O(nlogn)
+//SpaceComplexity=S(n)=O(n)
 #include <bits/stdc++.h> 
 using namespace std;  
   
@@ -5,6 +7,9 @@ using namespace std;
 void swap(int* a, int* b)  
 {  
     //Your Code here 
+    int temp =(*a);
+    *a=*b;
+    *b=temp;
 }  
   
 /* This function takes last element as pivot, places  
@@ -15,6 +20,19 @@ of pivot */
 int partition (int arr[], int low, int high)  
 {  
     //Your Code here 
+    int pivot=arr[high];
+    int partitionIndex=low;
+    for(int i=low;i<high;i++)
+    {
+        if(arr[i]<=pivot)
+        {
+            swap(arr[i],arr[partitionIndex]);
+            partitionIndex++;
+        }
+    }
+    swap(arr[partitionIndex],arr[high]);
+    return partitionIndex;
+    
 }  
   
 /* The main function that implements QuickSort  
@@ -24,6 +42,12 @@ high --> Ending index */
 void quickSort(int arr[], int low, int high)  
 {  
     //Your Code here 
+    if(low<high)
+    {
+    int idx=partition(arr,low,high);
+    quickSort(arr,low,idx-1);
+    quickSort(arr,idx+1,high);
+    } 
 }  
   
 /* Function to print an array */
