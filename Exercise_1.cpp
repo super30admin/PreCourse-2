@@ -1,11 +1,25 @@
 #include <stdio.h> 
   
-// A recursive binary search function. It returns 
-// location of x in given array arr[l..r] is present, 
-// otherwise -1 
+//Time complexity = O(log(n))
+//Space complexity = O(n)
 int binarySearch(int arr[], int l, int r, int x) 
 {   
-    //Your Code here 
+    //Check to make sure array size is atleast 1. If it is less than one, it means that the element was not found.//
+    if (r >= l)
+    {
+        int mid = (l + r) / 2;
+
+        if (arr[mid] == x)  //Base case
+            return mid;
+
+        if (arr[mid] > x)   //Searching upper half of the array
+            return binarySearch(arr, l, mid - 1, x);
+
+        else   //Searching lower half of the array
+            return binarySearch(arr, mid + 1, r, x);
+    }
+    
+    return -1;
 } 
   
 int main(void) 

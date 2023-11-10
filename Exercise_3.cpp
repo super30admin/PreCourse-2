@@ -1,3 +1,4 @@
+/* I would again like to apologize for not attempting this problem, as I find myself unable to figure out linked lists */
 #include<bits/stdc++.h>  
 using namespace std;  
   
