@@ -1,3 +1,9 @@
+// Time Complexity : o(nlog(n)) for average case. o(n) for best case if array is already sorted. worst case is o(n^2) if the array is sorted in revesre order
+// Space Complexity : o(n) to store the n elements in an array
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
+// take last element as pivot every time and iterate over array if the current element is less than swap it with the last swapped element index + 1. at the end, swap pivot element with last swapped element index + 1. return the partition index. Use the partition index to divide the array into 2 subarray and follow the same steps on them recursivly 
+
 class QuickSort 
 { 
     /* This function takes last element as pivot, 
@@ -8,11 +14,24 @@ class QuickSort
        of pivot */
     void swap(int arr[],int i,int j){
         //Your code here   
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
     }
     
     int partition(int arr[], int low, int high) 
     { 
    	//Write code here for Partition and Swap 
+        int pivot = arr[high];
+        int curr = low;
+        for(int i=low;i<arr.length;i++){
+            if(arr[i] < pivot){
+                swap(arr,curr,i);
+                curr++;
+            }
+        }
+        swap(arr,curr,high);
+        return curr ;
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -22,6 +41,11 @@ class QuickSort
     {  
             // Recursively sort elements before 
             // partition and after partition 
+        if(low<high){
+            int partition = partition(arr,low,high);
+            sort(arr,low,partition-1);
+            sort(arr,partition+1,high);
+        }
     } 
   
     /* A utility function to print array of size n */
