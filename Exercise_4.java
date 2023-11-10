@@ -5,7 +5,43 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+       //Your code here 
+       int n1 = m-l+1;
+        int n2 = r-m;
+        int L[] = new int[n1];
+        int R[] = new int[n2];
+        for(int i=0;i<n1;i++)
+            L[i]=arr[l+i];
+        for(int j=0;j<n2;j++)
+            R[j]=arr[m+1+j];
+        int a=0,b=0,c=l;
+        while(a<n1&&b<n2)
+        {
+            if(L[a]<=R[b])
+            {
+                arr[c]=L[a];
+                a++;
+            }
+            else
+            {
+                arr[c]=R[b];
+                b++;
+            }
+            c++;
+        }
+        while(b<n2)
+        {
+            arr[c]=R[b];
+            b++;
+            c++;
+        }
+        while(a<n1)
+        {
+            arr[c]=L[a];
+            a++;
+            c++;
+        }
+         
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -14,6 +50,14 @@ class MergeSort
     { 
 	//Write your code here
         //Call mergeSort from here 
+         if(l>=r)
+        {
+            return;
+        }
+        int m = l + (r-l)/2;
+        sort(arr,l,m);
+        sort(arr,m+1,r);
+        merge(arr,l,m,r);
     } 
   
     /* A utility function to print array of size n */
