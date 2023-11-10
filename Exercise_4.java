@@ -1,42 +1,78 @@
-class MergeSort 
-{ 
-    // Merges two subarrays of arr[]. 
-    // First subarray is arr[l..m] 
-    // Second subarray is arr[m+1..r] 
-    void merge(int arr[], int l, int m, int r) 
-    {  
-       //Your code here  
+// Time Complexity : Average : O(nlogn), Worst: O(n^2)
+// Space Complexity : O(n)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+import java.util.*;
+
+class IterativeQuickSort { 
+    void swap(int arr[], int i, int j) 
+    { 
+    
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     } 
   
-    // Main function that sorts arr[l..r] using 
-    // merge() 
-    void sort(int arr[], int l, int r) 
+    /* This function is same in both iterative and 
+       recursive*/
+    int partition(int arr[], int l, int h) 
     { 
-	//Write your code here
-        //Call mergeSort from here 
+        int pivot = h, start = l;
+
+        for(int i = l; i < pivot; i++) {
+
+            if(arr[i] < arr[pivot]) {
+                swap(arr, start, i);
+                start++;
+            }
+        }
+        swap(arr, start, pivot);
+        return start;
     } 
   
-    /* A utility function to print array of size n */
-    static void printArray(int arr[]) 
+    // Sorts arr[l..h] using iterative QuickSort 
+    void QuickSort(int arr[], int l, int h) 
     { 
-        int n = arr.length; 
-        for (int i=0; i<n; ++i) 
+        Stack<Integer> stack = new Stack<Integer>();
+        stack.push(l);
+        stack.push(h);  
+
+        while(!stack.isEmpty()) {
+
+            h = stack.pop();
+            l = stack.pop();
+
+            int pivotIndex = partition(arr, l, h);
+
+            if(pivotIndex - 1 > l) {
+                stack.push(l);
+                stack.push(pivotIndex - 1);
+            }
+
+            if(pivotIndex + l < h) {
+                stack.push(pivotIndex + 1);
+                stack.push(h);
+            }
+        }
+        
+    } 
+  
+    // A utility function to print contents of arr 
+    void printArr(int arr[], int n) 
+    { 
+        int i; 
+        for (i = 0; i < n; ++i) 
             System.out.print(arr[i] + " "); 
-        System.out.println(); 
     } 
   
-    // Driver method 
+    // Driver code to test above 
     public static void main(String args[]) 
     { 
-        int arr[] = {12, 11, 13, 5, 6, 7}; 
-  
-        System.out.println("Given Array"); 
-        printArray(arr); 
-  
-        MergeSort ob = new MergeSort(); 
-        ob.sort(arr, 0, arr.length-1); 
-  
-        System.out.println("\nSorted array"); 
-        printArray(arr); 
+        IterativeQuickSort ob = new IterativeQuickSort(); 
+        int arr[] = { 4, 3, 5, 2, 1, 3, 2, 3 }; 
+        ob.QuickSort(arr, 0, arr.length - 1); 
+        ob.printArr(arr, arr.length); 
     } 
 } 
+
