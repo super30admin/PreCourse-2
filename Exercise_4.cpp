@@ -1,5 +1,8 @@
 #include<stdlib.h> 
 #include<stdio.h> 
+#include<iostream>
+
+using namespace std;
   
 // Merges two subarrays of arr[]. 
 // First subarray is arr[l..m] 
@@ -7,6 +10,59 @@
 void merge(int arr[], int l, int m, int r) 
 { 
     //Your code here
+    int len1 = m-l+1;
+    int len2 = r-m;
+
+    int left[len1];
+    int right[len2];
+
+    int k = l;
+
+    for (int i=0;i<len1;i++){
+        left[i]=arr[k++];
+    }
+
+    k=m+1;
+    for(int i=0;i<len2;i++){
+        right[i]=arr[k++];
+    }
+
+
+
+    int indexLeft=0;
+    int indexRight=0;
+    int newArrIndex = l;
+
+    while(indexLeft<len1 && indexRight<len2){
+        if(left[indexLeft]<right[indexRight]){
+            arr[newArrIndex++]=left[indexLeft++];
+
+        }
+        else{
+            arr[newArrIndex++]=right[indexRight++];
+        }
+
+    }
+
+
+    while (indexLeft < len1)
+    {
+        arr[newArrIndex++]=left[indexLeft++];
+        
+    }
+
+    while(indexRight<len2){
+        arr[newArrIndex++]=right[indexRight++];
+    }
+    
+
+
+
+
+
+
+
+
 } 
   
 /* l is for left index and r is right index of the 
@@ -14,6 +70,17 @@ void merge(int arr[], int l, int m, int r)
 void mergeSort(int arr[], int l, int r) 
 { 
     //Your code here
+    if(l>=r){
+        return;
+    }
+    else{
+    int mid = (l+r)/2;
+
+    mergeSort(arr,l,mid);
+    mergeSort(arr,mid+1,r);
+    merge(arr,l,mid,r);
+    }
+    
 } 
   
 /* UTILITY FUNCTIONS */
