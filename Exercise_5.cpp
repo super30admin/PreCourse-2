@@ -12,6 +12,19 @@ void swap(int* a, int* b)
 /* This function is same in both iterative and recursive*/
 int partition(int arr[], int l, int h) 
 { 
+	int pivot = arr[h];
+    int i = l-1;
+    for(int j = l; j<h; j++){
+		if(arr[j]<= pivot){
+			i++;
+			swap(arr[i], arr[j]);
+			}
+		}
+		
+		swap(arr[i+1], arr[h]);
+		
+		return i+1;
+    
     //Do the comparison and swapping here 
 } 
   
@@ -20,6 +33,29 @@ l --> Starting index,
 h --> Ending index */
 void quickSortIterative(int arr[], int l, int h) 
 { 
+	int stack[h-l+1];
+	int top = -1;
+	stack[++top] = l;
+	stack[++top] = h;
+	
+	while( top >= 0){
+		h = stack[top--];
+		l = stack[top--];
+		
+		
+		int p = partition(arr,l,h);
+		
+		if(p-1 > l){
+			stack[++top] = l;
+			stack[++top] = p-1;
+			}
+			
+			
+		if(p+1 < h){
+			stack[++top] = p+1;
+			stack[++top] = h;
+			}
+		}
     //Try to think that how you can use stack here to remove recursion.
 } 
   

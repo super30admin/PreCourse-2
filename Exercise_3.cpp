@@ -11,6 +11,17 @@ struct Node
 /* Function to get the middle of the linked list*/
 void printMiddle(struct Node *head)  
 {  
+	
+	struct Node* fast = head;
+	struct Node* slow = head;
+	
+	
+	while(fast != NULL && fast->next != NULL){
+		slow = slow ->next;
+		fast = fast->next->next;
+		}
+		
+		printf("middle element is %d \n", slow->data);
   //YourCode here
   //Use fast and slow pointer technique
 }  
