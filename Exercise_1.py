@@ -6,8 +6,16 @@
 def binarySearch(arr, l, r, x): 
   
   #write your code here
+  while l<=r:
+    mid = (l+r)//2
+    if arr[mid] == x:
+      return mid
+    elif arr[mid]>x:
+      r = mid - 1
+    elif arr[mid]<x:
+      l = mid + 1
   
-    
+  return -1  
   
 # Test array 
 arr = [ 2, 3, 4, 10, 40 ] 
