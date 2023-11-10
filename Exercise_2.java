@@ -1,5 +1,10 @@
+//Time Complexity-O(nlogn) logorithamic inside sequential
+//Space Complexity-O(1)
+// Problem : issues in understanding complexity analysis
 class QuickSort 
-{ 
+{
+	
+	 
     /* This function takes last element as pivot, 
        places the pivot element at its correct 
        position in sorted array, and places all 
@@ -7,12 +12,16 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
+    	int temp = arr[i];
+    	arr[i] = arr[j];
+    	arr[j] = temp ;
         //Your code here   
     }
     
     int partition(int arr[], int low, int high) 
     { 
    	//Write code here for Partition and Swap 
+    	return -1 ;
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -22,6 +31,30 @@ class QuickSort
     {  
             // Recursively sort elements before 
             // partition and after partition 
+    	if(low>=high) {
+    		return ;
+    	}
+    	int start = low;
+    	int end = high ;
+    	int pivot = arr[end] ;
+    	
+    	while(start <= end) 
+    	{
+    		while(arr[start] < pivot) {
+    			start ++ ;
+    		}
+    		while(arr[end] > pivot) {
+    			end -- ;
+    		}
+    		if(start <= end) {
+    			swap(arr,start, end) ;
+    			start ++ ;
+    			end -- ;
+    		}
+    	}
+    	sort(arr,low, end) ;
+    	sort(arr, start, high);
+    	
     } 
   
     /* A utility function to print array of size n */
@@ -45,4 +78,5 @@ class QuickSort
         System.out.println("sorted array"); 
         printArray(arr); 
     } 
+
 } 

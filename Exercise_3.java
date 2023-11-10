@@ -1,5 +1,9 @@
-class LinkedList 
-{ 
+//Time Complexity-O(n)
+//Space Complexity-O(1)
+// Problem : issues in understanding complexity analysis
+
+class Exercise_3 
+{
     Node head; // head of linked list 
   
     /* Linked list node */
@@ -20,6 +24,17 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    	
+    	Node midPrev = null ;
+        while(head!=null && head.next!=null){
+            midPrev = (midPrev==null) ? head : midPrev.next;
+
+            head = head.next.next ;
+        }
+        Node mid  = midPrev.next ;
+            midPrev.next = null ;
+        System.out.println("Middle of Linked Lis is : "+ mid.data) ;
+        
     } 
   
     public void push(int new_data) 
@@ -42,12 +57,13 @@ class LinkedList
   
     public static void main(String [] args) 
     { 
-        LinkedList llist = new LinkedList(); 
+    	Exercise_3 llist = new Exercise_3(); 
         for (int i=15; i>0; --i) 
         { 
             llist.push(i); 
-            llist.printList(); 
-            llist.printMiddle(); 
+            
         } 
+        llist.printList(); 
+        llist.printMiddle(); 
     } 
-} 
+    } 
