@@ -1,4 +1,7 @@
-class LinkedList 
+//Time Complexity: O(n)
+//Space Complexity: O(1)
+
+class LinkedList
 { 
     Node head; // head of linked list 
   
@@ -7,11 +10,16 @@ class LinkedList
     { 
         int data; 
         Node next; 
-        Node(int d) 
+        Node()
         { 
-            data = d; 
+            data = 0;
             next = null; 
-        } 
+        }
+        Node(int d)
+        {
+            data = d;
+            next = null;
+        }
     } 
   
     /* Function to print middle of linked list */
@@ -20,6 +28,16 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node slow = this.head;
+        Node fast = this.head;
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        System.out.println(slow.data);
+
+
+
     } 
   
     public void push(int new_data) 
