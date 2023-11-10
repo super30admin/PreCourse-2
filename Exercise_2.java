@@ -1,4 +1,9 @@
-class QuickSort 
+// Time Complexity : O(NlogN)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode : No, ran it on the editor
+// Any problem you faced while coding this : No
+
+class QuickSort
 { 
     /* This function takes last element as pivot, 
        places the pivot element at its correct 
@@ -7,21 +12,47 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //Your code here
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+   	//Write code here for Partition and Swap
+        //take last element as pivot
+        int pivot = arr[high];
+
+        int i = low -1;
+
+        for (int j = low; j <= high; j++) {
+            //check if the current element is less than pivot then increment the tracking index and swap it with current element, we know current element is smaller than pivot
+            if (arr[j] < pivot) {
+                i++;
+                swap(arr, i, j);
+            }
+        }
+        //Now lets swap elemnt after tracking index with pivot(pivot is always at last index for us), now pivot should be at correct place
+        swap(arr, i+1, high);
+
+        return (i+1);
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
       low  --> Starting index, 
       high  --> Ending index */
     void sort(int arr[], int low, int high) 
-    {  
-            // Recursively sort elements before 
-            // partition and after partition 
+    {
+            // partition and after partition
+        //always add toping condition for recursion
+        //if the low become more than high we know array is sorted.
+        if (low < high) {
+            int p = partition(arr, low, high);
+            //Now recursively sort the 2 sub arrays
+            sort(arr, low, p - 1);
+            sort(arr, p + 1, high);
+        }
     } 
   
     /* A utility function to print array of size n */
@@ -36,10 +67,11 @@ class QuickSort
     // Driver program 
     public static void main(String args[]) 
     { 
-        int arr[] = {10, 7, 8, 9, 1, 5}; 
-        int n = arr.length; 
+      //  int arr[] = {10, 7, 8, 9, 1, 5};
+        int arr[] = {10, 8, 68, 89, 2, 3, 6, 1, 100, 200, 7};
+        int n = arr.length;
   
-        QuickSort ob = new QuickSort(); 
+        QuickSort ob = new QuickSort();
         ob.sort(arr, 0, n-1); 
   
         System.out.println("sorted array"); 
