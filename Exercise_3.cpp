@@ -1,3 +1,7 @@
+// Time Complexity : O(n) where n is number of elements  
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
 #include<bits/stdc++.h>  
 using namespace std;  
   
@@ -13,6 +17,17 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+    struct Node *fast = head;
+    struct Node *slow = head;
+    while(fast!= NULL && fast->next!=NULL)
+    {
+        slow=slow->next;
+        fast=fast->next->next;
+    }
+    
+    cout<<"Middle element is :"<<slow->data;
+    cout<<endl;
+
 }  
   
 // Function to add a new node  
