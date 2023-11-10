@@ -1,3 +1,7 @@
+// Time Complexity : O(NlogN)
+// Space Complexity : O(N)
+import java.util.Arrays;
+
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
@@ -5,15 +9,37 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+        // split into 2 subarrays
+        int[] lArr = Arrays.copyOfRange(arr, l, m + 1);
+        int[] rArr = Arrays.copyOfRange(arr, m + 1, r + 1);
+
+        // indexes of main array and 2 subarrays
+        int i = l, a = 0, b = 0;
+
+        // compare and copy elements of 2 subarrays
+        while (a < lArr.length && b < rArr.length) {
+            if (lArr[a] <= rArr[b])
+                arr[i++] = lArr[a++];
+            else
+                arr[i++] = rArr[b++];
+        }
+
+        // copy remaining elements
+        while (a < lArr.length) arr[i++] = lArr[a++];
+        while (b < rArr.length) arr[i++] = rArr[b++];
     } 
   
     // Main function that sorts arr[l..r] using 
     // merge() 
     void sort(int arr[], int l, int r) 
     { 
-	//Write your code here
-        //Call mergeSort from here 
+        if (l >= r) {
+            return;
+        }
+        int m = (l + r) / 2;
+        sort(arr, l, m);
+        sort(arr, m + 1, r);
+        merge(arr, l, m, r);
     } 
   
     /* A utility function to print array of size n */
