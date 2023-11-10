@@ -1,3 +1,15 @@
+/*Time complexity
+0(n/2)=O(n) as we traverse the list two elements at a time
+*/
+
+/*Space complexity
+O(1) as we dont need additional data structures
+*/
+
+// Did this code successfully run on Leetcode : Yes
+
+// Any problem you faced while coding this : Didnt know what fast and slow pointer approach was so had to learn it.
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +32,22 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    Node fast, slow;
+    fast = slow = head;
+
+    if (head == null) {
+        System.out.println("empty list");
+    } else {
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        if (fast.next != null && fast.next.next == null) { // even no of nodes
+            System.out.println(slow.data + " and " + slow.next.data);
+
+        } else
+            System.out.println(slow.data);
+    }
     } 
   
     public void push(int new_data) 
