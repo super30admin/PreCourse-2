@@ -1,4 +1,10 @@
-class LinkedList 
+/*
+ * Time complexity to find Middle Element in SLL is O(n).
+ *
+ * Space complexity will be O(1)
+ */
+
+class LinkedList
 { 
     Node head; // head of linked list 
   
@@ -18,8 +24,17 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
+     //Write your code here
 	//Implement using Fast and slow pointers
+    	Node slowPtr = head;
+    	Node fastPtr = head;
+    	
+    	while(fastPtr != null && fastPtr.next != null) {		
+    		slowPtr = slowPtr.next;
+    		fastPtr = fastPtr.next.next;    		
+    	}
+    	
+    	System.out.println("The middle element is: " + slowPtr.data);
     } 
   
     public void push(int new_data) 
@@ -50,4 +65,4 @@ class LinkedList
             llist.printMiddle(); 
         } 
     } 
-} 
+}
