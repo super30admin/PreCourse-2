@@ -1,3 +1,7 @@
+//To get the value from the sorted using Binary Search;
+//TC: O(logN);
+//SC: O(1) a no auxialry DS is used;
+
 class BinarySearch { 
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
