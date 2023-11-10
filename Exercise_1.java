@@ -1,8 +1,23 @@
 class BinarySearch { 
+    //Time Complexity: O(1)-best case,O(n)-worst case
+    //Space Complexity: O(logn)
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
+        if(l<=r){
+        int mid=l+(r-l)/2;
+        if(arr[mid]==x){
+        return mid;
+        }
+        else if(arr[mid]>x){
+        return binarySearch(arr,l,mid-1,x);
+        }
+        else{
+        return binarySearch(arr,mid+1,r,x);
+        }
+        }
+        return -1;
     } 
   
     // Driver method to test above 
@@ -18,4 +33,4 @@ class BinarySearch {
         else
             System.out.println("Element found at index " + result); 
     } 
-} 
+}
