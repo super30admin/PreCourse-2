@@ -1,3 +1,5 @@
+// Time Complexity : O(n)
+// Did this code successfully run on Leetcode : yes
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -19,7 +21,19 @@ class LinkedList
     void printMiddle() 
     { 
         //Write your code here
-	//Implement using Fast and slow pointers
+        //Implement using Fast and slow pointers
+        Node fastPtr = head;
+        Node slowPtr = head;
+        if(head == null){
+            System.out.println("EmptyList");
+        }
+        else{
+            while(fastPtr != null && fastPtr.next != null){               
+                fastPtr = fastPtr.next.next;
+                slowPtr = slowPtr.next;
+            }
+            System.out.println("The middle element is: " + slowPtr.data);
+        }
     } 
   
     public void push(int new_data) 
@@ -38,8 +52,10 @@ class LinkedList
             tnode = tnode.next; 
         } 
         System.out.println("NULL"); 
-    } 
-  
+    }  
+} 
+
+class Main{
     public static void main(String [] args) 
     { 
         LinkedList llist = new LinkedList(); 
@@ -49,5 +65,5 @@ class LinkedList
             llist.printList(); 
             llist.printMiddle(); 
         } 
-    } 
-} 
+    }
+}
