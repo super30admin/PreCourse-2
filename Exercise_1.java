@@ -3,7 +3,16 @@ class BinarySearch {
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
-    } 
+        if (r >= l) {
+            int mid = l + (r - l) / 2;
+            if (arr[mid] == x)
+                return mid;
+            if (arr[mid] > x)
+                return binarySearch(arr, l, mid - 1, x);
+            return binarySearch(arr, mid + 1, r, x);
+        }
+        return -1;
+    }
   
     // Driver method to test above 
     public static void main(String args[]) 
@@ -17,5 +26,6 @@ class BinarySearch {
             System.out.println("Element not present"); 
         else
             System.out.println("Element found at index " + result); 
-    } 
+    }
+    // the time complexitty for this implementation is O(logn) where n is the size of the array
 } 
