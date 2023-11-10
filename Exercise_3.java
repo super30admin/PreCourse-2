@@ -13,13 +13,26 @@ class LinkedList
             next = null; 
         } 
     } 
-  
-    /* Function to print middle of linked list */
+
+
+  //TC: O(n)
+  //SC : O(1)
+ 
    //Complete this function
     void printMiddle() 
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+
+    Node slow = head;
+    Node fast = head;
+
+    while(fast.next!= null && fast.next.next != null){
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    System.out.println(slow.data);
+
     } 
   
     public void push(int new_data) 
@@ -38,8 +51,11 @@ class LinkedList
             tnode = tnode.next; 
         } 
         System.out.println("NULL"); 
-    } 
-  
+    }
+}
+
+public class Exercise_3{
+
     public static void main(String [] args) 
     { 
         LinkedList llist = new LinkedList(); 
@@ -50,4 +66,4 @@ class LinkedList
             llist.printMiddle(); 
         } 
     } 
-} 
+}
