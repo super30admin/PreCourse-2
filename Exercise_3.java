@@ -17,7 +17,19 @@ class LinkedList
     /* Function to print middle of linked list */
    //Complete this function
     void printMiddle() 
-    { 
+    {
+        Node h = head;
+        int cnt=0;
+        while(h!=null) {
+            cnt++;
+            h=h.next;
+        }
+        Node x = head;
+        for(int i=1;i<cnt;i++){
+            x=x.next;
+        }
+//        x=x.next;
+        System.out.println(x.data);
         //Write your code here
 	//Implement using Fast and slow pointers
     } 
