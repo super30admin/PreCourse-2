@@ -1,4 +1,7 @@
-class LinkedList 
+//time complexity is O(N)
+//space complexity is O(1)
+//Able to submit the problem in leetcode with slow fast pointers
+public class LinkedList 
 { 
     Node head; // head of linked list 
   
@@ -20,6 +23,13 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+	Node slow = head;
+	Node fast = head;
+	while(fast!=null && fast.next !=null){
+	    slow = slow.next;
+	    fast = fast.next.next;
+	}
+	System.out.print("middle of given linked list is "+slow.data); 
     } 
   
     public void push(int new_data) 
