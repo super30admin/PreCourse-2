@@ -1,3 +1,6 @@
+//time complexity for best case nlogn when pivot is in middle and worst case n^2 because if we find array is sorted in ascending or desending.
+// it is in space no extra memory
+// approach is like first we have to take pivot by partition logic and then call qucik sort left and right
 #include <bits/stdc++.h> 
 using namespace std;  
   
@@ -5,6 +8,9 @@ using namespace std;
 void swap(int* a, int* b)  
 {  
     //Your Code here 
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }  
   
 /* This function takes last element as pivot, places  
@@ -15,6 +21,21 @@ of pivot */
 int partition (int arr[], int low, int high)  
 {  
     //Your Code here 
+    int pivot =  arr[high];
+    int i = low -1;
+    
+    for(int  j =low;j<high;j++) {
+    	
+    	if(arr[j] < pivot){
+    		i++;
+    		swap(&arr[i],&arr[j]);
+    	}
+    	
+    }
+    
+    swap(&arr[i+1],&arr[high]);
+    
+    return (i+1);
 }  
   
 /* The main function that implements QuickSort  
@@ -24,6 +45,14 @@ high --> Ending index */
 void quickSort(int arr[], int low, int high)  
 {  
     //Your Code here 
+    if(low < high){
+    	
+    	int pindex = partition(arr,low,high);
+    	quickSort(arr,low,pindex-1);
+    	quickSort(arr,pindex+1,high);
+    	
+    }
+     
 }  
   
 /* Function to print an array */

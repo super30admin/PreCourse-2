@@ -13,6 +13,20 @@ void swap(int* a, int* b)
 int partition(int arr[], int l, int h) 
 { 
     //Do the comparison and swapping here 
+    
+    int i = (l-1);
+    int pivot  = arr[h];
+    
+    for(int j =l;j<h;j++){
+    	if(arr[j] < pivot) {
+    		i++;
+    		swap(&arr[i],&arr[j]);
+    	}
+    	
+    }
+    
+    swap(&arr[i+1],&arr[h]);
+    return (i+1);
 } 
   
 /* A[] --> Array to be sorted,  
@@ -21,6 +35,29 @@ h --> Ending index */
 void quickSortIterative(int arr[], int l, int h) 
 { 
     //Try to think that how you can use stack here to remove recursion.
+    
+    int stack[h-l+1];
+    int top = -1;
+    
+    stack[++top] = l;
+    stack[++top] = h;
+    
+    while(top != -1){
+    	h  = stack[top--];
+    	l  = stack[top--];
+    	int pivot  = partition(arr,l,h);
+    	
+    	if(pivot -1 > l){
+    		stack[++top] = l;
+    		stack[++top] = pivot -1;
+    	}
+    	
+    	if(pivot + 1 < h){
+    		stack[++top] = pivot + 1;
+    		stack[++top] = h;
+    	}
+    	
+    }
 } 
   
 // A utility function to print contents of arr 
