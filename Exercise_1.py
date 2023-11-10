@@ -6,7 +6,15 @@
 def binarySearch(arr, l, r, x): 
   
   #write your code here
-  
+  while l < r:
+    mid = (l+r) // 2
+    if arr[mid] == x:
+      return mid
+    elif x > arr[mid]:
+      l += 1
+    else:
+      r -= 1
+  return -1
     
   
 # Test array 
