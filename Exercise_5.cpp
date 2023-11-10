@@ -1,5 +1,11 @@
-#include <bits/stdc++.h> 
+// #include <bits/stdc++.h> 
+#include <iostream> 
+#include <stack> 
+
 using namespace std; 
+
+// Time Complexity : O(nlog n)
+// Space Complexity : O(1)
   
 // A utility function to swap two elements 
 void swap(int* a, int* b) 
@@ -13,6 +19,14 @@ void swap(int* a, int* b)
 int partition(int arr[], int l, int h) 
 { 
     //Do the comparison and swapping here 
+    int pivot = arr[h];
+    int partition = l;
+    for(int i = l; i < h; i++) {
+        if(arr[i] <= pivot)
+            swap(arr[i], arr[partition++]);
+    }
+    swap(arr[h], arr[partition]);
+    return partition;
 } 
   
 /* A[] --> Array to be sorted,  
@@ -21,6 +35,17 @@ h --> Ending index */
 void quickSortIterative(int arr[], int l, int h) 
 { 
     //Try to think that how you can use stack here to remove recursion.
+    stack<pair<int, int>> st;
+    st.push(make_pair(l, h));
+    while(!st.empty()) {
+        l = st.top().first;
+        h = st.top().second;
+        st.pop();
+
+        int pivot = partition(arr, l, h);
+        if(pivot - 1 > l) st.push(make_pair(l, pivot - 1));
+        if(pivot + 1 < h) st.push(make_pair(pivot + 1, h));
+    }
 } 
   
 // A utility function to print contents of arr 

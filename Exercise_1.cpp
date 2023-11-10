@@ -1,11 +1,21 @@
 #include <stdio.h> 
-  
+
+// Time Complexity : O(log n)
+// Space Complexity : O(log n) // Recursive stack space
+
 // A recursive binary search function. It returns 
 // location of x in given array arr[l..r] is present, 
 // otherwise -1 
 int binarySearch(int arr[], int l, int r, int x) 
 {   
     //Your Code here 
+    if(r >= l){
+        int m = l + (r - l) / 2;
+        if(arr[m] == x) return m;
+        else if(arr[m] > x) return binarySearch(arr, l, m - 1, x);
+        else if(arr[m] < x) return binarySearch(arr, m + 1, r, x);
+    }
+    return -1;
 } 
   
 int main(void) 
