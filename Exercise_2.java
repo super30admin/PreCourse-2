@@ -1,39 +1,48 @@
-class QuickSort 
+public class QuickSort 
 { 
-    /* This function takes last element as pivot, 
-       places the pivot element at its correct 
-       position in sorted array, and places all 
-       smaller (smaller than pivot) to left of 
-       pivot and all greater elements to right 
-       of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        int q = arr[i];
+        arr[i] = arr[j];
+        arr[j] = q;
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+        int pivot = arr[high];
+        int lp = low;
+        int hp = high-1;
+        while(lp<hp)
+        {
+        while(arr[lp]<=pivot && lp<hp)
+        {
+            lp++;
+        }
+        while(arr[hp]>=pivot && lp<hp)
+        {
+            hp--;
+        }
+        swap(arr, lp, hp);
+        }
+        swap(arr, lp, high);
+        return lp;
     } 
-    /* The main function that implements QuickSort() 
-      arr[] --> Array to be sorted, 
-      low  --> Starting index, 
-      high  --> Ending index */
     void sort(int arr[], int low, int high) 
     {  
-            // Recursively sort elements before 
-            // partition and after partition 
+        if (low >= high)
+        {
+         return;   
+        }
+        int lp = partition(arr, low, high);
+        sort(arr, low, lp-1);
+        sort(arr, lp+1, high);
     } 
-  
-    /* A utility function to print array of size n */
     static void printArray(int arr[]) 
     { 
         int n = arr.length; 
-        for (int i=0; i<n; ++i) 
+        for (int i=0; i<n; i++) 
             System.out.print(arr[i]+" "); 
         System.out.println(); 
     } 
-  
-    // Driver program 
     public static void main(String args[]) 
     { 
         int arr[] = {10, 7, 8, 9, 1, 5}; 
