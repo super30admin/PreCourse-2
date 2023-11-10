@@ -20,6 +20,17 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node slow = head;
+        Node fast = head;
+        while(fast.next!= null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        if(fast.next != null) {
+            System.out.println("We have two middle items "+ slow.data+" and "+slow.next.data);
+        } else{
+            System.out.println("The middle term is "+slow.data);
+        }
     } 
   
     public void push(int new_data) 
