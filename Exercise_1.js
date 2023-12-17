@@ -1,8 +1,23 @@
 class BinarySearch {
      // Returns index of x if it is present in arr[l.. r], else return -1
-    function binarySearch(arr, l, r, x) {
-​
+     binarySearch(arr, l, r, x) {
+         let midpoint 
+         while(l<=r){
+               midpoint = Math.floor((l+r)/2);
+              if(arr[midpoint]===x){
+                   return midpoint;
     }
+              else if(arr[midpoint]<x){
+                   l = midpoint +1
+              }
+              else if(arr[midpoint]>x){
+                   r = midpoint -1
+              }
+              else{
+                   return -1;
+              }                    
+}
+     }
 }
 // Driver method to test above
 const ob = new BinarySearch();
