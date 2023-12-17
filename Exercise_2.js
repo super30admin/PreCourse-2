@@ -1,31 +1,46 @@
 class QuickSort {
-​
       /* This function takes last element as pivot,
            places the pivot element at its correct
            position in sorted array, and places all
            smaller (smaller than pivot) to left of
            pivot and all greater elements to right
            of pivot */
-​
-    function swap(arr, i, j) {
+     swap(arr, i, j) {
         //Your code here
+          let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
-​
-    function partition(arr, low, high) {
+     partition(arr, low, high) {
         //Write code here for Partition and Swap
+          let pivot = arr[high];
+        let i = low - 1;
+
+        for (let j = low; j < high; j++) {
+            if (arr[j] <= pivot) {
+                i++;
+                this.swap(arr, i, j);
+            }
+        }
+        this.swap(arr, i + 1, high);
+        return i + 1;
     }
-​
      /* The main function that implements QuickSort()
           arr[] --> Array to be sorted,
           low  --> Starting index,
           high  --> Ending index */
-    function sort(arr, low, high) {
+     sort(arr, low, high) {
              // Recursively sort elements before
              // partition and after partition
+          if (low < high) {
+            let index = this.partition(arr, low, high);
+
+            this.sort(arr, low, index - 1);
+            this.sort(arr, index + 1, high);
+        }
     }
-​
       /* A utility function to print array of size n */
-    function printArray(arr) {
+     printArray(arr) {
         let n = arr.length;
         for (let i = 0; i < n; ++i)
             console.log(arr[i] + " ");
