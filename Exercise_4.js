@@ -1,14 +1,19 @@
+//Time Complexity O(n log n)
+//Space Complexity O(n)
+//Yes
+//No
+
 class MergeSort {
      // Merges two subarrays of arr[].
      // First subarray is arr[l..m]
      // Second subarray is arr[m+1..r]
      merge(arr, l, m, r) {
         //Your code here
-         let n1 = m - l + 1;
+         let n1 = m - l + 1; //Sizes of two subarrays 
         let n2 = r - m;
 
         // Create temporary arrays
-        let L = new Array(n1);
+        let L = new Array(n1); 
         let R = new Array(n2);
 
         // Copy data to temporary arrays L[] and R[]
@@ -24,7 +29,7 @@ class MergeSort {
         let j = 0; // Initial index of second subarray
         let k = l; // Initial index of merged subarray
 
-        while (i < n1 && j < n2) {
+        while (i < n1 && j < n2) {  // Compare elements of both subarrays and merge them in sorted order
             if (L[i] <= R[j]) {
                 arr[k] = L[i];
                 i++;
