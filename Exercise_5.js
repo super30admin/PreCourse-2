@@ -1,3 +1,10 @@
+//Time Complexity O(n log n)
+//Space Complexity O(log n)
+//yes
+//yes, i have used extra variable for swapping
+
+
+
 class IterativeQuickSort {
      swap(arr, i, j) {
         //Try swapping without extra variable
