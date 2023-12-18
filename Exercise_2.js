@@ -1,3 +1,8 @@
+//Time Complexity O(n log n)
+//Space Complexity O(log n)
+//Yes
+//No
+
 class QuickSort {
       /* This function takes last element as pivot,
            places the pivot element at its correct
@@ -7,21 +12,24 @@ class QuickSort {
            of pivot */
      swap(arr, i, j) {
         //Your code here
-          let temp = arr[i];
+           // Swap elements at indices i and j in the array
+        let temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
+      //Partition the array and return the index of the pivot's correct position
      partition(arr, low, high) {
         //Write code here for Partition and Swap
-          let pivot = arr[high];
+          let pivot = arr[high];   // Choose the pivot as last element
         let i = low - 1;
-
+      //Traverse the array and move elements smaller than the pivot to the left
         for (let j = low; j < high; j++) {
             if (arr[j] <= pivot) {
                 i++;
                 this.swap(arr, i, j);
             }
         }
+      // Move the pivot to its correct position
         this.swap(arr, i + 1, high);
         return i + 1;
     }
