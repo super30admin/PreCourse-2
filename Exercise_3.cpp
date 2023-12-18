@@ -1,4 +1,7 @@
-#include<bits/stdc++.h>  
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Any problem you faced while coding this : No
+#include<iostream>  
 using namespace std;  
   
 // Struct  
@@ -12,7 +15,15 @@ struct Node
 void printMiddle(struct Node *head)  
 {  
   //YourCode here
-  //Use fast and slow pointer technique
+  Node* slow = head;
+  Node* fast = head;
+  while(fast->next != nullptr && fast != nullptr)
+  {
+    slow = slow->next;
+    fast = fast->next->next;
+  }
+  cout << "middle of linkedlist - " << slow->data <<endl;
+  return; 
 }  
   
 // Function to add a new node  
@@ -43,8 +54,8 @@ int main()
     {  
         push(&head, i);  
         printList(head);  
-        printMiddle(head);  
     }  
+    printMiddle(head);  
   
     return 0;  
 }  
