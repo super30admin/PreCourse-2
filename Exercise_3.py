@@ -17,8 +17,19 @@ class LinkedList:
   
     def push(self, new_data): 
         new_node = Node(new_data)
-        new_node.next = self.head
-        self.head = new_node
+        if self.head is None:
+            self.head = new_node
+        else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = new_node
+
+    def print(self):
+        current = self.head
+        while current is not None:
+            print(current.data)
+            current = current.next
         
     #Foolowing algorithm ensures that the middle element is found always, in case of even number of nodes, it prints second node    
   
@@ -42,4 +53,5 @@ list1.push(4)
 list1.push(2) 
 list1.push(3) 
 list1.push(1) 
+list1.print()
 list1.printMiddle() 
