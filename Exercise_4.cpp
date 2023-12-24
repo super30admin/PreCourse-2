@@ -1,43 +1,89 @@
-#include<stdlib.h> 
-#include<stdio.h> 
-  
-// Merges two subarrays of arr[]. 
-// First subarray is arr[l..m] 
-// Second subarray is arr[m+1..r] 
-void merge(int arr[], int l, int m, int r) 
-{ 
-    //Your code here
-} 
-  
-/* l is for left index and r is right index of the 
+/*
+----------------------------------
+* Implemetation of Merge Sort
+----------------------------------
+
+* Time Complexity: O(nlog(n))
+
+* Space Complexity: O(n)
+
+Did this code successfully run on Leetcode : NA
+Any problem you faced while coding this : NO
+
+*/
+
+#include<stdio.h>
+
+// Merges two subarrays of arr[].
+// First subarray is arr[l..m]
+// Second subarray is arr[m+1..r]
+void merge(int arr[], int l, int m, int r)
+{
+    int i = l; // starting index for left subarry
+    int j = m + 1; // starting index for right subarry
+    int k = 0; // starting index for the temp array
+
+    int temp_size = (r - l) + 1;
+    int temp[temp_size];
+
+    while (i <= m && j <= r) {
+        if (arr[i] < arr[j]) {
+            temp[k++] = arr[i++];
+        } else {
+            temp[k++] = arr[j++];
+        }
+    }
+
+    // copy all the elements of the left subarry
+    while (i <= m) {
+        temp[k++] = arr[i++];
+    }
+
+    // copy all the elements of the right subarry
+    while (j <= r) {
+        temp[k++] = arr[j++];
+    }
+
+    for (int s = 0 ; s < temp_size; s++) {
+        arr[l + s] = temp[s];
+    }
+
+}
+
+/* l is for left index and r is right index of the
    sub-array of arr to be sorted */
-void mergeSort(int arr[], int l, int r) 
-{ 
-    //Your code here
-} 
-  
+void mergeSort(int arr[], int l, int r)
+{
+    if (l < r) {
+        int m = l + (r - l)/2;
+        mergeSort(arr, l, m);
+        mergeSort(arr, m + 1, r);
+        merge(arr, l, m, r);
+    }
+}
+
 /* UTILITY FUNCTIONS */
 /* Function to print an array */
-void printArray(int A[], int size) 
-{ 
-    int i; 
-    for (i=0; i < size; i++) 
-        printf("%d ", A[i]); 
-    printf("\n"); 
-} 
-  
+void printArray(int A[], int size)
+{
+    int i;
+    for (i=0; i < size; i++)
+        printf("%d ", A[i]);
+    printf("\n");
+}
+
 /* Driver program to test above functions */
-int main() 
-{ 
-    int arr[] = {12, 11, 13, 5, 6, 7}; 
-    int arr_size = sizeof(arr)/sizeof(arr[0]); 
-  
-    printf("Given array is \n"); 
-    printArray(arr, arr_size); 
-  
-    mergeSort(arr, 0, arr_size - 1); 
-  
-    printf("\nSorted array is \n"); 
-    printArray(arr, arr_size); 
-    return 0; 
+int main()
+{
+    int arr[] = {12, 11, 13, 5, 6, 7};
+    int arr_size = sizeof(arr)/sizeof(arr[0]);
+
+    printf("Given array is \n");
+    printArray(arr, arr_size);
+
+    mergeSort(arr, 0, arr_size - 1);
+
+    printf("\nSorted array is \n");
+    printArray(arr, arr_size);
+    return 0;
 }
