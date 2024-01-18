@@ -16,10 +16,15 @@ class LinkedList
   
     /* Function to print middle of linked list */
    //Complete this function
-    void printMiddle() 
+    public ListNode printMiddle(ListNode head) 
     { 
         //Write your code here
-	//Implement using Fast and slow pointers
+	ListNode slow = head, fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
     } 
   
     public void push(int new_data) 
@@ -51,3 +56,7 @@ class LinkedList
         } 
     } 
 } 
+
+
+// TC: O(N)
+// SC: O(1)

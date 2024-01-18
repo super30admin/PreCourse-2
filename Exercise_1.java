@@ -36,3 +36,6 @@ class BinarySearch {
             System.out.println("Element found at index " + result); 
     } 
 } 
+
+// TC - O(log n)
+// SC - O(1)
