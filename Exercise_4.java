@@ -1,20 +1,44 @@
 class MergeSort 
 { 
-    // Merges two subarrays of arr[]. 
-    // First subarray is arr[l..m] 
-    // Second subarray is arr[m+1..r] 
-    void merge(int arr[], int l, int m, int r) 
-    {  
-       //Your code here  
-    } 
-  
-    // Main function that sorts arr[l..r] using 
-    // merge() 
-    void sort(int arr[], int l, int r) 
-    { 
-	//Write your code here
-        //Call mergeSort from here 
-    } 
+	private static void mergeSort(int[] arr) {
+		if (arr.length == 1)
+			return;
+		int middle = arr.length / 2;
+
+		// create two sub arrays
+		int[] left = new int[middle];
+		for (int i = 0; i < middle; i++) {
+			left[i] = arr[i];
+		}
+
+		int[] right = new int[arr.length - middle];
+		for (int i = middle; i < arr.length; i++) {
+			right[i - middle] = arr[i];
+		}
+
+		mergeSort(left);
+		mergeSort(right);
+
+		merge(left, right, arr);
+	}
+
+	private static void merge(int[] left, int[] right, int[] result) {
+		int i = 0, j = 0, k = 0;
+		while (i < left.length && j < right.length) {
+			if (left[i] <= right[j])
+				result[k++] = left[i++];
+			else
+				result[k++] = right[j++];
+		}
+
+		while (i < left.length) {
+			result[k++] = left[i++];
+		}
+		while (j < right.length) {
+			result[k++] = right[j++];
+		}
+
+	}
   
     /* A utility function to print array of size n */
     static void printArray(int arr[]) 
@@ -34,7 +58,7 @@ class MergeSort
         printArray(arr); 
   
         MergeSort ob = new MergeSort(); 
-        ob.sort(arr, 0, arr.length-1); 
+        ob.mergeSort(arr); 
   
         System.out.println("\nSorted array"); 
         printArray(arr); 
