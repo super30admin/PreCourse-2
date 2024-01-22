@@ -5,15 +5,58 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+
+        int leftArrLength = (m - l) + 1;
+        int rightArrLength = r - m;
+
+        int[] leftArr = new int[leftArrLength];
+        int[] rightArr = new int[rightArrLength];
+
+        for(int i = 0; i < leftArr.length; i++) {
+            leftArr[i] = arr[l + i];
+        }
+
+        for(int j=0; j < rightArr.length; j++) {
+            rightArr[j] = arr[m + 1 + j];
+        }
+
+        int currentLeft = 0, currentRight = 0;
+        while(currentLeft < leftArr.length && currentRight < rightArr.length) {
+
+            if(leftArr[currentLeft] <= rightArr[currentRight]) {
+                arr[l] = leftArr[currentLeft];
+                currentLeft++;
+            } else {
+                arr[l] = rightArr[currentRight];
+                currentRight++;
+            }
+            l++;
+        }
+
+        while(currentLeft < leftArr.length) {
+                arr[l] = leftArr[currentLeft];
+                currentLeft++;
+                l++;
+        }
+
+        while(currentRight < rightArr.length) {
+                arr[l] = rightArr[currentRight];
+                currentRight++;
+                l++;
+        }
     } 
   
     // Main function that sorts arr[l..r] using 
     // merge() 
     void sort(int arr[], int l, int r) 
     { 
-	//Write your code here
-        //Call mergeSort from here 
+	    if(l >= r) {
+            return;
+        }
+        int mid = l+(r-l)/2;
+        sort(arr, l, mid);
+        sort(arr, mid+1, r);
+        merge(arr, l, mid, r);
     } 
   
     /* A utility function to print array of size n */
