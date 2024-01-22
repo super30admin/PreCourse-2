@@ -1,5 +1,5 @@
 // Time Complexity : O(N logN)
-// Space Complexity : O(N) as I am using a temp array to store the merge result in merge() function
+// Space Complexity : O(N) + O(logN) I am using a temp array to store the merge result in merge() function, and the logN is recursive call stack
 // Did this code successfully run on Leetcode : Yes
 // Any problem you faced while coding this : No
 
