@@ -1,5 +1,11 @@
 import java.util.Stack;
 
+// Time Complexity : 
+    // Best - O(N logN)
+    // Average - O(N logN)
+    // Worst - O(N^2)
+// Space Complexity : O(N)
+
 class IterativeQuickSort {
     void swap(int arr[], int i, int j) {
         // Try swapping without extra variable

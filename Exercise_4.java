@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
+
+// Time Complexity : O(N logN)
+// Space Complexity : O(N)
+
+
 class MergeSort {
     // Merges two subarrays of arr[].
     // First subarray is arr[l..m]
