@@ -54,7 +54,10 @@ class IterativeQuickSort {
   
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
-    { 
+    {   
+        if (l >= h){
+            return;
+        }
         int [] stackArr = new int [h -l + 1];
         int top = -1;
 
