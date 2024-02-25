@@ -1,3 +1,5 @@
+//Time complexity : o(nlogn)
+//Space complexity : o(n) for stack
 import java.util.Stack;
 
 class IterativeQuickSort { 
