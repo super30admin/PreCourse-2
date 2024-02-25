@@ -1,4 +1,4 @@
-// Binary Search
+// Merge Sort
 
 // Time Complexity : O(N * Log N), where N is the array's length, Merging takes N and Sorting takes LogN, 
 // as it sorts in log time by dividing the array in two parts.
