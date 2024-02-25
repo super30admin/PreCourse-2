@@ -1,3 +1,10 @@
+// Middle of a Linked List
+
+// Time Complexity : O(N/2), which can be O(N) where N length of the LinkedList
+// Space Complexity : O(2N), which can be O(N), to store the new 2 LinkedList - slow and fast.
+// Did this code successfully run on Leetcode :
+// Any problem you faced while coding this : No
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +27,12 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node s = head, f = head;
+        while(f != null && f.next != null){
+            f = f.next.next;
+            s = s.next;
+        }
+        System.out.println(s.data);
     } 
   
     public void push(int new_data) 
