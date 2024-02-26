@@ -1,8 +1,28 @@
+// time complexity : O(logn)
+//space complexity: O(1)
+
 class BinarySearch { 
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
+        if (r >= l) { 
+            int mid = l + (r - l) / 2; 
+  
+            // If the element is present at the middle itself 
+            if (arr[mid] == x) 
+                return mid; 
+  
+            // If the element is smaller than mid, then it can only be present on the left side of the array 
+            if (arr[mid] > x) 
+                return binarySearch(arr, l, mid - 1, x); 
+  
+            // Else the element can only be present in the right side of the array 
+            return binarySearch(arr, mid + 1, r, x); 
+        } 
+  
+        // We reach here when the element is not present in the array 
+        return -1;
     } 
   
     // Driver method to test above 

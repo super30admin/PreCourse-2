@@ -1,18 +1,63 @@
+//Time complexity : O(nlogn)
+//Space Complexity: O(logn)
+import java.util.ArrayList;
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
     // First subarray is arr[l..m] 
     // Second subarray is arr[m+1..r] 
-    void merge(int arr[], int l, int m, int r) 
-    {  
-       //Your code here  
-    } 
+       void merge(int arr[], int l, int m, int r) {
+        ArrayList<Integer> left = new ArrayList<>();
+        ArrayList<Integer> right = new ArrayList<>();
+
+        // Fill the left and right temporary arrays
+        for (int i = l; i <= m; i++) {
+            left.add(arr[i]);
+        }
+        for (int i = m + 1; i <= r; i++) {
+            right.add(arr[i]);
+        }
+
+        int i = 0, j = 0, k = l;
+
+        // Merge the two arrays back into arr[]
+        while (i < left.size() && j < right.size()) {
+            if (left.get(i) <= right.get(j)) {
+                arr[k++] = left.get(i++);
+            } else {
+                arr[k++] = right.get(j++);
+            }
+        }
+
+        // Copy remaining elements of left[] if any
+        while (i < left.size()) {
+            arr[k++] = left.get(i++);
+        }
+
+        // Copy remaining elements of right[] if any
+        while (j < right.size()) {
+            arr[k++] = right.get(j++);
+        }
+    }
+
+
   
     // Main function that sorts arr[l..r] using 
     // merge() 
     void sort(int arr[], int l, int r) 
     { 
-	//Write your code here
+        //Write your code here
+        if (l < r) {
+            // Find the middle point
+            int m = (l + r) / 2;
+
+            // Sort first and second halves
+            sort(arr, l, m);
+            sort(arr, m + 1, r);
+
+            // Merge the sorted halves
+            merge(arr, l, m, r);
+        }
         //Call mergeSort from here 
     } 
   
