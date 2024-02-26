@@ -1,10 +1,12 @@
-class LinkedList 
-{ 
+class LinkedList {
+    // Time Complexity :
+    // Space Complexity :
+    // Did this code successfully run on Leetcode :
+    // Any problem you faced while coding this :
     Node head; // head of linked list 
   
     /* Linked list node */
-    class Node 
-    { 
+    class Node {
         int data; 
         Node next; 
         Node(int d) 
@@ -19,7 +21,23 @@ class LinkedList
     void printMiddle() 
     { 
         //Write your code here
-	//Implement using Fast and slow pointers
+	    //Implement using Fast and slow pointers
+        if(head == null){
+            System.out.println("EMPTY LinkedList");
+        }
+
+        // let the pointers race begin
+        Node slow = head;
+        Node fast = head;
+        while(fast != null && fast.next != null) {
+            slow = slow.next; // 1x speed
+            fast = fast.next.next; //2x speed
+        }
+
+//        when fast reaches at the end, then slow will reach at the middle.
+//        As fast is running at 2x speed (calling next twice) compared to slow
+        System.out.println("Middle of LinkedList: " + slow.data);
+
     } 
   
     public void push(int new_data) 
