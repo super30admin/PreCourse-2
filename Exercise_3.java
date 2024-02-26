@@ -1,3 +1,9 @@
+// Time Complexity : O(N) where N is the number of nodes
+// Space Complexity : O(1) as no extra space is needed
+// Did this code successfully run on Leetcode : Yes, succesfully ran on leetcod. https://leetcode.com/problems/middle-of-the-linked-list/description/?envType=list&envId=p7pm3lor
+// Any problem you faced while coding this :No
+
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +26,14 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+         ListNode fast = head;
+	 ListNode slow = head;
+	while(fast.next!=null){
+	    fast = fast.next.next;
+	    slow = slow.next;
+	}
+	    System.out.println(slow.data);
+	    
     } 
   
     public void push(int new_data) 
