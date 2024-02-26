@@ -20,6 +20,19 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    if (head == null) {
+        System.out.println("The list is empty.");
+        return;
+    }
+
+    Node slow_ptr = head; 
+    Node fast_ptr = head; 
+    while (fast_ptr != null && fast_ptr.next != null) 
+    { 
+        fast_ptr = fast_ptr.next.next; 
+        slow_ptr = slow_ptr.next; 
+    } 
+    System.out.println("The middle element is: " + slow_ptr.data); 
     } 
   
     public void push(int new_data) 
