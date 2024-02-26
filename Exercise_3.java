@@ -1,7 +1,7 @@
 class LinkedList {
-    // Time Complexity :
-    // Space Complexity :
-    // Did this code successfully run on Leetcode :
+    // Time Complexity : O(n) as we need to traverse all elements in linkedlist
+    // Space Complexity : O(1), no extra space needed other than constaants
+    // Did this code successfully run on Leetcode : IDK
     // Any problem you faced while coding this :
     Node head; // head of linked list 
   
