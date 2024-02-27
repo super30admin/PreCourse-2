@@ -1,5 +1,5 @@
 import java.util.Stack;
-class Excercise_5{
+class Exercise_5{
     // Function to swap two elements in the array without using an extra variable
     void swap(int arr[], int i, int j) {
         if (i != j) {
