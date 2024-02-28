@@ -1,5 +1,5 @@
-# Time Complexity : O(NlogN)
-# Space Complexity : O(1)
+# Time Complexity : O(n*logn)
+# Space Complexity : O(n)
 
 # Python program for implementation of Quicksort
 
