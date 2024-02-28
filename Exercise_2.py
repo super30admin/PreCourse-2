@@ -1,14 +1,35 @@
+# Time Complexity : O(NlogN)
+# Space Complexity : O(1)
+
 # Python program for implementation of Quicksort Sort 
   
 # give you explanation for the approach
 def partition(arr,low,high):
-  
+    p = arr[high]
+    i = low -1
+    
+    for j in range(low, high):
+        if arr[j] <= p:
+            i = i + 1
+            
+            arr[i], arr[j] = arr[j], arr[i]
+
+    arr[i+1], arr[high] = arr[high], arr[i+1]
+    
+    return i+1
   
     #write your code here
   
 
 # Function to do Quick sort 
-def quickSort(arr,low,high): 
+def quickSort(arr,low,high):
+    if low<high:
+        pi = partition(arr,low,high)
+        
+        quickSort(arr, low, pi-1)
+        
+        quickSort(arr, pi+1, high)
+    
     
     #write your code here
   
