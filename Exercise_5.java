@@ -2,6 +2,11 @@ class IterativeQuickSort {
     void swap(int arr[], int i, int j) 
     { 
 	//Try swapping without extra variable 
+    	if(i!=j) {
+	        arr[i] = arr[j] + arr[i];
+	        arr[j] = arr[i] - arr[j];
+	        arr[i] = arr[i] - arr[j];
+    	}
     } 
   
     /* This function is same in both iterative and 
@@ -9,6 +14,16 @@ class IterativeQuickSort {
     int partition(int arr[], int l, int h) 
     { 
         //Compare elements and swap.
+    	int pivot = arr[high]; 
+        for (int i = low; i <= high - 1; i++) {
+            if (arr[i] < pivot) { 
+                // Swap and Increment low 
+                swap(arr, low, i);
+                low++;
+            }
+        }
+        swap(arr, low, high);
+        return (low); 
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
