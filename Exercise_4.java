@@ -12,8 +12,11 @@ class MergeSort
     // merge() 
     void sort(int arr[], int l, int r) 
     { 
-	//Write your code here
-        //Call mergeSort from here 
+        if (l<r);
+        int mid = l + (r-1) / 2;
+        sort(arr,l,mid);
+        sort(arr,mid+1,r);
+        merge(arr,l,mid,r);
     } 
   
     /* A utility function to print array of size n */
