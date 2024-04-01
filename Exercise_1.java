@@ -1,9 +1,13 @@
+// Time Complexity : O(log N)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : none
+
+
+// Your code here along with comments explaining your approach
+//Used a loop to run from start till and and checking every mid for the target.
 class BinarySearch { 
-    // Returns index of x if it is present in arr[l.. r], else return -1 
-    int binarySearch(int arr[], int l, int r, int x) 
-    { 
-        //Write your code here
-    } 
+  
   
     // Driver method to test above 
     public static void main(String args[]) 
@@ -18,4 +22,23 @@ class BinarySearch {
         else
             System.out.println("Element found at index " + result); 
     } 
+      // Returns index of x if it is present in arr[l.. r], else return -1 
+    public int binarySearch(int[] arr, int start, int end, int target){
+        while(start<=end){
+            int mid = start+(end-start)/2;
+
+            if(arr[mid]==target){
+                return mid;
+            }
+
+            if(arr[mid]< target){
+                start = mid+1;
+            }
+            else {
+                end = mid-1;
+            }
+ 
+        }
+        return -1;
+    }
 } 

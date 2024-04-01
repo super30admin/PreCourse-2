@@ -1,3 +1,10 @@
+/* Time Complexity : O(n)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode :yes
+// Any problem you faced while coding this :no
+
+
+// Your code here along with comments explaining your approach*/
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -18,8 +25,22 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+        if(head == null){
+            return;
+        }
+        if(head.next == null){
+            System.out.println("Middle of linked list "+ head.data);
+
+            return;
+        }
+        Node fast = head;
+        Node slow = head;
+
+        while(fast != null && fast.next !=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        System.out.println("Middle of linked list "+ slow.data);
     } 
   
     public void push(int new_data) 
@@ -51,3 +72,35 @@ class LinkedList
         } 
     } 
 } 
+/*Output:
+ * 15->NULL
+Middle of linked list 15
+14->15->NULL
+Middle of linked list 15
+13->14->15->NULL
+Middle of linked list 14
+12->13->14->15->NULL
+Middle of linked list 14
+11->12->13->14->15->NULL
+Middle of linked list 13
+10->11->12->13->14->15->NULL
+Middle of linked list 13
+9->10->11->12->13->14->15->NULL
+Middle of linked list 12
+8->9->10->11->12->13->14->15->NULL
+Middle of linked list 12
+7->8->9->10->11->12->13->14->15->NULL
+Middle of linked list 11
+6->7->8->9->10->11->12->13->14->15->NULL
+Middle of linked list 11
+5->6->7->8->9->10->11->12->13->14->15->NULL
+Middle of linked list 10
+4->5->6->7->8->9->10->11->12->13->14->15->NULL
+Middle of linked list 10
+3->4->5->6->7->8->9->10->11->12->13->14->15->NULL
+Middle of linked list 9
+2->3->4->5->6->7->8->9->10->11->12->13->14->15->NULL
+Middle of linked list 9
+1->2->3->4->5->6->7->8->9->10->11->12->13->14->15->NULL
+Middle of linked list 8
+ */
