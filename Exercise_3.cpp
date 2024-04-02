@@ -1,3 +1,8 @@
+// Time Complexity : O(n)
+// Space Complexity : O(n)
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : none
+
 #include<bits/stdc++.h>  
 using namespace std;  
   
@@ -11,8 +16,16 @@ struct Node
 /* Function to get the middle of the linked list*/
 void printMiddle(struct Node *head)  
 {  
-  //YourCode here
-  //Use fast and slow pointer technique
+  //lets take two pointers slow and fast
+    Node* slow = head;
+    Node* fast = head;
+    while(fast && fast->next){
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    printf("Middle elem is:: %d \n", slow->data);  
+    return;
+    
 }  
   
 // Function to add a new node  
