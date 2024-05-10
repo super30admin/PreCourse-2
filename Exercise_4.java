@@ -1,3 +1,8 @@
+//Time Complexity: O(N log N)
+//Space Complexity: O(1)
+// Did this code successfully run on Leetcode : YES
+// Any problem you faced while coding this : NO
+
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
@@ -5,7 +10,50 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+       //calculate left subarray size and right
+       int length1 = m - l + 1;
+       int length2 = r - m;
+
+       int left[] = new int[length1];
+       int right[] = new int[length2];
+
+       // we put the data to left and right sub array
+       for (int i = 0; i < length1; ++i)
+           left[i] = arr[l + i];
+       for (int j = 0; j < length2; ++j)
+           right[j] = arr[m + 1 + j];
+
+
+       // Initailize the Index of left and right sub array
+       int i = 0, j = 0;
+
+       // Initialize the index k of merged array
+       int k = l;
+       while (i < length1 && j < length2) {
+           if (left[i] <= right[j]) {
+               arr[k] = left[i];
+               i++;
+           }
+           else {
+               arr[k] = right[j];
+               j++;
+           }
+           k++;
+       }
+
+       // we copy remaining left over elements of left array
+       while (i < length1) {
+           arr[k] = left[i];
+           i++;
+           k++;
+       }
+
+      //Similarly for the right array
+       while (j < length2) {
+           arr[k] = right[j];
+           j++;
+           k++;
+       } 
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -14,6 +62,15 @@ class MergeSort
     { 
 	//Write your code here
         //Call mergeSort from here 
+        if (l < r) {
+
+           //middle
+            int m = l + (r - l) / 2;
+           
+            sort(arr, l, m); //sorted first half
+            sort(arr, m + 1, r); //sorted second half
+            merge(arr, l, m, r);
+        }
     } 
   
     /* A utility function to print array of size n */
