@@ -1,8 +1,25 @@
+/*
+    TC - 
+    O(logn)
+    SC - 
+    O(1). If Recursive stack is considered then it is O(n)
+*/
 class BinarySearch { 
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
+        if(l<=r) {
+            int mid = (l + r) / 2;
+            if(arr[mid] ==  x) {
+                return mid;
+            } else if(arr[mid] > x) {
+                return binarySearch(arr, l, mid, x);
+            } else {
+                return binarySearch(arr, mid+1, r, x);
+            }
+        }
+        return -1;
     } 
   
     // Driver method to test above 
