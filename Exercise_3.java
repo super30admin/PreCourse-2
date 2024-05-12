@@ -1,3 +1,10 @@
+/*
+    TC - 
+        O(n) for print middle element and printing the list
+        O(1) for push
+    SC - 
+        O(n)
+*/
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +27,14 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node slow = head;
+        Node fast = head;
+        while(slow!=null && fast != null && slow.next!=null && fast.next!=null && fast.next.next !=null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        System.out.println("Middle data is "+ slow.data);
     } 
   
     public void push(int new_data) 
