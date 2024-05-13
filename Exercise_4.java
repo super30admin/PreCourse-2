@@ -1,11 +1,52 @@
 class MergeSort 
-{ 
+{
+    //Time Complexity = O(nlogn)
+    //Space Complexity = O(1)
     // Merges two subarrays of arr[]. 
     // First subarray is arr[l..m] 
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+       //Your code here
+        int n1 = m-l+1;
+        int n2 = r-m;
+
+        //Copy elements of two subarrays to temp arrays
+        int[] arr1 = new int[n1];
+        int[] arr2 = new int[n2];
+
+        for(int i=0; i<n1; i++) {
+            arr1[i] = arr[l+i];
+        }
+
+        for(int i=0; i<n2; i++) {
+            arr2[i] = arr[m+1+i];
+        }
+
+        int i =0, j=0, k=l;
+
+        while(i < n1 && j < n2) {
+            //Keep smallest elements in the merge array
+            if(arr1[i] <= arr2[j]) {
+                arr[k++] = arr1[i];
+                i++;
+            }
+            else{
+                arr[k++] = arr2[j];
+                j++;
+            }
+        }
+
+        //If arr1 still has elements
+        while(i < n1) {
+            arr[k++] = arr1[i++];
+        }
+
+        //If arr2 still has elements
+        while(j < n2) {
+            arr[k++] = arr2[j++];
+        }
+
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -13,7 +54,16 @@ class MergeSort
     void sort(int arr[], int l, int r) 
     { 
 	//Write your code here
-        //Call mergeSort from here 
+        //Call mergeSort from here
+        if(l < r) {
+            //find middle element
+            int mid = l + (r-l)/2;
+            //sort the 1st and 2nd half of the array
+            sort(arr,l,mid);
+            sort(arr,mid+1,r);
+            //Merge two sorted halves
+            merge(arr,l,mid,r);
+        }
     } 
   
     /* A utility function to print array of size n */
