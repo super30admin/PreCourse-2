@@ -3,9 +3,39 @@
   
 # It returns location of x in given array arr  
 # if present, else returns -1 
+#time complexity: O(log n)
+#space complexity: O(log n)
+'''
+approach: first get the mid value in array then compare that value in arr[mid] 
+if found then return, if arr[mid]< x; 
+increment l else decrement r
+'''
 def binarySearch(arr, l, r, x): 
   
+      
+  
   #write your code here
+
+  while l <= r:
+        #searcing value in sorted array: divides in 2 half using mid
+        mid = l + (r - l) // 2
+
+        # Check if x is present at mid, then will return mid
+        if arr[mid] == x:
+            return mid
+
+        # If x is greater, ignore left half
+        elif arr[mid] < x:
+            l = mid + 1
+
+        # If x is smaller, ignore right half
+        else:
+            r = mid - 1
+
+    # If we reach here, then the element was not present
+  return -1
+
+     
   
     
   
@@ -17,6 +47,9 @@ x = 10
 result = binarySearch(arr, 0, len(arr)-1, x) 
   
 if result != -1: 
-    print "Element is present at index % d" % result 
+    print ("Element is present at index % d" % result )
 else: 
-    print "Element is not present in array"
+    print ("Element is not present in array")
+
+  #no peoblem while soving
+  #did it on leetcode
