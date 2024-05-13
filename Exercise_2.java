@@ -1,4 +1,9 @@
-class QuickSort 
+
+/*
+ * Time Complexity: O(n log n)
+ * Space Complexity: O(log n)
+ * */
+class QuickSort
 { 
     /* This function takes last element as pivot, 
        places the pivot element at its correct 
@@ -7,12 +12,31 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //Your code here
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+   	//Write code here for Partition and Swap
+
+        int pivot = arr[low];
+        int i = low, j=high;
+
+        while(i<j){
+
+            while(arr[i]<= pivot && i<=high-1) i++;
+            while(arr[j] > pivot && j>=low+1) j--;
+
+            if(i<j) {
+                swap(arr, i,j);
+            }
+        }
+        swap(arr, low, j);
+
+        return j;
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -21,7 +45,14 @@ class QuickSort
     void sort(int arr[], int low, int high) 
     {  
             // Recursively sort elements before 
-            // partition and after partition 
+            // partition and after partition
+
+        if(low<high) {
+
+            int partition = partition(arr, low, high);
+            sort(arr,low, partition-1);
+            sort(arr, partition+1, high);
+        }
     } 
   
     /* A utility function to print array of size n */
