@@ -1,12 +1,48 @@
+#Time Complexity : O(nlogn)
+#Space Complexity : O(n)
+# Did this code successfully run on Leetcode : Yes
+# Any problem you faced while coding this : No
+
 # Python program for implementation of MergeSort 
 def mergeSort(arr):
-  
   #write your code here
+  #if there is one element no need to sort - as it is already sorted
+  if len(arr) <= 1:
+        return
+  mid = len(arr) // 2
+  #Divide array into two halves
+  left_half = arr[:mid]
+  right_half = arr[mid:]
+  #Recursively sort each half
+  mergeSort(left_half)
+  mergeSort(right_half)
+  #Merge the sorted halves back into the original array in increasing order
+  i = j = k = 0
+  while i < len(left_half) and j < len(right_half):
+    if left_half[i] < right_half[j]:
+        arr[k] = left_half[i]
+        i += 1
+    else:
+        arr[k] = right_half[j]
+        j += 1
+    k += 1
+#Append remaining elements from left_half
+  while i < len(left_half):
+    arr[k] = left_half[i]
+    i += 1
+    k += 1
+#Append remaining elements from right_half             
+  while j < len(right_half):
+    arr[k] = right_half[j]
+    j += 1
+    k += 1
   
 # Code to print the list 
-def printList(arr): 
-    
+def printList(arr):
     #write your code here
+    for item in arr:
+        print(item, end=" ")
+    print()
   
 # driver code to test the above code 
 if __name__ == '__main__': 
