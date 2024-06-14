@@ -1,3 +1,7 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
 #include<bits/stdc++.h>  
 using namespace std;  
   
@@ -13,6 +17,22 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+    if(head == NULL) {
+        cout<<"list empty"<<endl;
+    }
+    else if(head -> next == NULL) {
+        cout<<"middle element is: "<<head -> data<<endl;
+    }
+    else {
+        Node *slow = head;
+        Node *fast = head;
+        while(fast -> next != NULL && fast -> next -> next != NULL) {
+            fast = fast -> next -> next;
+            slow = slow -> next;
+        }
+        cout<<"middle element is: "<<slow -> data<<endl;
+    }
+    
 }  
   
 // Function to add a new node  
