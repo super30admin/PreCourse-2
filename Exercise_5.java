@@ -1,7 +1,17 @@
+// Time Complexity : O(nlogn)
+// Space Complexity : O(n)
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : swapping giving wrong data when both elements are same (resolved)
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
 	//Try swapping without extra variable 
+    	if(arr[i] != arr[j]) {
+    	arr[i]= arr[i] + arr[j];
+    	arr[j]= arr[i] - arr[j];
+    	arr[i]= arr[i] - arr[j];
+    	}
+    	
     } 
   
     /* This function is same in both iterative and 
@@ -9,12 +19,51 @@ class IterativeQuickSort {
     int partition(int arr[], int l, int h) 
     { 
         //Compare elements and swap.
+    	int pivot = arr[l];
+    	int i = h;
+    	for(int j=h;j>l;j--) {
+    		
+    		if(arr[j]>pivot) {
+    			
+    			swap(arr,j,i);
+    			i--;
+    		}
+    	 
+    	}
+    	 swap(arr,l,i);
+
+    	return i;
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
     { 
         //Try using Stack Data Structure to remove recursion.
+    	int[] stack = new int[h-l +1];
+    	
+    	int top =-1;
+    	
+    	stack[++top] = l;
+    	stack[++top] = h;
+    	
+    	while(top >=0) {
+    		h= stack[top--];
+    		l= stack[top--];
+    		
+    		int p = partition(arr,l,h);
+    		
+    		if(p-1> l) {
+    		stack[++top]=l;
+    		stack[++top]=p-1;
+    		}
+    		
+    		if(p+1<h) {
+    		stack[++top]=p+1;
+    		stack[++top]=h;
+    		}
+    		
+    		
+    	}
     } 
   
     // A utility function to print contents of arr 
