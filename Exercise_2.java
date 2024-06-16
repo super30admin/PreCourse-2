@@ -1,3 +1,6 @@
+// TC (avg) : O(nlogn); TC (worst) : O(n^2)
+// SC : O(logn)
+
 class QuickSort 
 { 
     /* This function takes last element as pivot, 
@@ -8,11 +11,26 @@ class QuickSort
        of pivot */
     void swap(int arr[],int i,int j){
         //Your code here   
+		int temp;
+		temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+   	//Write code here for Partition and Swap
+		int pivot = arr[high];
+		int pIndex = low;
+		
+		for (int j=low;j<high;j++){
+			if (arr[j] <= pivot){
+				swap(arr, pIndex, j);
+				pIndex = pIndex + 1;
+			}
+		}
+		swap(arr, pIndex, high);
+		return pIndex;
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -22,6 +40,13 @@ class QuickSort
     {  
             // Recursively sort elements before 
             // partition and after partition 
+			int partition1;
+			if (low < high)
+			{
+				partition1 = partition(arr, low, high);
+				sort(arr, low, partition1 - 1);
+				sort(arr, partition1 + 1, high);
+			}
     } 
   
     /* A utility function to print array of size n */
