@@ -1,13 +1,24 @@
+/*
+Time Complexity : O(log n)
+Space Complexity : O(1)
+*/ 
 class BinarySearch { 
-    // Returns index of x if it is present in arr[l.. r], else return -1 
-    int binarySearch(int arr[], int l, int r, int x) 
-    { 
-        //Write your code here
+    int binarySearch(int arr[], int l, int r, int x) {  //0 4 10
+        while(l <= r) {
+            int mid = l + (r-l)/2; 
+            if (arr[mid] == x) return mid;
+            if(x > arr[mid]) {
+                l = mid+1; 
+            }
+            if(x < arr[mid]) {
+                r = mid - 1;
+            }
+        }
+        return -1;
     } 
   
     // Driver method to test above 
-    public static void main(String args[]) 
-    { 
+    public static void main(String args[]) { 
         BinarySearch ob = new BinarySearch(); 
         int arr[] = { 2, 3, 4, 10, 40 }; 
         int n = arr.length; 
