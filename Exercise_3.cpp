@@ -1,4 +1,17 @@
-#include<bits/stdc++.h>  
+/*
+ *                     Find the middle element of the Linked Lis
+ *
+ * Leetcode : https://leetcode.com/problems/middle-of-the-linked-list/description/
+ *
+ * Time Complexity  :  O(N/2)
+ * Space Complexity :  O(1) 
+ * Did this code successfully run on Leetcode/VSCode : Yes
+ * Any problem you faced while coding this : No
+ * Your code here along with comments explaining your approach :
+ *          Using slow and fast pointers
+ */
+
+#include<iostream>  
 using namespace std;  
   
 // Struct  
@@ -13,6 +26,14 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+  Node* slow = head;
+  Node* fast = head;
+
+  while (fast && fast->next) {
+    slow = slow->next;
+    fast = fast->next->next;
+  }
+  cout << "\n Middle element is " << slow->data << endl;
 }  
   
 // Function to add a new node  

@@ -1,29 +1,66 @@
-#include <bits/stdc++.h> 
+/*
+ *                     Quick Sort Algorithm
+ *
+ * Time Complexity average case: O(nlogn)
+ * Time Complexity worst case : O(n^2)
+ * Space Complexity : O(1) --> Inplace swaps  
+ * Did this code successfully run on Leetcode/VSCode : Yes
+ * Any problem you faced while coding this : No
+ * Your code here along with comments explaining your approach :
+ *      - Using divide and conquer technique [Recursion]
+ *      - Select a pivot and keep swapping the elements lesser than pivot on the left side
+ *        and elements greater than the pivot on the right side of the pivot.
+ */
+
+#include <iostream> 
 using namespace std;  
   
 // A utility function to swap two elements  
 void swap(int* a, int* b)  
 {  
-    //Your Code here 
+    //Your Code here
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }  
   
-/* This function takes last element as pivot, places  
-the pivot element at its correct position in sorted  
-array, and places all smaller (smaller than pivot)  
-to left of pivot and all greater elements to right  
-of pivot */
+/* 
+ * This function takes last element as pivot, places  
+ * the pivot element at its correct position in sorted  
+ * array, and places all smaller (smaller than pivot)  
+ * to left of pivot and all greater elements to right  
+ * of pivot
+ */
 int partition (int arr[], int low, int high)  
 {  
-    //Your Code here 
+    //Your Code here
+    int pivot = arr[high];
+    int pIndex = low;
+
+    for(int i = low; i < high; i++) {
+        if (arr[i] <= pivot) {
+            swap(&arr[i], &arr[pIndex]);
+            pIndex++;
+        }
+    }
+    swap(&arr[pIndex], &arr[high]);
+    return pIndex;
 }  
   
-/* The main function that implements QuickSort  
-arr[] --> Array to be sorted,  
-low --> Starting index,  
-high --> Ending index */
+/* 
+ * The main function that implements QuickSort 
+ * arr[] --> Array to be sorted,  
+ * low --> Starting index,  
+ * high --> Ending index 
+ */
 void quickSort(int arr[], int low, int high)  
 {  
-    //Your Code here 
+    //Your Code here
+    if (low < high) {
+        int pIndex = partition(arr, low, high);
+        quickSort(arr, low, pIndex-1);
+        quickSort(arr, pIndex+1, high);
+    }
 }  
   
 /* Function to print an array */

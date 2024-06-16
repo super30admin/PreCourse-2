@@ -1,13 +1,45 @@
-#include <stdio.h> 
+/*
+ *              Binary Search Algorithm
+ *
+ * Time Complexity worst case and average case: O(logN)
+ * Time Complexity best case : O(1)
+ * Space Complexity : O(1)
+ * Did this code successfully run on Leetcode/VSCode : Yes
+ * Any problem you faced while coding this : No
+ * Your code here along with comments explaining your approach :
+ *      - Using divide and conquer technique
+ *         - Using 2 Pointers [start and end], calculate the mid and keep comparing the data
+ *           to the mid, start and end element until you find the required data.
+ */
+ 
+#include <iostream>
+
+using namespace std;
   
-// A recursive binary search function. It returns 
-// location of x in given array arr[l..r] is present, 
-// otherwise -1 
+/*
+ * A recursive binary search function. It returns 
+ * location of x in given array arr[l..r] is present, 
+ * otherwise -1
+ */ 
 int binarySearch(int arr[], int l, int r, int x) 
 {   
     //Your Code here 
+    while (l < r) {
+        int mid = (l+r)/2;
+
+        if (x == arr[mid]) {
+            return mid;
+        } 
+        if (x < arr[mid]) {
+            r = mid - 1;
+        }
+        if (x > arr[mid]) {
+            l = mid + 1;
+        }
+    }
+    return -1;
 } 
-  
+
 int main(void) 
 { 
     int arr[] = { 2, 3, 4, 10, 40 }; 
