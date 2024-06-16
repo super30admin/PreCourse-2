@@ -1,4 +1,16 @@
-class LinkedList 
+// Time Complexity : printMiddle:O(n)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode :yes
+// Any problem you faced while coding this : no
+
+
+// Your code here along with comments explaining your approach
+
+// Assigned tow points one for increments one spot and other increments two spots at a time and checked if the fastpointer reaches the end of list with null checks and returned the slowpointer as the middle element.
+
+
+
+class Exercise_3 
 { 
     Node head; // head of linked list 
   
@@ -20,6 +32,13 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    Node slowPtr=head;
+    Node fastPtr=head;
+    while(fastPtr!=null && fastPtr.next!=null){
+        slowPtr=slowPtr.next;
+        fastPtr=fastPtr.next.next;
+    }
+    System.out.println(slowPtr.data);
     } 
   
     public void push(int new_data) 
@@ -42,7 +61,7 @@ class LinkedList
   
     public static void main(String [] args) 
     { 
-        LinkedList llist = new LinkedList(); 
+        Exercise_3 llist = new Exercise_3(); 
         for (int i=15; i>0; --i) 
         { 
             llist.push(i); 

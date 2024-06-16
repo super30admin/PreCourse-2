@@ -1,4 +1,15 @@
-class QuickSort 
+// Time Complexity : O(nlogn)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode :yes  
+// Any problem you faced while coding this : Confusion with doing recursive tree on dry runnning the code.
+
+
+// Your code here along with comments explaining your approach
+
+// Set the pivot to the last element in the array and set i=0 and j=pivot -1 to heck if the elements from i index are greater and elements from j index are lesser than pivot then they get to be exchanged with eachother. 
+// By this method we will be able to find the position of the pivot and then again we need to do the same process recursively in left side of pivot and right side of pivot.
+
+class Exercise_2 
 { 
     /* This function takes last element as pivot, 
        places the pivot element at its correct 
@@ -8,11 +19,32 @@ class QuickSort
        of pivot */
     void swap(int arr[],int i,int j){
         //Your code here   
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
     }
     
     int partition(int arr[], int low, int high) 
     { 
    	//Write code here for Partition and Swap 
+
+    int pivot=high;
+    while(low<high)
+    {
+        while(arr[low]<arr[pivot])
+        {
+            low++;
+        }
+        while(arr[high]>arr[pivot])
+        {
+            high--;
+        }
+        if(low<high){
+            swap(arr,low,high);
+        }
+    }
+    swap(arr,low,pivot);
+    return low;
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -22,6 +54,11 @@ class QuickSort
     {  
             // Recursively sort elements before 
             // partition and after partition 
+            if(low<high){
+                int j=partition(arr,low,high);
+                sort(arr,low,j-1);
+                sort(arr,j+1,high);
+            }
     } 
   
     /* A utility function to print array of size n */
@@ -39,7 +76,7 @@ class QuickSort
         int arr[] = {10, 7, 8, 9, 1, 5}; 
         int n = arr.length; 
   
-        QuickSort ob = new QuickSort(); 
+        Exercise_2 ob = new Exercise_2(); 
         ob.sort(arr, 0, n-1); 
   
         System.out.println("sorted array"); 
