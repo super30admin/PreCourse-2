@@ -3,7 +3,7 @@ class LinkedList
     Node head; // head of linked list 
   
     /* Linked list node */
-    class Node 
+    static class Node
     { 
         int data; 
         Node next; 
@@ -20,6 +20,15 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node fast = head;
+        Node slow = head;
+
+        while(fast!=null && fast.next!=null) {
+            slow = head.next;
+            fast = head.next.next;
+        }
+        assert slow != null;
+        System.out.println("The mid element is: " + slow.data);
     } 
   
     public void push(int new_data) 
@@ -43,7 +52,7 @@ class LinkedList
     public static void main(String [] args) 
     { 
         LinkedList llist = new LinkedList(); 
-        for (int i=15; i>0; --i) 
+        for (int i=15; i>0; --i)
         { 
             llist.push(i); 
             llist.printList(); 
