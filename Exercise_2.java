@@ -1,4 +1,7 @@
-class QuickSort 
+//Time Complexity: O(log n)
+//Space Complexity: O(log n) because of the use of the recursive stack
+
+class QuickSort
 { 
     /* This function takes last element as pivot, 
        places the pivot element at its correct 
@@ -7,12 +10,29 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //Your code here
+        int temp = arr[i];
+
+        arr[i] = arr[j];
+
+        arr[j] = temp;
+
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+   	//Write code here for Partition and Swap
+        int pivot = arr[low];
+        int index = low;
+        for(int i = low + 1; i <= high; i++) {
+            if(arr[i] <= pivot) {
+                index++;
+
+                swap(arr, index, i);
+            }
+        }
+        swap(arr, low, index);
+        return index;
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -21,7 +41,12 @@ class QuickSort
     void sort(int arr[], int low, int high) 
     {  
             // Recursively sort elements before 
-            // partition and after partition 
+            // partition and after partition
+        if(low < high) {
+            int pivotElement = partition(arr,low,high);
+            sort(arr, low, pivotElement - 1);
+            sort(arr,pivotElement + 1, high);
+        }
     } 
   
     /* A utility function to print array of size n */
@@ -36,7 +61,8 @@ class QuickSort
     // Driver program 
     public static void main(String args[]) 
     { 
-        int arr[] = {10, 7, 8, 9, 1, 5}; 
+       // int arr[] = {10, 7, 8, 9, 1, 5};
+        int arr[] = {10, 7, 24, 8, 5, 30, 20};
         int n = arr.length; 
   
         QuickSort ob = new QuickSort(); 
