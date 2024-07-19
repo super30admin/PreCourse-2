@@ -1,3 +1,5 @@
+//Time Complexity: O(nlog(n))
+//Space Complexity: O(n)
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
@@ -6,6 +8,44 @@ class MergeSort
     void merge(int arr[], int l, int m, int r) 
     {  
        //Your code here  
+	int leftSize = m - l + 1;
+        int rightSize = r - m;
+
+        // Create temp arrays
+        int L[] = new int[leftSize];
+        int R[] = new int[rightSize];
+
+        // Copy data to temp arrays
+        for (int i = 0; i < leftSize; ++i)
+            L[i] = arr[l + i];
+        for (int j = 0; j < rightSize; ++j)
+            R[j] = arr[m + 1 + j];
+
+
+        int i = 0, j = 0;
+        int k = l;
+        while (i < leftSize && j < rightSize) {
+            if (L[i] <= R[j]) {
+                arr[k] = L[i];
+                i++;
+            } else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < leftSize) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+
+        while (j < rightSize) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -14,6 +54,12 @@ class MergeSort
     { 
 	//Write your code here
         //Call mergeSort from here 
+	if (l < r) {
+            int m = l + (r - l) / 2;
+            sort(arr, l, m);
+            sort(arr, m + 1, r);
+            merge(arr, l, m, r);
+        }
     } 
   
     /* A utility function to print array of size n */
