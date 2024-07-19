@@ -6,13 +6,35 @@ class QuickSort
        smaller (smaller than pivot) to left of 
        pivot and all greater elements to right 
        of pivot */
+
+       // Was to understand the time complexity, however it takes O(1) space for each swap!
     void swap(int arr[],int i,int j){
-        //Your code here   
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;   
     }
     
     int partition(int arr[], int low, int high) 
     { 
    	//Write code here for Partition and Swap 
+        int pivot = arr[(low + high)/2];
+
+        while (low <= high) {
+            while (arr[low] < pivot) {
+                low ++;
+            }
+
+            while (arr[high] > pivot) {
+                high --;
+            }
+
+            if (low <= high) {
+                swap(arr, low, high);
+                low ++;
+                high --;
+            }
+        }
+        return low;
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -20,6 +42,14 @@ class QuickSort
       high  --> Ending index */
     void sort(int arr[], int low, int high) 
     {  
+        int index = partition(arr, low, high);
+        if (low < index - 1) {
+            sort(arr, low, index - 1);
+        }
+
+        if (index < high) {
+            sort(arr, index, high);
+        }
             // Recursively sort elements before 
             // partition and after partition 
     } 
