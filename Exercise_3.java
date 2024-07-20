@@ -1,8 +1,12 @@
-class LinkedList 
+// Time Complexity : O(n)
+// Space Complexity : 0(n)
+// Did this code successfully run on Leetcode : Local Environment (IntelliJ)
+// Any problem you faced while coding this : No
+
+class LinkedList
 { 
     Node head; // head of linked list 
-  
-    /* Linked list node */
+
     class Node 
     { 
         int data; 
@@ -13,13 +17,16 @@ class LinkedList
             next = null; 
         } 
     } 
-  
-    /* Function to print middle of linked list */
-   //Complete this function
+
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+        Node fast = head;
+        Node slow = head;
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        System.out.println("The middle element is [" + slow.data + "] \n");
     } 
   
     public void push(int new_data) 
