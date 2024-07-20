@@ -1,5 +1,9 @@
 # Python program for implementation of Quicksort Sort 
-  
+'''
+I am not too good with quick sort. So skipping the question
+
+
+'''
 # give you explanation for the approach
 def partition(arr,low,high):
   
