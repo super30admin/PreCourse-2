@@ -1,3 +1,14 @@
+
+// Time Complexity : O(n)
+// Space Complexity : O(n)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No problem faced.
+
+
+// Slow and fast pointer assumes that at some point both the pointers will be at same position
+// when that happens the middle of the list is output.
+
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -18,8 +29,22 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
+    
+    //Write your code here
 	//Implement using Fast and slow pointers
+    // -----approach ----
+    // Just think about it.
+    // take a snapshot of like saying 1-> 2-> 3
+    // first pass = slow = 2, fast =3
+    // what's the middle - 2 (slow pointer). That's it. that's the answer.
+    Node slow = head;
+    Node fast = head;
+    while(fast!=null && fast.next!=null) {
+        slow = slow.next;
+        fast = fast.next.next;
+
+    }
+    System.out.println(slow.data);
     } 
   
     public void push(int new_data) 
