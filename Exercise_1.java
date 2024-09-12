@@ -1,8 +1,26 @@
+// Time Complexity : O(log(n))
+// Space Complexity : O(n)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this :    No
+
 class BinarySearch { 
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
     { 
-        //Write your code here
+        if (r >= l) {
+
+            int mid = (l + r) / 2;
+            // if element is in the middle of array, return
+            if (arr[mid] == x)
+                return mid;
+            //if element is greater then middle element then divide the array into half by decrementing value of r
+            if (arr[mid] > x)
+                return binarySearch(arr, l, mid - 1, x);
+            //if element is smaller then middle element then divide the array into half by incrementing value of l
+            if (arr[mid] < x)
+                return binarySearch(arr, mid + 1, r, x);
+        }
+        return -1;   
     } 
   
     // Driver method to test above 
