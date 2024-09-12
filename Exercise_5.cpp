@@ -1,3 +1,8 @@
+// Time Complexity :O(n log n)
+// Space Complexity :O(n log n)
+// Did this code successfully run on Leetcode : did not try
+// Any problem you faced while coding this :no
+
 #include <bits/stdc++.h> 
 using namespace std; 
   
@@ -13,6 +18,17 @@ void swap(int* a, int* b)
 int partition(int arr[], int l, int h) 
 { 
     //Do the comparison and swapping here 
+    int x = arr[h]; 
+    int i = (l - 1); 
+  
+    for (int j = l; j <= h - 1; j++) { 
+        if (arr[j] <= x) { 
+            i++; 
+            swap(&arr[i], &arr[j]); 
+        } 
+    } 
+    swap(&arr[i + 1], &arr[h]); 
+    return (i + 1); 
 } 
   
 /* A[] --> Array to be sorted,  
@@ -21,6 +37,12 @@ h --> Ending index */
 void quickSortIterative(int arr[], int l, int h) 
 { 
     //Try to think that how you can use stack here to remove recursion.
+    if (l < h) { 
+        /* Partitioning index */
+        int p = partition(arr, l, h); 
+        quickSortIterative(arr, l, p - 1); 
+        quickSortIterative(arr, p + 1, h); 
+    } 
 } 
   
 // A utility function to print contents of arr 
