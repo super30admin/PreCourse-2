@@ -6,6 +6,14 @@
 int binarySearch(int arr[], int l, int r, int x) 
 {   
     //Your Code here 
+    int mid=(l+r)/2;
+    	if(arr[mid]==x)
+    		return mid;
+    	else if(arr[mid]>x)
+    		return binarySearch(arr, l, mid-1, x);
+    	else
+    		return binarySearch(arr, mid+1, r, x);
+
 } 
   
 int main(void) 
@@ -18,4 +26,4 @@ int main(void)
                    : printf("Element is present at index %d", 
                             result); 
     return 0; 
-} 
+}
