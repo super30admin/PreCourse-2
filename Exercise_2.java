@@ -1,4 +1,11 @@
-class QuickSort 
+//Problem 2: Quick Sort
+
+//   Time Complexity : The worst time complexity for this problem is O(n^2) if the elements are already in sorted order and it would be O(n log n)
+//                      n times for partinioning and log n times for recursion.
+//   Space Complexity : Space complexity would be O(log n)
+//   Any problem you faced while coding this : Stack tracing during recursion was difficult to keep track while debugg
+
+class QuickSort
 { 
     /* This function takes last element as pivot, 
        places the pivot element at its correct 
@@ -7,12 +14,26 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //Your code here
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+   	//Write code here for Partition and Swap
+        int pivot = arr[high];
+        if(low <= high){
+            for(int i =low;i<=high;i++){
+                if(arr[i] < pivot) {
+                    swap(arr, i, low);
+                    low++;
+                }
+            }
+            swap(arr,low,high);
+        }
+        return low;
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -21,7 +42,12 @@ class QuickSort
     void sort(int arr[], int low, int high) 
     {  
             // Recursively sort elements before 
-            // partition and after partition 
+            // partition and after partition
+        if(low<high){
+            int partionEle = partition(arr,low,high);
+            sort(arr,low,partionEle-1);
+            sort(arr,partionEle + 1,high);
+        }
     } 
   
     /* A utility function to print array of size n */
