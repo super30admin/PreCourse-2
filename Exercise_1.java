@@ -1,7 +1,23 @@
-class BinarySearch { 
+/*class BinarySearch { 
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
-    { 
+    {
+    	if(l>r)
+    		return -1;
+    	
+    	
+    
+    	while(l<=r) {
+    		
+    		int mid = l+(r-l)/2;
+    		if(arr[mid]==x)
+    			return mid;
+    		if(arr[mid]>x)
+    			r=mid-1;
+    		else
+    			l=mid+1;
+    	}
+		return -1; 
         //Write your code here
     } 
   
@@ -19,3 +35,4 @@ class BinarySearch {
             System.out.println("Element found at index " + result); 
     } 
 } 
+*/
