@@ -1,3 +1,6 @@
+// Time Complexity : O(nlogn)
+// Space Complexity : O(logn)
+
 #include <bits/stdc++.h> 
 using namespace std; 
   
@@ -12,25 +15,45 @@ void swap(int* a, int* b)
 /* This function is same in both iterative and recursive*/
 int partition(int arr[], int l, int h) 
 { 
-    //Do the comparison and swapping here 
-} 
+    int x = arr[h]; 
+    int i = (l - 1); 
   
-/* A[] --> Array to be sorted,  
-l --> Starting index,  
-h --> Ending index */
+    for (int j = l; j <= h - 1; j++) { 
+        if (arr[j] <= x) { 
+            i++; 
+            swap(&arr[i], &arr[j]); 
+        } 
+    } 
+    swap(&arr[i + 1], &arr[h]); 
+    return (i + 1); 
+}
 void quickSortIterative(int arr[], int l, int h) 
 { 
     //Try to think that how you can use stack here to remove recursion.
-} 
-  
-// A utility function to print contents of arr 
+	int stack[h - l + 1];
+    int top = -1;
+    stack[++top] = l; 
+    stack[++top] = h;
+    while (top >= 0) {
+        h = stack[top--]; 
+        l = stack[top--];
+        int p = partition(arr, l, h);
+        if (p - 1 > l) { 
+            stack[++top] = l; 
+            stack[++top] = p - 1; 
+        }
+        if (p + 1 < h) { 
+            stack[++top] = p + 1; 
+            stack[++top] = h; 
+        } 
+    }
+}
 void printArr(int arr[], int n) 
 { 
     int i; 
     for (i = 0; i < n; ++i) 
         cout << arr[i] << " "; 
-} 
-  
+}   
 // Driver code 
 int main() 
 { 

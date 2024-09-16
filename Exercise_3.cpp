@@ -1,3 +1,6 @@
+// Time Complexity : O(n/2)
+// Space Complexity :
+
 #include<bits/stdc++.h>  
 using namespace std;  
   
@@ -13,6 +16,16 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+  Node* slow=new Node;
+  Node* fast=new Node;
+  slow=head;
+  fast=head;
+  while(fast!=NULL && fast->next!=NULL)
+  {
+      slow=slow->next;
+      fast=fast->next->next;
+  }
+  cout<<"The middle is "<<slow->data<<endl;
 }  
   
 // Function to add a new node  
@@ -29,10 +42,10 @@ void printList(struct Node *ptr)
 {  
     while (ptr != NULL)  
     {  
-        printf("%d->", ptr->data);  
-        ptr = ptr->next;  
+        cout<<"->"<<ptr->data<<" ";  
+        ptr = ptr->next;
     }  
-    printf("NULL\n");  
+    cout<<"NULL\n";  
 }  
   
 // Driver Code 
