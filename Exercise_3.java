@@ -1,3 +1,7 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -18,8 +22,19 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+        Node slowPointer=head;
+        Node fastPointer=head;
+        if(head!=null)
+        {
+        	while(fastPointer!=null && fastPointer.next!=null)
+        	{
+        		slowPointer=slowPointer.next;
+        		fastPointer=fastPointer.next.next;
+        	}
+        
+        System.out.println("The middle elment is " + slowPointer.data);
+        }
+	
     } 
   
     public void push(int new_data) 
