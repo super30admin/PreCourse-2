@@ -1,4 +1,6 @@
-#include<bits/stdc++.h>  
+/* Find Mid Point of a Singly Linked List. */
+
+#include<iostream>  
 using namespace std;  
   
 // Struct  
@@ -13,6 +15,19 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+  struct Node *slow_ptr = head;  
+  struct Node *fast_ptr = head;
+
+  if (head!=NULL)  
+    {  
+        while (fast_ptr != NULL && fast_ptr->next != NULL)  
+        {  
+            fast_ptr = fast_ptr->next->next;  
+            slow_ptr = slow_ptr->next;  
+        }  
+        printf("The middle element is [%d]\n\n", slow_ptr->data);  
+    }  
+     
 }  
   
 // Function to add a new node  
