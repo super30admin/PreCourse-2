@@ -1,3 +1,8 @@
+
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Any problem you faced while coding this : //  was able to solve in another method, had to look up about fast and slow pointers, and then coded
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -18,8 +23,19 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+        Node slow_ptr = head;
+        Node fast_ptr = head;
+        if (head != null)
+        {
+            while (fast_ptr != null && fast_ptr.next != null)
+            {
+                fast_ptr = fast_ptr.next.next;
+                slow_ptr = slow_ptr.next;
+            }
+            System.out.println("The middle element" +
+                                slow_ptr.data + " \n");
+        }
+        
     } 
   
     public void push(int new_data) 
