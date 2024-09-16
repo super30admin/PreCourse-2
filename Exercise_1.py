@@ -3,9 +3,16 @@
   
 # It returns location of x in given array arr  
 # if present, else returns -1 
-def binarySearch(arr, l, r, x): 
-  
-  #write your code here
+def binarySearch(arr, l, r, x):
+	while low<=high:
+		mid=low+(high-low)//2
+		if arr[mid]==x:
+			return mid
+		elif arr[mid]<x:
+			low=mid+1
+		else:
+			high=mid-1
+	return -1
   
     
   
