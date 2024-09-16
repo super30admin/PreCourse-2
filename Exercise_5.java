@@ -1,11 +1,14 @@
-class IterativeQuickSort { 
+/*
+class IterativeQuickSort {
     void swap(int arr[], int i, int j) 
     { 
 	//Try swapping without extra variable 
     } 
   
-    /* This function is same in both iterative and 
-       recursive*/
+    */
+/* This function is same in both iterative and
+       recursive*//*
+
     int partition(int arr[], int l, int h) 
     { 
         //Compare elements and swap.
@@ -33,4 +36,4 @@ class IterativeQuickSort {
         ob.QuickSort(arr, 0, arr.length - 1); 
         ob.printArr(arr, arr.length); 
     } 
-} 
+} */
