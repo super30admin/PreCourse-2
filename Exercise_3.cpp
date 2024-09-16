@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>  
+#include <iostream>
 using namespace std;  
   
 // Struct  
@@ -11,8 +12,18 @@ struct Node
 /* Function to get the middle of the linked list*/
 void printMiddle(struct Node *head)  
 {  
-  //YourCode here
-  //Use fast and slow pointer technique
+  Node *slowPointer=head;
+  Node *fastPointer=head;
+  if(head!=nullptr)
+  {
+  while(fastPointer!=nullptr && fastPointer->next!=nullptr)
+    {
+        fastPointer=fastPointer->next->next;
+        slowPointer=slowPointer->next;
+    }
+    cout<<slowPointer->data<<endl;
+  }
+  
 }  
   
 // Function to add a new node  
