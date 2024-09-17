@@ -1,4 +1,11 @@
-class LinkedList 
+/* Time Complexity :O(n).
+push() and printList() operations takes O(n) time as all the elements are processes. printMiddle() takes O(n/2)~ O(n). Hence, 3O(n) ~ O(n)
+Space Complexity : O(1) as no extra space is used.
+ */
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : Initially I could'nt figureout how to use the slow and fast pointers
+// Your code here along with comments explaining your approach
+class LinkedList
 { 
     Node head; // head of linked list 
   
@@ -20,6 +27,13 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node slow = head;
+        Node fast = head;
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        System.out.print("The middle node is : "+ slow.data);
     } 
   
     public void push(int new_data) 
