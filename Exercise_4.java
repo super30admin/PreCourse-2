@@ -5,7 +5,32 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+    	int l1 = m-l+1;
+		int l2 = r-m;
+		
+		int temp1[] = new int[l1];
+		int temp2[] = new int[l2];
+		
+		for(int i=0;i<l1;i++) {
+			temp1[i] = arr[l+i];		
+		}
+		for(int j=0;j<l2;j++) {
+			temp2[j] = arr[m+1+j];
+		}
+		
+		int i = 0, j = 0, k= l;
+		while(i<l1 && j<l2) {
+			if(temp1[i]<= temp2[j]) {
+				arr[k++] = temp1[i++];
+			}
+			else{
+				arr[k++] = temp2[j++];
+			}
+		}
+		while(i<l1)
+			arr[k++]= temp1[i++];
+		while(j<l2)
+			arr[k++]= temp2[j++];
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -14,6 +39,14 @@ class MergeSort
     { 
 	//Write your code here
         //Call mergeSort from here 
+    	
+		if(l<r) {
+			int mid = l+(r-l)/2;
+			sort(arr, l, mid);
+			sort(arr, mid+1, r);
+			merge(arr, l, mid, r);
+		}
+    	
     } 
   
     /* A utility function to print array of size n */
@@ -24,7 +57,7 @@ class MergeSort
             System.out.print(arr[i] + " "); 
         System.out.println(); 
     } 
-  
+ 
     // Driver method 
     public static void main(String args[]) 
     { 
