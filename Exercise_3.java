@@ -1,3 +1,7 @@
+//I have done this using both count and 2 pointer method.
+//TimeComplexity using count method o(n)
+//TimeCOmplexity using middle pointo(n/2))
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -13,14 +17,42 @@ class LinkedList
             next = null; 
         } 
     } 
-  
+ //function to print middle node using count method
+    
+    void printMiddleCount()
+    {
+    	int counter=0;
+    	Node count=head;
+    	while(count!=null)
+    	{
+    		counter++;
+    		count=count.next;
+    	}
+    	System.out.println("counter"+counter);
+    	int loop=counter/2;
+    	Node count1=head;
+    	 for(int i=0;i<loop;i++)
+    	 {
+    		 count1=count1.next;
+    	 }
+    	 System.out.println("middle is"+count1.data);
+    	
+    }
     /* Function to print middle of linked list */
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
-    } 
+    	 Node slow_ptr = head; 
+         Node fast_ptr = head; 
+          
+             while (fast_ptr != null && fast_ptr.next != null) 
+             { 
+                 fast_ptr = fast_ptr.next.next; 
+                 slow_ptr = slow_ptr.next; 
+             } 
+             System.out.println("The middle element is [" + 
+                                 slow_ptr.data + "] \n"); 
+              } 
   
     public void push(int new_data) 
     { 
