@@ -1,7 +1,14 @@
-class IterativeQuickSort { 
+import java.util.*;
+public class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
-	//Try swapping without extra variable 
+	   //Try swapping without extra 
+        /*arr[i]+=arr[j];
+        arr[j]=arr[i]-arr[j];
+        arr[i]-=arr[j];*/
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
     } 
   
     /* This function is same in both iterative and 
@@ -9,12 +16,42 @@ class IterativeQuickSort {
     int partition(int arr[], int l, int h) 
     { 
         //Compare elements and swap.
+        int pivot = arr[l];
+        int i=l+1, j=h;
+        while(i<j){
+            while(i<h && arr[i]<=pivot) i++;
+            while(j>=l && arr[j]>pivot) j--;
+            if(i<j) {
+                swap(arr, i, j);
+                i++;j--;
+            }
+        }
+        swap(arr,j,l);
+        return j;
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
     { 
         //Try using Stack Data Structure to remove recursion.
+        Stack<Integer> recurse = new Stack<>();
+        int i,j;
+        recurse.push(l);
+        recurse.push(h);
+        while(!recurse.isEmpty()){
+            j=recurse.pop();
+            i=recurse.pop();
+            if(i<j){
+                int pivot = partition(arr, i, j);
+                   
+                recurse.push(i);
+                recurse.push(pivot-1);
+                                
+                recurse.push(pivot+1);
+                recurse.push(j);
+                
+            }
+        }
     } 
   
     // A utility function to print contents of arr 

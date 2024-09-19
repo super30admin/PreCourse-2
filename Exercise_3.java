@@ -1,4 +1,4 @@
-class LinkedList 
+public class LinkedList 
 { 
     Node head; // head of linked list 
   
@@ -19,7 +19,14 @@ class LinkedList
     void printMiddle() 
     { 
         //Write your code here
-	//Implement using Fast and slow pointers
+        Node sp=head,fp=head;
+        //Implement using Fast and slow pointers
+        while(fp!=null && fp.next!=null && sp!=null) {
+            fp=fp.next.next;
+            sp=sp.next;
+        }
+
+        System.out.println("middle is "+sp.data);
     } 
   
     public void push(int new_data) 
