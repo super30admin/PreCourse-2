@@ -1,3 +1,10 @@
+/*
+ Time complexity:
+    if the pivot divides the array almost into halves each time. this would number of comparisons to log n resulting in best cae of O(nlog n)
+    Worst case is O(n*n)
+    Space complexity: best case is O(log n) and worst case is O(n)
+ */
+
 class QuickSort 
 { 
     /* This function takes last element as pivot, 
@@ -7,12 +14,26 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //Your code here  
+        //Swapping using arithmeitc operations rather than using a temporary variable 
+        arr[i] = arr[i] + arr[j];
+        arr[j] = arr[i] - arr[j];
+        arr[i] = arr[i] - arr[j];
     }
     
     int partition(int arr[], int low, int high) 
     { 
    	//Write code here for Partition and Swap 
+    int pivot = arr[high];
+    int l = arr[low - 1];
+    for (int j = low; j<high; j++){
+        if(arr[j]<=pivot){
+            l++;
+            swap(arr,l,j);
+        }
+    }
+    swap(arr, l+1, high);
+    return l+1;
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -22,6 +43,11 @@ class QuickSort
     {  
             // Recursively sort elements before 
             // partition and after partition 
+            if(low<high){
+                int temp = partition(arr,low,high);
+                sort(arr, low, temp-1);
+                sort(arr, temp+1, high);
+            }
     } 
   
     /* A utility function to print array of size n */

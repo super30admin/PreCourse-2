@@ -1,3 +1,8 @@
+/*
+ Time Complexity: since array is divided into halves O(logn) and merged (O(n)). The time complexity would be O(nlogn)
+ Space Complexity: O(n)
+ */
+
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
@@ -6,6 +11,45 @@ class MergeSort
     void merge(int arr[], int l, int m, int r) 
     {  
        //Your code here  
+
+       int size1 = m-l+1;
+       int size2 = r-m;
+
+       int L[] = new int[size1];
+       int R[] = new int[size2];
+
+       for (int i=0; i< size1; ++i){
+        L[i] = arr[l+i];
+       }
+       for(int j = 0; j<size2; ++j){
+        R[j] = arr[m+1+j];
+       }
+
+       int i= 0;int j = 0;
+       int k = l;
+       while(i<size1 && j<size2){
+        if(L[i] <= R[j]){
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+
+       }
+       //copying elements in L
+       while(i< size1){
+        arr[k] = L[i];
+        i++;
+        k++;
+       }
+       // copying remaining elements in R
+       while(j<size2){
+        arr[k] = R[j];
+        j++;
+        k++;
+       }
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -14,6 +58,14 @@ class MergeSort
     { 
 	//Write your code here
         //Call mergeSort from here 
+        if (l < r) {
+            int m = l + (r - l) / 2;
+            sort(arr, l, m);
+            sort(arr, m + 1, r);
+
+            merge(arr, l, m, r);
+        }
+    
     } 
   
     /* A utility function to print array of size n */

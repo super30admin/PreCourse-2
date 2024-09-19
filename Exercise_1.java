@@ -1,8 +1,21 @@
+/*
+when n is the size of the array
+ Time Complexity will be O(log n)
+ Space Complexity is O(log n) due to the recursice call stack
+ */
 class BinarySearch { 
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
+        if(r>l){
+            int mid = l + (r-l) / 2;  // find the middle index of the array
+            if(arr[mid] == x) return mid; // if element at mid index is the search value return middle
+            if(arr[mid]>x) return binarySearch(arr, l, mid-1, x); // if mid is greater than search value, search in the left half
+            if(arr[mid]<x) return binarySearch(arr, mid+1, r, x); // if mid is less than search value, search in the right half
+        }
+        return -1;
+
     } 
   
     // Driver method to test above 
