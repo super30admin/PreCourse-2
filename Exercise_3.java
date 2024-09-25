@@ -1,3 +1,5 @@
+//package precourse2;
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +22,23 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    	
+    	Node fastnode = head;
+    	Node slownode = head;
+        while (fastnode != null && fastnode.next != null) 
+        { 
+            //System.out.print(tnode.data+"->"); 
+            fastnode = fastnode.next.next;
+            slownode = slownode.next;
+        } 
+        //System.out.println("hi");
+        if(slownode == null) {
+        	System.out.println("NULL");
+        }
+        else {
+        	System.out.println(slownode.data);
+        }
+        
     } 
   
     public void push(int new_data) 

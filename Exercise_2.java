@@ -1,3 +1,5 @@
+//package precourse2;
+
 class QuickSort 
 { 
     /* This function takes last element as pivot, 
@@ -7,12 +9,32 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //Your code here
+    	//System.out.println(i);
+    	//System.out.println(j);
+    	
+    	int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    	
+    	
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+   	//Write code here for Partition and Swap
+    	int pivot = arr[high];
+    	int i = low;
+    	for(int j = low; j<=high; j++) {
+    		if(pivot > arr[j]) {
+    			swap(arr,i,j);
+    			i++;
+    		}
+    	}
+    	
+    	swap(arr,i,high);
+    	return i;
+        
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -22,6 +44,11 @@ class QuickSort
     {  
             // Recursively sort elements before 
             // partition and after partition 
+    		if(low < high) {
+    			int mid = partition(arr,low,high);
+        		sort(arr,low,mid-1);
+        		sort(arr,mid+1,high);
+    		}
     } 
   
     /* A utility function to print array of size n */
@@ -37,7 +64,8 @@ class QuickSort
     public static void main(String args[]) 
     { 
         int arr[] = {10, 7, 8, 9, 1, 5}; 
-        int n = arr.length; 
+    	//int arr[] = {6, 5, 4, 3, 2, 1};
+    	int n = arr.length; 
   
         QuickSort ob = new QuickSort(); 
         ob.sort(arr, 0, n-1); 
