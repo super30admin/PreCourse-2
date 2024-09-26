@@ -1,10 +1,13 @@
-#include <bits/stdc++.h> 
+#include <iostream>
 using namespace std;  
   
 // A utility function to swap two elements  
 void swap(int* a, int* b)  
 {  
     //Your Code here 
+    int t = *b;
+    *b = *a;
+    *a = t;
 }  
   
 /* This function takes last element as pivot, places  
@@ -15,6 +18,16 @@ of pivot */
 int partition (int arr[], int low, int high)  
 {  
     //Your Code here 
+    int pivot = arr[high];
+    int idx = low-1;
+    for(int i=low;i<high;i++){
+        if(arr[i]<pivot){
+            idx++;
+            swap(&arr[i],&arr[idx]);
+        }
+    }
+    swap(&arr[idx+1],&arr[high]);
+    return idx+1;
 }  
   
 /* The main function that implements QuickSort  
@@ -24,6 +37,11 @@ high --> Ending index */
 void quickSort(int arr[], int low, int high)  
 {  
     //Your Code here 
+    if(low<high){
+        int pi = partition(arr,low,high);
+        quickSort(arr,low,pi-1);
+        quickSort(arr,pi+1,high);
+    }
 }  
   
 /* Function to print an array */
