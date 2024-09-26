@@ -4,7 +4,11 @@ using namespace std;
 // A utility function to swap two elements  
 void swap(int* a, int* b)  
 {  
-    //Your Code here 
+    int t = *a; 
+    *a = *b; 
+    *b = t; 
+
+    return;
 }  
   
 /* This function takes last element as pivot, places  
@@ -14,7 +18,36 @@ to left of pivot and all greater elements to right
 of pivot */
 int partition (int arr[], int low, int high)  
 {  
-    //Your Code here 
+    int p = arr[low];
+
+    int i = low;
+    int j = high;
+
+    //Loop to keep swapping elements
+    while(i < j)
+    {
+        //Find the next higher number
+        while(arr[i] <= p)
+        {
+            i++;
+        }
+
+        //Find the next lower number
+        while(arr[j] > p)
+        {
+            j--;
+        }
+
+        if(i < j)
+        {
+            swap(&arr[i], &arr[j]);
+        }
+    }
+
+    //Shift Pivot to correct location
+    swap(&arr[low], &arr[j]);
+
+    return j;
 }  
   
 /* The main function that implements QuickSort  
@@ -23,7 +56,19 @@ low --> Starting index,
 high --> Ending index */
 void quickSort(int arr[], int low, int high)  
 {  
-    //Your Code here 
+    int j;
+
+    if(low < high)
+    {
+        //Find a Pivot element index present
+        // at it's correct position
+        j = partition(arr, low, high);
+
+        //Quick sort the left and right halves
+        quickSort(arr, low, j);
+        quickSort(arr, j+1, high);       
+    }
+    return;
 }  
   
 /* Function to print an array */
@@ -44,4 +89,10 @@ int main()
     cout << "Sorted array: \n";  
     printArray(arr, n);  
     return 0;  
-}  
+} 
+
+/**
+ * @brief COmplexity Analysis
+ * Time - Average Case O(nlogn), Worst Case - O(n*n)
+ * Space - In-place
+ */

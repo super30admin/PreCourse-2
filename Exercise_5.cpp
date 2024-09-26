@@ -10,9 +10,36 @@ void swap(int* a, int* b)
 } 
   
 /* This function is same in both iterative and recursive*/
-int partition(int arr[], int l, int h) 
+int partition(int arr[], int low, int high) 
 { 
-    //Do the comparison and swapping here 
+    //Do the comparison and swapping here
+         //Your Code here
+    int p = arr[low];
+
+    int i = low;
+    int j = high;
+
+    while(i < j)
+    {
+        while(arr[i] <= p)
+        {
+            i++;
+        }
+
+        while(arr[j] > p)
+        {
+            j--;
+        }
+
+        if(i < j)
+        {
+            swap(&arr[i], &arr[j]);
+        }
+    }
+
+    swap(&arr[low], &arr[j]);
+
+    return j;
 } 
   
 /* A[] --> Array to be sorted,  
@@ -20,7 +47,39 @@ l --> Starting index,
 h --> Ending index */
 void quickSortIterative(int arr[], int l, int h) 
 { 
-    //Try to think that how you can use stack here to remove recursion.
+    //Creating a stack approach array
+    int stack[h-l+1];    
+
+    int top = -1;
+
+    //Pushing initial values of l and h to stack
+    stack[++top] = l;
+    stack[++top] = h;
+
+    //Keep popping elements from stack while it is non-empty
+    while(top >= 0)
+    {
+        //Pop h and l
+        h = stack[top--];
+        l = stack[top--];
+
+        //Set pivot element at it's correct position
+        int p = partition(arr, l, h);
+
+        //Left elements handling
+        if(p-1 > l)
+        {
+            stack[++top] = l;
+            stack[++top] = p-1;
+        }
+
+        //Right elements handling
+        if(p+1 < h)
+        {
+            stack[++top] = p+1;
+            stack[++top] = h;
+        }
+    }
 } 
   
 // A utility function to print contents of arr 
@@ -39,4 +98,9 @@ int main()
     quickSortIterative(arr, 0, n - 1); 
     printArr(arr, n); 
     return 0; 
-} 
+}
+
+/**
+ * @brief Complexity Analysis
+ * Similar to Recursive Quicksort. 
+ */

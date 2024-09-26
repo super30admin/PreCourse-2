@@ -1,11 +1,35 @@
 #include <stdio.h> 
+#include<iostream>
+#include<math.h>
+
+using namespace std;
   
 // A recursive binary search function. It returns 
 // location of x in given array arr[l..r] is present, 
 // otherwise -1 
 int binarySearch(int arr[], int l, int r, int x) 
 {   
-    //Your Code here 
+    //Get the Mid Point
+    int m = floor((l + r) / 2);
+    
+    //Found the element
+    if(arr[m] == x)
+    {
+        return m;
+    }
+    //Smaller element
+    else if(x < arr[m])
+    {
+        return binarySearch(arr, l, m, x);
+    }
+    //Larger element
+    else
+    {
+        return binarySearch(arr,m+1, r, x);
+    }
+    
+    cout << "\nShouldn't come here" << endl;
+    return -1;
 } 
   
 int main(void) 
@@ -19,3 +43,9 @@ int main(void)
                             result); 
     return 0; 
 } 
+
+/**
+ * @brief Complexity Analysis
+ * Time - O(logn)
+ * Space - In-place
+ */
