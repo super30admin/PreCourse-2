@@ -1,43 +1,76 @@
-#include<stdlib.h> 
-#include<stdio.h> 
-  
-// Merges two subarrays of arr[]. 
-// First subarray is arr[l..m] 
-// Second subarray is arr[m+1..r] 
-void merge(int arr[], int l, int m, int r) 
-{ 
-    //Your code here
-} 
-  
-/* l is for left index and r is right index of the 
-   sub-array of arr to be sorted */
-void mergeSort(int arr[], int l, int r) 
-{ 
-    //Your code here
-} 
-  
-/* UTILITY FUNCTIONS */
-/* Function to print an array */
-void printArray(int A[], int size) 
-{ 
-    int i; 
-    for (i=0; i < size; i++) 
-        printf("%d ", A[i]); 
-    printf("\n"); 
-} 
-  
-/* Driver program to test above functions */
-int main() 
-{ 
-    int arr[] = {12, 11, 13, 5, 6, 7}; 
-    int arr_size = sizeof(arr)/sizeof(arr[0]); 
-  
-    printf("Given array is \n"); 
-    printArray(arr, arr_size); 
-  
-    mergeSort(arr, 0, arr_size - 1); 
-  
-    printf("\nSorted array is \n"); 
-    printArray(arr, arr_size); 
-    return 0; 
+// Time Complexity :O(nlogn)
+// Space Complexity : O(n)
+// Did this code successfully run on Leetcode : N/A
+// Any problem you faced while coding this : N/A
+
+
+// Your code here along with comments explaining your approach
+
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void merge(int* &arr, int low, int mid, int high){
+    int b[high+1];
+    int i=low, j=mid+1, k=low;
+    //Compare each element and save it in a sorted manner
+    while(i<=mid && j<=high){
+        if(arr[i] < arr[j]){
+            b[k]=arr[i];
+            i++;
+        }
+        else{
+           b[k]=arr[j];
+            j++;
+        }
+        k++;
+    }
+    
+    if(i<=mid ){
+        while(i<=mid){
+           b[k]=arr[i];
+            i++;
+            k++;
+        }
+    }
+    else if(j<=high ){
+        while(j<=high){
+           b[k]=arr[j];
+            j++;
+            k++;
+        }
+    }
+    i=low;
+    while(i<=high){
+        arr[i]=b[i];
+        i++;
+    }
 }
+
+void merge_sort(int* &arr, int low, int high){
+    if(low<high){
+        int mid = low +((high-low)/2);
+        //Call upper half
+        merge_sort(arr, mid+1, high);
+        //Call lower half
+        merge_sort(arr, low, mid);
+        merge(arr, low, mid, high);
+    }
+}
+
+
+int main(void){
+    int arr[] = {770,  279,   844,   714,   687,   765,   888,   723,   807,   561,   270,   951,   778,   936,   600};
+    int *arr_ptr = arr;
+    merge_sort(arr_ptr, 0, (sizeof(arr)/sizeof(int))-1);
+    int i=0;
+    while(i<sizeof(arr)/sizeof(int)){
+        cout<<arr[i]<<"\t";
+        i++;
+    }
+    return 0;
+}
+
+
