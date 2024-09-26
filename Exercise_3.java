@@ -1,4 +1,9 @@
-class LinkedList 
+//Time Complexity: O(N) where N is the number of the nodes
+//Space Complexity: O(1)
+
+//Find the mid point of a Singly Linked List
+
+class LinkedList
 { 
     Node head; // head of linked list 
   
@@ -20,6 +25,12 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node fast = slow = head;
+        while (fast != null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        System.out.println(slow.data);
     } 
   
     public void push(int new_data) 
