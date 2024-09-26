@@ -10,11 +10,22 @@ class LinkedList:
         
   
     def push(self, new_data): 
+        new_node = Node(new_data)  
+        new_node.next = self.head  
+        self.head = new_node
         
   
     # Function to get the middle of  
     # the linked list 
     def printMiddle(self): 
+        p1 = self.head
+        p2 = self.head
+
+        while p2 and p2.next:
+            p1 = p1.next
+            p2 = p2.next.next
+
+        return print(p2.data)
 
 # Driver code 
 list1 = LinkedList() 
