@@ -18,6 +18,19 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
+        int i=0;
+        int j = 0;
+        Node fast = head;
+        Node slow = head;
+        while(fast != null){
+            fast = fast.next;
+            i = i + 1;
+        }
+        while(j != i/2){
+            slow = slow.next;
+            j++;
+        }
+        System.out.println(slow.data);
         //Write your code here
 	//Implement using Fast and slow pointers
     } 
