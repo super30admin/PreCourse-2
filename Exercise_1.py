@@ -3,9 +3,41 @@
   
 # It returns location of x in given array arr  
 # if present, else returns -1 
-def binarySearch(arr, l, r, x): 
+
+#recursive method
+def binarySearch(arr, l, r, x):
+  if l<=r:
+    mid = (l+r)//2
+    if arr[mid]==x:
+      return mid
+    elif arr[mid]>x:
+      return binarySearch(arr,l,mid-1,x)
+    else:
+      return binarySearch(arr,mid+1,r,x)
+  else:
+    return -1
+    
   
-  #write your code here
+ #write your code here
+
+"""iterative
+def binarySearch(arr,l,r,x):
+  l = 0
+  r = len(arr)-1
+  while(l<=r):
+    mid = (l+r)//2
+    if arr[mid]>x:
+      r = mid-1
+    elif arr[mid]<x:
+      l = mid+1
+    else:
+      return mid
+    
+  return -1 """
+ 
+  
+  
+    
   
     
   
