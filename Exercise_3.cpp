@@ -13,6 +13,21 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+    if(head == NULL)
+        cout << "Linked List is empty!!!" << endl;
+
+    if(head -> next == NULL)
+        cout << "Middle element is: " << head -> data << endl;
+
+    Node* slow = head;
+    Node* fast = head;
+
+    while(fast != NULL && fast -> next != NULL){
+        fast = fast -> next -> next;
+        slow = slow -> next;
+    }
+
+    cout << "Middle element is: " << slow -> data << endl;
 }  
   
 // Function to add a new node  
@@ -43,7 +58,7 @@ int main()
     {  
         push(&head, i);  
         printList(head);  
-        printMiddle(head);  
+        printMiddle(head);
     }  
   
     return 0;  
