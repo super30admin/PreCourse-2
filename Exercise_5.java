@@ -1,6 +1,16 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Stack;
+
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
+       /**  arr[i] = arr[i] + arr[j];
+        arr[j] = arr[i] - arr[j];
+        arr[i] = arr[i] - arr[j];*/
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
 	//Try swapping without extra variable 
     } 
   
@@ -8,12 +18,48 @@ class IterativeQuickSort {
        recursive*/
     int partition(int arr[], int l, int h) 
     { 
+        int pivot = arr[h];
+        int i = l-1;
+        for (int j = l; j<=h; j++)
+        { if (arr[j]<pivot)
+            {   
+                i++;
+                swap(arr,i,j);
+            } 
+        }
+        swap(arr,i+1,h);
+        return(i+1);
         //Compare elements and swap.
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
     { 
+        int endIndex = arr.length-1;
+        int startIndex = 0;
+        Stack<ArrayList<Integer>> indexPair = new Stack<ArrayList<Integer>>();
+        ArrayList<Integer> subStack = new ArrayList<Integer>(Arrays.asList(startIndex,endIndex));
+        indexPair.add(subStack);
+        while (!indexPair.empty()){
+            ArrayList<Integer> pair = indexPair.peek();
+            indexPair.pop();
+            startIndex = pair.get(0);
+            endIndex = pair.get(1);
+            int partitionIndex = partition(arr,startIndex,endIndex);
+            if (partitionIndex-1>startIndex){
+                ArrayList<Integer> newSubStack = new ArrayList<Integer>(Arrays.asList(startIndex,partitionIndex-1));
+                indexPair.add(newSubStack);
+            }
+            if (partitionIndex+1<endIndex){
+                ArrayList<Integer> newSubStack = new ArrayList<Integer>(Arrays.asList(partitionIndex+1,endIndex));
+                indexPair.add(newSubStack);
+            }
+            //System.out.println(indexPair);
+
+        }
+
+        
+        
         //Try using Stack Data Structure to remove recursion.
     } 
   
