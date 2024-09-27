@@ -5,6 +5,20 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
+	int[] temp = new int[r+1];
+    	System.arraycopy(arr, l, temp, l, r-l+1);
+    	int i = l,j=m+1,k=l;
+    	while(i<=m && j <= r) {
+    		if(temp[i] <= temp[j])
+    			arr[k++] = temp[i++];
+    		else
+    			arr[k++] = temp[j++];
+    	}
+    	while(i<=m)
+    		arr[k++] = temp[i++];
+  
+    	while(j<=r)
+    		arr[k++] = temp[j++];
        //Your code here  
     } 
   
@@ -12,6 +26,12 @@ class MergeSort
     // merge() 
     void sort(int arr[], int l, int r) 
     { 
+	if(l<r) {
+	    	int mid = l+(r-l)/2;
+	    	sort(arr,l,mid);
+	    	sort(arr,mid+1,r);
+	    	merge(arr,l,mid,r);
+    	}
 	//Write your code here
         //Call mergeSort from here 
     } 
