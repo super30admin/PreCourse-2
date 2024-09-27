@@ -1,3 +1,10 @@
+
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode :
+// Any problem you faced while coding this :
+//tried using count and iterative approach using two pointers. which would give O(n) time- complexity.
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +27,16 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    	Node fastPtr = head;
+    	Node slowPtr = head;
+    	
+    	while (fastPtr != null  && fastPtr.next != null) {
+    		 
+    		fastPtr = fastPtr.next.next;
+    		slowPtr = slowPtr.next;
+    	}
+    	System.out.println(" middle element => " + slowPtr.data);
+    
     } 
   
     public void push(int new_data) 
