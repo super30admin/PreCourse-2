@@ -13,6 +13,13 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+  struct Node*slowptr = head;
+  struct Node*fastptr = head;
+  while(fastptr!=NULL && fastptr->next!=NULL){
+    slowptr = slowptr->next;
+    fastptr = fastptr->next->next;
+  }
+  cout<<slowptr->data<<endl;
 }  
   
 // Function to add a new node  
