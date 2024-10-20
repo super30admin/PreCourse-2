@@ -1,6 +1,17 @@
 #include<bits/stdc++.h>  
 using namespace std;  
   
+/*
+Time Complexity :
+    printMiddle(): O(n/2) ~ O(n), n is the number of elements in the array
+
+Space Complexity : O(1) - no extra set of datastructure used
+
+Did this code successfully run on Leetcode : Couldn't find the leetcode problem
+
+Any problem you faced while coding this : None
+*/
+
 // Struct  
 struct Node  
 {  
@@ -13,6 +24,15 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+    Node* slow = head;
+    Node* fast = head;
+
+    while (fast -> next != NULL && fast -> next -> next != NULL) {
+        slow = slow -> next;
+        fast = fast -> next -> next;
+    }
+
+    printf("%d\n", slow -> data);
 }  
   
 // Function to add a new node  

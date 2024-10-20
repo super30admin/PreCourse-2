@@ -1,10 +1,25 @@
 #include <bits/stdc++.h> 
 using namespace std;  
-  
+
+/*
+Time Complexity :
+    quicksort(): O(nlogn), n is the number of elements in the array
+
+Space Complexity : O(1) - no extra set of datastructure used
+
+Did this code successfully run on Leetcode : Couldn't find the leetcode problem
+
+Any problem you faced while coding this : None
+*/
+
 // A utility function to swap two elements  
 void swap(int* a, int* b)  
 {  
-    //Your Code here 
+    int temp = *a;
+
+    a = b;
+    *b = temp;
+
 }  
   
 /* This function takes last element as pivot, places  
@@ -14,7 +29,19 @@ to left of pivot and all greater elements to right
 of pivot */
 int partition (int arr[], int low, int high)  
 {  
-    //Your Code here 
+    int pivot = arr[high];
+
+    int i = low;
+
+    for (int j = low;j < high;j ++) {
+        if (arr[j] <= pivot) {
+            swap(arr[i], arr[j]);
+            i ++;
+        }
+    }
+
+    swap(arr[i], arr[high]);
+    return i;
 }  
   
 /* The main function that implements QuickSort  
@@ -23,7 +50,12 @@ low --> Starting index,
 high --> Ending index */
 void quickSort(int arr[], int low, int high)  
 {  
-    //Your Code here 
+    if (low < high) {
+        int part = partition(arr, low, high);
+
+        quickSort(arr, low, part - 1);
+        quickSort(arr, part + 1, high);
+    }
 }  
   
 /* Function to print an array */
