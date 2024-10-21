@@ -1,10 +1,49 @@
 # Python program for implementation of MergeSort 
+
+# Time Complexity: O(nlog(n))
+# Space Complexity: O(n)
+
 def mergeSort(arr):
+  if len(arr)>1:
+    mid = len(arr)//2
+    L = arr[:mid]
+    R = arr[mid:]
+    
+    mergeSort(L)
+    
+    mergeSort(R)
+    
+    i = 0
+    j = 0
+    k = 0
+    
+    while(i<len(L) and j<len(R)):
+      if L[i]<R[j]:
+        arr[k] = L[i]
+        i = i + 1
+      else:
+        arr[k] = R[j]
+        j = j + 1
+      k = k + 1
+    
+    while(i < len(L)):
+      arr[k] = L[i]
+      i = i + 1
+      k = k + 1
+    while(j< len(R)):
+      arr[k] = R[j]
+      j = j + 1
+      k = k + 1
+      
+      
   
   #write your code here
   
 # Code to print the list 
 def printList(arr): 
+  for i in range(len(arr)):
+    print(arr[i], end=" ")
+  print()
     
     #write your code here
   
