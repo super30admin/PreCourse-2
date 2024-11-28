@@ -7,4 +7,3 @@ def partition(arr, l, h):
 
 def quickSortIterative(arr, l, h):
   #write your code here
-
