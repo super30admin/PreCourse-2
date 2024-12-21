@@ -14,6 +14,13 @@ class MergeSort
     { 
 	//Write your code here
         //Call mergeSort from here 
+        if(l < r){
+            int m = l + (r - l)/2;
+            sort(arr, l, m);
+            sort(arr, m+1, r);
+            merge(arr, l, m, r);
+        }
+
     } 
   
     /* A utility function to print array of size n */
