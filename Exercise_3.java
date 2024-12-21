@@ -1,4 +1,8 @@
-class LinkedList 
+// Time Complexity : Need to refresh my knowledge on this.
+// Space Complexity : Need to refresh my knowledge on this.
+// Did this code successfully run on Leetcode : YES(Over local ide).
+// Any problem you faced while coding this : None, other than t.c and s.c.
+class LinkedList
 { 
     Node head; // head of linked list 
   
@@ -20,6 +24,15 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node slowPointer = head;
+        Node fastPointer = head;
+        //loop until the fastPointer hasn't reached the point where it can't move further.
+        while(fastPointer != null && fastPointer.next != null){
+            slowPointer = slowPointer.next; //slow one moves 1 step at a time.
+            fastPointer = fastPointer.next.next;// fast one moves 2 step at a time.
+        }
+
+        System.out.println("Middle element :" + slowPointer.data);
     } 
   
     public void push(int new_data) 
