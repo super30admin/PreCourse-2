@@ -1,11 +1,33 @@
-class MergeSort 
-{ 
+// Time Complexity : O(nlogn)
+// Space Complexity : O(n) for temp array
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+class MergeSort
+{
     // Merges two subarrays of arr[]. 
     // First subarray is arr[l..m] 
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+       //Your code here
+        int[] temp = new int[r - l + 1];
+        int i = l, j = m + 1, k = 0;
+        while (i <= m && j <= r) {
+            if (arr[i] < arr[j]) {
+                temp[k++] = arr[i++];
+            } else {
+                temp[k++] = arr[j++];
+            }
+        }
+        while (i <= m) {
+            temp[k++] = arr[i++];
+        }
+        while (j <= r) {
+            temp[k++] = arr[j++];
+        }
+        for (i = l, k = 0; i <= r; i++, k++) {
+            arr[i] = temp[k];
+        }
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -13,8 +35,14 @@ class MergeSort
     void sort(int arr[], int l, int r) 
     { 
 	//Write your code here
-        //Call mergeSort from here 
-    } 
+        //Call mergeSort from here
+        if (l < r) {
+            int mid = l + (r - l) / 2;
+            sort(arr, l, mid);
+            sort(arr, mid + 1, r);
+            merge(arr, l, mid, r);
+        }
+    }
   
     /* A utility function to print array of size n */
     static void printArray(int arr[]) 
@@ -28,7 +56,7 @@ class MergeSort
     // Driver method 
     public static void main(String args[]) 
     { 
-        int arr[] = {12, 11, 13, 5, 6, 7}; 
+        int arr[] = {12, 11, 13, 5, 6, 7};
   
         System.out.println("Given Array"); 
         printArray(arr); 
