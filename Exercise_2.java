@@ -6,12 +6,36 @@ class QuickSort
        smaller (smaller than pivot) to left of 
        pivot and all greater elements to right 
        of pivot */
-    void swap(int arr[],int i,int j){
-        //Your code here   
+       // Time Complexity: O(n log(n)) (average case)
+       // Time Complexity: O(n^2) (worst case)
+    void swap(int arr[], int i, int j) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        
     }
     
     int partition(int arr[], int low, int high) 
     { 
+        //chose pivot 
+        int pivot = arr[low];
+        int i = low+1, j = high-1;
+        while (true) {
+           while (i < high -1 && arr[i] < pivot){
+                i++;
+            }
+           while (j > low && arr[j] > pivot){
+                j--;
+            }
+           if (i >= j){
+            break;
+           } 
+           swap(arr, i, j);
+           i++;
+           j--;
+        }
+        swap(arr, low, j);
+        return j;
    	//Write code here for Partition and Swap 
     } 
     /* The main function that implements QuickSort() 
@@ -20,8 +44,11 @@ class QuickSort
       high  --> Ending index */
     void sort(int arr[], int low, int high) 
     {  
-            // Recursively sort elements before 
-            // partition and after partition 
+        if (low < high) {
+            int p = partition(arr, low, high);
+            sort(arr, low, p);
+            sort(arr, p+1, high);
+        }
     } 
   
     /* A utility function to print array of size n */
@@ -36,12 +63,14 @@ class QuickSort
     // Driver program 
     public static void main(String args[]) 
     { 
-        int arr[] = {10, 7, 8, 9, 1, 5}; 
+        int arr[] = {4, 3, 5, 2, 1, 3, 2, 3}; 
         int n = arr.length; 
   
         QuickSort ob = new QuickSort(); 
-        ob.sort(arr, 0, n-1); 
-  
+        System.out.println("Original array: ");
+        printArray(arr);
+        ob.sort(arr, 0, n); 
+        
         System.out.println("sorted array"); 
         printArray(arr); 
     } 
