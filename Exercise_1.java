@@ -4,6 +4,9 @@ class BinarySearch {
     // Returns index of x if it is present in arr[l.. r], else return -1
     // Time Complexity : O(NlogN) + O(logN) = O(NlogN) for unsorted array and O(logN) for sorted array
     // Space Complexity : O(1) no extra memory is used
+    // Did this code successfully run on Leetcode : YES
+    // Any problem you faced while coding this : No
+
     int binarySearch(int[] arr, int l, int r, int x)
     {
         // Since the question does not mention that arr is a sorted array, first sort the input array
