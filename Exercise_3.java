@@ -1,5 +1,7 @@
 class LinkedList 
-{ 
+{
+    // Time complexity: O(N) traverses the entire list
+    // Space complexity: O(1)
     Node head; // head of linked list 
   
     /* Linked list node */
@@ -19,7 +21,18 @@ class LinkedList
     void printMiddle() 
     { 
         //Write your code here
-	//Implement using Fast and slow pointers
+	    //Implement using Fast and slow pointers
+        Node slowPtr = head;
+        // fastPtr always moves 2 * slowPtr.
+        // So if slowPtr has reached middle of the list, fastPtr has reached 2*middle = end of list
+        Node fastPtr = head;
+        while (fastPtr != null && fastPtr.next != null) {
+            slowPtr = slowPtr.next;
+            fastPtr = fastPtr.next.next;
+        }
+        if (slowPtr != null) {
+            System.out.print("\nMiddle node: " + slowPtr.data + "\n");
+        }
     } 
   
     public void push(int new_data) 

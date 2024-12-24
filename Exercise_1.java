@@ -9,7 +9,7 @@ class BinarySearch {
         // Since the question does not mention that arr is a sorted array, first sort the input array
         // Sorting using quick sort - O(NlogN)
         Arrays.sort(arr);
-        while (l <= r) { // O(logN)
+        while (l <= r) { // O(logN), checking for l if equal to r ensures any array with one element is accounted for
             int mid = l + (r - l) / 2;
             if (arr[mid] == x) {
                 return mid;
