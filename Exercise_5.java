@@ -1,7 +1,15 @@
-class IterativeQuickSort { 
+// Time Complexity : Best Case:- O(nlogn),  Worst Case:- O(n²)
+// Space Complexity : O(logn)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+class IterativeQuickSort {
     void swap(int arr[], int i, int j) 
     { 
-	//Try swapping without extra variable 
+	//Try swapping without extra variable
+        int temp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = temp;
     } 
   
     /* This function is same in both iterative and 
@@ -9,12 +17,45 @@ class IterativeQuickSort {
     int partition(int arr[], int l, int h) 
     { 
         //Compare elements and swap.
-    } 
+        int leftIndex = l;
+        int rightIndex = h;
+        while(leftIndex < rightIndex) {
+            while(arr[leftIndex] <= arr[h] && leftIndex < rightIndex) {
+                leftIndex++;
+            }
+            while(arr[rightIndex] >= arr[h] && rightIndex > leftIndex) {
+                rightIndex--;
+            }
+            swap(arr, leftIndex, rightIndex);
+        }
+        swap(arr, leftIndex, h);
+        return leftIndex;
+    }
   
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
-    { 
-        //Try using Stack Data Structure to remove recursion.
+    {
+        int[] stackArr = new int[h - l + 1];
+        int top = -1;
+        stackArr[++top] = l;
+        stackArr[++top] = h;
+
+        while (top >= 0) {
+            h = stackArr[top--];
+            l = stackArr[top--];
+
+            int p = partition(arr, l, h);
+
+            if (p - 1 > l) {
+                stackArr[++top] = l;
+                stackArr[++top] = p - 1;
+            }
+
+            if (p + 1 < h) {
+                stackArr[++top] = p + 1;
+                stackArr[++top] = h;
+            }
+        }
     } 
   
     // A utility function to print contents of arr 
