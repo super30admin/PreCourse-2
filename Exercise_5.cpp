@@ -1,4 +1,6 @@
-#include <bits/stdc++.h> 
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <stack> 
 using namespace std; 
   
 // A utility function to swap two elements 
@@ -13,6 +15,17 @@ void swap(int* a, int* b)
 int partition(int arr[], int l, int h) 
 { 
     //Do the comparison and swapping here 
+    int pivot = arr[h];
+    int i = l - 1;
+
+    for(int j = l; j < h; j++) {
+        if(arr[j] <= pivot) {
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[h]);
+    return i + 1;
 } 
   
 /* A[] --> Array to be sorted,  
@@ -21,6 +34,19 @@ h --> Ending index */
 void quickSortIterative(int arr[], int l, int h) 
 { 
     //Try to think that how you can use stack here to remove recursion.
+    stack<pair<int, int>> s;
+    s.push({l, h});
+    while(!s.empty()) {
+        auto range = s.top();
+        s.pop();
+        l = range.first;
+        h = range.second;
+        int p = partition(arr, l, h);
+        if(p - 1 > l)
+            s.push({l, p - 1});
+        if(p + 1 < h)
+            s.push({p + 1, h});
+    }
 } 
   
 // A utility function to print contents of arr 

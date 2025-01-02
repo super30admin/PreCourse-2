@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>  
+// #include<bits/stdc++.h>  
+#include<stdio.h>  
 using namespace std;  
   
 // Struct  
@@ -13,12 +14,23 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+  if(head == NULL) {
+    printf("List is empty");
+    return;
+  }
+  Node *slow = head;
+  Node *fast = head;
+  while(fast != NULL && fast->next != NULL) {
+    slow = slow->next;
+    fast = fast->next->next;
+  }
+  printf("%d->", slow->data);
 }  
   
 // Function to add a new node  
 void push(struct Node** head_ref, int new_data)  
 {  
-    struct Node* new_node = new Node;  
+    struct Node* new_node = new Node;
     new_node->data = new_data;  
     new_node->next = (*head_ref);  
     (*head_ref) = new_node;  
@@ -39,7 +51,7 @@ void printList(struct Node *ptr)
 int main()  
 {    
     struct Node* head = NULL;    
-    for (int i=15; i>0; i--)  
+    for (int i=4; i>0; i--)  
     {  
         push(&head, i);  
         printList(head);  
