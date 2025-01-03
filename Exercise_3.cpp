@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>  
+#include<bits/stdc++.h> 
+#include <iostream> 
 using namespace std;  
   
 // Struct  
@@ -13,6 +14,16 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+  Node* fast_ptr = head, *slow_ptr = head;
+  if(!head){
+        cout<<"List is empty";
+        return;
+  }
+  while(fast_ptr&&fast_ptr->next){
+    fast_ptr = fast_ptr->next->next;
+    slow_ptr = slow_ptr->next;
+  }
+    cout<<"Middle element is: "<<slow_ptr->data<<endl;
 }  
   
 // Function to add a new node  
