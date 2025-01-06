@@ -7,7 +7,9 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;  
     }
     
     int partition(int arr[], int low, int high) 
