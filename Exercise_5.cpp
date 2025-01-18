@@ -1,3 +1,11 @@
+// Time complexity: O(n^2) in worst case and O(nlogn) otherwise
+// Space Complexity: O(logn) with worstcase resulting in O(n)
+// Code ran succesfully with the output:
+
+// 1 2 2 3 3 3 4 5 
+
+// === Code Execution Successful ===
+
 #include <bits/stdc++.h> 
 using namespace std; 
   
@@ -11,9 +19,20 @@ void swap(int* a, int* b)
   
 /* This function is same in both iterative and recursive*/
 int partition(int arr[], int l, int h) 
-{ 
-    //Do the comparison and swapping here 
-} 
+{  
+    //My same code from exercise 2.cpp
+    int pivot = arr[h];
+    int i = l - 1;
+
+    for(int j = l; j < h; j++){
+        if(arr[j] < pivot){
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[h]);
+    return i + 1;
+}  
   
 /* A[] --> Array to be sorted,  
 l --> Starting index,  
@@ -21,6 +40,24 @@ h --> Ending index */
 void quickSortIterative(int arr[], int l, int h) 
 { 
     //Try to think that how you can use stack here to remove recursion.
+    int stack[h - l + 1];
+    int top = -1; 
+    stack[++top] = l;
+    stack[++top] = h;
+    
+    while(top >= 0){
+        h = stack[top--];
+        l = stack[top--];
+        int p = partition(arr, l, h);
+        if(p - 1 > l){             //Pushing left half from pivot to left of stack
+            stack[++top] = l; 
+            stack[++top] = p - 1;
+        }
+        if(p + 1 < h){             //Pushing right half from pivot to right of stack
+            stack[++top] = p + 1; 
+            stack[++top] = h;
+        }
+    }
 } 
   
 // A utility function to print contents of arr 

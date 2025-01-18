@@ -1,3 +1,7 @@
+// Time Complexity: O(logn)
+// Space complexity: Since we are using recursive approach, space is depth of recursive call stack which will be O(logn)
+// Code ran successfully with the output "Element is present at index 3"
+
 #include <stdio.h> 
   
 // A recursive binary search function. It returns 
@@ -6,6 +10,19 @@
 int binarySearch(int arr[], int l, int r, int x) 
 {   
     //Your Code here 
+    if(l > r){return -1;} //base case where x is not present
+
+    int mid = l + (r - l)/2;
+    
+    if(x == arr[mid]){
+        return mid;
+    }
+    else if(x < arr[mid]){
+        return binarySearch(arr, l, mid - 1, x); //Pruning search space to the left half
+    }
+    else{
+        return binarySearch(arr, mid + 1, r, x); //Pruning search to the right half
+    }
 } 
   
 int main(void) 
