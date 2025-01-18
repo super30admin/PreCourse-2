@@ -1,4 +1,11 @@
-#include<bits/stdc++.h>  
+/*
+Time Complexity: O(n) traverses the list once.
+Space Complexity: O(1) It took no extra space.
+Did this code successfully run on Leetcode : Yes
+Any problem you faced while coding this : No
+*/
+
+#include<iostream>  
 using namespace std;  
   
 // Struct  
@@ -13,6 +20,15 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+  struct Node* slow = head;
+  struct Node* fast = head;
+  int mid = 0;
+  while (fast != nullptr && fast->next != nullptr) {
+    slow = slow->next;
+    fast = fast->next->next;
+    mid++;
+  }
+  cout << slow->data;
 }  
   
 // Function to add a new node  

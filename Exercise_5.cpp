@@ -1,4 +1,11 @@
-#include <bits/stdc++.h> 
+/*
+Time complexity: O(nlog(n)) - similar to merge sort, logn for division of array and n for partition of sub arrays
+Space Complexity: O(log(n)) - due to stack used for partitioning.
+Did this code successfully run on Leetcode : Yes
+Any problem you faced while coding this : No
+*/
+#include <iostream> 
+#include <stack>
 using namespace std; 
   
 // A utility function to swap two elements 
@@ -10,9 +17,21 @@ void swap(int* a, int* b)
 } 
   
 /* This function is same in both iterative and recursive*/
-int partition(int arr[], int l, int h) 
+int partition(int arr[], int low, int high) 
 { 
     //Do the comparison and swapping here 
+    int idx = low-1;
+    int pivot = arr[high];
+
+    for (int j = low; j<high;j++) {
+        if (arr[j]<=pivot) {
+            idx++;
+            swap(arr[j], arr[idx]);
+        }
+    }
+    idx++;
+    swap(arr[idx], arr[high]);
+    return idx;
 } 
   
 /* A[] --> Array to be sorted,  
@@ -21,6 +40,18 @@ h --> Ending index */
 void quickSortIterative(int arr[], int l, int h) 
 { 
     //Try to think that how you can use stack here to remove recursion.
+    stack<pair<int, int>> st;
+    st.push({l, h});
+    while (!st.empty()) {
+        auto curr = st.top();
+        st.pop();
+        if(curr.first < curr.second){
+            int p_ind = partition(arr, curr.first, curr.second);
+            if (p_ind-1>curr.first) st.push({curr.first, p_ind-1});
+            if (p_ind+1 <curr.second) st.push({p_ind+1, curr.second});
+        }
+    }
+    
 } 
   
 // A utility function to print contents of arr 
