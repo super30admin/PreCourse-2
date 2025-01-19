@@ -3,6 +3,14 @@ class BinarySearch {
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
+        int index = -1;
+        for (int i = l; i<=r; i++){
+            if(x == arr[i]){
+                index = i;
+                break;
+            }
+        }
+        return index;
     } 
   
     // Driver method to test above 
