@@ -13,13 +13,17 @@ class LinkedList
             next = null; 
         } 
     } 
-  
-    /* Function to print middle of linked list */
-   //Complete this function
+
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+        Node slowPointer = head;
+        Node fastPointer = head;
+        while(fastPointer != null && fastPointer.next!= null)
+        {
+            slowPointer = slowPointer.next;
+            fastPointer = fastPointer.next.next;
+        }
+        System.out.print(slowPointer.data);
     } 
   
     public void push(int new_data) 
