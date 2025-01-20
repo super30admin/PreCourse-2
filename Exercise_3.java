@@ -1,3 +1,5 @@
+//Time Complexity: O(n)
+//Spaxxe Complexity: O(1)
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -18,8 +20,20 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
+        if(head==null){
+            System.out.println("The List is empty");
+            return;
+        }
         //Write your code here
 	//Implement using Fast and slow pointers
+    Node fast=head; //fast pointer
+    Node slow=head; //slow pointer
+
+    while (fast!=null && fast.next!=null) {
+        slow=slow.next;
+        fast=fast.next.next;
+    }
+    System.out.println("The mid element is :" + slow.data);
     } 
   
     public void push(int new_data) 

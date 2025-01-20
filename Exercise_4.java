@@ -1,3 +1,5 @@
+//Time Complexity: O(nlong)
+//Space Complexity: O(n)
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
@@ -6,6 +8,54 @@ class MergeSort
     void merge(int arr[], int l, int m, int r) 
     {  
        //Your code here  
+       int p=m-l+1;
+       int q=r-m;
+
+       //Temp Arrays: 
+       int left[]=new int[p];
+       int right[]=new int[q];
+       // copy data in temp arrays 
+       for(int i=0;i<p;i++)
+        { left[i]=arr[l+i];}
+        
+       for(int j=0;j<q;j++)
+        { right[j]=arr[m+1+j];}
+
+        //Merge the temp arrays back to array
+
+        int i=0,j=0;
+        int k=l;//initial index of merged subarray
+        while (i<p && j<q) {
+            if(left[i]<=right[j]){
+                arr[k]=left[i];
+                i++;
+            }else{
+                arr[k]=right[j];
+                j++;
+            }
+            k++;
+            
+        }
+        //copy remainig elements of left array
+        while (i<p) {
+            arr[k]=left[i];
+            i++;
+            k++;
+            
+        }
+        //copy remaining elements of right array
+        while (j<q) {
+            arr[k]=right[j];
+            j++;
+            k++;
+            
+        }
+
+
+
+
+
+
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -14,6 +64,14 @@ class MergeSort
     { 
 	//Write your code here
         //Call mergeSort from here 
+
+        if(l<r){
+            int mid=l+(r-l)/2;
+            sort(arr, l, mid);
+            sort(arr, mid+1, r);
+            //merge sorted halves
+            merge(arr, l, mid, r);
+        }
     } 
   
     /* A utility function to print array of size n */
