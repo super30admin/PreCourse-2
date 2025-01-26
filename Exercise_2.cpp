@@ -1,3 +1,15 @@
+// Time Complexity : O(n log n)
+// Space Complexity : O(1) 
+// Did this code successfully run on Leetcode : -
+// Any problem you faced while coding this : No
+
+
+// Your code here along with comments explaining your approach
+//find a pivot element
+//place all the elements smaller than pivot to the left of the pivot and bigger to the right.
+//Place the pivot at the right postion and then make recursive calls.
+
+
 #include <bits/stdc++.h> 
 using namespace std;  
   
@@ -5,6 +17,9 @@ using namespace std;
 void swap(int* a, int* b)  
 {  
     //Your Code here 
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }  
   
 /* This function takes last element as pivot, places  
@@ -15,6 +30,16 @@ of pivot */
 int partition (int arr[], int low, int high)  
 {  
     //Your Code here 
+    int pivot = arr[high];
+    int small = low-1;
+    for(int i=low; i<high; i++){
+        if(arr[i] <= pivot){
+            small++;
+            swap(&arr[small], &arr[i]);
+        }
+    }
+    swap(&arr[small+1], &arr[high]);
+    return (small+1);
 }  
   
 /* The main function that implements QuickSort  
@@ -24,6 +49,11 @@ high --> Ending index */
 void quickSort(int arr[], int low, int high)  
 {  
     //Your Code here 
+    if(low>=high) return;
+    int p = partition(arr,low,high);
+    quickSort(arr, low, p-1);
+    quickSort(arr, p+1, high);
+    
 }  
   
 /* Function to print an array */

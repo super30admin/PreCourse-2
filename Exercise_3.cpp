@@ -1,3 +1,13 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1) + O(n) auxiliary space
+// Did this code successfully run on Leetcode : -
+// Any problem you faced while coding this : No
+
+
+// Your code here along with comments explaining your approach
+// have two pointers where one pointer jump twice and other pointer jump one step. 
+// when fast pointer reaches the last node, the slow pointer would be at the middle
+
 #include<bits/stdc++.h>  
 using namespace std;  
   
@@ -13,6 +23,13 @@ void printMiddle(struct Node *head)
 {  
   //YourCode here
   //Use fast and slow pointer technique
+  Node* slow = head;
+  Node* fast = head;
+  while(fast != NULL && fast->next != NULL){
+    slow = slow->next;
+    fast = fast->next->next;
+  }
+  cout<< slow->data <<endl;
 }  
   
 // Function to add a new node  
