@@ -1,3 +1,11 @@
+// Time Complexity : it is O(log n) since we are moving the fast pointer in 2X speed.
+// Space Complexity : nothing
+// Did this code successfully run on Leetcode : yes!
+// Any problem you faced while coding this : no
+
+
+// Your code here along with comments explaining your approach
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +28,19 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node slow = head;
+        Node fast = head;
+        while(fast != null)
+        {
+            //if the fast.next is null that means we have reached the end already, so we could break the loop and return slow.
+            if(fast.next == null)
+             break;
+            //moving slow pointer in 1X
+            slow = slow.next;
+            //moving fast pointer in 2X
+            fast = fast.next.next;
+        }
+        System.out.println(slow.data);
     } 
   
     public void push(int new_data) 
