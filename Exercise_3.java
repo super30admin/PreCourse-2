@@ -1,4 +1,8 @@
-class LinkedList 
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+class LinkedList
 { 
     Node head; // head of linked list 
   
@@ -19,6 +23,17 @@ class LinkedList
     void printMiddle() 
     { 
         //Write your code here
+        if(head==null) {
+            System.out.println("middle element does not exist");
+            return;
+        }
+        Node p=head;
+        Node q=head.next;
+        while(q!=null && q.next!=null) {
+            p=p.next;
+            q=q.next.next;
+        }
+        System.out.println("middle element is "+p.data);
 	//Implement using Fast and slow pointers
     } 
   
