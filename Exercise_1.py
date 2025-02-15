@@ -6,7 +6,22 @@
 def binarySearch(arr, l, r, x): 
   
   #write your code here
-  
+  # loop until left is less than or equal to right
+  while (l <= r) :
+    # calculate the middle element
+    mid = (l+r) // 2
+    # check the element at middle index with x. If the values are equal then return x.
+    if (arr[mid] == x):
+      return mid
+    # if the element at middle index is greater than x then it mean x is on left side of the element since the arr is sorted.
+    elif (arr[mid] > x):
+      # set the right index to mid - 1
+      r = mid - 1
+    else:
+       # else set the left index to mid + 1
+       l = mid + 1
+    # if the element is not present then return -1
+  return -1   
     
   
 # Test array 
