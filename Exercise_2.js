@@ -1,3 +1,5 @@
+// Time Complexity : O(log n)
+// Space Complexity : O(n)
 class QuickSort {
 ​
       /* This function takes last element as pivot,
@@ -7,11 +9,14 @@ class QuickSort {
            pivot and all greater elements to right
            of pivot */
 ​
-    function swap(arr, i, j) {
+    swap(arr, i, j) {
         //Your code here
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 ​
-    function partition(arr, low, high) {
+    partition(arr, low, high) {
         //Write code here for Partition and Swap
     }
 ​
@@ -19,13 +24,13 @@ class QuickSort {
           arr[] --> Array to be sorted,
           low  --> Starting index,
           high  --> Ending index */
-    function sort(arr, low, high) {
+    sort(arr, low, high) {
              // Recursively sort elements before
              // partition and after partition
     }
 ​
       /* A utility function to print array of size n */
-    function printArray(arr) {
+    printArray(arr) {
         let n = arr.length;
         for (let i = 0; i < n; ++i)
             console.log(arr[i] + " ");

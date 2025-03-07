@@ -1,6 +1,6 @@
 class IterativeQuickSort {
 ​
-    function swap(arr, i, j) {
+    swap(arr, i, j) {
 ​
         //Try swapping without extra variable
 ​
@@ -8,21 +8,21 @@ class IterativeQuickSort {
 ​
       /* This function is same in both iterative and
            recursive*/
-    function partition(arr, l, h) {
+    partition(arr, l, h) {
 ​
         //Compare elements and swap.
 ​
     }
 ​
      // Sorts arr[l..h] using iterative QuickSort
-    function QuickSort(arr, l, h) {
+    QuickSort(arr, l, h) {
 ​
         //Try using Stack Data Structure to remove recursion.
 ​
     }
 ​
      // A utility function to print contents of arr
-    function printArr(arr, n) {
+    printArr(arr, n) {
         let i;
         for (i = 0; i < n; ++i)
             console.log(arr[i] + " ");
