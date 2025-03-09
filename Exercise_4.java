@@ -1,3 +1,12 @@
+// Time Complexity :O(nlogn)
+// Space Complexity :O(n)
+// Did this code successfully run on Leetcode :
+// Any problem you faced while coding this :
+
+
+// Your code here along with comments explaining your approach
+import java.util.ArrayList;
+
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
@@ -5,7 +14,33 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+       //Your code here
+       ArrayList<Integer> d= new ArrayList<>();
+       int i=l;
+       int j=m+1;
+       while(i<=m && j<=r)
+       {
+        if(arr[i]<=arr[j]){
+            d.add(arr[i]);
+            i++;
+        }
+        else{
+            d.add(arr[j]);
+            j++;
+        }
+        }
+        while (i<=m) {
+            d.add(arr[i]);
+            i++;
+        }
+        while (j<=r){
+            d.add(arr[j]);
+            j++;
+        }
+        for(int k=l;k<=r;k++){
+            arr[k]=d.get(k-l);
+        }
+        
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -14,6 +49,11 @@ class MergeSort
     { 
 	//Write your code here
         //Call mergeSort from here 
+        if(l>=r) return;
+        int m=(l+r)/2;
+        sort(arr,l,m);
+        sort(arr,m+1,r);
+        merge(arr,l,m,r);
     } 
   
     /* A utility function to print array of size n */
