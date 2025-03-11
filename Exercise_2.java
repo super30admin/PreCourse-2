@@ -1,5 +1,9 @@
 class QuickSort 
 { 
+    // Time Complexity : O(nlogn)
+    // Space Complexity :O(N) for extra array that stores the arrays to be merged 
+    // Did this code successfully run on Leetcode :
+    // Any problem you faced while coding this : handling the array indexes in the partitioning function
     /* This function takes last element as pivot, 
        places the pivot element at its correct 
        position in sorted array, and places all 
@@ -8,12 +12,33 @@ class QuickSort
        of pivot */
     void swap(int arr[],int i,int j){
         //Your code here   
+
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+       int pivot = arr[high]; 
+       int i = low - 1; // Index for smaller elements
+
+       for (int j = low; j < high; j++) {
+           if (arr[j] < pivot) {
+               i++;
+               // Swap arr[i] and arr[j]
+               int temp = arr[i];
+               arr[i] = arr[j];
+               arr[j] = temp;
+           }
+       }
+
+       // Swap pivot element to its correct position
+       int temp = arr[i + 1];
+       arr[i + 1] = arr[high];
+       arr[high] = temp;
+
+       return i + 1; // Return the pivot index
     } 
+
+
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
       low  --> Starting index, 
@@ -22,6 +47,11 @@ class QuickSort
     {  
             // Recursively sort elements before 
             // partition and after partition 
+            if(low < high){
+                int partition = partition(arr, low, high);
+                sort(arr, low, partition-1);
+                sort(arr, partition+1, high);
+            }
     } 
   
     /* A utility function to print array of size n */
