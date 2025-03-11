@@ -1,12 +1,41 @@
 # Python program for implementation of MergeSort 
+# Time Complexity: O(n log n)
+# Space Complexity: O(n)
+
 def mergeSort(arr):
-  
-  #write your code here
-  
-# Code to print the list 
-def printList(arr): 
-    
-    #write your code here
+    if len(arr) > 1:
+        mid = len(arr) // 2  # Finding the middle of the array
+        left_half = arr[:mid]  # Dividing the array into two halves
+        right_half = arr[mid:]
+
+        mergeSort(left_half)  # Sorting the first half
+        mergeSort(right_half)  # Sorting the second half
+
+        i = j = k = 0
+        
+        # Merging the sorted halves
+        while i < len(left_half) and j < len(right_half):
+            if left_half[i] < right_half[j]:
+                arr[k] = left_half[i]
+                i += 1
+            else:
+                arr[k] = right_half[j]
+                j += 1
+            k += 1
+        
+        while i < len(left_half):
+            arr[k] = left_half[i]
+            i += 1
+            k += 1
+        
+        while j < len(right_half):
+            arr[k] = right_half[j]
+            j += 1
+            k += 1
+
+# Code to print the list
+def printList(arr):
+      print(arr)
   
 # driver code to test the above code 
 if __name__ == '__main__': 
