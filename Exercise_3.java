@@ -1,3 +1,8 @@
+// Time Complexity : O(n) → Because we need to traverse the list once to find the middle.
+// Space Complexity : O(1) → No extra space used apart from a few pointers.
+// Did this code successfully run on Leetcode: Yes
+// Any problem you faced while coding this: Nope
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +25,16 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node fast = head;
+        Node slow = head;
+        while(fast!=null && fast.next != null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        if (slow!=null){
+            System.out.println("Middle element is :"+slow.data);
+        }
+
     } 
   
     public void push(int new_data) 
