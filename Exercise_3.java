@@ -1,4 +1,11 @@
-class LinkedList 
+// Time Complexity : O(n) due to traversing linkedlist for n/2 elements
+// Space Complexity : O(1) due to only 2 Node pointers used
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No problems faced
+
+// Your code here along with comments explaining your approach
+
+class LinkedList
 { 
     Node head; // head of linked list 
   
@@ -20,6 +27,15 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node slowPtr = head;
+        Node fastPtr = head;
+        //iterate through linked list till fastPtr or its next is not null
+        while(fastPtr != null && fastPtr.next != null) {
+            slowPtr = slowPtr.next;
+            fastPtr = fastPtr.next.next;
+        }
+        //slowPtr indicates middle of linked list, so print the value
+        System.out.println("Middle: " + slowPtr.data);
     } 
   
     public void push(int new_data) 
