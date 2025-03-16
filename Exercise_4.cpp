@@ -7,6 +7,33 @@
 void merge(int arr[], int l, int m, int r) 
 { 
     //Your code here
+    int b[r-l+2];
+    int il=l,ir=m+1,ib=0;
+    while(il<=m && ir<=r){
+        if(arr[il]<arr[ir]){
+            b[ib]=arr[il];il++;
+        }
+        else if(arr[il]>arr[ir]){
+            b[ib]=arr[ir];ir++;
+        }
+        else{
+            b[ib]=arr[ir];
+            ir++;ib++;
+            b[ib]=arr[il];
+            il++;
+        }
+        ib++;
+    }
+    while(il<=m){
+        b[ib]=arr[il];il++;ib++;
+    }
+    while(ir<=r){
+        b[ib]=arr[ir];ir++;ib++;
+    }
+    int itr=l,io=0;
+    while(itr<=r){
+        arr[itr]=b[io];io++;itr++;
+    }
 } 
   
 /* l is for left index and r is right index of the 
@@ -14,6 +41,13 @@ void merge(int arr[], int l, int m, int r)
 void mergeSort(int arr[], int l, int r) 
 { 
     //Your code here
+    int mid=(l+r)/2;
+    if(l>=r){
+        return;
+    }
+    mergeSort(arr,l,mid);
+    mergeSort(arr,mid+1,r);
+    merge(arr,l,mid,r);
 } 
   
 /* UTILITY FUNCTIONS */

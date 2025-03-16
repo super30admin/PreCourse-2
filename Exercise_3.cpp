@@ -12,6 +12,17 @@ struct Node
 void printMiddle(struct Node *head)  
 {  
   //YourCode here
+  Node* t=head;
+  Node* s=head;
+  int f=0;
+  while(t->next!=NULL){
+      t=t->next;
+      if(f==1){
+          s=s->next;
+      }
+      f=!f;
+  }
+  cout<<(s->data)<<'\n';
   //Use fast and slow pointer technique
 }  
   
