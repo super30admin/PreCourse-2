@@ -1,3 +1,7 @@
+// For printMiddle():
+// Time Complexity : O(N) , N represents number of items in the LL
+// Space Complexity : O(1)
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -19,7 +23,19 @@ class LinkedList
     void printMiddle() 
     { 
         //Write your code here
-	//Implement using Fast and slow pointers
+        //Implement using Fast and slow pointers
+
+        // In case of even lengthed LL's, I will get two elements at the middle. From those, I am returing the first element from those two elements.
+        // Overall, I am always returing (0+(length-1))/2 th element from the LL items.
+        Node fast = head;
+        Node slow = head;
+        // To avoid null pointer exceptions, I am safely checking for nulls before performing actions on them.
+        while(fast.next!=null && fast.next.next!=null){
+            // When fast moves at 2x speed, slow moves 1x.
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow.data;
     } 
   
     public void push(int new_data) 
