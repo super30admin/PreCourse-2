@@ -1,3 +1,16 @@
+// Time Complexity : O(n log n) on average, O(n^2) in worst case
+// Space Complexity : O(log n) due to recursion stack
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+
+// Your code here along with comments explaining your approach
+/**
+ * Approach: 
+ * We choose the last element as the pivot.We place all elements smaller than the pivot to its left,
+ * and all greater elements to its right.We do this recursively for left and right partitions.
+ */
+
 class QuickSort 
 { 
     /* This function takes last element as pivot, 
@@ -8,20 +21,41 @@ class QuickSort
        of pivot */
     void swap(int arr[],int i,int j){
         //Your code here   
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+        //Write code here for Partition and Swap 
+        int pivot = arr[high];
+        int i = low - 1;
+
+        for (int j = low; j < high; j++) {
+            if (arr[j] < pivot) {
+                i++;
+                swap(arr, i, j);
+            }
+        }
+
+        swap(arr, i + 1, high);
+        return i + 1;
     } 
+    
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
       low  --> Starting index, 
       high  --> Ending index */
     void sort(int arr[], int low, int high) 
     {  
-            // Recursively sort elements before 
-            // partition and after partition 
+        // Recursively sort elements before 
+        // partition and after partition 
+        if (low < high) {
+            int pi = partition(arr, low, high);
+            sort(arr, low, pi - 1);
+            sort(arr, pi + 1, high);
+        }
     } 
   
     /* A utility function to print array of size n */
