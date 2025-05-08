@@ -1,4 +1,8 @@
-class LinkedList 
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+// This program finds middle element of a linked list using fast and slow pointers
+
+class LinkedList
 { 
     Node head; // head of linked list 
   
@@ -20,7 +24,17 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
-    } 
+        Node slow = head;
+        Node fast = head;
+
+        while(fast.next != null && fast.next.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        System.out.println("Middle node is : " + slow.data);
+    }
+
   
     public void push(int new_data) 
     { 
