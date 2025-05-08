@@ -6,7 +6,7 @@
 def binarySearch(arr, l, r, x): 
   
   #write your code here
-  
+  pass
     
   
 # Test array 
