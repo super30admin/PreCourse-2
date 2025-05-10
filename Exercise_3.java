@@ -1,4 +1,15 @@
-class LinkedList 
+// Time Complexity:
+// printMiddle() => O(n), where n is the number of nodes in the list
+// push()        => O(1)
+// printList()   => O(n)
+
+// Space Complexity:
+// O(1) for all operations (in-place, no extra space used)
+
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+class LinkedList
 { 
     Node head; // head of linked list 
   
@@ -20,6 +31,21 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        if (head == null) {
+            System.out.println("The list is empty.");
+            return;
+        }
+
+        Node slow = head;
+        Node fast = head;
+
+        // Move fast by 2 and slow by 1 until fast reaches the end
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        System.out.println("Middle element: " + slow.data);
     } 
   
     public void push(int new_data) 

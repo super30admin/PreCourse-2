@@ -1,4 +1,16 @@
-class QuickSort 
+// Time Complexity:
+// Best Case:    O(n log n)--Balanced partition
+// Average Case: O(n log n)
+// Worst Case:   O(n^2)--When pivot is smallest/largest repeatedly
+
+// Space Complexity:
+// O(log n)--Recursive call stack in best/avg case
+// O(n)--Worst case recursive stack when unbalanced partitions
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+
+class QuickSort
 { 
     /* This function takes last element as pivot, 
        places the pivot element at its correct 
@@ -7,12 +19,30 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //Your code here
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+   	//Write code here for Partition and Swap
+        int pivot = arr[high]; // last element as pivot
+        int i = (low - 1); // index of smaller element
+
+        for (int j = low; j < high; j++) {
+            // If current element is smaller than or equal to pivot
+            if (arr[j] <= pivot) {
+                i++;
+                swap(arr, i, j); // swap arr[i] and arr[j]
+            }
+        }
+
+        // Swap pivot to its correct sorted position
+        swap(arr, i + 1, high);
+
+        return i + 1; // return pivot index
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -21,7 +51,15 @@ class QuickSort
     void sort(int arr[], int low, int high) 
     {  
             // Recursively sort elements before 
-            // partition and after partition 
+            // partition and after partition
+        if (low < high) {
+            // pi is partitioning index, arr[pi] is now at right place
+            int pi = partition(arr, low, high);
+
+            // Recursively sort elements before and after partition
+            sort(arr, low, pi - 1);
+            sort(arr, pi + 1, high);
+        }
     } 
   
     /* A utility function to print array of size n */
