@@ -2,14 +2,30 @@
   
 # give you explanation for the approach
 def partition(arr,low,high):
-  
-  
-    #write your code here
+    pivot = arr[high]
+    i = low - 1  # index of smaller element
+
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            i += 1
+            # swap arr[i] and arr[j]
+            arr[i], arr[j] = arr[j], arr[i]
+
+    # swap the pivot element with the element at i+1
+    arr[i + 1], arr[high] = arr[high], arr[i + 1]
+    return i + 1
   
 
 # Function to do Quick sort 
 def quickSort(arr,low,high): 
-    
+    if low < high:
+        # pi is partitioning index
+        pi = partition(arr, low, high)
+
+        # Recursively sort elements before and after partition
+        quickSort(arr, low, pi - 1)
+        quickSort(arr, pi + 1, high)
+
     #write your code here
   
 # Driver code to test above 
