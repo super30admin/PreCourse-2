@@ -1,3 +1,5 @@
+//Time complexity: best+average case: O(nlogn) worst case: O(n^2)
+//Space complexity: best+average case: O(logn) worst case: O(n) //for recursive stack
 class QuickSort 
 { 
     /* This function takes last element as pivot, 
@@ -8,11 +10,32 @@ class QuickSort
        of pivot */
     void swap(int arr[],int i,int j){
         //Your code here   
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp; 
     }
     
     int partition(int arr[], int low, int high) 
     { 
-   	//Write code here for Partition and Swap 
+   	    //Write code here for Partition and Swap 
+        if(high==low){
+            return low;
+        }
+        int pivot = arr[high], pivotIndex = high;
+        int i = low, j = high-1;
+        while(i<=j){
+            while(i<=high-1 && arr[i]<=pivot){
+                i++;
+            }
+            while(j>=low && arr[j]>=pivot){
+                j--;
+            }
+            if(i<j){
+                swap(arr, i,j);
+            }
+        }
+        swap(arr, pivotIndex, j+1);
+        return j+1;
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -20,8 +43,13 @@ class QuickSort
       high  --> Ending index */
     void sort(int arr[], int low, int high) 
     {  
-            // Recursively sort elements before 
-            // partition and after partition 
+        // Recursively sort elements before 
+        if(low<high){
+            int part = partition(arr, low, high);
+            sort(arr, low, part-1);
+            sort(arr, part+1, high); 
+        }
+        // partition and after partition 
     } 
   
     /* A utility function to print array of size n */
@@ -37,6 +65,7 @@ class QuickSort
     public static void main(String args[]) 
     { 
         int arr[] = {10, 7, 8, 9, 1, 5}; 
+        //int arr[] = {7, 6, 5, 4, 3, 2, 1};
         int n = arr.length; 
   
         QuickSort ob = new QuickSort(); 
