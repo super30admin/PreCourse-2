@@ -6,6 +6,17 @@
 def binarySearch(arr, l, r, x): 
   
   #write your code here
+  low = l
+  high = r
+  while low <= high:
+    middle = (low + high) // 2
+    if arr[middle] == x:
+      return middle
+    elif x < arr[middle]:
+      high = middle - 1
+    else:
+      low = middle + 1
+  return -1
   
     
   
@@ -17,6 +28,6 @@ x = 10
 result = binarySearch(arr, 0, len(arr)-1, x) 
   
 if result != -1: 
-    print "Element is present at index % d" % result 
+    print ("Element is present at index % d" % result)
 else: 
-    print "Element is not present in array"
+    print ("Element is not present in array")
