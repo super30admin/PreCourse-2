@@ -20,6 +20,20 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+	Node slow = head;
+	Node fast = head;
+	//both conditions are crucial to avoid null pointer
+	//if we have reached the next of end of the list then fast.next will lead to exception
+	while(fast!=null && fast.next!=null)
+	{
+	    //going one step ahead
+	    slow = slow.next;
+	    //going two step ahead
+	    fast = fast.next.next;
+	}
+	//we have reached the end of list with fast so slow must be at mid since it moves 1 for 2 steps of fast
+	System.out.println(slow.data); 
+	//it printed the second mid element in case of even length 
     } 
   
     public void push(int new_data) 
