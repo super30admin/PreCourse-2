@@ -1,7 +1,14 @@
+// Time Complexity: O(n log n)
+// Space Complexity: O(log n)
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
 	//Try swapping without extra variable 
+    if (i != j) {
+            arr[i] = arr[i] ^ arr[j];
+            arr[j] = arr[i] ^ arr[j];
+            arr[i] = arr[i] ^ arr[j];
+        }
     } 
   
     /* This function is same in both iterative and 
@@ -9,12 +16,55 @@ class IterativeQuickSort {
     int partition(int arr[], int l, int h) 
     { 
         //Compare elements and swap.
+        int pivot = arr[h];
+        int i = (l - 1);
+
+        for (int j = l; j <= h - 1; j++) {
+            if (arr[j] <= pivot) {
+                i++;
+                swap(arr, i, j);
+            }
+        }
+
+        swap(arr, i + 1, h);
+        return i + 1;
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
     { 
         //Try using Stack Data Structure to remove recursion.
+        // Create a stack to store l and h
+        int[] stack = new int[h - l + 1];
+
+        // Initialize top of stack
+        int top = -1;
+
+        // Push initial values of l and h to stack
+        stack[++top] = l;
+        stack[++top] = h;
+
+        // Keep popping from stack while it's not empty
+        while (top >= 0) {
+            // Pop h and l
+            h = stack[top--];
+            l = stack[top--];
+
+            // Partition the array
+            int p = partition(arr, l, h);
+
+            // If there are elements on left side of pivot, push them to stack
+            if (p - 1 > l) {
+                stack[++top] = l;
+                stack[++top] = p - 1;
+            }
+
+            // If there are elements on right side of pivot, push them to stack
+            if (p + 1 < h) {
+                stack[++top] = p + 1;
+                stack[++top] = h;
+            }
+        }
     } 
   
     // A utility function to print contents of arr 
