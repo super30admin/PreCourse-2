@@ -1,0 +1,59 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "IterativeQuickSort",
+      "request": "launch",
+      "mainClass": "IterativeQuickSort",
+      "projectName": "PreCourse-2_109fafb"
+    },
+    {
+      "type": "java",
+      "name": "MergeSort",
+      "request": "launch",
+      "mainClass": "MergeSort",
+      "projectName": "PreCourse-2_109fafb"
+    },
+    {
+      "type": "java",
+      "name": "LinkedList",
+      "request": "launch",
+      "mainClass": "LinkedList",
+      "projectName": "PreCourse-2_109fafb"
+    },
+    {
+      "type": "java",
+      "name": "QuickSort",
+      "request": "launch",
+      "mainClass": "QuickSort",
+      "projectName": "PreCourse-2_109fafb"
+    },
+    {
+      "type": "java",
+      "name": "BinarySearch",
+      "request": "launch",
+      "mainClass": "BinarySearch",
+      "projectName": "PreCourse-2_109fafb"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "d:/S30Homework/PreCourse-2",
+      "program": "d:/S30Homework/PreCourse-2/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
