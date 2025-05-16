@@ -6,14 +6,41 @@
 // Second subarray is arr[m+1..r] 
 void merge(int arr[], int l, int m, int r) 
 { 
-    //Your code here
+    int p1=m-l+1,p2=r-m;
+    int temp1[p1],temp2[p2];
+    for(int i=0;i<p1;i++){
+        temp1[i] = arr[l+i];
+    }
+    for(int j=0;j<p2;j++){
+        temp2[j] = arr[m+j+1];
+    }
+    int i=0,j=0,k=l;
+    while(i<p1 && j<p2){
+        if(temp1[i] <= temp2[j]){
+            arr[k++] = temp1[i++];
+        }else{
+            arr[k++] = temp2[j++];
+        }
+    }
+    while(i<p1){
+        arr[k++] = temp1[i++];
+    }
+    while(j<p2){
+        arr[k++] = temp2[j++];
+    }
 } 
   
 /* l is for left index and r is right index of the 
    sub-array of arr to be sorted */
 void mergeSort(int arr[], int l, int r) 
 { 
-    //Your code here
+    if(l<r)
+    {
+        int mid = l+(r-l)/2;
+        mergeSort(arr,l,mid);
+        mergeSort(arr,mid+1,r);
+        merge(arr,l,mid,r);
+    }
 } 
   
 /* UTILITY FUNCTIONS */
