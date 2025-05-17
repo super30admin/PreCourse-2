@@ -1,3 +1,8 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this :
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +25,22 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    if (head == null) {
+            System.out.println("The list is empty.");
+            return;
+        }
+
+        Node slow = head;
+        Node fast = head;
+
+        // Move fast by 2 steps and slow by 1 step
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // slow now points to the middle
+        System.out.println("Middle element: " + slow.data); 
     } 
   
     public void push(int new_data) 
