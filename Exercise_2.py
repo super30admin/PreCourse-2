@@ -1,14 +1,29 @@
+
 # Python program for implementation of Quicksort Sort 
   
 # give you explanation for the approach
 def partition(arr,low,high):
+    pivot = arr[high]  # Last element as pivot
+    i = low - 1         # Index of smaller element
+
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]  # Swap
+
+    arr[i + 1], arr[high] = arr[high], arr[i + 1]  # Place pivot in the middle
+    return i + 1
   
   
     #write your code here
   
 
 # Function to do Quick sort 
-def quickSort(arr,low,high): 
+def quickSort(arr,low,high):
+    if low < high:
+        pi = partition(arr, low, high)
+        quickSort(arr, low, pi - 1)
+        quickSort(arr, pi + 1, high) 
     
     #write your code here
   
