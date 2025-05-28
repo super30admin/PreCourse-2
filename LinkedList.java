@@ -1,3 +1,12 @@
+// Time Complexity : O(n)
+//    - Because we traverse the list only once with the fast and slow pointers.
+// Space Complexity : O(1)
+//    - No extra space is used apart from a few pointer variables.
+// Did this code successfully run on Leetcode :
+//    - yes
+// Any problem you faced while coding this :
+//    - No
+    
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -19,7 +28,21 @@ class LinkedList
     void printMiddle() 
     { 
         //Write your code here
-	//Implement using Fast and slow pointers
+	    //Implement using Fast and slow pointers
+       if (head == null) {
+            System.out.println("The list is empty.");
+            return;
+        }
+       Node slow = head;
+       Node fast = head;
+
+       while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+       }
+
+       System.out.print("Middle of the Singly Linked List: "+slow.data);
+
     } 
   
     public void push(int new_data) 
