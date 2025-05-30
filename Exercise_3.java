@@ -1,8 +1,6 @@
 class LinkedList 
 { 
-    Node head; // head of linked list 
-  
-    /* Linked list node */
+    Node head; 
     class Node 
     { 
         int data; 
@@ -14,12 +12,23 @@ class LinkedList
         } 
     } 
   
-    /* Function to print middle of linked list */
-   //Complete this function
+
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+        // Write your code here
+        // Implement using Fast and slow pointers
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        System.out.println("Middle element is " + slow.data);
     } 
   
     public void push(int new_data) 
@@ -34,7 +43,7 @@ class LinkedList
         Node tnode = head; 
         while (tnode != null) 
         { 
-            System.out.print(tnode.data+"->"); 
+            System.out.print(tnode.data + "->"); 
             tnode = tnode.next; 
         } 
         System.out.println("NULL"); 
@@ -43,11 +52,11 @@ class LinkedList
     public static void main(String [] args) 
     { 
         LinkedList llist = new LinkedList(); 
-        for (int i=15; i>0; --i) 
+        for (int i = 15; i > 0; --i) 
         { 
             llist.push(i); 
             llist.printList(); 
             llist.printMiddle(); 
         } 
     } 
-} 
+}
