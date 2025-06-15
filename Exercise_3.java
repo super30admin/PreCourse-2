@@ -1,3 +1,15 @@
+// Time Complexity -> O(n) -> n nodes
+// Space Complexity -> O(1) -> since we are using two pointers (Fast and Slow)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+// Your code here along with comments explaining your approach 
+// I have used 2 pointers (Fast and Slow). Both pointers i started from the first element.
+// For each iteration, Slow move by one step and Fast move by two steps.
+// When Fast reaches the end, the slow will be at the middle node. (This process works for irresepctive of even and odd length nodes)
+
+
+
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +32,15 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node fast = head;
+        Node slow = head;
+        while(fast!=null && fast.next!=null)
+        {
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        System.out.println("Middle Ele is: "+slow.data);
+
     } 
   
     public void push(int new_data) 
