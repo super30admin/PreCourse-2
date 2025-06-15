@@ -1,7 +1,9 @@
+
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
 	//Try swapping without extra variable 
+        
     } 
   
     /* This function is same in both iterative and 
@@ -9,12 +11,16 @@ class IterativeQuickSort {
     int partition(int arr[], int l, int h) 
     { 
         //Compare elements and swap.
+    
+       
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
     { 
         //Try using Stack Data Structure to remove recursion.
+       
+            
     } 
   
     // A utility function to print contents of arr 
