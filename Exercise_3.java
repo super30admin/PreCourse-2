@@ -1,3 +1,27 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+/*
+Approach:
+I used slow and fast pointers to find the middle node.
+Both pointers start from the head of the linked list.
+
+1. First, check if the head is null.
+   If it is, print that the linked list is empty and return.
+
+2. Otherwise, run a while loop:
+   It continues while fast is not null and fast.next is not null.
+
+3. Inside the loop:
+   Move the fast pointer two steps forward.
+   Move the slow pointer one step forward.
+
+4. When the loop ends, the slow pointer will be at the middle node.
+   Print the value at the slow pointer.
+*/
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +44,18 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        if(head == null) 
+        {
+            System.out.println("LinkedList is empty");
+        }
+        Node fast = head;
+        Node slow = head;
+        
+        while(fast!=null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        System.out.println("The middle of LinkedList is: "+ slow.data);
     } 
   
     public void push(int new_data) 
