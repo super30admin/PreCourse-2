@@ -1,4 +1,13 @@
-class LinkedList 
+// Time Complexity:
+// push()        - O(1)    Inserts at the beginning of the list
+// printList()   - O(n)    Traverses the entire list once
+// printMiddle() - O(n)    Traverses the list with two pointers (still linear)
+
+// Space Complexity:
+// O(n) → for storing n nodes in the linked list
+// O(1) → extra space used by slow and fast pointers (constant)
+
+class LinkedList
 { 
     Node head; // head of linked list 
   
@@ -17,9 +26,21 @@ class LinkedList
     /* Function to print middle of linked list */
    //Complete this function
     void printMiddle() 
-    { 
-        //Write your code here
+    {
 	//Implement using Fast and slow pointers
+        Node slow_ptr = head;
+        Node fast_ptr = head;
+
+        if (head != null)
+        {
+            while (fast_ptr != null && fast_ptr.next != null)
+            {
+                fast_ptr = fast_ptr.next.next;
+                slow_ptr = slow_ptr.next;
+            }
+            System.out.println("The middle element is: " + slow_ptr.data);
+        }
+
     } 
   
     public void push(int new_data) 
