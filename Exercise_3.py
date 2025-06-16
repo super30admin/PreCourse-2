@@ -1,20 +1,46 @@
+#Time Complexity : O(n)
+#Space Complexity : O(1)
+
 # Node class  
 class Node:  
   
     # Function to initialise the node object  
-    def __init__(self, data):  
+    def __init__(self, data): 
+        self.data = data
+        self.next = None      
         
 class LinkedList: 
   
-    def __init__(self): 
+    def __init__(self):
+        self.head = None
+    
+    def push(self, new_data):
+        new_node = Node(new_data)
+        if not self.head:
+            self.head = new_node
+            return
+        temp = self.head
+        while temp.next:
+            temp = temp.next
+        temp.next = new_node
         
-  
-    def push(self, new_data): 
-        
-  
     # Function to get the middle of  
     # the linked list 
     def printMiddle(self): 
+        count = 0
+        curr = self.head
+        while curr:
+            count += 1
+            curr = curr.next
+        mid = count //2
+        curr = self.head
+        for i in range(mid):
+            curr = curr.next
+        if curr.data:
+            print("Mid Point of a Singly Linked List: ", curr.data)
+            return curr.data
+        else:
+            print("The list is empty")
 
 # Driver code 
 list1 = LinkedList() 
