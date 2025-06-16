@@ -5,13 +5,33 @@ def partition(arr,low,high):
   
   
     #write your code here
+    pivot = arr[high]
+
+    i = low - 1
+
+    for j in range(low, high):
+        if arr[j] < pivot:
+            i += 1
+            swap(arr, i, j)
+
+    swap(arr, i+1, high)
+
+    return i+1
+
+def swap(arr,i,j):
+    arr[i], arr[j] = arr[j], arr[i]
   
 
 # Function to do Quick sort 
 def quickSort(arr,low,high): 
     
     #write your code here
+    if low < high:
+        pivotIndex = partition(arr, low, high)
+        quickSort(arr, low, pivotIndex - 1)
+        quickSort(arr, pivotIndex+1, high)
   
+    return arr
 # Driver code to test above 
 arr = [10, 7, 8, 9, 1, 5] 
 n = len(arr) 
