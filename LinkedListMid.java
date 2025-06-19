@@ -1,4 +1,10 @@
-class LinkedList 
+
+// TC - O(N/2)
+// SC - O(1)
+
+// Use slow ptr and fast ptr, return slow ptr data, when fast ptr
+//becomes null or next node to fast ptr is null
+class LinkedListMid 
 { 
     Node head; // head of linked list 
   
@@ -20,6 +26,15 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node fastPtr = head;
+        Node slowPtr = head;
+
+        while(fastPtr.next != null && fastPtr.next.next != null){
+            slowPtr = slowPtr.next;
+            fastPtr = fastPtr.next.next;
+        }
+
+        System.out.println("The mid of the linkedList is -> "+slowPtr.data);
     } 
   
     public void push(int new_data) 
@@ -31,6 +46,7 @@ class LinkedList
 
     public void printList() 
     { 
+
         Node tnode = head; 
         while (tnode != null) 
         { 
@@ -42,7 +58,7 @@ class LinkedList
   
     public static void main(String [] args) 
     { 
-        LinkedList llist = new LinkedList(); 
+        LinkedListMid llist = new LinkedListMid(); 
         for (int i=15; i>0; --i) 
         { 
             llist.push(i); 
