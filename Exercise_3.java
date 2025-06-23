@@ -1,3 +1,8 @@
+/*
+ * TC: O(n)
+ * SC: O(1)
+ */
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +25,14 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    Node fast = head;
+    Node slow = head;
+        //fast!= null for even number of elemenets and other one for odd elements
+    while(fast!=null && fast.next!=null){
+        fast = fast.next.next;
+        slow = slow.next;
+    }
+    System.out.println(slow.data);
     } 
   
     public void push(int new_data) 
@@ -39,7 +52,9 @@ class LinkedList
         } 
         System.out.println("NULL"); 
     } 
-  
+} 
+
+class Exercise_3{
     public static void main(String [] args) 
     { 
         LinkedList llist = new LinkedList(); 
@@ -50,4 +65,4 @@ class LinkedList
             llist.printMiddle(); 
         } 
     } 
-} 
+}
