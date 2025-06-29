@@ -3,20 +3,19 @@ class IterativeQuickSort {
     { 
 	//Try swapping without extra variable 
     } 
-  
-    /* This function is same in both iterative and 
-       recursive*/
+
+    /* This function is same in both iterative and recursive*/
     int partition(int arr[], int l, int h) 
     { 
         //Compare elements and swap.
     } 
-  
+
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
     { 
         //Try using Stack Data Structure to remove recursion.
     } 
-  
+
     // A utility function to print contents of arr 
     void printArr(int arr[], int n) 
     { 
@@ -24,7 +23,7 @@ class IterativeQuickSort {
         for (i = 0; i < n; ++i) 
             System.out.print(arr[i] + " "); 
     } 
-  
+
     // Driver code to test above 
     public static void main(String args[]) 
     { 
