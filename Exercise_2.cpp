@@ -5,8 +5,12 @@ using namespace std;
 void swap(int* a, int* b)  
 {  
     //Your Code here 
+    int t=*a;
+    *a=*b;
+    *b=t;
 }  
-  
+//Time Complexity : O(n*logn)
+//Space Complexity : O(n)   
 /* This function takes last element as pivot, places  
 the pivot element at its correct position in sorted  
 array, and places all smaller (smaller than pivot)  
@@ -14,7 +18,33 @@ to left of pivot and all greater elements to right
 of pivot */
 int partition (int arr[], int low, int high)  
 {  
-    //Your Code here 
+    int pivot =arr[low];
+    int cnt=0;
+    for(int i=low+1;i<=high;i++){
+        if(arr[i]<= pivot){
+            cnt++;
+        }
+    }
+    //place pivot at right position
+    int pivotIndex = low+cnt;
+    swap(arr[pivotIndex],arr[low]);
+
+    //left and right part of array
+    int i=low,j=high;
+    while(i<pivotIndex && j>pivotIndex){
+        while(arr[i]<pivot){
+            i++;
+        }
+
+        while(arr[j]>pivot){
+            j--;
+        }
+
+        if(i<pivotIndex && j>pivotIndex){
+            swap(arr[i++],arr[j--]);
+        }
+    }
+    return pivotIndex; 
 }  
   
 /* The main function that implements QuickSort  
@@ -23,7 +53,15 @@ low --> Starting index,
 high --> Ending index */
 void quickSort(int arr[], int low, int high)  
 {  
-    //Your Code here 
+    //base case
+    if(low>=high) return ;
+
+    int p=partition(arr,low,high);//partition
+
+    //Now a recursive call
+    quickSort(arr,low,p-1);
+
+    quickSort(arr,p+1,high);
 }  
   
 /* Function to print an array */
