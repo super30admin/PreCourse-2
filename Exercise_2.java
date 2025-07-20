@@ -1,3 +1,8 @@
+// Space complexity: O(log n)
+// Time complexity: O(log n)
+//did this code successfully run on Leetcode: This is not a Leetcode problem
+//any problem you faced while coding this: No
+
 public class QuickSort 
 { 
     /* This function takes last element as pivot, 
