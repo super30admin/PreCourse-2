@@ -1,3 +1,9 @@
+/*Time and Space complexity for printMiddle function is
+ * 
+ * Time : O(n)
+ * Space : O(1)
+ */
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -18,8 +24,19 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+        Node fast = head;
+        Node slow = head;
+
+        if(head == null){
+            System.out.println("The list is empty.");
+            return;
+        }
+
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        System.out.println("Middle element is: " + slow.data);
     } 
   
     public void push(int new_data) 
