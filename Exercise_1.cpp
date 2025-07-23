@@ -5,7 +5,15 @@
 // otherwise -1 
 int binarySearch(int arr[], int l, int r, int x) 
 {   
-    //Your Code here 
+    if(l>r)
+    return -1;
+    int m = (l+r)/2;
+    if(arr[m]==x)
+     return m;
+    else if(arr[m]>x)
+     return binarySearch(arr,l,m,x);
+    else
+     return binarySearch(arr,m+1,r,x) ;
 } 
   
 int main(void) 
