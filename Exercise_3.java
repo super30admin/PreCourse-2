@@ -1,3 +1,7 @@
+//Time Complexity :O(n)
+//Space Complexity :O(n)
+//Did this code successfully run on Leetcode : yes
+//Any problem you faced while coding this : had no idea about fast pointer, learnt
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -18,8 +22,25 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+       if(head == null) {
+			System.out.println("Empty list \n");
+			return;
+		}
+		// Implement using Fast and slow pointers
+		Node slowPointer = head;
+		Node fastPointer = head;
+		
+		if(fastPointer.next == null || fastPointer.next.next == null ) {
+			System.out.println("Less than 3 elements in the list \n");      // Edge case scenario
+			return;
+			
+		}
+		
+		while(fastPointer != null && fastPointer.next != null ) {
+			slowPointer = slowPointer.next;
+			fastPointer = fastPointer.next.next;
+		}
+		System.out.println("Middle Element : " +  slowPointer.data + "\n");s
     } 
   
     public void push(int new_data) 
