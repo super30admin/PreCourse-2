@@ -14,12 +14,19 @@ class LinkedList
         } 
     } 
   
-    /* Function to print middle of linked list */
-   //Complete this function
+    //when fast reaches the last node the slow always points to the middle node
+    //if it is odd length then middle is at slow
+    //if it is even length then middle points to first element of right sublist
+    
     void printMiddle() 
     { 
-        //Write your code here
-	//Implement using Fast and slow pointers
+        Node slow=head,fast=head;
+        while(fast!=null&&fast.next!=null) 
+        { 
+            slow=slow.next; 
+            fast=fast.next.next; 
+        }
+        System.out.println("Middle element is: " + slow.data);
     } 
   
     public void push(int new_data) 
