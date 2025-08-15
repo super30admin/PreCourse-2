@@ -1,3 +1,16 @@
+// Time Complexity :
+//   sort()  -> O(n log n) overall
+//   merge() -> O(n) for merging two halves
+// Space Complexity : O(n) extra space for the temporary arrays used during merge
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this :
+//   - Off-by-one errors when splitting and copying subarrays (watch n1 = m - l + 1, n2 = r - m).
+//   - Forgetting to copy any leftover elements from one side after the main merge loop.
+//   - Using (l + r) / 2 can overflow on very large indices; safest is l + (r - l) / 2.
+// Your code here along with comments explaining your approach:
+//   - Recursively split the array into two halves until size 1 (already sorted).
+//   - Use merge() to combine two sorted halves into a single sorted segment.
+//   - merge() uses two temporary arrays to keep the process stable and simple.
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
@@ -5,7 +18,48 @@ class MergeSort
     // Second subarray is arr[m+1..r] 
     void merge(int arr[], int l, int m, int r) 
     {  
-       //Your code here  
+       //Your code here
+        // Sizes of the two subarrays
+        int n1 = m - l + 1;
+        int n2 = r - m;
+
+        // Temp arrays
+        int[] L = new int[n1];
+        int[] R = new int[n2];
+
+        // Copy data to temp arrays
+        for (int i = 0; i < n1; i++) L[i] = arr[l + i];
+        for (int j = 0; j < n2; j++) R[j] = arr[m + 1 + j];
+
+        // Merge the temp arrays back into arr[l..r]
+        int i = 0, j = 0;    // initial indexes of L and R
+        int k = l;           // initial index of merged subarray
+
+        // Compare and place the smaller element first
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                arr[k] = L[i];
+                i++;
+            } else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+
+        // Copy remaining elements of L[], if any
+        while (i < n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+
+        // Copy remaining elements of R[], if any
+        while (j < n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }  
     } 
   
     // Main function that sorts arr[l..r] using 
@@ -13,7 +67,18 @@ class MergeSort
     void sort(int arr[], int l, int r) 
     { 
 	//Write your code here
-        //Call mergeSort from here 
+        //Call mergeSort from here
+        if (l < r) {
+            // Same as (l + r) / 2 but safer from overflow
+            int m = l + (r - l) / 2;
+
+            // Sort first and second halves
+            sort(arr, l, m);
+            sort(arr, m + 1, r);
+
+            // Merge the sorted halves
+            merge(arr, l, m, r);
+        } 
     } 
   
     /* A utility function to print array of size n */
