@@ -1,3 +1,11 @@
+// Time Complexity : O (n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+
+// Your code here along with comments explaining your approach
+// Moving fast pointer with 2 steps and slow pointer with 1 step
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -20,6 +28,15 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        Node fast = head;
+        Node slow = head;
+        
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        System.out.println(slow.data);
     } 
   
     public void push(int new_data) 
@@ -43,7 +60,7 @@ class LinkedList
     public static void main(String [] args) 
     { 
         LinkedList llist = new LinkedList(); 
-        for (int i=15; i>0; --i) 
+        for (int i=5; i>0; --i) 
         { 
             llist.push(i); 
             llist.printList(); 
