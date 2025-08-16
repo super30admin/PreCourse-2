@@ -1,3 +1,7 @@
+// Time Complexity :  O(nlogn)
+// Space Complexity : O(1), Auxilary stack space: O(log n)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -17,17 +21,17 @@ of pivot */
 int partition(int arr[], int low, int high) {
   // Your Code here
   int pivot = arr[high]; // last element as pivot
-  int i = low;
+  int pivot_index = low;
 
   for (int j = low; j < high; j++) {
     if (arr[j] < pivot) {
-      swap(arr[i], arr[j]);
-      i++;
+      swap(arr[pivot_index], arr[j]);
+      pivot_index++;
     }
   }
 
-  swap(arr[high], arr[i]);
-  return i;
+  swap(arr[high], arr[pivot_index]);
+  return pivot_index;
 }
 
 /* The main function that implements QuickSort
