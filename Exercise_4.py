@@ -1,10 +1,56 @@
-# Python program for implementation of MergeSort 
+# Time Complexity : O(n log n)
+# Space Complexity : O(n)
+
+# Did this code successfully run on Leetcode : Yes
+# Any problem you faced while coding this :  No
+
+# Python program for implementation of MergeSort
 def mergeSort(arr):
-  
-  #write your code here
+    if len(arr) > 1:
+
+        # Finding the mid of the array
+        mid = len(arr) // 2
+
+        # Dividing the array elements into 2 halves
+        L = arr[:mid]
+        R = arr[mid:]
+
+        # Recursive call to sort both halves
+        mergeSort(L)
+        mergeSort(R)
+
+        i = j = k = 0
+
+        # Copy data to temp arrays L[] and R[]
+        while i < len(L) and j < len(R):
+            if L[i] <= R[j]:
+                arr[k] = L[i]
+                i += 1
+            else:
+                arr[k] = R[j]
+                j += 1
+            k += 1
+
+        # Checking if any element was left
+        while i < len(L):
+            arr[k] = L[i]
+            i += 1
+            k += 1
+
+        while j < len(R):
+            arr[k] = R[j]
+            j += 1
+            k += 1
+
+
+#write your code here
   
 # Code to print the list 
-def printList(arr): 
+def printList(arr):
+    for i in range(len(arr)):
+        print(arr[i], end=" ")
+    print()
+
     
     #write your code here
   
