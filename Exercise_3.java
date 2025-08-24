@@ -1,3 +1,10 @@
+/*
+Time Complexity: O(n) - we traverse the list once
+Space Complexity: O(1) - we only use two pointers regardless of list size
+
+Have you had any problems: No
+*/
+
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -19,14 +26,20 @@ class LinkedList
     void printMiddle() 
     { 
         //Write your code here
-	//Implement using Fast and slow pointers
+	    //Implement using Fast and slow pointers
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        System.out.println(slow.data);
     } 
   
     public void push(int new_data) 
     { 
-        Node new_node = new Node(new_data); 
-        new_node.next = head; 
-        head = new_node; 
+        Node new_node = new Node(new_data); // Point the new node to the current head
+        head = new_node; // Make the new node the new head
     } 
 
     public void printList() 
