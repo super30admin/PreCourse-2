@@ -18,6 +18,18 @@ class LinkedList
    //Complete this function
     void printMiddle() 
     { 
+    	if(head==null) {
+    		System.out.println("Empty Linked List");
+    	}
+    	Node slowPointer= head;
+    	Node fastPointer= head;
+    	
+    	while(fastPointer!=null && fastPointer.next!=null) {
+    		slowPointer=slowPointer.next;
+    		
+    		fastPointer=fastPointer.next.next;
+    	}
+    	System.out.println("Middle Of Linked List contains data: "+ slowPointer.data );
         //Write your code here
 	//Implement using Fast and slow pointers
     } 
