@@ -2,7 +2,23 @@ class BinarySearch {
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
     { 
-        //Write your code here
+        if (r >= l) {
+            int mid = l + (r - l) / 2;
+
+            // Check if x is present at mid
+            if (arr[mid] == x)
+                return mid;
+
+            // If x is smaller, it must be in the left subarray
+            if (arr[mid] > x)
+                return binarySearch(arr, l, mid - 1, x);
+
+            // Else, it must be in the right subarray
+            return binarySearch(arr, mid + 1, r, x);
+        }
+
+        // Element is not present in the array
+        return -1; 
     } 
   
     // Driver method to test above 
@@ -19,3 +35,6 @@ class BinarySearch {
             System.out.println("Element found at index " + result); 
     } 
 } 
+
+//Time complexity : O(log n)
+//Space complexity : O(log n)
