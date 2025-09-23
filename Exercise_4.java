@@ -1,19 +1,52 @@
+// Time Complexity: O(n log n) as we keep dividing the array into two halves.
+// Space Complexity: O(n) as we use a temp array for sorting the elements.
+
 class MergeSort 
 { 
     // Merges two subarrays of arr[]. 
     // First subarray is arr[l..m] 
     // Second subarray is arr[m+1..r] 
-    void merge(int arr[], int l, int m, int r) 
+    void merge(int arr[], int start, int mid, int right) 
     {  
-       //Your code here  
+       int i = start, j = mid;
+
+       int[] temp = new int[right - start];
+       int tempIdx = 0;
+    
+       while (i < mid && j < right) {
+            if (arr[i] < arr[j]) {
+                temp[tempIdx++] = arr[i++];
+            } else {
+                temp[tempIdx++] = arr[j++];
+            }
+       }
+
+       while (i < mid) {
+            temp[tempIdx++] = arr[i++];
+       }
+
+       while (j < right) {
+            temp[tempIdx++] = arr[j++];
+       }
+
+       for(int k=start; k<right; k++) {
+        arr[k] = temp[k-start];
+       }
     } 
   
     // Main function that sorts arr[l..r] using 
     // merge() 
-    void sort(int arr[], int l, int r) 
+    void sort(int arr[], int start, int end) 
     { 
-	//Write your code here
-        //Call mergeSort from here 
+        if (end - start < 2) {
+            return;
+        }
+
+        int mid = (start + end) / 2;
+        sort(arr, start, mid);
+        sort(arr, mid, end);
+
+        merge(arr, start, mid, end);
     } 
   
     /* A utility function to print array of size n */
@@ -34,7 +67,7 @@ class MergeSort
         printArray(arr); 
   
         MergeSort ob = new MergeSort(); 
-        ob.sort(arr, 0, arr.length-1); 
+        ob.sort(arr, 0, arr.length); 
   
         System.out.println("\nSorted array"); 
         printArray(arr); 
