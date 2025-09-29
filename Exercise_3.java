@@ -1,5 +1,9 @@
 class LinkedList 
 { 
+	// Time Complexity : O(n)
+	// Space Complexity : O(1)
+	// Did this code successfully run on Leetcode :
+	// Any problem you faced while coding this : 
     Node head; // head of linked list 
   
     /* Linked list node */
@@ -20,6 +24,18 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+    	Node slowPtr = head;
+        Node fastPtr = head;
+
+        if (head != null)
+        {
+            while (fastPtr != null && fastPtr.next != null)
+            {
+            	fastPtr = fastPtr.next.next;
+                slowPtr = slowPtr.next;
+            }
+            System.out.println("The middle element is [" + slowPtr.data + "]");
+        }
     } 
   
     public void push(int new_data) 
