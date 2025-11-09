@@ -1,3 +1,12 @@
+/*
+ * 
+ * Time Complexity : O(n^2) ~ Worst case encountered when Array is sorted in descending order
+ * Space Complexity : O(1)
+ * Did this code successfully run on Leetcode : Yes
+ *  Any problem you faced while coding this : Struggled to find the base case, weak in recursion
+ */
+
+
 class QuickSort 
 { 
     /* This function takes last element as pivot, 
@@ -7,12 +16,34 @@ class QuickSort
        pivot and all greater elements to right 
        of pivot */
     void swap(int arr[],int i,int j){
-        //Your code here   
+        //Your code here  
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp; 
     }
     
     int partition(int arr[], int low, int high) 
     { 
    	//Write code here for Partition and Swap 
+
+        int pivot = high;
+        int j = low;
+        int i = j - 1;
+
+        while(j < pivot) {
+            if(arr[j] < arr[pivot]) {
+                i++;
+                swap(arr, i, j);
+                j++;
+            } else {
+                j++;
+            }
+        }
+
+        i++;
+        swap(arr, i, j);
+        return i;
+        
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -22,6 +53,14 @@ class QuickSort
     {  
             // Recursively sort elements before 
             // partition and after partition 
+
+            if(high <= low) {
+                return;
+            }
+
+            int pivot = partition(arr, low, high);
+            sort(arr, low, pivot - 1);
+            sort(arr, pivot + 1, high);
     } 
   
     /* A utility function to print array of size n */
