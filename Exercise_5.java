@@ -1,7 +1,22 @@
+import java.util.*;
+
+/*
+ * 
+ * Time Complexity : O(n^2) all are descending order
+ * Space Complexity : O(n) ~ stack space
+ * Did this code successfully run on Leetcode : No (Time limit exceeded)
+ *  Any problem you faced while coding this : Swapping without extra variable, if we swap same index then result computes to 0. I didn't know and had to debug
+ */
+
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
 	//Try swapping without extra variable 
+        if(i != j) {
+            arr[i] = arr[i] + arr[j];
+            arr[j] = arr[i] - arr[j];
+            arr[i] = arr[i] - arr[j];
+        }
     } 
   
     /* This function is same in both iterative and 
@@ -9,12 +24,42 @@ class IterativeQuickSort {
     int partition(int arr[], int l, int h) 
     { 
         //Compare elements and swap.
+        int pivot = h;
+        int j = l;
+        int i = j - 1;
+
+        while(j < pivot) {
+            if(arr[j] < arr[pivot]) {
+                i++;
+                swap(arr, i, j);
+                j++;
+            } else {
+                j++;
+            }
+        }
+
+        i++;
+        swap(arr, i, j);
+        return i;
     } 
   
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
     { 
-        //Try using Stack Data Structure to remove recursion.
+        //Try using Stack Data Structure to remove recursion. 
+        Stack<int[]> st = new Stack<>();
+        st.add(new int[]{l,h});
+
+        while(!st.isEmpty()) {
+            int[] temp = st.pop();
+            int low = temp[0];
+            int high = temp[1];
+            if(high > low) {
+                int pivot = partition(arr, low, high);
+                st.add(new int[]{low, pivot-1});
+                st.add(new int[]{pivot+1, high});
+            }
+        }
     } 
   
     // A utility function to print contents of arr 
