@@ -1,3 +1,7 @@
+// Time Complexity : O(NlogN)
+// Space Complexity : O(logN). Space for the recursive call.
+// Did this code successfully run on Leetcode : No, did not find it on Leetcode.
+// Any problem you faced while coding this : Yes, I had to watch some youtube videos to recollect quick sort.
 class QuickSort 
 { 
     /* This function takes last element as pivot, 
@@ -8,11 +12,30 @@ class QuickSort
        of pivot */
     void swap(int arr[],int i,int j){
         //Your code here   
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
     
     int partition(int arr[], int low, int high) 
     { 
    	//Write code here for Partition and Swap 
+        // Taking the last element as pivot.
+        int pivot = arr[high]; 
+        int i = low - 1;
+        // Place all elements less than pivot on the left side of the array.
+        for (int j = low; j < high; j ++) { 
+            if (arr[j] <= pivot) {
+                i ++;
+                swap(arr, i, j);
+            }
+        }
+        // Place pivot in the partition index,
+        // where all elements on the left are less than pivot
+        // and all elements on the right are greater than the pivot.
+        swap(arr, i + 1, high);
+        // Return pivot index.
+        return i + 1;
     } 
     /* The main function that implements QuickSort() 
       arr[] --> Array to be sorted, 
@@ -20,8 +43,17 @@ class QuickSort
       high  --> Ending index */
     void sort(int arr[], int low, int high) 
     {  
-            // Recursively sort elements before 
-            // partition and after partition 
+        // Recursively sort elements before 
+        // partition and after partition 
+        if (low < high) {
+            int pivotIndex = partition(arr, low, high);
+            if (pivotIndex - 1 > low) {
+                sort(arr, low, pivotIndex - 1); // left partition
+            }
+            if (pivotIndex + 1 < high) {
+                sort(arr, pivotIndex + 1, high); // right partition
+            }
+        }
     } 
   
     /* A utility function to print array of size n */
