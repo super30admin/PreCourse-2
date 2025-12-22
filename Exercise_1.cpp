@@ -1,3 +1,5 @@
+//Time Complexity : O(logn)
+// Space Complexity : O(logn)
 #include <stdio.h> 
   
 // A recursive binary search function. It returns 
@@ -5,7 +7,20 @@
 // otherwise -1 
 int binarySearch(int arr[], int l, int r, int x) 
 {   
-    //Your Code here 
+    if(l > r){
+        return -1;
+    }
+    int mid = l + (r-1) / 2;
+
+    if (arr[mid] == x){
+        return mid;
+    }
+
+    if(arr[mid] > x){
+        return binarySearch(arr,l,mid-1,x);
+    }
+
+    return binarySearch(arr,mid+1,r,x);
 } 
   
 int main(void) 
