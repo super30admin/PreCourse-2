@@ -2,9 +2,27 @@ class BinarySearch {
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
     { 
+    	int high= arr.length;
+    	int low=0;
+    	int mid=0;
+    	
         //Write your code here
-    } 
-  
+    	
+    	while (low<=high) {
+    		mid=low+(high-low)/2; // high-low to avoid integer overflow
+    		if (arr[mid]==x) {
+    			return mid;
+    		}else if (arr[mid]>x) {
+    			high=mid-1;
+    		}else {
+    			low = mid+1;
+    		}
+    	}
+    	return -1;
+    }
+}
+ 
+public class Exercise_1{
     // Driver method to test above 
     public static void main(String args[]) 
     { 
