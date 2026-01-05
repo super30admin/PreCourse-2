@@ -1,3 +1,13 @@
+// Time Complexity :o(n)
+// Space Complexity :o(1)
+// Did this code successfully run on Leetcode :n/a
+// Any problem you faced while coding this :n.a
+
+
+// Your code here along with comments explaining your approach
+//Iterate over linklist and find length of linkedList
+//iterate till half of linkedlist and inittialize temp node to head and move temparary node foward.
+//once temparary node reached at half of linkedlist, return temparary node
 class LinkedList 
 { 
     Node head; // head of linked list 
@@ -13,6 +23,16 @@ class LinkedList
             next = null; 
         } 
     } 
+
+    public int getLen(){
+        int length =0;
+        Node temp = head;
+        while(temp!=null){
+            length++;
+            temp = temp.next;
+        }
+        return length;
+    }
   
     /* Function to print middle of linked list */
    //Complete this function
@@ -20,6 +40,18 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        if(head!=null){
+            int length = getLen();
+            Node temp = head;
+            int middleLength = length/2;
+            while(middleLength!=0){
+                temp = temp.next;
+                middleLength--;
+            }
+            System.out.println("The middle element is [" + temp.data + "]");
+            System.out.println("\n\n");
+        }
+
     } 
   
     public void push(int new_data) 
