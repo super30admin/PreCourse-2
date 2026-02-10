@@ -3,18 +3,20 @@ class Node:
   
     # Function to initialise the node object  
     def __init__(self, data):  
+        self.data = data
         
 class LinkedList: 
   
     def __init__(self): 
-        
+        self.arr=[]
   
     def push(self, new_data): 
-        
+        self.arr.append(Node(new_data))
   
     # Function to get the middle of  
     # the linked list 
     def printMiddle(self): 
+        print(self.arr[(len(self.arr)-1)//2].data)
 
 # Driver code 
 list1 = LinkedList() 
