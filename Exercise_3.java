@@ -1,4 +1,12 @@
-class LinkedList 
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+
+// Your code here along with comments explaining your approach
+/*
+I take 2 pointers fast and slow and make sure to move fast pointer quickly and slow pointer just behind
+it to fetch the exact middle element.
+ */
+class LinkedList
 { 
     Node head; // head of linked list 
   
@@ -20,6 +28,16 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+        if(head == null) {
+            System.out.println("List is empty");
+        }
+        Node slow = head;
+        Node fast = head;
+        while(fast != null && fast.next != null) {
+                fast = fast.next.next;
+                slow = slow.next;
+        }
+        System.out.println("Middle elmement is " + slow.data);
     } 
   
     public void push(int new_data) 
