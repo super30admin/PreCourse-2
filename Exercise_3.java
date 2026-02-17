@@ -16,10 +16,23 @@ class LinkedList
   
     /* Function to print middle of linked list */
    //Complete this function
-    void printMiddle() 
-    { 
+    void printMiddle()
+    {
         //Write your code here
 	//Implement using Fast and slow pointers
+        if(head == null){
+            System.out.println("List is empty");
+            return;
+        }
+
+        Node slow = head;
+        Node fast = head;
+
+        while(slow != null && fast != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        System.out.println("Middle element" + slow.data);
     } 
   
     public void push(int new_data) 
