@@ -1,8 +1,29 @@
-class BinarySearch { 
+// Time Complexity: O(log N)
+// Space Complexity: O(log N) -> due to using recursion
+
+class BinarySearch {
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
-    { 
-        //Write your code here
+    {
+        // only work if the arr is sorted
+        if (r >= l) {
+            //get the mid
+            int mid = l + (r -l)/2;
+
+            // if the value is in the middle return it
+            if (arr[mid] == x) {
+                return mid;
+            }
+
+            // if the value of the mid element is greater than the value x then only look at the left half
+            if (arr[mid] > x) {
+                return binarySearch(arr, l, mid - 1, x);
+            }
+
+            // the only remaining scenario where the value of x is greater than the mid element
+            return binarySearch(arr, mid+1, r, x);
+        }
+        return -1;
     } 
   
     // Driver method to test above 
