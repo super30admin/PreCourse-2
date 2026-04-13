@@ -1,20 +1,40 @@
+#// Time Complexity : O(n)
+#// Space Complexity : O(n) but each operation uses O(1) extra space
+#// Did this code successfully run on Leetcode : Yes
+#// Any problem you faced while coding this : No
 # Node class  
 class Node:  
   
     # Function to initialise the node object  
     def __init__(self, data):  
+        self.data = data
+        self.next = None
         
 class LinkedList: 
   
     def __init__(self): 
+        self.head = None
         
   
     def push(self, new_data): 
+        new_node = Node(new_data)
+        new_node.next = self.head
+        self.head = new_node
         
   
     # Function to get the middle of  
     # the linked list 
     def printMiddle(self): 
+        slow = self.head
+        fast = self.head
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+            
+        if slow is not None:
+            print("Middle element is:", slow.data)
+        else:
+            print("List is empty")
 
 # Driver code 
 list1 = LinkedList() 
