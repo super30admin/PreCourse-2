@@ -1,23 +1,110 @@
-# Python program for implementation of Quicksort Sort 
-  
-# give you explanation for the approach
-def partition(arr,low,high):
-  
-  
-    #write your code here
-  
+# Python program for implementation of Quicksort Sort
+"""
+Time Complexity: O(n log n) on average, O(n^2) in worst case)
+Space Complexity: O(n) in worst case due to recursion stack, O(log n) on average.
 
-# Function to do Quick sort 
-def quickSort(arr,low,high): 
-    
-    #write your code here
-  
-# Driver code to test above 
-arr = [10, 7, 8, 9, 1, 5] 
-n = len(arr) 
-quickSort(arr,0,n-1) 
-print ("Sorted array is:") 
-for i in range(n): 
-    print ("%d" %arr[i]), 
-  
- 
+Did this code successfully run on Leetcode : Yes (Problem: 912. Sort an Array)
+
+Approach:
+
+I have implemented the quicksort using Median-of-three pivot selection
+and partitioning the array into two halves based on the pivot (Standard Lomuto Partitioning).
+The algorithm recursively sorts the left and right halves of the array until the entire array is sorted.
+
+
+The use of the median-of-three pivot selection helps
+to reduce the likelihood of encountering the worst-case scenario with
+Standard lomuto partitioning based pivot selection, which can occur when
+the pivot is consistently chosen poorly especially for already sorted,
+reverse sorted or nearly sorted arrays.
+"""
+
+def median_of_three(arr, low, high):
+    # Sort arr[low], arr[mid], arr[high] in place so arr[mid] ends up the median
+    mid = low + (high - low) // 2
+    if arr[low] > arr[mid]:
+        arr[low], arr[mid] = arr[mid], arr[low]
+    if arr[low] > arr[high]:
+        arr[low], arr[high] = arr[high], arr[low]
+    if arr[mid] > arr[high]:
+        arr[mid], arr[high] = arr[high], arr[mid]
+    return mid  # Return the index of the median value
+
+
+def partition(arr, low, high):
+
+    mid = median_of_three(arr, low, high)
+
+    # Swap the median value with the last element to use it as the pivot
+    arr[mid], arr[high] = arr[high], arr[mid]
+    pivot = arr[high]
+
+    # Standard Lomuto partitioning
+    i = low - 1
+
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+    arr[i + 1], arr[high] = arr[high], arr[i + 1]
+    return i + 1
+
+
+# Function to do Quick sort
+def quickSort(arr, low=0, high=None):
+    if high is None:
+        high = len(arr) - 1
+    if low >= high or low < 0:
+        return arr
+    if low < high:
+        pivot_index = partition(arr, low, high)
+        # Recursively sort elements before partition and after partition
+        quickSort(arr, low, pivot_index - 1)
+        quickSort(arr, pivot_index + 1, high)
+    return arr
+
+
+def run_tests():
+    # Original driver example
+    assert quickSort([10, 7, 8, 9, 1, 5]) == [1, 5, 7, 8, 9, 10]
+
+    # Empty array
+    assert quickSort([]) == []
+
+    # Single element
+    assert quickSort([1]) == [1]
+
+    # Two elements
+    assert quickSort([2, 1]) == [1, 2]
+
+    # Already sorted
+    assert quickSort([1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
+
+    # Reverse sorted
+    assert quickSort([5, 4, 3, 2, 1]) == [1, 2, 3, 4, 5]
+
+    # All duplicates
+    assert quickSort([3, 3, 3, 3]) == [3, 3, 3, 3]
+
+    # Duplicates mixed in
+    assert quickSort([4, 2, 2, 8, 4, 1]) == [1, 2, 2, 4, 4, 8]
+
+    # Negative numbers
+    assert quickSort([-5, 3, -2, 0, 8, -1]) == [-5, -2, -1, 0, 3, 8]
+
+    # Duplicates + negatives
+    assert quickSort([9, -3, 7, 0, 0, -3, 9]) == [-3, -3, 0, 0, 7, 9, 9]
+
+    print("All tests passed!")
+
+
+if __name__ == "__main__":
+    run_tests()
+
+    print("\nDriver code demo:")
+    arr = [10, 7, 8, 9, 1, 5]
+    n = len(arr)
+    quickSort(arr, 0, n - 1)
+    print("Sorted array is:")
+    for i in range(n):
+        print("%d" % arr[i])
