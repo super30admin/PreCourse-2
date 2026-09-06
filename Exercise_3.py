@@ -3,6 +3,7 @@ Time Complexity: O(n) — the fast pointer traverses the list once, visiting eac
                         so it's linear in the number of nodes.
 Space Complexity: O(1) — only two pointers are used regardless of list size; no extra data structures.
 
+Did this code successfully run on Leetcode: Yes (Problem: 876. Middle of the Linked List)
 
 Approach:
 This uses the slow/fast pointer (tortoise and hare) technique:

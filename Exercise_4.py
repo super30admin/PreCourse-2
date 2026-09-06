@@ -1,6 +1,7 @@
 """
 Time: O(n log n) in all cases (same halving + linear merge structure)
 Space: O(n) auxiliary space (each recursive call still creates new sliced lists)
+Did this code successfully run on Leetcode : Yes (Problem: 912. Sort an Array)
 
 # Approach:
 1. Divide the array into two halves
