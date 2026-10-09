@@ -20,6 +20,21 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+
+        if(head == null){
+            return;
+        }
+        
+        Node fast = head;
+        Node slow = head;
+
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        System.out.println("Middle of linked list is: "slow.data);
+
     } 
   
     public void push(int new_data) 
@@ -51,3 +66,6 @@ class LinkedList
         } 
     } 
 } 
+
+// TC - O(n)
+// SC - O(1)
