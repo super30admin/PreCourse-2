@@ -20,6 +20,18 @@ class LinkedList
     { 
         //Write your code here
 	//Implement using Fast and slow pointers
+		if(head==null){
+			System.out.println("EMPTY");
+			return ;
+		}
+		Node slow=head;
+		Node fast=head;
+		while(fast.next!=null && fast.next.next!=null){
+			slow=slow.next;
+			fast=fast.next.next;
+			
+		}
+		System.out.println(slow.data);
     } 
   
     public void push(int new_data) 
@@ -30,7 +42,9 @@ class LinkedList
     } 
 
     public void printList() 
-    { 
+    {
+		// considering i have to print first middle element if i have even size 
+		
         Node tnode = head; 
         while (tnode != null) 
         { 
