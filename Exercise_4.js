@@ -1,34 +1,45 @@
+// Time: O(n log n); Space: O(n)
+
 class MergeSort {
-     // Merges two subarrays of arr[].
-     // First subarray is arr[l..m]
-     // Second subarray is arr[m+1..r]
-    function merge(arr, l, m, r) {
-        //Your code here
+    // Merge the already sorted ranges arr[l..m] and arr[m+1..r].
+    merge(arr, l, m, r) {
+        const merged = [];
+        let left = l;
+        let right = m + 1;
+
+        // Taking from the left on ties keeps the sort stable.
+        while (left <= m && right <= r) {
+            merged.push(arr[left] <= arr[right] ? arr[left++] : arr[right++]);
+        }
+        while (left <= m) {
+            merged.push(arr[left++]);
+        }
+        while (right <= r) {
+            merged.push(arr[right++]);
+        }
+        for (let i = 0; i < merged.length; i++) {
+            arr[l + i] = merged[i];
+        }
     }
-​
-    // Main function that sorts arr[l..r] using
-    // merge()
-    function sort(arr, l, r) {
-        //Write your code here
-        //Call mergeSort from here
+
+    sort(arr, l, r) {
+        if (l < r) {
+            const middle = l + Math.floor((r - l) / 2);
+            this.sort(arr, l, middle);
+            this.sort(arr, middle + 1, r);
+            this.merge(arr, l, middle, r);
+        }
     }
-​
-     /* A utility function to print array of size n */
-     function printArray(arr) {
-        let n = arr.length;
-        for (let i = 0; i < n; ++i)
-            console.log(arr[i] + " ");
-        console.log();
+
+    printArray(arr) {
+        console.log(arr.join(" "));
     }
 }
-    // Driver method
-     let arr = [12, 11, 13, 5, 6, 7];
-     console.log("Given Array");
-     let ob = new MergeSort();
-     ob.printArray(arr);
-     ob.sort(arr, 0, arr.length - 1);
-     console.log("\nSorted array");
-     ob.printArray(arr);
-​
-​
 
+const arr = [12, 11, 13, 5, 6, 7];
+const ob = new MergeSort();
+console.log("Given Array");
+ob.printArray(arr);
+ob.sort(arr, 0, arr.length - 1);
+console.log("\nSorted array");
+ob.printArray(arr);
