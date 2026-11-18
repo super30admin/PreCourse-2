@@ -1,53 +1,55 @@
-class LinkedList 
-{ 
-    Node head; // head of linked list 
-  
-    /* Linked list node */
-    class Node 
-    { 
-        int data; 
-        Node next; 
-        Node(int d) 
-        { 
-            data = d; 
-            next = null; 
-        } 
-    } 
-  
-    /* Function to print middle of linked list */
-   //Complete this function
-    void printMiddle() 
-    { 
-        //Write your code here
-	//Implement using Fast and slow pointers
-    } 
-  
-    public void push(int new_data) 
-    { 
-        Node new_node = new Node(new_data); 
-        new_node.next = head; 
-        head = new_node; 
-    } 
+// Time: O(n); Space: O(1)
 
-    public void printList() 
-    { 
-        Node tnode = head; 
-        while (tnode != null) 
-        { 
-            System.out.print(tnode.data+"->"); 
-            tnode = tnode.next; 
-        } 
-        System.out.println("NULL"); 
-    } 
-  
-    public static void main(String [] args) 
-    { 
-        LinkedList llist = new LinkedList(); 
-        for (int i=15; i>0; --i) 
-        { 
-            llist.push(i); 
-            llist.printList(); 
-            llist.printMiddle(); 
-        } 
-    } 
-} 
+class LinkedList {
+    Node head;
+
+    class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    // For even lengths, the fast/slow traversal selects the second middle.
+    void printMiddle() {
+        if (head == null) {
+            System.out.println("The list is empty.");
+            return;
+        }
+
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        System.out.println("The middle element is " + slow.data);
+    }
+
+    public void push(int newData) {
+        Node newNode = new Node(newData);
+        newNode.next = head;
+        head = newNode;
+    }
+
+    public void printList() {
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.data + "->");
+            current = current.next;
+        }
+        System.out.println("NULL");
+    }
+
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+        for (int i = 15; i > 0; --i) {
+            list.push(i);
+            list.printList();
+            list.printMiddle();
+        }
+    }
+}
