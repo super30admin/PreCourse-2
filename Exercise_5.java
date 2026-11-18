@@ -1,7 +1,13 @@
+import java.util.Stack;
 class IterativeQuickSort { 
     void swap(int arr[], int i, int j) 
     { 
 	//Try swapping without extra variable 
+		if(i==j)return;
+		arr[i]=arr[i]+arr[j];
+		arr[j]=arr[i]-arr[j];
+		arr[i]=arr[i]-arr[j];
+		
     } 
   
     /* This function is same in both iterative and 
@@ -9,12 +15,41 @@ class IterativeQuickSort {
     int partition(int arr[], int l, int h) 
     { 
         //Compare elements and swap.
+		int pivot=arr[h];
+		int j=l;
+		for(int i=l;i<h;i++){
+			if(arr[i]<pivot){
+				swap(arr,i,j);
+				j++;
+			}
+		}
+		swap(arr,h,j);
+		return j;
+				
     } 
+	
   
     // Sorts arr[l..h] using iterative QuickSort 
     void QuickSort(int arr[], int l, int h) 
     { 
         //Try using Stack Data Structure to remove recursion.
+		Stack<int[]> stk=new Stack<>();
+		stk.push(new int[]{l,h});
+		while(!stk.isEmpty()){
+			int[] array=stk.pop();
+			int left=array[0];
+			int right=array[1];
+			int pos=partition(arr,left,right);
+			if(pos>left){
+				stk.push(new int[]{left,pos-1});
+			}
+			if(pos<right){
+				stk.push(new int[]{pos+1,right});
+			}
+		}
+		
+		
+		
     } 
   
     // A utility function to print contents of arr 
