@@ -4,7 +4,7 @@
 # It returns location of x in given array arr  
 # if present, else returns -1 
 def binarySearch(arr, l, r, x): 
-  
+  a=input()
   #write your code here
   
     
